@@ -1,0 +1,20 @@
+{
+    "accessed":  "2026-10-02",
+    "geometry_source":  "https://geoservidorperu.minam.gob.pe/arcgis/rest/services/ServicioBase/MapServer",
+    "boundary_layer":  14,
+    "river_layer":  41,
+    "source_year":  null,
+    "source_scale":  null,
+    "year_scale_note":  "Las capas consultadas no indican año ni escala de origen. No se atribuye 2026 a los datos.",
+    "processing":  "Límite MINAM simplificado a 0,005°; ríos IDER Amazónicos simplificados a 0,002°. Coordenadas EPSG:4326 transformadas uniformemente a SVG y ríos recortados al límite referencial. Igual grosor sin equivalencia con anchura ni caudal.",
+    "raw_boundary":  "territorio-limite-minam.json",
+    "raw_rivers":  "territorio-rios-ider.json",
+    "reference_map":  "https://geoportal.sernanp.gob.pe/wp-content/uploads/2023/01/Mapa-Departamental-de-Madre-de-Dios-ANP-y-ACP.pdf",
+    "reference_map_date":  "2025-12-17",
+    "reference_map_use":  "Referencia territorial e hidrográfica. No se extrajeron geometrías de este PDF.",
+    "habitats":  "Símbolos educativos fuera de la silueta, sin ubicación ni extensión cartográfica. No hay polígonos de ecosistemas o cobertura forestal.",
+    "pending_geometry":  null,
+    "previous_experience":  "La fotografía, los seis hotspots y sus fichas se conservan en el template selva-territorio-experiencia-anterior; su lógica JavaScript permanece en script.js.",
+    "river_geometry_source":  "https://www.idep.gob.pe/geoportal/rest/services/INSTITUCIONALES/IDER_AMAZONICOS/MapServer/41",
+    "excluded_layer":  "MINAM layer 7 Nombre Río: baselines de etiquetas, no recorridos; excluidos del SVG final."
+}

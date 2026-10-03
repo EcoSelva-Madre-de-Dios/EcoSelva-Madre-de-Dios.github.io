@@ -1,0 +1,20 @@
+{
+    "licencia":  null,
+    "fecha_grabacion":  null,
+    "autor":  null,
+    "ubicacion":  null,
+    "archivo_original":  "images/VIDEO DE INICIO.mp4",
+    "nota":  "Archivo proporcionado expresamente para esta sección. Procedencia pendiente de confirmar con el usuario; no se atribuye a Madre de Dios ni a EcoSelva como autor.",
+    "aportado_por":  "Usuario del proyecto",
+    "versiones_web":  {
+                          "inicio_original_segundos":  4,
+                          "poster":  "imagenesEco/investigaciones-poster.jpg",
+                          "mp4":  "videos/investigaciones-ecoselva.mp4",
+                          "audio":  false,
+                          "fps":  24,
+                          "poster_fotograma_segundos":  5,
+                          "webm":  "videos/investigaciones-ecoselva.webm",
+                          "duracion_segundos":  12,
+                          "resolucion":  "1280x720"
+                      }
+}

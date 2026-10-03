@@ -1,0 +1,53 @@
+[
+    {
+        "source":  "Wikimedia Commons",
+        "description":  "A Scarlet Macaw in Puntarenas Province, Costa Rica.",
+        "type":  "photograph",
+        "modifications":  "Miniatura de Wikimedia; recorte visual mediante CSS.",
+        "local_file":  "images/fauna-guacamayo.jpg",
+        "author":  "chuck624 from Upstate NY, USA",
+        "download_url":  "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/Ara_macao_-Puntarenas_Province%2C_Costa_Rica-8.jpg/960px-Ara_macao_-Puntarenas_Province%2C_Costa_Rica-8.jpg?utm_source=commons.wikimedia.org\u0026utm_campaign=imageinfo\u0026utm_content=thumbnail",
+        "original_url":  "https://commons.wikimedia.org/wiki/File:Ara_macao_-Puntarenas_Province,_Costa_Rica-8.jpg",
+        "license_url":  "https://creativecommons.org/licenses/by-sa/2.0",
+        "accessed":  "2026-10-02",
+        "license":  "CC BY-SA 2.0"
+    },
+    {
+        "source":  "Wikimedia Commons",
+        "description":  "Black Caiman (Melanosuchus niger)\nlocal: Uacari Sustainable Development Reserve, Amazonas, Brazil.",
+        "type":  "photograph",
+        "modifications":  "Miniatura de Wikimedia de 960 px; recorte visual mediante CSS.",
+        "local_file":  "images/fauna-caiman.jpg",
+        "author":  "Whaldener Endo",
+        "download_url":  "https://upload.wikimedia.org/wikipedia/commons/3/34/Melanosuchus_niger_RDS_Uacari.jpg",
+        "original_url":  "https://commons.wikimedia.org/wiki/File:Melanosuchus_niger_RDS_Uacari.jpg",
+        "license_url":  "https://creativecommons.org/licenses/by-sa/4.0",
+        "accessed":  "2026-10-02",
+        "license":  "CC BY-SA 4.0"
+    },
+    {
+        "source":  "Wikimedia Commons",
+        "description":  "Ameerega trivittata",
+        "type":  "photograph",
+        "modifications":  "Archivo original sin modificar; recorte visual mediante CSS.",
+        "local_file":  "images/fauna-rana.jpg",
+        "author":  "Hugo Claessen",
+        "download_url":  "https://upload.wikimedia.org/wikipedia/commons/5/50/Ameerega_trivittata02.jpg",
+        "original_url":  "https://commons.wikimedia.org/wiki/File:Ameerega_trivittata02.jpg",
+        "license_url":  "https://creativecommons.org/licenses/by-sa/2.5",
+        "accessed":  "2026-10-02",
+        "license":  "CC BY-SA 2.5"
+    },
+    {
+        "source":  "Wikimedia Commons / Flickr",
+        "description":  "Jaguar (Panthera onca) en el río Los Amigos, Madre de Dios, Perú.",
+        "type":  "photograph",
+        "local_file":  "images/jaguar-madre-de-dios.jpg",
+        "author":  "Geoff Gallice",
+        "accessed":  "2026-10-02",
+        "original_url":  "https://commons.wikimedia.org/wiki/File:Jaguar_Madre_de_Dios_Peru.jpg",
+        "license_url":  "https://creativecommons.org/licenses/by/2.0/",
+        "modifications":  "Original JPEG archivado sin cambios; copia web JPEG optimizada a 900×600 px, calidad 88.",
+        "license":  "CC BY 2.0"
+    }
+]

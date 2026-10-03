@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSelva Madre de Dios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+        <div class="menu container">
+            <a href="#inicio" class="logo" aria-label="EcoSelva Madre de Dios, inicio">
+                <img src="imagenesEco/logo-ecoselva-educacion.png" alt="EcoSelva Madre de Dios - Educar para Preservar">
+            </a>
+            <input type="checkbox" id="menu">
+            <label for="menu" aria-label="Abrir o cerrar menú">
+                <img src="images/menu.png" class="menu-icono" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sabias-que">Aprende</a></li>
+                    <li><a href="#programas">Biodiversidad</a></li>
+                    <li><a href="#ambiente">Ambiente</a></li>
+                    <li class="selva-nav-desplegable">
+                        <details>
+                            <summary>EcoSelva <span aria-hidden="true">▾</span></summary>
+                            <ul>
+                                <li><a href="#quienes-somos">Sobre EcoSelva</a></li>
+                                <li><a href="#investigaciones">Investigaciones</a></li>
+                                <li><a href="#colabora">Colabora</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    <header class="header" id="inicio">
+        <div class="header-content container">
+            <div class="header-txt">
+                <p class="selva-hero-kicker">Madre de Dios · Amazonía peruana</p>
+                <h1 class="hero-titulo">Nuestra selva,<br>nuestro futuro</h1>
+                <svg class="selva-rio-trazo" viewBox="0 0 360 34" role="img" aria-label="Línea inspirada en los ríos de la Amazonía">
+                    <path d="M3 18c42-19 65 17 106-2s58-18 83-2 49 20 75 1 53-14 90 1" />
+                </svg>
+                <p class="hero-descripcion">Educación ambiental para conocer, valorar y preservar Madre de Dios.</p>
+                <a href="#sabias-que" class="btn-1">Descubre la selva <span aria-hidden="true">→</span></a>
+            </div>  
+        </div>
+        <a class="selva-hero-descubre" href="#selva-introduccion"><span aria-hidden="true">↓</span> Comienza el recorrido</a>
+    </header>
+
+    <section class="selva-introduccion reveal" id="selva-introduccion">
+        <div class="container">
+            <div class="selva-introduccion-texto">
+                <p class="selva-microetiqueta selva-microetiqueta--agua">Comienza a explorar</p>
+                <h2>Todo está conectado.</h2>
+                <p>Biodiversidad, territorio, ambiente y ciencia forman parte de una misma Amazonía.</p>
+            </div>
+            <nav class="selva-introduccion-accesos" aria-label="Comienza a explorar">
+                <a href="#programas"><svg class="selva-acceso-icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 20C6 13 11 8 18 4M6 16C2 8 10 3 21 3c0 11-6 18-13 15"/></svg><strong>Biodiversidad</strong><span>Flora y fauna</span><span aria-hidden="true">→</span></a>
+                <a href="#ambiente"><svg class="selva-acceso-icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c-3 5-7 8-7 12a7 7 0 0 0 14 0c0-4-4-7-7-12ZM9 16c0 2 1 3 3 3"/></svg><strong>Ambiente</strong><span>Cambios y conservación</span><span aria-hidden="true">→</span></a>
+                <a href="#explora-madre-de-dios"><svg class="selva-acceso-icono" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2ZM9 3v16M15 5v16M5 9c3-3 4 5 7 2s4 4 7 1"/></svg><strong>Territorio</strong><span>Bosques, ríos y humedales</span><span aria-hidden="true">→</span></a>
+                <a href="#investigaciones"><svg class="selva-acceso-icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3H4v18h11M14 3v5h5l-5-5M7 8h3M7 12h4M7 16h3"/><circle cx="16" cy="14" r="4"/><path d="m19 17 3 4"/></svg><strong>Ciencia</strong><span>Investigaciones y experiencias</span><span aria-hidden="true">→</span></a>
+            </nav>
+        </div>
+    </section>
+
+    <section class="selva-curiosidades reveal" id="sabias-que">
+        <div class="container">
+            <p class="selva-microetiqueta">Historias breves</p>
+            <h2>¿Sabías que...?</h2>
+            <p class="selva-seccion-intro">Seis historias para mirar la Amazonía desde otra perspectiva.</p>
+            <div class="selva-flip-grid">
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-flora selva-flip-toggle" type="button" aria-label="Flora: Un bosque que también alimenta" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/castana-commons-745.jpg" srcset="images/castana-commons-480.jpg 480w, images/castana-commons-745.jpg 745w" sizes="(max-width: 640px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 64px) / 2), 389px" alt="Fruto abierto y semillas de castaña amazónica (Bertholletia excelsa); parte del fruto está reconstruida en la imagen." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Flora</span><span class="selva-flip-frente-titulo">Un bosque que también alimenta</span></span>
+                            <small class="selva-curiosidad-foto-credito">Fotografía: P. S. Sena (edición: RoRo) — Wikimedia Commons · CC BY-SA 4.0 · optimizada por EcoSelva.</small>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">La castaña amazónica</strong><em class="selva-curiosidad-taxonomia">Bertholletia excelsa</em></span>
+                            <span class="selva-curiosidad-texto">La castaña amazónica (<em>Bertholletia excelsa</em>) caracteriza los bosques de Madre de Dios. En Tambopata, los castañales están protegidos y su aprovechamiento sigue un manejo orientado al uso sostenible.</span>
+                            <span class="selva-curiosidad-frase">Un recurso del bosque que requiere un manejo responsable.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Flora</span><span>Bosque</span><span>Castaña</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuentes">
+                                <span class="selva-curiosidad-fuentes-label">Fuentes:</span>
+                                <a href="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" target="_blank" rel="noopener noreferrer" aria-label="SERNANP, Reserva Nacional Tambopata" data-source-institution="SERNANP" data-source-title="Reserva Nacional Tambopata" data-source-publication-date="" data-source-original-url="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" data-eco-review-date="2026-10">Reserva Nacional Tambopata</a>
+                                <a href="https://www.gob.pe/institucion/sernanp/normas-legales/6374223-006-2025-sernanp-dganp" target="_blank" rel="noopener noreferrer" aria-label="SERNANP, Plan de Manejo del recurso Castaña, Resolución Directoral N.° 006-2025-SERNANP-DGANP" data-source-institution="SERNANP" data-source-title="Plan de Manejo del recurso Castaña, Resolución Directoral N.° 006-2025-SERNANP-DGANP" data-source-publication-date="2025" data-source-original-url="https://www.gob.pe/institucion/sernanp/normas-legales/6374223-006-2025-sernanp-dganp" data-eco-review-date="2026-10">Plan de Manejo (2025)</a>
+                            </span>
+                            <span class="selva-curiosidad-fuentes selva-curiosidad-licencia-foto" aria-label="Crédito y licencia fotográfica">
+                                <span class="selva-curiosidad-fuentes-label">Fotografía:</span>
+                                <a href="https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_fruit_and_seeds.jpg" target="_blank" rel="noopener noreferrer" aria-label="P. S. Sena, edición de RoRo, en Wikimedia Commons">P. S. Sena · edición: RoRo — Wikimedia Commons</a>
+                                <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Revisado por EcoSelva: octubre de 2026</small>
+                        </span>
+                    </span>
+                </article>
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-fauna selva-flip-toggle" type="button" aria-label="Fauna: El jaguar aún recorre estos bosques" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/jaguar-madre-de-dios.jpg" alt="Jaguar (Panthera onca) en el río Los Amigos, Madre de Dios, Perú." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Fauna</span><span class="selva-flip-frente-titulo">El jaguar aún recorre estos bosques</span></span>
+                            <small class="selva-curiosidad-foto-credito">Fotografía: Geoff Gallice — Wikimedia Commons · CC BY 2.0</small>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">Jaguar</strong><em class="selva-curiosidad-taxonomia">Panthera onca</em></span>
+                            <span class="selva-curiosidad-texto">El jaguar (<em>Panthera onca</em>) está registrado en la Reserva Nacional Tambopata, donde comparte hábitat con otros felinos, primates y sachavacas.</span>
+                            <span class="selva-curiosidad-frase">La fauna silvestre necesita espacio: proteger áreas extensas ayuda a mantener su hábitat.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Fauna</span><span>Mamíferos</span><span>Jaguar</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuente">
+                                <a href="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" target="_blank" rel="noopener noreferrer" aria-label="Fuente: SERNANP, Reserva Nacional Tambopata" data-source-institution="SERNANP" data-source-title="Reserva Nacional Tambopata" data-source-publication-date="" data-source-original-url="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" data-eco-review-date="2026-10">Fuente: SERNANP</a>
+                            </span>
+                            <span class="selva-curiosidad-fuentes selva-curiosidad-licencia-foto" aria-label="Crédito y licencia fotográfica">
+                                <span class="selva-curiosidad-fuentes-label">Fotografía:</span>
+                                <a href="https://commons.wikimedia.org/wiki/File:Jaguar_Madre_de_Dios_Peru.jpg" target="_blank" rel="noopener noreferrer">Geoff Gallice — Wikimedia Commons</a>
+                                <a href="https://www.flickr.com/photos/dejeuxx/8906455071/" target="_blank" rel="noopener noreferrer">Original en Flickr</a>
+                                <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Revisado por EcoSelva: octubre de 2026</small>
+                        </span>
+                    </span>
+                </article>
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-ecosistemas selva-flip-toggle" type="button" aria-label="Ecosistemas: La Amazonía no es un solo bosque" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/rn-tambopata.jpg" alt="Lago rodeado de bosque y palmeras, con cielo azul y nubes reflejadas en el agua." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Ecosistemas</span><span class="selva-flip-frente-titulo">La Amazonía no es un solo bosque</span></span>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">Ecosistemas de Tambopata</strong></span>
+                            <span class="selva-curiosidad-texto">La Reserva Nacional Tambopata reúne aguajales, pacales, castañales, bosques de terraza y ribereños, collpas y cochas. Este mosaico de ambientes alberga su biodiversidad.</span>
+                            <span class="selva-curiosidad-frase">Cada ambiente aporta una pieza al paisaje amazónico.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Ecosistemas</span><span>Paisaje</span><span>Amazonía</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuente">
+                                <a href="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" target="_blank" rel="noopener noreferrer" aria-label="Fuente: SERNANP, Reserva Nacional Tambopata" data-source-institution="SERNANP" data-source-title="Reserva Nacional Tambopata" data-source-publication-date="" data-source-original-url="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" data-eco-review-date="2026-10">Fuente: SERNANP</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Revisado por EcoSelva: octubre de 2026</small>
+                        </span>
+                    </span>
+                </article>
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-agua selva-flip-toggle" type="button" aria-label="Agua: Hay lagos que alguna vez fueron río" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/agua-madre-de-dios.jpg" alt="Vista satelital de un río amazónico sinuoso entre bosque y zonas intervenidas." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Agua</span><span class="selva-flip-frente-titulo">Hay lagos que alguna vez fueron río</span></span>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">Lagos de herradura</strong></span>
+                            <span class="selva-curiosidad-texto">Los lagos de herradura de Tambopata se originan cuando el río cambia de cauce y aísla un meandro. En estos antiguos brazos viven peces, aves, reptiles y mamíferos.</span>
+                            <span class="selva-curiosidad-frase">Un antiguo tramo de río puede convertirse en una cocha.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Agua</span><span>Ríos</span><span>Cochas</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuente">
+                                <a href="https://visitaareasnaturales.sernanp.gob.pe/anps/reserva-nacional-tambopata/" target="_blank" rel="noopener noreferrer" aria-label="Fuente: SERNANP, Reserva Nacional Tambopata, portal Visita Áreas Naturales" data-source-institution="SERNANP" data-source-title="Reserva Nacional Tambopata, portal Visita Áreas Naturales" data-source-publication-date="" data-source-original-url="https://visitaareasnaturales.sernanp.gob.pe/anps/reserva-nacional-tambopata/" data-eco-review-date="2026-10">Fuente: SERNANP</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Revisado por EcoSelva: octubre de 2026</small>
+                        </span>
+                    </span>
+                </article>
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-desafios selva-flip-toggle" type="button" aria-label="Ambiente: El territorio también guarda las huellas de nuestras actividades" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/pampa-ecoselva.jpg" alt="Imagen satelital de La Pampa y su entorno amazónico, con bosque, áreas intervenidas y cursos de agua." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Ambiente</span><span class="selva-flip-frente-titulo">El territorio también guarda las huellas de nuestras actividades</span></span>
+                            <small class="selva-curiosidad-credito">Imagen propia: EcoSelva Madre de Dios.</small>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">Presiones ambientales</strong></span>
+                            <span class="selva-curiosidad-texto">La deforestación y la contaminación afectan la diversidad biológica de Madre de Dios. Los diagnósticos ambientales analizan distintas actividades humanas, entre ellas la minería aurífera.</span>
+                            <span class="selva-curiosidad-frase">Las huellas de nuestras actividades ayudan a reconocer las presiones sobre el territorio.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Ambiente</span><span>Territorio</span><span>Presiones ambientales</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuente histórica">
+                                <a href="https://repositorio.iiap.gob.pe/items/e76fd5b6-b0cc-4ce7-be27-87bfee5c8620" target="_blank" rel="noopener noreferrer" aria-label="Fuente histórica: Instituto de Investigaciones de la Amazonía Peruana, Estrategia regional de la diversidad biológica de Madre de Dios" data-source-institution="Instituto de Investigaciones de la Amazonía Peruana (IIAP)" data-source-title="Estrategia regional de la diversidad biológica de Madre de Dios" data-source-publication-date="" data-source-original-url="https://repositorio.iiap.gob.pe/items/e76fd5b6-b0cc-4ce7-be27-87bfee5c8620" data-eco-review-date="">Fuente histórica: IIAP</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Referencia histórica; no representa cifras actuales.</small>
+                        </span>
+                    </span>
+                </article>
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-conservacion selva-flip-toggle" type="button" aria-label="Conservación: Conservar no siempre significa dejar de usar" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/castana.jpg" alt="Árbol alto junto a un camino de tierra; recurso provisional mientras se selecciona una fotografía de personas participando en la conservación." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Conservación</span><span class="selva-flip-frente-titulo">Conservar no siempre significa dejar de usar</span></span>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">Conservación y uso sostenible</strong></span>
+                            <span class="selva-curiosidad-texto">En Tambopata, la protección del bosque se combina con el manejo sostenible de la castaña y el turismo de naturaleza. Las personas que viven y trabajan allí pueden contribuir a su conservación.</span>
+                            <span class="selva-curiosidad-frase">El cuidado del bosque puede integrarse a las actividades de sus habitantes.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Conservación</span><span>Uso sostenible</span><span>Territorio</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuente">
+                                <a href="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" target="_blank" rel="noopener noreferrer" aria-label="Fuente: SERNANP, Reserva Nacional Tambopata" data-source-institution="SERNANP" data-source-title="Reserva Nacional Tambopata" data-source-publication-date="" data-source-original-url="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" data-eco-review-date="2026-10">Fuente: SERNANP</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Revisado por EcoSelva: octubre de 2026</small>
+                        </span>
+                    </span>
+                </article>
+            </div>
+            <p class="selva-curiosidad-explorar">Continúa el recorrido: <a href="#programas">Consulta los registros de flora <span aria-hidden="true">→</span></a></p>
+            <dialog class="selva-historia-modal" id="selva-historia-modal" aria-labelledby="selva-historia-titulo">
+                <button class="selva-historia-cerrar" type="button" aria-label="Cerrar historia">×</button>
+                <div class="selva-historia-layout">
+                    <div class="selva-historia-visual"></div>
+                    <div class="selva-historia-contenido">
+                        <p class="selva-microetiqueta selva-historia-categoria"></p>
+                        <h3 id="selva-historia-titulo"></h3>
+                        <div class="selva-historia-cuerpo"></div>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+    </section>
+
+    <section class="general container" id="programas">
+        <p class="selva-microetiqueta">Descubre</p>
+        <h2>Biodiversidad</h2>
+        <p class="selva-seccion-intro selva-biodiversidad-intro">Conoce la diversidad de vida que habita nuestra región y descubre el papel que cumplen sus especies en los ecosistemas amazónicos.</p>
+        <div class="selva-biodiversidad-tabs" role="tablist" aria-label="Biodiversidad">
+            <button class="selva-biodiversidad-tab" id="selva-biodiversidad-tab-flora" type="button" role="tab" aria-selected="true" aria-controls="selva-biodiversidad-panel-flora" tabindex="0">Flora</button>
+            <button class="selva-biodiversidad-tab" id="selva-biodiversidad-tab-fauna" type="button" role="tab" aria-selected="false" aria-controls="selva-biodiversidad-panel-fauna" tabindex="-1">Fauna</button>
+        </div>
+        <div class="selva-biodiversidad-panel" id="selva-biodiversidad-panel-flora" role="tabpanel" aria-labelledby="selva-biodiversidad-tab-flora" tabindex="0">
+            <p class="selva-biodiversidad-panel-intro">Árboles, palmeras y otras plantas cumplen funciones ecológicas y también poseen distintos usos forestales, alimentarios, medicinales y culturales.</p>
+    <div class="selva-flora-indicadores" role="region" aria-labelledby="flora-cifras-titulo">
+        <h2 id="flora-cifras-titulo" class="selva-flora-cifras-titulo" hidden>Flora de Madre de Dios en cifras</h2>
+        <p class="selva-flora-cifras-subtitulo" hidden>Registros documentados según fuentes técnicas disponibles.</p>
+        <p class="selva-microetiqueta selva-biodiversidad-cifras">En cifras</p>
+        <div class="selva-flora-stats">
+            <article class="selva-flora-stat selva-flora-stat--maderables">
+                <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M21 8c-6-3-13 2-12 8-7 1-9 10-4 14-1 7 6 11 12 8 5 5 14 1 14-5 7-1 9-10 4-14 0-7-7-12-14-11Z"/><path d="M19 23v34M11 56h18M12 28l7 6 7-9M19 40l8-7"/><path fill="#e7f0de" d="M35 41h19v14H35c-9 0-9-14 0-14Z"/><ellipse cx="54" cy="48" rx="5" ry="7"/><path d="M36 45h9M35 51h6M54 45v6"/></svg><span class="selva-flora-stat-badge">Catálogo · 2022</span></div>
+                <h3>Maderables</h3>
+                <div class="selva-flora-stat-valor" role="img" aria-label="486 especies registradas"><span class="selva-flora-stat-numero" data-flora-count="486" aria-hidden="true">486</span></div>
+                <p>Especies registradas para la región</p>
+                <button class="selva-flora-stat-accion" type="button" data-flora-modal="maderables" aria-haspopup="dialog" aria-controls="selva-flora-modal">Explorar <span aria-hidden="true">→</span></button>
+                <details class="selva-flora-stat-referencia"><summary>Fuente técnica</summary>
+                    <small class="selva-flora-stat-fuente">Catálogo · 2022</small>
+                    <small>Vásquez Martínez y Rojas Gonzáles</small>
+                    <a href="https://revistas.lamolina.edu.pe/index.php/rfp/article/download/1956/2486" target="_blank" rel="noopener noreferrer" aria-label="Ver fuente de las 486 especies maderables: catálogo de 2022" data-source-title="Catálogo de las especies forestales maderables de la Amazonía y la Yunga Peruana" data-source-authors="Rodolfo Vásquez Martínez; Rocío Del Pilar Rojas Gonzáles" data-source-publication-date="2022" data-eco-review-date="2026-10">Ver fuente <span aria-hidden="true">→</span></a>
+                </details>
+            </article>
+            <article class="selva-flora-stat selva-flora-stat--no-maderables">
+                <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M31 33C17 31 15 18 30 7c4 13 6 20 1 26ZM30 47c3-13 13-20 27-17-2 15-15 22-27 17ZM22 42C9 40 5 29 7 22c12 1 19 9 15 20Z"/><path d="M30 58V22M30 47l17-9M22 42l-9-12"/></svg><span class="selva-flora-stat-badge">SERFOR · 2019</span></div>
+                <h3>No maderables</h3>
+                <div class="selva-flora-stat-valor" role="img" aria-label="69 especies documentadas"><span class="selva-flora-stat-numero" data-flora-count="69" aria-hidden="true">69</span></div>
+                <p>Especies documentadas en la guía regional</p>
+                <button class="selva-flora-stat-accion" type="button" data-flora-modal="no-maderables" aria-haspopup="dialog" aria-controls="selva-flora-modal">Explorar <span aria-hidden="true">→</span></button>
+                <details class="selva-flora-stat-referencia"><summary>Fuente técnica</summary>
+                    <small class="selva-flora-stat-fuente">SERFOR · 2019</small>
+                    <small>Servicio Nacional Forestal y de Fauna Silvestre</small>
+                    <a href="https://repositorio.serfor.gob.pe/handle/SERFOR/854" target="_blank" rel="noopener noreferrer" aria-label="Ver fuente de las 69 especies no maderables: guía de SERFOR de 2019" data-source-institution="SERFOR" data-source-title="Guía de Productos Forestales no Maderables en Madre de Dios" data-source-publication-date="2019" data-eco-review-date="2026-10">Ver fuente <span aria-hidden="true">→</span></a>
+                </details>
+            </article>
+            <article class="selva-flora-stat selva-flora-stat--medicinales">
+                <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M29 31C17 29 15 17 29 7c4 11 5 19 0 24ZM26 46C10 45 5 32 7 24c15 1 22 10 19 22ZM30 42c4-10 13-14 24-12-3 11-13 16-24 12Z"/><path d="M28 57V21M28 46l-14-12"/><circle fill="#f7fbf4" cx="48" cy="48" r="12"/><path d="M48 42v12M42 48h12"/></svg><span class="selva-flora-stat-badge" hidden>En revisión</span></div>
+                <h3>Medicinales</h3>
+                <p class="selva-flora-stat-estado">En revisión</p>
+                <p>Los registros disponibles todavía no permiten establecer un total regional comparable.</p>
+                <button hidden class="selva-flora-stat-accion" type="button" data-flora-modal="medicinales" aria-haspopup="dialog" aria-controls="selva-flora-modal">Ver <span aria-hidden="true">→</span></button>
+                
+            </article>
+            <article class="selva-flora-stat selva-flora-stat--alimenticias">
+                <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M26 23c-12-6-22 8-20 21 1 11 12 15 20 7 8 8 22 3 23-9 2-14-11-25-23-19Z"/><path d="M27 23c2-10 9-15 16-17M21 10c8 0 10 5 7 13"/><path fill="#cce9c5" d="M35 10c10-8 19-4 24 5-11 4-20 2-24-5Z"/><path d="M15 32c-3 3-4 7-3 11M40 33l2 3"/><circle fill="#cce9c5" cx="31" cy="57" r="6"/></svg><span class="selva-flora-stat-badge" hidden>En revisión</span></div>
+                <h3>Alimenticias / frutales</h3>
+                <p class="selva-flora-stat-estado">En revisión</p>
+                <p>Aún no contamos con un inventario regional comparable para esta categoría.</p>
+                <button hidden class="selva-flora-stat-accion" type="button" data-flora-modal="alimenticias" aria-haspopup="dialog" aria-controls="selva-flora-modal">Ver <span aria-hidden="true">→</span></button>
+                
+            </article>
+        </div>
+        <dialog class="selva-flora-modal" id="selva-flora-modal" role="dialog" aria-modal="true" aria-labelledby="selva-flora-modal-titulo" aria-describedby="selva-flora-modal-descripcion">
+            <div class="selva-flora-modal-contenido">
+                <button class="selva-flora-modal-cerrar" type="button" aria-label="Cerrar ventana de Flora" autofocus>×</button>
+                <p class="selva-microetiqueta selva-flora-modal-categoria"></p>
+                <h2 id="selva-flora-modal-titulo" class="selva-flora-modal-titulo">Especies destacadas</h2>
+                <p id="selva-flora-modal-descripcion" class="selva-flora-modal-descripcion"></p>
+                <div class="selva-flora-modal-cuerpo"></div>
+            </div>
+        </dialog>
+        <template id="selva-flora-contenido-maderables">
+            <h3 class="selva-flora-modal-subtitulo">Especies representativas documentadas</h3>
+            <ul class="selva-flora-modal-especies">
+                <li><strong>Shihuahuaco</strong><em>Dipteryx micrantha</em><span>Documentada en el catálogo</span></li>
+                <li><strong>Cedro</strong><em>Cedrela odorata</em><span>Documentada en el catálogo</span></li>
+                <li><strong>Capirona</strong><em>Calycophyllum spruceanum</em><span>Documentada en el catálogo</span></li>
+            </ul>
+            <p class="selva-flora-modal-nota">Esta selección no establece un ranking ni compara abundancia, frecuencia o volumen. Los nombres comunes pueden corresponder a distintas especies.</p>
+            <div class="selva-flora-modal-fuente">
+                <h3>Fuente</h3>
+                <p>Rodolfo Vásquez Martínez y Rocío Del Pilar Rojas Gonzáles</p>
+                <p><cite>Catálogo de las especies forestales maderables de la Amazonía y la Yunga Peruana</cite> · 2022</p>
+                <a href="https://revistas.lamolina.edu.pe/index.php/rfp/article/download/1956/2486" target="_blank" rel="noopener noreferrer">Ver publicación original <span aria-hidden="true">→</span></a>
+                <small>Revisado por EcoSelva: octubre de 2026</small>
+            </div>
+        </template>
+        <template id="selva-flora-contenido-no-maderables">
+            <h3 class="selva-flora-modal-subtitulo">Especies representativas documentadas</h3>
+            <ul class="selva-flora-modal-especies">
+                <li><strong>Castaña</strong><em>Bertholletia excelsa</em><span>Documentada en la guía</span></li>
+                <li><strong>Aguaje</strong><em>Mauritia flexuosa</em><span>Documentada en la guía</span></li>
+                <li><strong>Huasái</strong><em>Euterpe precatoria</em><span>Documentada en la guía</span></li>
+            </ul>
+            <p class="selva-flora-modal-nota">Las categorías de uso pueden superponerse. Esta selección no establece un ranking ni representa el total de especies de la región.</p>
+            <div class="selva-flora-modal-fuente">
+                <h3>Fuente</h3>
+                <p>Servicio Nacional Forestal y de Fauna Silvestre · SERFOR</p>
+                <p><cite>Guía de Productos Forestales no Maderables en Madre de Dios</cite> · 2019</p>
+                <a href="https://repositorio.serfor.gob.pe/handle/SERFOR/854" target="_blank" rel="noopener noreferrer">Ver publicación original <span aria-hidden="true">→</span></a>
+                <small>Revisado por EcoSelva: octubre de 2026</small>
+            </div>
+        </template>
+        <template id="selva-flora-contenido-medicinales">
+            <div class="selva-flora-modal-informacion">
+                <p>La información disponible recoge usos medicinales en ámbitos locales. Aún falta una fuente exhaustiva y comparable para calcular un total regional.</p>
+                <p>Estos estudios describen lugares, comunidades o usos específicos; su alcance no abarca toda la región.</p>
+            </div>
+        </template>
+        <template id="selva-flora-contenido-alimenticias">
+            <div class="selva-flora-modal-informacion">
+                <p>Los datos sobre plantas alimenticias y frutales todavía no se han reunido en un inventario regional comparable.</p>
+                <p>Una misma especie puede tener varios usos. Por eso, sumar listados locales sin revisar su cobertura podría duplicar registros.</p>
+            </div>
+        </template>
+    </div>
+    <div hidden class="selva-flora-uso-lista" aria-label="Usos principales de la flora">
+        <span>forestal</span>
+        <span>medicinal</span>
+        <span>alimentaria</span>
+        <span>cultural</span>
+    </div>
+
+    <p hidden class="selva-flora-nota">Los valores corresponden a registros documentados en fuentes consultadas. Las categorías pueden superponerse y no representan porcentajes de toda la flora regional.</p>
+    <p hidden class="selva-flora-fuente">Fuente: <a href="https://repositorio.serfor.gob.pe/handle/SERFOR/854" target="_blank" rel="noopener noreferrer">SERFOR — Guía de Productos Forestales no Maderables en Madre de Dios</a></p>
+    <p class="selva-biodiversidad-nota">Las categorías pueden superponerse y los valores corresponden al alcance de cada fuente consultada.</p>
+    <p class="selva-flora-revision">Última revisión de fuentes: octubre de 2026.</p>
+
+        </div>
+        <template id="selva-biodiversidad-presentacion-anterior">
+    <p class="selva-microetiqueta">BIODIVERSIDAD · FLORA</p>
+    <h2>Flora de Madre de Dios</h2>
+    <p class="selva-seccion-intro selva-flora-intro">Árboles y plantas con usos forestales, alimentarios, medicinales y culturales. Aquí reunimos los registros disponibles y sus fuentes técnicas.</p>
+
+        </template>
+        <div class="selva-biodiversidad-panel selva-biodiversidad-fauna" id="selva-biodiversidad-panel-fauna" role="tabpanel" aria-labelledby="selva-biodiversidad-tab-fauna" tabindex="0" hidden>
+            <p class="selva-microetiqueta selva-fauna-cifras">En cifras</p>
+            <div class="selva-fauna-stats" aria-label="Registros regionales de fauna">
+                <article class="selva-fauna-stat selva-fauna-stat--mamiferos" data-fauna-categoria="mamiferos">
+                    <svg class="selva-fauna-icono" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="10" cy="14" rx="3" ry="4"/><ellipse cx="18" cy="9" rx="3" ry="4"/><ellipse cx="27" cy="11" rx="3" ry="4"/><ellipse cx="33" cy="18" rx="3" ry="4"/><path d="M12 28c0-4 4-6 6-9 2-3 5-3 7 0 2 3 6 6 6 10 0 6-6 4-10 3-4 1-9 2-9-4Z"/></svg>
+                    <div class="selva-fauna-numero" role="img" aria-label="214 especies de mamíferos registradas"><span data-fauna-count="214" aria-hidden="true">214</span></div>
+                    <h3>Mamíferos</h3><p class="selva-fauna-descripcion">especies registradas</p><span class="selva-fauna-badge">CEPLAN · 2024</span>
+                    <button class="selva-fauna-explorar" type="button" data-fauna-explorar="mamiferos" aria-haspopup="dialog" aria-controls="selva-fauna-modal" aria-label="Explorar mamíferos">Explorar →</button>
+                </article>
+                <article class="selva-fauna-stat selva-fauna-stat--aves" data-fauna-categoria="aves">
+                    <svg class="selva-fauna-icono" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 33 30 9M12 29C5 17 18 5 33 6c1 15-11 28-21 23ZM18 23l-1-10M23 18l8-1M13 28l9 1"/></svg>
+                    <div class="selva-fauna-numero" role="img" aria-label="755 especies de aves registradas"><span data-fauna-count="755" aria-hidden="true">755</span></div>
+                    <h3>Aves</h3><p class="selva-fauna-descripcion">especies registradas</p><span class="selva-fauna-badge">CEPLAN · 2024</span>
+                    <button class="selva-fauna-explorar" type="button" data-fauna-explorar="aves" aria-haspopup="dialog" aria-controls="selva-fauna-modal" aria-label="Explorar aves">Explorar →</button>
+                </article>
+                <article class="selva-fauna-stat selva-fauna-stat--reptiles" data-fauna-categoria="reptiles">
+                    <svg class="selva-fauna-icono" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 32c-6-2-5-8 2-8h13c9 0 10-10 3-10H15c-7 0-7-8-1-8h8M12 32h13c12 0 14-13 5-17M22 6c3-3 9-2 10 1-1 4-7 5-10 3ZM32 7h4l2-2M36 7l2 2"/><circle cx="28" cy="7" r=".6"/></svg>
+                    <div class="selva-fauna-numero" role="img" aria-label="132 especies de reptiles reportadas"><span data-fauna-count="132" aria-hidden="true">132</span></div>
+                    <h3>Reptiles</h3><p class="selva-fauna-descripcion">especies reportadas</p><span class="selva-fauna-badge">CEPLAN · 2024</span>
+                    <button class="selva-fauna-explorar" type="button" data-fauna-explorar="reptiles" aria-haspopup="dialog" aria-controls="selva-fauna-modal" aria-label="Explorar reptiles">Explorar →</button>
+                </article>
+                <article class="selva-fauna-stat selva-fauna-stat--anfibios" data-fauna-categoria="anfibios">
+                    <svg class="selva-fauna-icono" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="11" r="4"/><circle cx="26" cy="11" r="4"/><path d="M10 14c-4 11 1 17 10 17s14-6 10-17M15 19c3 3 7 3 10 0M9 22l-5 5 6 6H5M31 22l5 5-6 6h5M15 28l-3 6M25 28l3 6"/><circle cx="14" cy="11" r=".7"/><circle cx="26" cy="11" r=".7"/></svg>
+                    <div class="selva-fauna-numero" role="img" aria-label="124 especies de anfibios registradas"><span data-fauna-count="124" aria-hidden="true">124</span></div>
+                    <h3>Anfibios</h3><p class="selva-fauna-descripcion">especies registradas</p><span class="selva-fauna-badge">CEPLAN · 2024</span>
+                    <button class="selva-fauna-explorar" type="button" data-fauna-explorar="anfibios" aria-haspopup="dialog" aria-controls="selva-fauna-modal" aria-label="Explorar anfibios">Explorar →</button>
+                </article>
+            </div>
+            <p class="selva-fauna-nota">Cifras regionales reportadas por CEPLAN (2024). Los inventarios de biodiversidad se actualizan conforme aparecen nuevos registros.</p>
+            <div class="selva-fauna-fuente">
+                <p><strong>Fuente:</strong> Centro Nacional de Planeamiento Estratégico — CEPLAN.<br><cite>Madre de Dios: Información para el Planeamiento con enfoque territorial</cite> · diciembre de 2024.</p>
+                <a href="https://cdn.www.gob.pe/uploads/document/file/7432540/6332224-19-madre-de-dios_informacion-para-el-planeamiento-con-enfoque-territorial_dic2024.pdf?v=1735362686" target="_blank" rel="noopener noreferrer">Consultar fuente ↗</a>
+                <p class="selva-fauna-revision">Última revisión de fuentes: <time datetime="2026-10">octubre de 2026</time>.</p>
+            </div>
+            <p class="selva-fauna-proxima">Peces · próxima categoría</p>
+            <dialog class="selva-fauna-modal" id="selva-fauna-modal" aria-labelledby="selva-fauna-modal-titulo">
+                <button class="selva-fauna-modal-cerrar" type="button" aria-label="Cerrar ventana de fauna">×</button>
+                <div class="selva-fauna-modal-layout">
+                    <figure class="selva-fauna-modal-imagen">
+                        <img src="images/jaguar-madre-de-dios.jpg" alt="" decoding="async">
+                        <figcaption><strong class="selva-fauna-foto-nombre"></strong><em class="selva-fauna-foto-cientifico"></em><span class="selva-fauna-foto-registro"></span><small class="selva-fauna-foto-credito"></small></figcaption>
+                    </figure>
+                    <div class="selva-fauna-modal-contenido">
+                        <p class="selva-microetiqueta selva-fauna-modal-categoria"></p>
+                        <button class="selva-fauna-volver" type="button" hidden></button>
+                        <h3 id="selva-fauna-modal-titulo">Especies destacadas</h3>
+                        <div class="selva-fauna-modal-cuerpo"></div>
+                    </div>
+                </div>
+            </dialog>
+            <template id="selva-fauna-ficha-estructura">
+                <!-- Campos reservados para ampliar cada ficha solo con fuentes verificadas. -->
+                <dl><dt>Nombre común</dt><dd data-fauna-campo="nombre"></dd><dt>Nombre científico</dt><dd data-fauna-campo="cientifico"></dd><dt>Familia</dt><dd data-fauna-campo="familia"></dd><dt>Hábitat</dt><dd data-fauna-campo="habitat"></dd><dt>Alimentación</dt><dd data-fauna-campo="alimentacion"></dd><dt>Importancia ecológica</dt><dd data-fauna-campo="importancia"></dd><dt>Estado de conservación</dt><dd data-fauna-campo="conservacion"></dd><dt>Dónde se ha registrado</dt><dd data-fauna-campo="registro"></dd><dt>Fuentes</dt><dd data-fauna-campo="fuentes"></dd><dt>Crédito de fotografía</dt><dd data-fauna-campo="credito"></dd></dl>
+            </template>
+        </div>
+    </section>
+<section class="selva-ambiente reveal" id="ambiente">
+        <div class="container">
+            <p class="selva-microetiqueta selva-microetiqueta--tierra">Comprende</p>
+            <h2>Ambiente</h2>
+            <p class="selva-ambiente-subtitulo">Cambios y conservación</p>
+            <p class="selva-seccion-intro">Comprende cómo las actividades humanas y los procesos naturales transforman el territorio, y conoce las respuestas que buscan conservar y recuperar sus ecosistemas.</p>
+            <div class="selva-ambiente-areas">
+                <article class="selva-ambiente-area" data-ambiente-area="bosques">
+                    <span class="selva-ambiente-numero" aria-hidden="true">01</span>
+                    <svg class="selva-ambiente-icono" viewBox="0 0 32 32" aria-hidden="true"><path d="m9 4-6 10h4l-5 8h14l-5-8h4ZM9 22v6M23 6l-5 9h3l-4 7h13l-5-7h3ZM23 22v6M3 28h26"/></svg>
+                    <h3>Bosques y territorio</h3><p class="selva-ambiente-area-temas">Bosques · Deforestación · Incendios forestales</p>
+                    <p class="selva-ambiente-area-descripcion" hidden>Conoce los procesos que modifican la cobertura forestal y transforman el paisaje.</p>
+                    <button type="button" class="selva-ambiente-explorar" aria-haspopup="dialog" aria-controls="selva-ambiente-modal" aria-label="Explorar Bosques y territorio">Explorar <span aria-hidden="true">→</span></button>
+                </article>
+                <article class="selva-ambiente-area" data-ambiente-area="agua">
+                    <span class="selva-ambiente-numero" aria-hidden="true">02</span>
+                    <svg class="selva-ambiente-icono" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3c-4 7-9 11-9 16a9 9 0 0 0 18 0c0-5-5-9-9-16ZM12 20c0 3 2 4 4 4M2 29c4-3 6 3 10 0s6 3 10 0 6 3 10 0"/></svg>
+                    <h3>Agua y contaminación</h3><p class="selva-ambiente-area-temas">Agua · Contaminación · Residuos</p>
+                    <p class="selva-ambiente-area-descripcion" hidden>Explora cómo el agua conecta el territorio y cómo distintas presiones pueden afectar su calidad y la de los ecosistemas.</p>
+                    <button type="button" class="selva-ambiente-explorar" aria-haspopup="dialog" aria-controls="selva-ambiente-modal" aria-label="Explorar Agua y contaminación">Explorar <span aria-hidden="true">→</span></button>
+                </article>
+                <article class="selva-ambiente-area" data-ambiente-area="clima">
+                    <span class="selva-ambiente-numero" aria-hidden="true">03</span>
+                    <svg class="selva-ambiente-icono" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 14a12 12 0 0 1 21-6M26 3v5h-5M27 18A12 12 0 0 1 6 26M6 31v-5h5M12 21c-5-7 2-12 10-12 0 8-4 14-9 12ZM11 24l8-12"/></svg>
+                    <h3>Clima y recuperación</h3><p class="selva-ambiente-area-temas">Cambio climático · Restauración ecológica</p>
+                    <p class="selva-ambiente-area-descripcion" hidden>Conoce los cambios ambientales y las estrategias que buscan recuperar ecosistemas degradados.</p>
+                    <button type="button" class="selva-ambiente-explorar" aria-haspopup="dialog" aria-controls="selva-ambiente-modal" aria-label="Explorar Clima y recuperación">Explorar <span aria-hidden="true">→</span></button>
+                </article>
+                <article class="selva-ambiente-area" data-ambiente-area="conservacion">
+                    <span class="selva-ambiente-numero" aria-hidden="true">04</span>
+                    <svg class="selva-ambiente-icono" viewBox="0 0 32 32" aria-hidden="true"><path d="m16 3 11 4v9c0 6-5 10-11 13C10 26 5 22 5 16V7ZM12 19c-4-6 2-10 10-10 0 7-4 12-9 10ZM11 23l8-11"/></svg>
+                    <h3>Conservación y gestión</h3><p class="selva-ambiente-area-temas">Conservación · Gestión ambiental</p>
+                    <p class="selva-ambiente-area-descripcion" hidden>Descubre cómo la protección, el manejo y las decisiones sobre el territorio pueden contribuir a su conservación.</p>
+                    <button type="button" class="selva-ambiente-explorar" aria-haspopup="dialog" aria-controls="selva-ambiente-modal" aria-label="Explorar Conservación y gestión">Explorar <span aria-hidden="true">→</span></button>
+                </article>
+            </div>
+            <ul class="selva-ambiente-temas" aria-label="Temas ambientales" hidden>
+                <li>Conservación</li>
+                <li>Bosques</li>
+                <li>Agua</li>
+                <li>Deforestación</li>
+                <li>Incendios forestales</li>
+                <li>Contaminación</li>
+                <li>Cambio climático</li>
+                <li>Restauración ecológica</li>
+                <li>Residuos</li>
+                <li>Gestión ambiental</li>
+            </ul>
+            <p class="selva-ambiente-nota" hidden>Ampliaremos cada tema con explicaciones y referencias verificables.</p>
+            <a class="selva-ambiente-enlace" href="#explora-madre-de-dios" hidden>Recorre los paisajes de la región</a>
+            <dialog class="selva-ambiente-modal" id="selva-ambiente-modal" aria-labelledby="selva-ambiente-modal-titulo">
+                <button class="selva-ambiente-cerrar" type="button" aria-label="Cerrar exploración de Ambiente">×</button>
+                <div class="selva-ambiente-modal-layout">
+                    <div class="selva-ambiente-modal-visual" aria-hidden="true"></div>
+                    <div class="selva-ambiente-modal-contenido">
+                        <button class="selva-ambiente-volver" type="button" hidden></button>
+                        <h3 id="selva-ambiente-modal-titulo"></h3>
+                        <p class="selva-ambiente-modal-descripcion"></p>
+                        <div class="selva-ambiente-modal-cuerpo"></div>
+                    </div>
+                </div>
+            </dialog>
+        </div>
+    </section>
+
+    <section class="selva-explora reveal" id="explora-madre-de-dios">
+        <div class="container">
+            <p class="selva-microetiqueta">Explora</p><h2>Territorio</h2>
+            <p class="selva-territorio-subtitulo">Bosques, ríos y humedales</p>
+            <p class="selva-seccion-intro">Descubre cómo los bosques, los sistemas de agua y los humedales forman un paisaje conectado y en constante transformación.</p>
+            <div class="selva-territorio-tabs" role="tablist" aria-label="Modos de exploración territorial">
+                <button type="button" role="tab" id="territorio-tab-bosques" aria-selected="true" aria-controls="territorio-panel" data-territorio-modo="bosques">Bosques</button>
+                <button type="button" role="tab" id="territorio-tab-rios" aria-selected="false" aria-controls="territorio-panel" tabindex="-1" data-territorio-modo="rios">Ríos</button>
+                <button type="button" role="tab" id="territorio-tab-humedales" aria-selected="false" aria-controls="territorio-panel" tabindex="-1" data-territorio-modo="humedales">Humedales</button>
+            </div>
+            <div class="selva-territorio-layout" data-territorio-activo="bosques">
+                <figure class="selva-territorio-mapa">
+                    <svg class="selva-territorio-svg" viewBox="0 0 780 520" xmlns="http://www.w3.org/2000/svg" aria-labelledby="territorio-mapa-titulo territorio-mapa-desc"><title id="territorio-mapa-titulo">Mapa educativo de Madre de Dios</title><desc id="territorio-mapa-desc">Límite de MINAM y seis ríos simplificados de la Infraestructura de Datos Espaciales Regional Amazónica. Los símbolos de ambientes no indican ubicación ni extensión.</desc><defs><clipPath id="territorio-limite-clip"><path d="M246.5,376.9 L246.4,378.1 L245.0,378.8 L245.9,379.4 L247.8,378.7 L246.7,380.8 L248.2,382.3 L248.0,384.8 L247.3,383.9 L240.3,381.6 L231.6,380.8 L227.8,375.8 L223.6,374.6 L220.3,374.2 L218.0,375.2 L217.8,376.2 L210.1,376.3 L206.1,374.4 L204.3,372.4 L201.6,372.1 L199.6,373.4 L195.9,372.4 L197.2,375.7 L193.7,376.6 L193.0,378.4 L191.6,379.0 L191.6,381.1 L188.0,382.6 L186.3,385.8 L186.6,387.9 L184.5,389.6 L184.4,392.3 L182.0,392.8 L176.3,389.7 L173.2,389.1 L172.2,387.7 L171.0,379.2 L169.2,377.5 L168.6,375.6 L169.1,372.0 L167.9,370.9 L168.6,367.1 L167.4,365.0 L168.1,363.4 L169.4,363.1 L169.1,361.9 L167.7,362.3 L165.7,361.2 L163.1,361.0 L162.1,362.4 L158.0,361.4 L157.9,360.6 L153.5,358.2 L149.1,353.1 L147.4,355.2 L145.2,353.3 L143.2,354.4 L143.0,353.3 L142.1,353.2 L142.4,352.3 L141.1,352.6 L139.9,351.3 L140.3,349.0 L139.2,348.9 L140.2,347.6 L138.9,347.4 L138.3,345.9 L135.1,343.0 L133.4,339.2 L132.2,339.5 L129.9,338.2 L129.3,335.6 L124.5,334.7 L120.5,335.6 L118.3,337.6 L114.8,338.6 L114.8,340.2 L113.5,342.1 L109.4,344.5 L108.2,343.6 L107.7,341.5 L104.1,341.4 L102.9,339.2 L95.8,337.7 L93.9,338.0 L92.1,336.7 L92.1,334.6 L87.0,333.9 L86.0,332.5 L86.8,330.8 L88.2,330.0 L88.1,328.5 L87.3,327.7 L87.2,325.8 L85.4,325.3 L85.7,322.4 L83.6,321.4 L80.8,316.9 L78.6,316.4 L77.9,315.1 L76.3,315.4 L75.7,314.2 L77.1,311.2 L77.5,308.0 L78.6,307.6 L78.8,306.4 L82.0,305.6 L82.8,304.5 L86.1,304.0 L87.5,301.7 L87.1,298.8 L89.2,297.0 L80.8,292.6 L79.3,289.3 L78.0,289.5 L76.1,288.1 L72.9,287.7 L74.3,283.1 L73.5,280.5 L74.8,277.9 L74.1,272.0 L66.0,269.4 L60.3,269.6 L56.3,268.8 L56.2,265.7 L57.3,263.9 L55.0,262.9 L54.6,260.8 L49.1,259.9 L49.4,256.9 L48.3,252.2 L49.9,248.6 L43.9,245.8 L43.9,243.7 L45.9,241.4 L44.5,239.1 L40.6,236.6 L40.0,233.7 L44.2,228.7 L44.0,227.8 L45.5,227.0 L45.4,225.9 L47.4,226.1 L48.3,224.4 L52.3,221.3 L51.8,218.7 L53.4,212.8 L52.7,212.1 L54.2,210.6 L54.5,209.0 L53.9,205.5 L56.1,202.2 L58.4,200.6 L59.4,196.6 L62.8,196.8 L61.5,192.0 L63.5,188.1 L63.4,181.6 L64.6,180.7 L65.4,178.1 L68.7,176.7 L71.5,173.5 L70.9,171.7 L68.4,170.4 L66.8,170.6 L66.5,169.1 L65.0,168.2 L66.0,164.7 L65.3,162.3 L67.5,162.2 L68.1,160.8 L69.5,160.3 L78.2,162.5 L82.5,160.3 L96.3,161.4 L97.2,160.6 L99.2,160.5 L100.6,161.4 L106.1,160.2 L109.1,160.8 L111.2,159.8 L112.7,161.2 L114.1,158.8 L114.9,159.4 L116.2,158.5 L118.2,159.7 L128.7,157.8 L131.4,156.5 L131.9,157.5 L133.9,157.9 L136.1,157.7 L137.4,156.7 L143.6,157.1 L145.6,156.0 L147.1,156.6 L149.6,156.3 L150.4,154.0 L153.3,152.2 L154.3,149.0 L156.0,148.5 L157.6,146.2 L159.4,139.5 L161.8,138.8 L162.5,137.0 L163.4,136.9 L162.8,133.8 L163.7,132.4 L162.2,129.2 L164.7,125.9 L163.1,124.4 L165.7,118.6 L168.8,117.6 L168.8,113.6 L171.2,112.9 L172.5,110.9 L177.6,110.5 L183.1,108.2 L186.3,104.2 L189.0,98.3 L189.3,93.8 L193.0,93.2 L198.4,88.2 L204.3,85.7 L209.9,80.8 L211.0,78.9 L214.5,77.1 L215.7,75.7 L215.4,73.4 L216.4,71.5 L221.3,67.6 L219.0,62.9 L219.7,60.2 L220.6,59.5 L219.5,56.5 L221.4,54.6 L221.2,52.5 L223.1,50.0 L225.0,51.0 L225.0,161.4 L234.4,154.7 L235.1,156.0 L241.5,161.1 L242.9,165.4 L248.2,166.3 L249.4,167.6 L256.2,168.6 L262.9,166.2 L267.3,166.9 L269.6,165.5 L271.5,165.7 L271.7,164.9 L273.2,164.5 L275.7,162.0 L276.7,162.2 L278.1,160.1 L280.9,160.8 L283.8,159.4 L283.8,158.4 L284.8,159.2 L286.8,157.6 L287.7,157.8 L288.2,156.4 L289.1,156.9 L289.4,155.6 L290.2,156.2 L291.8,155.4 L292.3,154.2 L294.4,153.5 L295.6,154.7 L297.7,153.3 L300.5,154.4 L301.5,154.0 L302.0,154.7 L302.8,153.8 L304.7,154.7 L306.8,153.9 L308.6,154.7 L311.0,154.3 L310.7,155.3 L312.0,155.3 L314.3,158.9 L315.9,157.8 L316.4,159.0 L318.0,157.9 L318.5,158.5 L322.3,156.6 L324.9,157.0 L326.3,156.3 L327.3,157.1 L327.4,155.9 L330.8,155.5 L366.3,212.4 L379.0,230.8 L392.8,254.8 L425.0,314.6 L424.1,316.2 L424.6,317.9 L423.6,316.7 L422.0,316.8 L422.7,317.5 L422.7,319.7 L421.0,320.1 L420.2,321.6 L420.7,323.2 L420.0,322.3 L418.6,324.9 L417.6,324.7 L416.8,325.5 L415.9,327.8 L416.9,329.7 L416.6,331.3 L418.0,330.7 L417.2,331.7 L418.0,331.3 L418.8,332.6 L416.6,333.9 L417.5,334.4 L415.8,335.5 L417.2,336.0 L413.2,338.9 L411.9,337.9 L411.0,340.6 L409.5,340.5 L409.4,343.2 L408.0,343.9 L409.1,345.8 L407.4,345.4 L405.9,347.3 L406.9,347.7 L405.9,347.9 L406.7,349.1 L405.6,349.2 L406.3,350.8 L404.7,351.6 L403.9,350.9 L402.6,352.0 L403.4,352.5 L402.4,353.8 L403.1,354.6 L402.2,357.0 L403.7,357.8 L402.0,358.0 L403.1,358.2 L402.4,359.1 L403.8,359.9 L401.8,359.3 L402.1,363.0 L403.2,362.4 L403.6,363.3 L402.0,363.9 L402.9,364.2 L402.5,365.7 L323.5,400.0 L246.5,376.9Z"/></clipPath></defs><g transform="translate(157,0)"><path class="selva-territorio-limite" d="M246.5,376.9 L246.4,378.1 L245.0,378.8 L245.9,379.4 L247.8,378.7 L246.7,380.8 L248.2,382.3 L248.0,384.8 L247.3,383.9 L240.3,381.6 L231.6,380.8 L227.8,375.8 L223.6,374.6 L220.3,374.2 L218.0,375.2 L217.8,376.2 L210.1,376.3 L206.1,374.4 L204.3,372.4 L201.6,372.1 L199.6,373.4 L195.9,372.4 L197.2,375.7 L193.7,376.6 L193.0,378.4 L191.6,379.0 L191.6,381.1 L188.0,382.6 L186.3,385.8 L186.6,387.9 L184.5,389.6 L184.4,392.3 L182.0,392.8 L176.3,389.7 L173.2,389.1 L172.2,387.7 L171.0,379.2 L169.2,377.5 L168.6,375.6 L169.1,372.0 L167.9,370.9 L168.6,367.1 L167.4,365.0 L168.1,363.4 L169.4,363.1 L169.1,361.9 L167.7,362.3 L165.7,361.2 L163.1,361.0 L162.1,362.4 L158.0,361.4 L157.9,360.6 L153.5,358.2 L149.1,353.1 L147.4,355.2 L145.2,353.3 L143.2,354.4 L143.0,353.3 L142.1,353.2 L142.4,352.3 L141.1,352.6 L139.9,351.3 L140.3,349.0 L139.2,348.9 L140.2,347.6 L138.9,347.4 L138.3,345.9 L135.1,343.0 L133.4,339.2 L132.2,339.5 L129.9,338.2 L129.3,335.6 L124.5,334.7 L120.5,335.6 L118.3,337.6 L114.8,338.6 L114.8,340.2 L113.5,342.1 L109.4,344.5 L108.2,343.6 L107.7,341.5 L104.1,341.4 L102.9,339.2 L95.8,337.7 L93.9,338.0 L92.1,336.7 L92.1,334.6 L87.0,333.9 L86.0,332.5 L86.8,330.8 L88.2,330.0 L88.1,328.5 L87.3,327.7 L87.2,325.8 L85.4,325.3 L85.7,322.4 L83.6,321.4 L80.8,316.9 L78.6,316.4 L77.9,315.1 L76.3,315.4 L75.7,314.2 L77.1,311.2 L77.5,308.0 L78.6,307.6 L78.8,306.4 L82.0,305.6 L82.8,304.5 L86.1,304.0 L87.5,301.7 L87.1,298.8 L89.2,297.0 L80.8,292.6 L79.3,289.3 L78.0,289.5 L76.1,288.1 L72.9,287.7 L74.3,283.1 L73.5,280.5 L74.8,277.9 L74.1,272.0 L66.0,269.4 L60.3,269.6 L56.3,268.8 L56.2,265.7 L57.3,263.9 L55.0,262.9 L54.6,260.8 L49.1,259.9 L49.4,256.9 L48.3,252.2 L49.9,248.6 L43.9,245.8 L43.9,243.7 L45.9,241.4 L44.5,239.1 L40.6,236.6 L40.0,233.7 L44.2,228.7 L44.0,227.8 L45.5,227.0 L45.4,225.9 L47.4,226.1 L48.3,224.4 L52.3,221.3 L51.8,218.7 L53.4,212.8 L52.7,212.1 L54.2,210.6 L54.5,209.0 L53.9,205.5 L56.1,202.2 L58.4,200.6 L59.4,196.6 L62.8,196.8 L61.5,192.0 L63.5,188.1 L63.4,181.6 L64.6,180.7 L65.4,178.1 L68.7,176.7 L71.5,173.5 L70.9,171.7 L68.4,170.4 L66.8,170.6 L66.5,169.1 L65.0,168.2 L66.0,164.7 L65.3,162.3 L67.5,162.2 L68.1,160.8 L69.5,160.3 L78.2,162.5 L82.5,160.3 L96.3,161.4 L97.2,160.6 L99.2,160.5 L100.6,161.4 L106.1,160.2 L109.1,160.8 L111.2,159.8 L112.7,161.2 L114.1,158.8 L114.9,159.4 L116.2,158.5 L118.2,159.7 L128.7,157.8 L131.4,156.5 L131.9,157.5 L133.9,157.9 L136.1,157.7 L137.4,156.7 L143.6,157.1 L145.6,156.0 L147.1,156.6 L149.6,156.3 L150.4,154.0 L153.3,152.2 L154.3,149.0 L156.0,148.5 L157.6,146.2 L159.4,139.5 L161.8,138.8 L162.5,137.0 L163.4,136.9 L162.8,133.8 L163.7,132.4 L162.2,129.2 L164.7,125.9 L163.1,124.4 L165.7,118.6 L168.8,117.6 L168.8,113.6 L171.2,112.9 L172.5,110.9 L177.6,110.5 L183.1,108.2 L186.3,104.2 L189.0,98.3 L189.3,93.8 L193.0,93.2 L198.4,88.2 L204.3,85.7 L209.9,80.8 L211.0,78.9 L214.5,77.1 L215.7,75.7 L215.4,73.4 L216.4,71.5 L221.3,67.6 L219.0,62.9 L219.7,60.2 L220.6,59.5 L219.5,56.5 L221.4,54.6 L221.2,52.5 L223.1,50.0 L225.0,51.0 L225.0,161.4 L234.4,154.7 L235.1,156.0 L241.5,161.1 L242.9,165.4 L248.2,166.3 L249.4,167.6 L256.2,168.6 L262.9,166.2 L267.3,166.9 L269.6,165.5 L271.5,165.7 L271.7,164.9 L273.2,164.5 L275.7,162.0 L276.7,162.2 L278.1,160.1 L280.9,160.8 L283.8,159.4 L283.8,158.4 L284.8,159.2 L286.8,157.6 L287.7,157.8 L288.2,156.4 L289.1,156.9 L289.4,155.6 L290.2,156.2 L291.8,155.4 L292.3,154.2 L294.4,153.5 L295.6,154.7 L297.7,153.3 L300.5,154.4 L301.5,154.0 L302.0,154.7 L302.8,153.8 L304.7,154.7 L306.8,153.9 L308.6,154.7 L311.0,154.3 L310.7,155.3 L312.0,155.3 L314.3,158.9 L315.9,157.8 L316.4,159.0 L318.0,157.9 L318.5,158.5 L322.3,156.6 L324.9,157.0 L326.3,156.3 L327.3,157.1 L327.4,155.9 L330.8,155.5 L366.3,212.4 L379.0,230.8 L392.8,254.8 L425.0,314.6 L424.1,316.2 L424.6,317.9 L423.6,316.7 L422.0,316.8 L422.7,317.5 L422.7,319.7 L421.0,320.1 L420.2,321.6 L420.7,323.2 L420.0,322.3 L418.6,324.9 L417.6,324.7 L416.8,325.5 L415.9,327.8 L416.9,329.7 L416.6,331.3 L418.0,330.7 L417.2,331.7 L418.0,331.3 L418.8,332.6 L416.6,333.9 L417.5,334.4 L415.8,335.5 L417.2,336.0 L413.2,338.9 L411.9,337.9 L411.0,340.6 L409.5,340.5 L409.4,343.2 L408.0,343.9 L409.1,345.8 L407.4,345.4 L405.9,347.3 L406.9,347.7 L405.9,347.9 L406.7,349.1 L405.6,349.2 L406.3,350.8 L404.7,351.6 L403.9,350.9 L402.6,352.0 L403.4,352.5 L402.4,353.8 L403.1,354.6 L402.2,357.0 L403.7,357.8 L402.0,358.0 L403.1,358.2 L402.4,359.1 L403.8,359.9 L401.8,359.3 L402.1,363.0 L403.2,362.4 L403.6,363.3 L402.0,363.9 L402.9,364.2 L402.5,365.7 L323.5,400.0 L246.5,376.9Z"/><g class="selva-territorio-red" clip-path="url(#territorio-limite-clip)"><g class="selva-territorio-rio" data-mapa-feature="madre" role="button" tabindex="0" aria-label="Río Madre de Dios" aria-pressed="false"><title>Río Madre de Dios</title><path class="selva-territorio-rio-hit" d="M152.6,329.1 L153.3,329.3 M153.3,329.3 L153.4,329.4 M153.4,329.4 L154.3,329.6 M148.9,352.1 L148.2,351.7 L147.8,350.5 L147.0,349.6 M139.8,348.4 L139.4,348.5 L139.2,349.0 L140.3,348.9 L140.6,350.3 L139.8,350.8 L139.9,351.3 L140.7,351.7 L141.1,352.6 L142.1,352.6 L142.4,352.3 L142.1,353.2 L142.5,353.4 L143.1,353.2 L143.0,354.1 L143.3,354.4 L145.1,353.2 L147.2,355.1 L148.8,354.2 L149.2,352.5 L148.1,351.8 L147.9,350.9 L146.7,350.0 M154.3,329.6 L155.2,330.3 M162.5,324.5 L163.5,323.1 L164.0,321.5 L165.7,319.9 L165.0,319.5 L165.7,319.0 L165.6,318.5 L166.0,318.2 L165.8,317.7 L166.1,317.3 L166.5,317.4 L167.0,316.7 L167.4,316.8 L168.4,314.8 M167.8,318.0 L167.8,316.4 L168.5,315.4 L168.6,314.3 M408.4,315.9 L409.7,316.0 L411.4,315.7 M402.7,314.3 L403.5,312.5 L404.4,312.2 L406.8,314.3 M412.0,304.2 L412.5,304.2 L413.0,305.0 L413.1,307.1 L414.0,308.4 L414.5,308.8 L416.1,309.1 M413.7,314.3 L414.8,312.7 L414.4,309.9 L414.6,309.4 L415.1,309.3 L416.4,309.8 L417.2,311.0 L415.7,310.1 L419.1,312.5 L423.6,314.3 M403.5,311.5 L404.9,312.0 L407.8,314.3 M416.1,309.1 L417.6,310.8 L419.7,312.0 L424.2,313.2 M372.7,314.3 L372.0,315.7 L372.5,317.0 L372.6,320.2 L372.3,320.7 L370.6,320.8 L370.1,321.9 L370.6,322.9 L372.3,324.1 M339.3,328.7 L340.1,328.2 L340.6,328.3 L342.2,326.1 L343.2,325.4 L343.8,325.4 M343.8,325.4 L346.5,324.2 L347.8,324.4 L348.8,324.1 L349.9,322.5 L352.3,320.2 L350.4,318.3 L348.3,317.5 L347.9,316.9 L348.6,316.0 L350.2,315.9 L351.5,315.1 L352.2,316.7 L354.0,318.5 L354.1,319.3 L353.6,321.1 L354.1,322.1 L355.2,322.5 L354.8,322.8 L355.2,323.4 L356.2,323.6 L354.9,322.8 L357.1,322.1 L361.3,324.6 L362.0,324.2 L362.3,323.2 L363.3,321.8 L364.2,321.8 L367.1,322.8 L368.1,322.7 L368.7,322.0 L368.5,320.5 L365.8,318.5 L366.0,318.0 L367.7,317.4 L367.9,316.2 L367.6,314.3 M381.4,325.1 L382.5,324.1 L383.3,322.3 L384.4,321.1 L384.5,319.6 L384.9,318.7 L388.0,316.8 L389.5,316.8 M366.9,314.3 L367.6,313.4 L369.2,313.2 L371.0,312.6 L372.5,313.2 L373.1,314.3 M320.5,335.0 L320.6,335.5 L321.8,335.3 L322.2,335.6 L322.9,336.7 M297.7,328.3 L296.5,328.1 M236.6,318.0 L237.1,318.0 L237.5,318.4 L237.1,319.9 L239.1,319.8 L240.0,320.6 L240.5,320.4 L240.8,319.0 L241.6,319.0 L241.8,319.4 L241.1,321.0 L241.3,321.6 L242.3,321.8 L243.5,320.8 L244.2,320.8 L244.3,321.6 L243.6,322.8 L244.7,322.9 L245.8,322.5 L247.3,323.0 L247.5,323.7 L246.6,324.7 L247.8,325.7 L248.5,325.6 L249.1,324.3 L250.1,323.8 L251.0,324.5 L250.8,326.5 L252.8,325.4 L254.9,326.4 M259.1,325.0 L259.9,325.0 L260.7,325.4 L261.5,327.0 L261.9,326.5 L261.7,325.2 L262.6,324.4 L264.3,325.1 L265.1,326.6 L265.6,326.6 L267.1,325.4 L268.8,326.0 L269.0,325.3 L268.5,325.0 L266.2,325.4 L265.3,324.6 L265.6,323.9 L267.5,322.6 L268.3,321.6 M281.5,322.2 L282.8,323.0 M232.8,314.3 L233.3,314.8 L233.9,314.6 L233.8,315.2 L233.4,315.5 L233.5,316.2 L233.2,317.0 L234.1,318.6 L235.4,318.9 L236.6,318.0 M198.6,292.1 L198.8,290.9 L200.3,290.4 L201.1,290.7 M212.5,297.2 L213.0,297.1 L214.2,298.2 L214.5,299.0 L214.2,299.7 M170.4,312.1 L171.2,311.8 L171.9,311.0 L172.2,310.5 L172.1,309.5 M176.3,305.4 L176.6,304.3 L177.2,304.5 L177.7,303.4 L179.7,302.7 L180.2,301.6 L181.6,300.6 L181.9,298.6 L182.6,298.9 L183.8,298.5 L185.2,298.5 L185.6,298.0"/><path class="selva-territorio-rio-linea" pathLength="1000" d="M152.6,329.1 L153.3,329.3 M153.3,329.3 L153.4,329.4 M153.4,329.4 L154.3,329.6 M148.9,352.1 L148.2,351.7 L147.8,350.5 L147.0,349.6 M139.8,348.4 L139.4,348.5 L139.2,349.0 L140.3,348.9 L140.6,350.3 L139.8,350.8 L139.9,351.3 L140.7,351.7 L141.1,352.6 L142.1,352.6 L142.4,352.3 L142.1,353.2 L142.5,353.4 L143.1,353.2 L143.0,354.1 L143.3,354.4 L145.1,353.2 L147.2,355.1 L148.8,354.2 L149.2,352.5 L148.1,351.8 L147.9,350.9 L146.7,350.0 M154.3,329.6 L155.2,330.3 M162.5,324.5 L163.5,323.1 L164.0,321.5 L165.7,319.9 L165.0,319.5 L165.7,319.0 L165.6,318.5 L166.0,318.2 L165.8,317.7 L166.1,317.3 L166.5,317.4 L167.0,316.7 L167.4,316.8 L168.4,314.8 M167.8,318.0 L167.8,316.4 L168.5,315.4 L168.6,314.3 M408.4,315.9 L409.7,316.0 L411.4,315.7 M402.7,314.3 L403.5,312.5 L404.4,312.2 L406.8,314.3 M412.0,304.2 L412.5,304.2 L413.0,305.0 L413.1,307.1 L414.0,308.4 L414.5,308.8 L416.1,309.1 M413.7,314.3 L414.8,312.7 L414.4,309.9 L414.6,309.4 L415.1,309.3 L416.4,309.8 L417.2,311.0 L415.7,310.1 L419.1,312.5 L423.6,314.3 M403.5,311.5 L404.9,312.0 L407.8,314.3 M416.1,309.1 L417.6,310.8 L419.7,312.0 L424.2,313.2 M372.7,314.3 L372.0,315.7 L372.5,317.0 L372.6,320.2 L372.3,320.7 L370.6,320.8 L370.1,321.9 L370.6,322.9 L372.3,324.1 M339.3,328.7 L340.1,328.2 L340.6,328.3 L342.2,326.1 L343.2,325.4 L343.8,325.4 M343.8,325.4 L346.5,324.2 L347.8,324.4 L348.8,324.1 L349.9,322.5 L352.3,320.2 L350.4,318.3 L348.3,317.5 L347.9,316.9 L348.6,316.0 L350.2,315.9 L351.5,315.1 L352.2,316.7 L354.0,318.5 L354.1,319.3 L353.6,321.1 L354.1,322.1 L355.2,322.5 L354.8,322.8 L355.2,323.4 L356.2,323.6 L354.9,322.8 L357.1,322.1 L361.3,324.6 L362.0,324.2 L362.3,323.2 L363.3,321.8 L364.2,321.8 L367.1,322.8 L368.1,322.7 L368.7,322.0 L368.5,320.5 L365.8,318.5 L366.0,318.0 L367.7,317.4 L367.9,316.2 L367.6,314.3 M381.4,325.1 L382.5,324.1 L383.3,322.3 L384.4,321.1 L384.5,319.6 L384.9,318.7 L388.0,316.8 L389.5,316.8 M366.9,314.3 L367.6,313.4 L369.2,313.2 L371.0,312.6 L372.5,313.2 L373.1,314.3 M320.5,335.0 L320.6,335.5 L321.8,335.3 L322.2,335.6 L322.9,336.7 M297.7,328.3 L296.5,328.1 M236.6,318.0 L237.1,318.0 L237.5,318.4 L237.1,319.9 L239.1,319.8 L240.0,320.6 L240.5,320.4 L240.8,319.0 L241.6,319.0 L241.8,319.4 L241.1,321.0 L241.3,321.6 L242.3,321.8 L243.5,320.8 L244.2,320.8 L244.3,321.6 L243.6,322.8 L244.7,322.9 L245.8,322.5 L247.3,323.0 L247.5,323.7 L246.6,324.7 L247.8,325.7 L248.5,325.6 L249.1,324.3 L250.1,323.8 L251.0,324.5 L250.8,326.5 L252.8,325.4 L254.9,326.4 M259.1,325.0 L259.9,325.0 L260.7,325.4 L261.5,327.0 L261.9,326.5 L261.7,325.2 L262.6,324.4 L264.3,325.1 L265.1,326.6 L265.6,326.6 L267.1,325.4 L268.8,326.0 L269.0,325.3 L268.5,325.0 L266.2,325.4 L265.3,324.6 L265.6,323.9 L267.5,322.6 L268.3,321.6 M281.5,322.2 L282.8,323.0 M232.8,314.3 L233.3,314.8 L233.9,314.6 L233.8,315.2 L233.4,315.5 L233.5,316.2 L233.2,317.0 L234.1,318.6 L235.4,318.9 L236.6,318.0 M198.6,292.1 L198.8,290.9 L200.3,290.4 L201.1,290.7 M212.5,297.2 L213.0,297.1 L214.2,298.2 L214.5,299.0 L214.2,299.7 M170.4,312.1 L171.2,311.8 L171.9,311.0 L172.2,310.5 L172.1,309.5 M176.3,305.4 L176.6,304.3 L177.2,304.5 L177.7,303.4 L179.7,302.7 L180.2,301.6 L181.6,300.6 L181.9,298.6 L182.6,298.9 L183.8,298.5 L185.2,298.5 L185.6,298.0"/></g><g class="selva-territorio-rio" data-mapa-feature="tambopata" role="button" tabindex="0" aria-label="Río Tambopata" aria-pressed="false"><title>Río Tambopata</title><path class="selva-territorio-rio-hit" d="M339.0,365.2 L339.1,364.1 L338.6,363.1 L338.8,361.3 M370.5,335.3 L368.8,334.6 L366.2,334.4 L365.3,332.8 L366.8,331.8 L369.0,329.4 L369.9,329.5 L370.6,330.5 L372.3,330.5 M361.5,343.1 L363.6,342.5 L366.0,342.5 L366.3,341.7 L366.0,340.0 M340.2,350.8 L343.9,349.4 L344.3,348.5 L343.9,347.3 M326.0,382.8 L326.7,381.6 L326.4,381.1 L326.6,380.5 L328.5,378.4 L328.5,377.2 M324.2,400.0 L324.3,398.4 M336.6,354.5 L337.0,353.7 L338.0,352.8 L338.2,352.1"/><path class="selva-territorio-rio-linea" pathLength="1000" d="M339.0,365.2 L339.1,364.1 L338.6,363.1 L338.8,361.3 M370.5,335.3 L368.8,334.6 L366.2,334.4 L365.3,332.8 L366.8,331.8 L369.0,329.4 L369.9,329.5 L370.6,330.5 L372.3,330.5 M361.5,343.1 L363.6,342.5 L366.0,342.5 L366.3,341.7 L366.0,340.0 M340.2,350.8 L343.9,349.4 L344.3,348.5 L343.9,347.3 M326.0,382.8 L326.7,381.6 L326.4,381.1 L326.6,380.5 L328.5,378.4 L328.5,377.2 M324.2,400.0 L324.3,398.4 M336.6,354.5 L337.0,353.7 L338.0,352.8 L338.2,352.1"/></g><g class="selva-territorio-rio" data-mapa-feature="inambari" role="button" tabindex="0" aria-label="Río Inambari" aria-pressed="false"><title>Río Inambari</title><path class="selva-territorio-rio-hit" d="M296.8,340.6 L297.7,340.8 L299.4,340.5 L300.5,341.1 L302.1,339.9 L304.1,340.1 L305.7,339.1 L306.3,339.7 L307.2,339.0 L307.7,339.4 L308.7,338.8 L310.9,338.5 M249.8,367.5 L250.8,366.3 L250.8,365.7 L250.5,365.2 M251.9,388.2 L251.9,388.2 M285.2,343.8 L286.7,343.0 L287.6,343.4 M251.3,354.6 L253.3,351.2 L256.1,349.2 M263.7,348.3 L264.1,347.7 L264.8,347.3 L265.0,346.4 L265.4,346.2 L266.1,346.9 L266.5,346.0 L268.0,345.2 L268.9,345.6 L271.3,345.0 L272.2,345.1"/><path class="selva-territorio-rio-linea" pathLength="1000" d="M296.8,340.6 L297.7,340.8 L299.4,340.5 L300.5,341.1 L302.1,339.9 L304.1,340.1 L305.7,339.1 L306.3,339.7 L307.2,339.0 L307.7,339.4 L308.7,338.8 L310.9,338.5 M249.8,367.5 L250.8,366.3 L250.8,365.7 L250.5,365.2 M251.9,388.2 L251.9,388.2 M285.2,343.8 L286.7,343.0 L287.6,343.4 M251.3,354.6 L253.3,351.2 L256.1,349.2 M263.7,348.3 L264.1,347.7 L264.8,347.3 L265.0,346.4 L265.4,346.2 L266.1,346.9 L266.5,346.0 L268.0,345.2 L268.9,345.6 L271.3,345.0 L272.2,345.1"/></g><g class="selva-territorio-rio" data-mapa-feature="piedras" role="button" tabindex="0" aria-label="Río Las Piedras" aria-pressed="false"><title>Río Las Piedras</title><path class="selva-territorio-rio-hit" d="M80.3,167.3 L80.0,168.0 L81.9,167.8 L82.5,167.5 L82.3,167.2 L82.8,167.0 M65.4,187.9 L65.6,186.6 L66.0,186.6 L65.8,185.6 M74.1,173.7 L75.2,173.0 L75.2,172.7 L74.9,172.4 M74.4,173.8 L75.1,173.3 M83.7,166.9 L84.1,167.1 L83.9,167.3 L84.5,167.0 L85.6,166.9 L85.4,167.5 L85.7,167.6 L85.9,166.7 L86.8,166.8 L86.7,167.4 L86.9,167.1 L87.7,167.4 L88.3,166.7 L89.2,167.1 L89.7,167.7 L89.7,166.7 M104.4,168.4 L105.0,168.7 L104.7,169.1 L105.0,169.3 L106.1,168.9 L107.9,169.0 L108.5,168.7 L109.2,169.6 L109.0,170.2 L109.9,169.2 L110.7,169.0 M132.8,170.7 L133.5,171.6 L134.3,171.7 L134.7,172.1 M141.4,174.5 L141.4,175.0 L140.9,175.2 L141.1,175.6 L142.9,175.3 L144.0,176.4 L144.9,176.4 L145.1,176.8 L146.6,176.5 L147.5,177.9 L146.9,179.0 L147.5,179.6 L147.9,179.2 L147.3,178.7 L147.6,178.2 L149.1,177.9 L150.3,178.1 L151.5,177.2 M155.4,179.9 L155.7,180.3 L156.4,180.4 L157.5,179.7 L158.1,180.1 L158.4,180.9 L158.8,181.0 L159.8,180.9 L160.2,179.8 L160.5,179.8 M179.5,185.4 L180.2,185.9 L180.6,186.8 L181.2,186.9 L181.9,186.3 L182.3,186.4 L182.4,186.8 L181.7,187.6 L181.8,187.9 L182.6,187.5 L182.9,186.2 L184.1,186.6 L183.8,187.8 L184.2,188.3 L185.0,188.1 L185.1,187.2 L185.6,187.3 M166.3,183.1 L166.8,184.0 L167.4,184.0 L167.6,184.7 L168.0,184.3 L167.9,183.3 L168.9,182.7 L169.5,182.9 L169.8,184.5 L172.0,183.9 M364.7,314.3 L364.9,315.1 L363.7,314.9 L363.7,316.5 L364.9,315.7 L366.7,315.5 L367.2,314.9 M339.0,269.9 L339.4,269.9 L340.3,271.8 L341.1,272.2 L341.6,273.5 L341.1,274.3 L341.4,275.6 L341.7,275.5 L341.9,274.0 L343.0,273.8 L345.0,276.0 L345.5,277.2 L346.7,277.1 M362.6,293.7 L363.7,296.1 L362.3,295.3 L361.9,295.3 L361.9,297.7 L364.6,298.1 L365.4,298.6 L365.5,299.1 L364.5,300.5 L362.3,300.6 L361.5,300.9 L361.3,301.3 M287.6,264.7 L288.4,264.6 L289.9,265.0 L290.1,265.9 L289.0,266.8 L289.2,267.4 L291.6,267.8 L292.6,268.8 L292.8,268.4 L292.3,267.7 L292.8,267.4 L293.2,267.4 L293.8,268.3 L294.9,268.6 L296.1,267.7 L296.6,268.3 L297.6,268.5 L298.0,270.3 L299.2,269.4 L299.2,268.8 L300.2,267.6 M309.2,268.4 L309.5,268.9 L310.6,269.4 L313.5,270.3 L313.9,270.0 L314.5,268.2 L314.0,267.1 L314.2,266.8 L314.6,266.7 L315.7,267.4 L316.8,267.4 L317.5,268.1 L317.9,267.5 M326.0,267.0 L326.8,266.6 L328.6,266.8 L329.8,268.3 L330.4,267.8 L330.8,266.6 L331.2,266.5 L331.7,267.9 L332.0,267.7 L331.7,267.2 L332.1,266.9 L332.6,268.0 L332.9,268.2 L333.7,267.7 L333.5,266.7 L334.1,266.0 M287.6,263.0 L287.7,263.0 M287.6,263.0 L288.6,263.0 L288.7,263.3 M287.6,264.1 L287.1,264.6 L287.6,264.8 M247.0,229.4 L246.8,229.9 L245.6,230.7 L246.6,232.3 L246.1,232.6 L245.8,232.1 L245.4,232.3 L245.1,232.6 L245.4,233.1 L247.6,233.5 L248.1,232.8 L248.8,232.9 L249.1,233.3 L248.8,234.2 L249.3,234.5 L250.4,234.4 L250.4,235.8 L252.0,235.7 L252.1,236.9 L252.7,237.8 L253.4,237.0 L253.8,235.9 L256.2,236.7 L257.0,237.9 L258.2,238.4 L258.6,239.2 L259.4,239.6 L259.5,240.2 L258.5,240.8 L258.5,241.4 L259.4,240.9 L260.4,241.7 L261.5,241.2 L261.9,241.8 L261.9,242.2 L260.9,242.7 L260.5,244.3 L259.8,245.2 L260.4,245.2 L261.2,244.5 L262.5,244.9 L263.8,244.5 L263.9,246.4 L263.2,247.0 L264.3,247.7 L264.8,249.2 L265.8,249.9 L266.1,249.7 L265.6,248.5 L265.8,248.3 M268.0,248.6 L267.7,249.4 L268.0,251.5 L270.0,250.5 L270.3,251.1 L269.9,252.0 L271.0,251.7 L271.3,252.4 L272.6,252.5 L273.3,253.2 L274.9,253.5 L276.7,252.4 M230.7,214.9 L231.1,216.2 L232.0,216.1 L232.4,216.8 L233.1,216.9 L233.4,219.0 L234.4,220.0 M188.1,188.7 L189.2,188.6 L189.7,189.4 L191.1,189.9 L191.5,191.0 L191.9,190.1 L192.5,189.5 L193.4,189.8 L193.1,190.7 L193.3,190.9 L194.5,189.6 L195.0,189.5 L195.2,189.9 L194.6,191.3 L195.2,191.1 L195.5,190.3 L196.3,190.8 L197.1,190.1 L198.1,190.6 L198.3,190.3 L197.8,189.6 M208.7,199.2 L208.8,198.7 L207.8,198.2 L207.3,197.0 M221.9,208.4 L222.9,208.7 L223.7,210.1 L224.5,210.7 L224.6,211.4 L224.9,211.1 L224.7,210.5 L225.8,209.6"/><path class="selva-territorio-rio-linea" pathLength="1000" d="M80.3,167.3 L80.0,168.0 L81.9,167.8 L82.5,167.5 L82.3,167.2 L82.8,167.0 M65.4,187.9 L65.6,186.6 L66.0,186.6 L65.8,185.6 M74.1,173.7 L75.2,173.0 L75.2,172.7 L74.9,172.4 M74.4,173.8 L75.1,173.3 M83.7,166.9 L84.1,167.1 L83.9,167.3 L84.5,167.0 L85.6,166.9 L85.4,167.5 L85.7,167.6 L85.9,166.7 L86.8,166.8 L86.7,167.4 L86.9,167.1 L87.7,167.4 L88.3,166.7 L89.2,167.1 L89.7,167.7 L89.7,166.7 M104.4,168.4 L105.0,168.7 L104.7,169.1 L105.0,169.3 L106.1,168.9 L107.9,169.0 L108.5,168.7 L109.2,169.6 L109.0,170.2 L109.9,169.2 L110.7,169.0 M132.8,170.7 L133.5,171.6 L134.3,171.7 L134.7,172.1 M141.4,174.5 L141.4,175.0 L140.9,175.2 L141.1,175.6 L142.9,175.3 L144.0,176.4 L144.9,176.4 L145.1,176.8 L146.6,176.5 L147.5,177.9 L146.9,179.0 L147.5,179.6 L147.9,179.2 L147.3,178.7 L147.6,178.2 L149.1,177.9 L150.3,178.1 L151.5,177.2 M155.4,179.9 L155.7,180.3 L156.4,180.4 L157.5,179.7 L158.1,180.1 L158.4,180.9 L158.8,181.0 L159.8,180.9 L160.2,179.8 L160.5,179.8 M179.5,185.4 L180.2,185.9 L180.6,186.8 L181.2,186.9 L181.9,186.3 L182.3,186.4 L182.4,186.8 L181.7,187.6 L181.8,187.9 L182.6,187.5 L182.9,186.2 L184.1,186.6 L183.8,187.8 L184.2,188.3 L185.0,188.1 L185.1,187.2 L185.6,187.3 M166.3,183.1 L166.8,184.0 L167.4,184.0 L167.6,184.7 L168.0,184.3 L167.9,183.3 L168.9,182.7 L169.5,182.9 L169.8,184.5 L172.0,183.9 M364.7,314.3 L364.9,315.1 L363.7,314.9 L363.7,316.5 L364.9,315.7 L366.7,315.5 L367.2,314.9 M339.0,269.9 L339.4,269.9 L340.3,271.8 L341.1,272.2 L341.6,273.5 L341.1,274.3 L341.4,275.6 L341.7,275.5 L341.9,274.0 L343.0,273.8 L345.0,276.0 L345.5,277.2 L346.7,277.1 M362.6,293.7 L363.7,296.1 L362.3,295.3 L361.9,295.3 L361.9,297.7 L364.6,298.1 L365.4,298.6 L365.5,299.1 L364.5,300.5 L362.3,300.6 L361.5,300.9 L361.3,301.3 M287.6,264.7 L288.4,264.6 L289.9,265.0 L290.1,265.9 L289.0,266.8 L289.2,267.4 L291.6,267.8 L292.6,268.8 L292.8,268.4 L292.3,267.7 L292.8,267.4 L293.2,267.4 L293.8,268.3 L294.9,268.6 L296.1,267.7 L296.6,268.3 L297.6,268.5 L298.0,270.3 L299.2,269.4 L299.2,268.8 L300.2,267.6 M309.2,268.4 L309.5,268.9 L310.6,269.4 L313.5,270.3 L313.9,270.0 L314.5,268.2 L314.0,267.1 L314.2,266.8 L314.6,266.7 L315.7,267.4 L316.8,267.4 L317.5,268.1 L317.9,267.5 M326.0,267.0 L326.8,266.6 L328.6,266.8 L329.8,268.3 L330.4,267.8 L330.8,266.6 L331.2,266.5 L331.7,267.9 L332.0,267.7 L331.7,267.2 L332.1,266.9 L332.6,268.0 L332.9,268.2 L333.7,267.7 L333.5,266.7 L334.1,266.0 M287.6,263.0 L287.7,263.0 M287.6,263.0 L288.6,263.0 L288.7,263.3 M287.6,264.1 L287.1,264.6 L287.6,264.8 M247.0,229.4 L246.8,229.9 L245.6,230.7 L246.6,232.3 L246.1,232.6 L245.8,232.1 L245.4,232.3 L245.1,232.6 L245.4,233.1 L247.6,233.5 L248.1,232.8 L248.8,232.9 L249.1,233.3 L248.8,234.2 L249.3,234.5 L250.4,234.4 L250.4,235.8 L252.0,235.7 L252.1,236.9 L252.7,237.8 L253.4,237.0 L253.8,235.9 L256.2,236.7 L257.0,237.9 L258.2,238.4 L258.6,239.2 L259.4,239.6 L259.5,240.2 L258.5,240.8 L258.5,241.4 L259.4,240.9 L260.4,241.7 L261.5,241.2 L261.9,241.8 L261.9,242.2 L260.9,242.7 L260.5,244.3 L259.8,245.2 L260.4,245.2 L261.2,244.5 L262.5,244.9 L263.8,244.5 L263.9,246.4 L263.2,247.0 L264.3,247.7 L264.8,249.2 L265.8,249.9 L266.1,249.7 L265.6,248.5 L265.8,248.3 M268.0,248.6 L267.7,249.4 L268.0,251.5 L270.0,250.5 L270.3,251.1 L269.9,252.0 L271.0,251.7 L271.3,252.4 L272.6,252.5 L273.3,253.2 L274.9,253.5 L276.7,252.4 M230.7,214.9 L231.1,216.2 L232.0,216.1 L232.4,216.8 L233.1,216.9 L233.4,219.0 L234.4,220.0 M188.1,188.7 L189.2,188.6 L189.7,189.4 L191.1,189.9 L191.5,191.0 L191.9,190.1 L192.5,189.5 L193.4,189.8 L193.1,190.7 L193.3,190.9 L194.5,189.6 L195.0,189.5 L195.2,189.9 L194.6,191.3 L195.2,191.1 L195.5,190.3 L196.3,190.8 L197.1,190.1 L198.1,190.6 L198.3,190.3 L197.8,189.6 M208.7,199.2 L208.8,198.7 L207.8,198.2 L207.3,197.0 M221.9,208.4 L222.9,208.7 L223.7,210.1 L224.5,210.7 L224.6,211.4 L224.9,211.1 L224.7,210.5 L225.8,209.6"/></g><g class="selva-territorio-rio" data-mapa-feature="manu" role="button" tabindex="0" aria-label="Río Manu" aria-pressed="false"><title>Río Manu</title><path class="selva-territorio-rio-hit" d="M63.9,266.0 L63.7,266.2 L63.4,265.8 L62.7,265.9 L62.5,265.4 L62.2,265.5 L61.9,265.1 L62.1,264.5 L61.6,264.0 L62.0,263.5 M63.2,236.8 L63.0,236.2 L63.8,236.0 L64.0,235.1 L61.5,234.5 M74.3,222.5 L75.7,222.7 L75.7,223.9 L76.4,224.6 L76.8,224.4 L76.7,223.5 L78.0,224.2 L78.3,224.0 L78.3,223.2 L78.6,223.1 L79.4,224.8 L79.8,224.4 L79.6,223.6 L80.7,223.0 L80.3,222.2 L81.0,221.3 M63.0,259.1 L63.8,258.4 L65.4,258.6 L65.1,257.9 L66.0,257.5 L65.8,256.7 L66.7,256.6 L66.7,256.0 L67.8,256.0 L67.3,255.5 L67.6,254.9 L67.1,254.6 L67.2,254.0 L67.5,253.5 L68.4,253.3 L69.3,251.2 L68.9,250.5 L67.5,250.1 L67.1,250.2 L67.0,251.2 L66.7,251.2 M89.7,225.7 L91.2,225.1 L91.2,226.2 L90.8,226.9 L91.5,227.6 L92.6,227.5 L94.1,226.6 M127.1,241.1 L127.9,242.3 L127.7,242.9 L127.1,242.8 L126.2,241.9 L125.0,242.7 L125.3,243.5 L125.9,244.1 L129.0,243.6 L130.3,244.0 L130.8,243.0 M105.2,226.6 L105.9,226.5 L107.2,227.4 L109.5,227.7 L109.8,227.2 L109.3,226.5 L110.1,226.1 L110.1,225.4 L109.8,225.1 L110.0,225.0 M142.5,247.2 L142.8,248.0 L142.2,248.4 L141.5,248.3 L140.6,247.5 L141.0,249.3 L140.1,250.1 L142.0,250.7 L142.5,249.7 L143.0,249.8 L143.2,250.5 L142.1,252.3 L142.7,253.0 L143.8,252.9 L144.8,252.0 L145.3,252.5 M157.3,258.2 L157.9,258.7 L157.9,259.8 L157.4,260.2 L156.0,259.8 L156.1,261.0 L157.9,261.9 L158.5,260.7 L159.1,260.5 M145.3,252.5 L145.8,253.4 L147.2,254.0 L149.2,254.2 L148.6,253.3 L149.1,252.7 L149.9,253.3 M189.0,283.7 L189.6,285.0 L189.5,285.5 L188.6,285.6 L187.2,286.4 L188.2,287.2 L187.9,288.4 L188.4,288.5 L188.9,287.9 L189.3,288.0 L189.6,289.1 L190.3,289.2 L190.5,288.6 L189.8,287.9 L189.9,287.4 L190.7,287.0 L192.0,287.2 L192.4,287.8 L191.1,288.5 L191.3,288.9 L192.4,289.3 L191.6,290.5 M161.3,263.3 L163.5,263.9 L164.1,265.1 L165.6,264.6 L166.0,264.7 L167.0,265.9 L166.6,267.1 L167.8,266.4 L168.8,266.9 M181.7,279.3 L182.9,279.9 M174.5,273.1 L175.7,274.0 L175.8,274.5"/><path class="selva-territorio-rio-linea" pathLength="1000" d="M63.9,266.0 L63.7,266.2 L63.4,265.8 L62.7,265.9 L62.5,265.4 L62.2,265.5 L61.9,265.1 L62.1,264.5 L61.6,264.0 L62.0,263.5 M63.2,236.8 L63.0,236.2 L63.8,236.0 L64.0,235.1 L61.5,234.5 M74.3,222.5 L75.7,222.7 L75.7,223.9 L76.4,224.6 L76.8,224.4 L76.7,223.5 L78.0,224.2 L78.3,224.0 L78.3,223.2 L78.6,223.1 L79.4,224.8 L79.8,224.4 L79.6,223.6 L80.7,223.0 L80.3,222.2 L81.0,221.3 M63.0,259.1 L63.8,258.4 L65.4,258.6 L65.1,257.9 L66.0,257.5 L65.8,256.7 L66.7,256.6 L66.7,256.0 L67.8,256.0 L67.3,255.5 L67.6,254.9 L67.1,254.6 L67.2,254.0 L67.5,253.5 L68.4,253.3 L69.3,251.2 L68.9,250.5 L67.5,250.1 L67.1,250.2 L67.0,251.2 L66.7,251.2 M89.7,225.7 L91.2,225.1 L91.2,226.2 L90.8,226.9 L91.5,227.6 L92.6,227.5 L94.1,226.6 M127.1,241.1 L127.9,242.3 L127.7,242.9 L127.1,242.8 L126.2,241.9 L125.0,242.7 L125.3,243.5 L125.9,244.1 L129.0,243.6 L130.3,244.0 L130.8,243.0 M105.2,226.6 L105.9,226.5 L107.2,227.4 L109.5,227.7 L109.8,227.2 L109.3,226.5 L110.1,226.1 L110.1,225.4 L109.8,225.1 L110.0,225.0 M142.5,247.2 L142.8,248.0 L142.2,248.4 L141.5,248.3 L140.6,247.5 L141.0,249.3 L140.1,250.1 L142.0,250.7 L142.5,249.7 L143.0,249.8 L143.2,250.5 L142.1,252.3 L142.7,253.0 L143.8,252.9 L144.8,252.0 L145.3,252.5 M157.3,258.2 L157.9,258.7 L157.9,259.8 L157.4,260.2 L156.0,259.8 L156.1,261.0 L157.9,261.9 L158.5,260.7 L159.1,260.5 M145.3,252.5 L145.8,253.4 L147.2,254.0 L149.2,254.2 L148.6,253.3 L149.1,252.7 L149.9,253.3 M189.0,283.7 L189.6,285.0 L189.5,285.5 L188.6,285.6 L187.2,286.4 L188.2,287.2 L187.9,288.4 L188.4,288.5 L188.9,287.9 L189.3,288.0 L189.6,289.1 L190.3,289.2 L190.5,288.6 L189.8,287.9 L189.9,287.4 L190.7,287.0 L192.0,287.2 L192.4,287.8 L191.1,288.5 L191.3,288.9 L192.4,289.3 L191.6,290.5 M161.3,263.3 L163.5,263.9 L164.1,265.1 L165.6,264.6 L166.0,264.7 L167.0,265.9 L166.6,267.1 L167.8,266.4 L168.8,266.9 M181.7,279.3 L182.9,279.9 M174.5,273.1 L175.7,274.0 L175.8,274.5"/></g><g class="selva-territorio-rio" data-mapa-feature="heath" role="button" tabindex="0" aria-label="Río Heath" aria-pressed="false"><title>Río Heath</title><path class="selva-territorio-rio-hit" d="M402.4,366.1 L402.3,365.2 M402.0,358.0 L402.5,357.6 L403.3,358.0 L403.6,357.7 L402.2,357.1 L402.9,355.6 L402.4,355.0 L403.1,354.5 L402.4,353.8 L403.3,352.5 L402.6,352.2"/><path class="selva-territorio-rio-linea" pathLength="1000" d="M402.4,366.1 L402.3,365.2 M402.0,358.0 L402.5,357.6 L403.3,358.0 L403.6,357.7 L402.2,357.1 L402.9,355.6 L402.4,355.0 L403.1,354.5 L402.4,353.8 L403.3,352.5 L402.6,352.2"/></g></g></g><g class="selva-territorio-orientacion" aria-hidden="true"><path d="M722 72V42m-6 9 6-9 6 9"/><text x="722" y="32">N</text></g><text class="selva-territorio-region-label" x="390" y="412">MADRE DE DIOS</text><g class="selva-territorio-simbolos"><text x="390" y="446">Ambientes ilustrativos · sin ubicación cartográfica</text><g class="selva-territorio-simbolo" data-mapa-feature="tierra" role="button" tabindex="0" aria-pressed="false" aria-label="Bosque de tierra firme" transform="translate(100,485)"><circle r="27"/><path d="M-10 12V-8M-17 4l7-16L-3 4ZM0 12h15M8 12V-3M1 5l7-15 7 15Z"/></g><g class="selva-territorio-simbolo" data-mapa-feature="inundable" role="button" tabindex="0" aria-pressed="false" aria-label="Bosque inundable" transform="translate(245,485)"><circle r="27"/><path d="M-15 7l6-14 6 14ZM-9 7v6M-18 17q5-4 10 0t10 0t10 0"/></g><g class="selva-territorio-simbolo" data-mapa-feature="aguajal" role="button" tabindex="0" aria-pressed="false" aria-label="Aguajal" transform="translate(390,485)"><circle r="27"/><path d="M0 18V-9M0-9q-12-11-18 1M0-9q12-11 18 1M0-9q-9-2-13 10M0-9q9-2 13 10"/></g><g class="selva-territorio-simbolo" data-mapa-feature="secundario" role="button" tabindex="0" aria-pressed="false" aria-label="Bosque secundario" transform="translate(535,485)"><circle r="27"/><path d="M0 18V-2M0 5Q-20 5-14-8 0-8 0 5ZM0 0Q20 0 14-13 0-13 0 0"/></g><g class="selva-territorio-simbolo" data-mapa-feature="cocha" role="button" tabindex="0" aria-pressed="false" aria-label="Cocha / lago de herradura" transform="translate(680,485)"><circle r="27"/><path d="M-18 5C-18-13 18-13 18 5M-12 5C-12-5 12-5 12 5M-18 5h6M12 5h6"/></g></g></svg>
+                    <figcaption>Límite referencial y trazados simplificados. Los símbolos de ambientes no representan su ubicación ni extensión.</figcaption>
+                </figure>
+                <div class="selva-territorio-panel" id="territorio-panel" role="tabpanel" aria-labelledby="territorio-tab-bosques">
+                    <h3 class="selva-territorio-panel-titulo">Bosques</h3>
+                    <p class="selva-territorio-panel-intro">Explora ambientes forestales que pueden solaparse.</p>
+                    <div class="selva-territorio-opciones"></div>
+                    <div class="selva-territorio-ficha" aria-live="polite" aria-atomic="true"></div>
+                </div>
+            </div>
+            <p class="selva-territorio-aviso">Mapa educativo elaborado por EcoSelva a partir de información cartográfica de MINAM, ANA y SERNANP. No sustituye cartografía oficial.</p>
+            <details class="selva-territorio-fuentes"><summary>Fuentes y años →</summary>
+                <ul>
+                    <li><a href="https://geoportal.sernanp.gob.pe/wp-content/uploads/2023/01/Mapa-Departamental-de-Madre-de-Dios-ANP-y-ACP.pdf" target="_blank" rel="noopener noreferrer">SERNANP · mapa departamental de ANP y ACP</a> · elaborado el 17 de diciembre de 2025. Referencia territorial.</li>
+                    <li><a href="https://geoservidorperu.minam.gob.pe/arcgis/rest/services/ServicioBase/MapServer" target="_blank" rel="noopener noreferrer">MINAM · ServicioBase, Departamento</a>. Geometría del límite; año y escala de origen no indicados en las capas consultadas. Consulta: octubre de 2026. Simplificación del servicio a 0,005° y transformación a SVG; sin escala métrica.</li>
+                    <li><a href="https://www.ana.gob.pe/sites/default/files/publication/files/diagnostico_hidrologico_-madre_de_dios_0.pdf" target="_blank" rel="noopener noreferrer">ANA · Diagnóstico hidrológico de la cuenca Madre de Dios</a> · agosto de 2010. Referencia hidrográfica; no aporta geometrías a este SVG.</li>
+                    <li><a href="https://sinia.minam.gob.pe/sites/default/files/sinia/archivos/public/docs/memoria_mapa_ecosistemas.pdf" target="_blank" rel="noopener noreferrer">MINAM / SINIA · Mapa Nacional de Ecosistemas, memoria descriptiva</a> · aprobado en 2018; edición de 2019. Referencia conceptual de ambientes.</li>
+                    <li><a href="https://geobosques.minam.gob.pe/geobosque/descargas_geobosque/perdida/documentos/Reporte_cobertura_de_bosques_y_perdida_2023.pdf" target="_blank" rel="noopener noreferrer">MINAM / GeoBosques · cobertura y pérdida de bosques, datos 2023</a>. Referencia temática; no se muestran cifras ni polígonos de cobertura.</li>
+                    <li><a href="https://sinia.minam.gob.pe/sites/default/files/sinia/archivos/public/docs/vii_foro_mundial_del_agua_corea_2015.pdf" target="_blank" rel="noopener noreferrer">SINIA · reporte del VII Foro Mundial del Agua, 2015</a>. Mapa nacional de humedales con fuente de 2012; referencia temática histórica, sin delimitaciones precisas en este SVG.</li>
+                </ul>
+                <p><a href="https://www.idep.gob.pe/geoportal/rest/services/INSTITUCIONALES/IDER_AMAZONICOS/MapServer/41" target="_blank" rel="noopener noreferrer">IDEP · IDER Amazónicos, Ríos</a>: recorridos nominales de los seis ríos; año y escala de origen no indicados. Consulta: octubre de 2026. Simplificación a 0,002° y recorte al límite referencial.</p><p>Los ambientes son símbolos ilustrativos, no polígonos cartográficos.</p>
+                <p>Última revisión de fuentes: octubre de 2026.</p>
+            </details>
+            <template id="selva-territorio-mapa-tecnico-futuro"><!-- Reservado para un futuro enlace institucional «Ver mapa técnico ↗». --></template>
+            <template id="selva-territorio-experiencia-anterior">    <section class="selva-explora reveal" id="explora-madre-de-dios">
+        <div class="container">
+            <p class="selva-microetiqueta">Conoce</p>
+            <h2>Explora Madre de Dios</h2>
+            <p class="selva-seccion-intro">Del bosque de tierra firme a las cochas: un recorrido por sus distintos ambientes.</p>
+            <div class="selva-explora-layout">
+                <figure class="selva-explora-fotografia">
+                    <img src="imagenesEco/bg-hero.jpg" alt="Río amazónico rodeado de bosque en Madre de Dios" loading="lazy" decoding="async">
+                    <figcaption>Ríos y bosques · Madre de Dios</figcaption>
+                    <div class="selva-explora-puntos" role="group" aria-label="Explora ecosistemas en la fotografía">
+                        <button class="selva-explora-hotspot selva-explora-hotspot--tierra-firme" type="button" aria-label="Bosque de tierra firme" aria-expanded="false" aria-controls="selva-ficha-tierra-firme" aria-describedby="selva-ficha-tierra-firme">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-tierra-firme" aria-hidden="true"><strong>Bosque de tierra firme</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                        <button class="selva-explora-hotspot selva-explora-hotspot--inundable" type="button" aria-label="Bosque inundable" aria-expanded="false" aria-controls="selva-ficha-inundable" aria-describedby="selva-ficha-inundable">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-inundable" aria-hidden="true"><strong>Bosque inundable</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                        <button class="selva-explora-hotspot selva-explora-hotspot--aguajal" type="button" aria-label="Aguajal" aria-expanded="false" aria-controls="selva-ficha-aguajal" aria-describedby="selva-ficha-aguajal">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-aguajal" aria-hidden="true"><strong>Aguajal</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                        <button class="selva-explora-hotspot selva-explora-hotspot--rios" type="button" aria-label="Ríos y quebradas" aria-expanded="false" aria-controls="selva-ficha-rios" aria-describedby="selva-ficha-rios">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-rios" aria-hidden="true"><strong>Ríos y quebradas</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                        <button class="selva-explora-hotspot selva-explora-hotspot--cochas" type="button" aria-label="Cochas" aria-expanded="false" aria-controls="selva-ficha-cochas" aria-describedby="selva-ficha-cochas">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-cochas" aria-hidden="true"><strong>Cochas</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                        <button class="selva-explora-hotspot selva-explora-hotspot--secundarios" type="button" aria-label="Bosques secundarios" aria-expanded="false" aria-controls="selva-ficha-secundarios" aria-describedby="selva-ficha-secundarios">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-secundarios" aria-hidden="true"><strong>Bosques secundarios</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                    </div>
+                </figure>
+                <div class="selva-explora-contenido">
+                    <p class="selva-explora-nota">Elige un ambiente para consultar el estado de su ficha.</p>
+                    <ul class="selva-explora-ecosistemas" aria-label="Ecosistemas para explorar">
+                        <li>Bosques de tierra firme</li>
+                        <li>Bosques inundables</li>
+                        <li>Aguajal</li>
+                        <li>Ríos y quebradas</li>
+                        <li>Cochas</li>
+                        <li>Bosques secundarios</li>
+                    </ul>
+                    <p class="selva-explora-estado">Los detalles de cada ambiente estarán disponibles próximamente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</template>
+        </div>
+    </section>
+
+
+    <section class="info-1" id="quienes-somos">
+        <div class="info-content container">
+            <div class="selva-sobre-layout">
+                <div class="selva-sobre-presentacion">
+                    <div class="selva-sobre-contenido">
+                    <p class="selva-microetiqueta selva-microetiqueta--clara">Nuestra iniciativa</p>
+                    <h2>Sobre EcoSelva</h2>
+                    <p class="selva-sobre-principal">EcoSelva Madre de Dios es una iniciativa de educación ambiental que pone el conocimiento sobre el territorio al alcance de la comunidad.</p>
+                    <p>Reunimos información sobre especies, paisajes y desafíos de la Amazonía sur, con referencias que permiten ampliar la lectura.</p>
+                    <p class="selva-lema"><strong>Educar para Preservar</strong></p>
+                    <p>Creemos en una educación que conecte lo que aprendemos con el cuidado de nuestro entorno.</p>
+                </div>
+                    <div class="selva-sobre-imagen">
+                    <img src="imagenesEco/sobre-ecoselva.jpg" alt="Camino entre árboles al atardecer, una experiencia personal que inspira EcoSelva" loading="lazy">
+                </div>
+                </div>
+                <div class="selva-sobre-proposito">
+                    <article class="selva-sobre-bloque" aria-labelledby="selva-sobre-mision">
+                        <h3 id="selva-sobre-mision"><svg class="selva-sobre-icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 20c1-7 5-11 12-15M5 16C1 8 9 3 21 3c0 12-6 19-13 15"/></svg>Misión</h3>
+                        <p>Acercar el conocimiento sobre la biodiversidad y el ambiente de Madre de Dios mediante contenidos educativos claros y confiables que promuevan su valoración y conservación.</p>
+                    </article>
+                    <article class="selva-sobre-bloque" aria-labelledby="selva-sobre-vision">
+                        <h3 id="selva-sobre-vision"><svg class="selva-sobre-icono" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg>Visión</h3>
+                        <p>Ser un referente de educación ambiental sobre Madre de Dios y la Amazonía sur, acercando el conocimiento científico y ambiental a más personas.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="selva-investigaciones reveal" id="investigaciones">
+        <video class="selva-investigaciones-video" muted loop playsinline preload="metadata" poster="imagenesEco/investigaciones-poster.jpg" aria-hidden="true" tabindex="-1">
+            <source data-src="videos/investigaciones-ecoselva.webm" type="video/webm">
+            <source data-src="videos/investigaciones-ecoselva.mp4" type="video/mp4">
+        </video>
+        <div class="container selva-investigaciones-contenido">
+            <p class="selva-microetiqueta">Ciencia</p>
+            <h2>Investigaciones</h2>
+            <p class="selva-investigaciones-editorial">Conocimiento generado desde y sobre el territorio.</p>
+            <p class="selva-proximamente">Próximamente encontrarás estudios, proyectos y experiencias de la región explicados para un público amplio. Este espacio estará dedicado a la divulgación, no a la publicación de una revista científica.</p>
+            <span class="selva-investigaciones-etiqueta">Próximamente</span>
+        </div>
+    </section>
+
+    <section class="selva-colabora reveal" id="colabora">
+        <div class="container">
+            <div class="selva-colabora-encabezado">
+                <p class="selva-microetiqueta">Participa</p>
+                <h2>Colabora con EcoSelva</h2>
+                <p>¿Tienes una investigación que compartir? Convierte sus hallazgos en una lectura accesible y ayuda a que lleguen a más personas.</p>
+            </div>
+
+            <div class="selva-colabora-informacion">
+                <article class="selva-colabora-bloque">
+                    <h3>¿Quién puede participar?</h3>
+                    <p>Estudiantes, tesistas y profesionales con trabajos sobre Madre de Dios y la Amazonía del sur del Perú.</p>
+                </article>
+                <article class="selva-colabora-bloque">
+                    <h3>Qué debe incluir tu resumen</h3>
+                    <ul>
+                        <li>Ubicación y tema del estudio dentro de ese ámbito geográfico.</li>
+                        <li>Lenguaje sencillo: qué estudiaste, qué encontraste y por qué importa.</li>
+                        <li>Entre 200 y 300 palabras.</li>
+                        <li>Trabajo propio, o con autorización de los demás autores.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="selva-colabora-proceso">
+                <h3>Cómo funciona</h3>
+                <ol>
+                    <li>
+                        <strong>Envía tu resumen.</strong>
+                        <span>Completa el formulario con los datos de tu investigación.</span>
+                    </li>
+                    <li>
+                        <strong>Lo revisamos.</strong>
+                        <span>Verificamos que el tema sea de la región y que el texto sea claro.</span>
+                    </li>
+                    <li>
+                        <strong>Lo publicamos.</strong>
+                        <span>Aparece en la sección Investigaciones con tu nombre, tu institución y tu foto.</span>
+                    </li>
+                </ol>
+            </div>
+
+            <aside class="selva-colabora-compromiso">
+                <h3>Nuestro compromiso</h3>
+                <p>Conservas la autoría de tu trabajo. Cada aporte llevará los créditos correspondientes y, si lo facilitas, un enlace al documento completo.</p>
+            </aside>
+
+            <div class="selva-colabora-accion">
+                <a class="btn-1 selva-colabora-boton" href="ENLACE_DEL_FORMULARIO" target="_blank" rel="noopener noreferrer">Enviar mi investigación</a>
+                <small>Se abre un formulario en una pestaña nueva.</small>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer" id="contacto">
+        <div class="container selva-footer-layout">
+            <div class="selva-footer-identidad">
+                <a href="#inicio" class="selva-footer-logo" aria-label="EcoSelva Madre de Dios, inicio">
+                    <img src="imagenesEco/logo-ecoselva-educacion.png" alt="EcoSelva Madre de Dios · Educar para Preservar" loading="lazy">
+                </a>
+                <p class="selva-footer-nombre"><strong>EcoSelva Madre de Dios</strong></p>
+                <p class="selva-footer-lema">Educar para Preservar</p>
+                <p class="selva-footer-descripcion">Historias, datos y recursos para aprender sobre nuestra Amazonía.</p>
+                <nav class="selva-footer-nav" aria-label="Navegación secundaria">
+                    <a href="#quienes-somos">Sobre EcoSelva</a>
+                    <a href="#investigaciones">Investigaciones</a>
+                    <a href="#colabora">Colabora</a>
+                </nav>
+                <div class="selva-redes" aria-label="Redes sociales">
+                    <span role="img" aria-label="Facebook, cuenta oficial próximamente" title="Cuenta oficial próximamente">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.3-.1-2.4-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4v3.2h2.8V21h3.3Z"/></svg>
+                    </span>
+                    <span role="img" aria-label="Instagram, cuenta oficial próximamente" title="Cuenta oficial próximamente">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.3-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+                    </span>
+                    <span role="img" aria-label="YouTube, cuenta oficial próximamente" title="Cuenta oficial próximamente">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
+                    </span>
+                </div>
+            </div>
+            <div class="selva-footer-contacto">
+                <p class="selva-microetiqueta selva-microetiqueta--clara">Conversemos</p>
+                <h2>Contacto</h2>
+                <p class="selva-contacto-intro">Déjanos tus consultas o sugerencias. Para compartir un estudio, revisa los requisitos en <a href="#colabora">Colabora</a>.</p>
+                <form>
+                    <input class="campo" type="text" name="nombre" placeholder="Nombre" aria-label="Nombre">
+                    <input class="campo" type="email" name="correo" placeholder="Correo electrónico" aria-label="Correo electrónico">
+                    <textarea class="campo" name="mensaje" placeholder="Mensaje" aria-label="Mensaje" rows="1"></textarea>
+                    <input type="submit" class="btn-2" value="Enviar mensaje">
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <div class="selva-pie-final">
+        <div class="container selva-pie-final-contenido">
+            <p>© <span id="selva-anio-actual"></span> EcoSelva Madre de Dios · Educar para Preservar</p>
+        </div>
+    </div>
+
+    <button class="selva-volver-arriba" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>

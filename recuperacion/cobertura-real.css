@@ -1,0 +1,23 @@
+﻿/* Bosques: cobertura cartográfica real de 2015, exclusiva por modo. */
+#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-opciones { display: flex; flex-direction: column; gap: 7px; max-height: 345px; overflow-y: auto; padding: 2px 6px 3px 2px; scrollbar-width: thin; scrollbar-color: #9baea0 #eef3ef; }
+#explora-madre-de-dios [data-territorio-activo='bosques'] [data-territorio-bosques-todos] { position: sticky; top: 0; z-index: 1; flex-shrink: 0; background: #f4f8f5; min-height: 38px; }
+#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-acceso { flex-shrink: 0; }
+#explora-madre-de-dios .selva-territorio-bosque-real { cursor: pointer; opacity: .9; transition: opacity .2s ease; stroke: transparent; stroke-width: .2; }
+#explora-madre-de-dios .selva-territorio-bosque-real path { vector-effect: non-scaling-stroke; }
+#explora-madre-de-dios .selva-territorio-bosque-real.is-selected { stroke: #163d2b; stroke-width: 1; }
+#explora-madre-de-dios .selva-territorio-bosque-real.is-highlighted,
+#explora-madre-de-dios .selva-territorio-bosque-real:focus-visible { stroke: #f8f8e9; stroke-width: 1.8; outline: none; }
+#explora-madre-de-dios [data-territorio-scene='bosques'] rect { display: none; }
+#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-items: start; gap: 8px 14px; }
+#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda-item { align-items: flex-start; font-size: 10px; line-height: 1.5; }
+#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda-item > svg { flex-shrink: 0; }
+#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-color { margin-top: 2px; }
+#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda-item.is-muted span { color: #78847b; }
+#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda-item[aria-current='true'] span { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+#explora-madre-de-dios .selva-territorio-leyenda-aviso { grid-column: 1 / -1; }
+#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-provincias-limites { filter: drop-shadow(0 0 .5px rgba(255,255,255,.75)); }
+#explora-madre-de-dios .selva-territorio-fuente-cobertura { margin-top: 20px; padding-top: 15px; border-top: 1px solid #dce4de; }
+#explora-madre-de-dios .selva-territorio-fuente-cobertura h4 { font-size: 14px; }
+@media (max-width: 760px) { #explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 360px) { #explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda { grid-template-columns: minmax(0,1fr); } }
+@media (prefers-reduced-motion: reduce) { #explora-madre-de-dios .selva-territorio-bosque-real { transition: none; } }

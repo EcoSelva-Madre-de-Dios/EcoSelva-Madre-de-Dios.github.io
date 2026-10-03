@@ -1,0 +1,15 @@
+{
+    "escala":  {
+                   "alcance":  "Escala gráfica aproximada, actualizada según la matriz de pantalla del SVG",
+                   "sistema":  "EPSG:32719",
+                   "metros_por_unidad_svg":  907.18784627906632,
+                   "derivacion":  "Altura proyectada de DISTRITOS_MDD dividida entre los 430 puntos del alto cartográfico generado por procesar-territorio-gdb.py"
+               },
+    "detalles_agua":  "Copia de la geometría cartográfica original con viewBox ajustado, sin cambiar su forma",
+    "etiquetas":  "Ancladas a puntos calculados sobre las geometrías reales; desplazamientos de texto solo para legibilidad.",
+    "cartografia":  "Capas originales de la GDB; geometrías sin cambios",
+    "referencias_diseno":  [
+                               "https://www.esri.com/arcgis-blog/products/story-maps/constituent-engagement/set-your-web-maps-and-scenes-up-for-success-in-arcgis-storymaps",
+                               "https://docs.mapbox.com/help/dive-deeper/map-design/"
+                           ]
+}

@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoSelva Madre de Dios</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header class="header" id="inicio">
+        <div class="menu container">
+            <a href="#inicio" class="logo" aria-label="EcoSelva Madre de Dios, inicio">
+                <img src="imagenesEco/logo-ecoselva-educacion.png" alt="EcoSelva Madre de Dios - Educar para Preservar">
+            </a>
+            <input type="checkbox" id="menu">
+            <label for="menu" aria-label="Abrir o cerrar menú">
+                <img src="images/menu.png" class="menu-icono" alt="">
+            </label>
+            <nav class="navbar">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#sabias-que">Aprende</a></li>
+                    <li><a href="#programas">Biodiversidad</a></li>
+                    <li><a href="#ambiente">Ambiente</a></li>
+                    <li class="selva-nav-desplegable">
+                        <details>
+                            <summary>EcoSelva <span aria-hidden="true">▾</span></summary>
+                            <ul>
+                                <li><a href="#quienes-somos">Sobre EcoSelva</a></li>
+                                <li><a href="#investigaciones">Investigaciones</a></li>
+                                <li><a href="#colabora">Colabora</a></li>
+                            </ul>
+                        </details>
+                    </li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="header-content container">
+            <div class="header-txt">
+                <p class="selva-hero-kicker">Madre de Dios · Amazonía peruana</p>
+                <h1 class="hero-titulo">Nuestra selva,<br>nuestro futuro</h1>
+                <svg class="selva-rio-trazo" viewBox="0 0 360 34" role="img" aria-label="Línea inspirada en los ríos de la Amazonía">
+                    <path d="M3 18c42-19 65 17 106-2s58-18 83-2 49 20 75 1 53-14 90 1" />
+                </svg>
+                <p class="hero-descripcion">Educación ambiental para conocer, valorar y preservar Madre de Dios.</p>
+                <a href="#sabias-que" class="btn-1">Descubre la selva <span aria-hidden="true">→</span></a>
+            </div>  
+        </div>
+        <a class="selva-hero-descubre" href="#selva-introduccion"><span aria-hidden="true">↓</span> Descubre</a>
+    </header>
+
+    <section class="selva-introduccion reveal" id="selva-introduccion">
+        <div class="container">
+            <p class="selva-microetiqueta selva-microetiqueta--agua">Una expedición digital por Madre de Dios</p>
+            <h2>La Amazonía no es solamente un bosque.</h2>
+            <p>Es agua, fauna, flora, personas, ciencia y vida.</p>
+            <a href="#sabias-que">Explora <span aria-hidden="true">↓</span></a>
+        </div>
+    </section>
+
+    <section class="selva-curiosidades reveal" id="sabias-que">
+        <div class="container">
+            <p class="selva-microetiqueta">Descubre</p>
+            <h2>¿Sabías que...?</h2>
+            <p class="selva-seccion-intro">Madre de Dios es mucho más que un gran bosque. Descubre historias breves sobre su flora, fauna, ecosistemas, agua, conservación y los desafíos ambientales que transforman nuestro territorio.</p>
+            <div class="selva-flip-grid">
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-flora selva-flip-toggle" type="button" aria-label="Flora: Un bosque que también alimenta" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/castana-commons-745.jpg" srcset="images/castana-commons-480.jpg 480w, images/castana-commons-745.jpg 745w" sizes="(max-width: 640px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 64px) / 2), 389px" alt="Fruto abierto y semillas de castaña amazónica (Bertholletia excelsa); parte del fruto está reconstruida en la imagen." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Flora</span><span class="selva-flip-frente-titulo">Un bosque que también alimenta</span></span>
+                            <small class="selva-curiosidad-foto-credito">Fotografía: P. S. Sena (edición: RoRo) — Wikimedia Commons · CC BY-SA 4.0 · optimizada por EcoSelva.</small>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">La castaña amazónica</strong><em class="selva-curiosidad-taxonomia">Bertholletia excelsa</em></span>
+                            <span class="selva-curiosidad-texto">La castaña amazónica (<em>Bertholletia excelsa</em>) es una de las especies características de los bosques de Madre de Dios. En la Reserva Nacional Tambopata, los castañales forman parte de los ambientes protegidos y su aprovechamiento se realiza bajo manejo orientado al uso sostenible del recurso.</span>
+                            <span class="selva-curiosidad-frase">Conservar el bosque también puede significar aprender a aprovecharlo responsablemente.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Flora</span><span>Bosque</span><span>Castaña</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuentes">
+                                <span class="selva-curiosidad-fuentes-label">Fuentes:</span>
+                                <a href="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" target="_blank" rel="noopener noreferrer" aria-label="SERNANP, Reserva Nacional Tambopata" data-source-institution="SERNANP" data-source-title="Reserva Nacional Tambopata" data-source-publication-date="" data-source-original-url="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" data-eco-review-date="2026-10">Reserva Nacional Tambopata</a>
+                                <a href="https://www.gob.pe/institucion/sernanp/normas-legales/6374223-006-2025-sernanp-dganp" target="_blank" rel="noopener noreferrer" aria-label="SERNANP, Plan de Manejo del recurso Castaña, Resolución Directoral N.° 006-2025-SERNANP-DGANP" data-source-institution="SERNANP" data-source-title="Plan de Manejo del recurso Castaña, Resolución Directoral N.° 006-2025-SERNANP-DGANP" data-source-publication-date="2025" data-source-original-url="https://www.gob.pe/institucion/sernanp/normas-legales/6374223-006-2025-sernanp-dganp" data-eco-review-date="2026-10">Plan de Manejo (2025)</a>
+                            </span>
+                            <span class="selva-curiosidad-fuentes selva-curiosidad-licencia-foto" aria-label="Crédito y licencia fotográfica">
+                                <span class="selva-curiosidad-fuentes-label">Fotografía:</span>
+                                <a href="https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_fruit_and_seeds.jpg" target="_blank" rel="noopener noreferrer" aria-label="P. S. Sena, edición de RoRo, en Wikimedia Commons">P. S. Sena · edición: RoRo — Wikimedia Commons</a>
+                                <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Revisado por EcoSelva: octubre de 2026</small>
+                        </span>
+                    </span>
+                </article>
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-fauna selva-flip-toggle" type="button" aria-label="Fauna: El jaguar aún recorre estos bosques" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/jaguar-madre-de-dios.jpg" alt="Jaguar (Panthera onca) en el río Los Amigos, Madre de Dios, Perú." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Fauna</span><span class="selva-flip-frente-titulo">El jaguar aún recorre estos bosques</span></span>
+                            <small class="selva-curiosidad-foto-credito">Fotografía: Geoff Gallice — Wikimedia Commons · CC BY 2.0</small>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">Jaguar</strong><em class="selva-curiosidad-taxonomia">Panthera onca</em></span>
+                            <span class="selva-curiosidad-texto">El jaguar (<em>Panthera onca</em>) forma parte de la fauna registrada en la Reserva Nacional Tambopata. En estos bosques comparte territorio con otros felinos, primates, sachavacas y una extraordinaria diversidad de fauna amazónica.</span>
+                            <span class="selva-curiosidad-frase">Proteger grandes extensiones de bosque ayuda a conservar el hábitat de la fauna silvestre.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Fauna</span><span>Mamíferos</span><span>Jaguar</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuente">
+                                <a href="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" target="_blank" rel="noopener noreferrer" aria-label="Fuente: SERNANP, Reserva Nacional Tambopata" data-source-institution="SERNANP" data-source-title="Reserva Nacional Tambopata" data-source-publication-date="" data-source-original-url="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" data-eco-review-date="2026-10">Fuente: SERNANP</a>
+                            </span>
+                            <span class="selva-curiosidad-fuentes selva-curiosidad-licencia-foto" aria-label="Crédito y licencia fotográfica">
+                                <span class="selva-curiosidad-fuentes-label">Fotografía:</span>
+                                <a href="https://commons.wikimedia.org/wiki/File:Jaguar_Madre_de_Dios_Peru.jpg" target="_blank" rel="noopener noreferrer">Geoff Gallice — Wikimedia Commons</a>
+                                <a href="https://www.flickr.com/photos/dejeuxx/8906455071/" target="_blank" rel="noopener noreferrer">Original en Flickr</a>
+                                <a href="https://creativecommons.org/licenses/by/2.0/" target="_blank" rel="noopener noreferrer">CC BY 2.0</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Revisado por EcoSelva: octubre de 2026</small>
+                        </span>
+                    </span>
+                </article>
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-ecosistemas selva-flip-toggle" type="button" aria-label="Ecosistemas: La Amazonía no es un solo bosque" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/ecosistema-ecoselva.jpg" alt="Pequeña laguna rodeada de palmeras y vegetación amazónica, con cielo azul despejado." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Ecosistemas</span><span class="selva-flip-frente-titulo">La Amazonía no es un solo bosque</span></span>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">Ecosistemas de Tambopata</strong></span>
+                            <span class="selva-curiosidad-texto">El paisaje amazónico de Madre de Dios reúne ambientes muy diferentes. En la Reserva Nacional Tambopata existen aguajales, pacales, castañales, bosques de terraza, bosques ribereños, collpas y cochas, formando un mosaico de ambientes para la biodiversidad.</span>
+                            <span class="selva-curiosidad-frase">Conocer la Amazonía también significa descubrir la diversidad de sus paisajes.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Ecosistemas</span><span>Paisaje</span><span>Amazonía</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuente">
+                                <a href="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" target="_blank" rel="noopener noreferrer" aria-label="Fuente: SERNANP, Reserva Nacional Tambopata" data-source-institution="SERNANP" data-source-title="Reserva Nacional Tambopata" data-source-publication-date="" data-source-original-url="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" data-eco-review-date="2026-10">Fuente: SERNANP</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Revisado por EcoSelva: octubre de 2026</small>
+                        </span>
+                    </span>
+                </article>
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-agua selva-flip-toggle" type="button" aria-label="Agua: Hay lagos que alguna vez fueron río" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/agua-madre-de-dios.jpg" alt="Vista satelital de un río amazónico sinuoso entre bosque y zonas intervenidas." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Agua</span><span class="selva-flip-frente-titulo">Hay lagos que alguna vez fueron río</span></span>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">Lagos de herradura</strong></span>
+                            <span class="selva-curiosidad-texto">En Tambopata existen lagos de herradura formados a partir de antiguos brazos de río. La movilidad natural de los cauces amazónicos puede aislar parte de un meandro y originar estos ambientes acuáticos, donde habitan peces, aves, reptiles y mamíferos.</span>
+                            <span class="selva-curiosidad-frase">En la Amazonía, los ríos no solo atraviesan el paisaje: también ayudan a transformarlo.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Agua</span><span>Ríos</span><span>Cochas</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuente">
+                                <a href="https://visitaareasnaturales.sernanp.gob.pe/anps/reserva-nacional-tambopata/" target="_blank" rel="noopener noreferrer" aria-label="Fuente: SERNANP, Reserva Nacional Tambopata, portal Visita Áreas Naturales" data-source-institution="SERNANP" data-source-title="Reserva Nacional Tambopata, portal Visita Áreas Naturales" data-source-publication-date="" data-source-original-url="https://visitaareasnaturales.sernanp.gob.pe/anps/reserva-nacional-tambopata/" data-eco-review-date="2026-10">Fuente: SERNANP</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Revisado por EcoSelva: octubre de 2026</small>
+                        </span>
+                    </span>
+                </article>
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-desafios selva-flip-toggle" type="button" aria-label="Ambiente: El territorio también guarda las huellas de nuestras actividades" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/pampa-ecoselva.jpg" alt="Imagen satelital de La Pampa y su entorno amazónico, con bosque, áreas intervenidas y cursos de agua." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Ambiente</span><span class="selva-flip-frente-titulo">El territorio también guarda las huellas de nuestras actividades</span></span>
+                            <small class="selva-curiosidad-credito">Imagen propia: EcoSelva Madre de Dios.</small>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">Presiones ambientales</strong></span>
+                            <span class="selva-curiosidad-texto">Madre de Dios enfrenta procesos que afectan su diversidad biológica. Entre ellos se encuentran la deforestación y la contaminación, vinculadas a diferentes actividades humanas. La minería aurífera es una de las actividades consideradas en los diagnósticos ambientales de la región.</span>
+                            <span class="selva-curiosidad-frase">Comprender cómo transformamos el territorio es parte del camino para conservarlo.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Ambiente</span><span>Territorio</span><span>Presiones ambientales</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuente histórica">
+                                <a href="https://repositorio.iiap.gob.pe/items/e76fd5b6-b0cc-4ce7-be27-87bfee5c8620" target="_blank" rel="noopener noreferrer" aria-label="Fuente histórica: Instituto de Investigaciones de la Amazonía Peruana, Estrategia regional de la diversidad biológica de Madre de Dios" data-source-institution="Instituto de Investigaciones de la Amazonía Peruana (IIAP)" data-source-title="Estrategia regional de la diversidad biológica de Madre de Dios" data-source-publication-date="" data-source-original-url="https://repositorio.iiap.gob.pe/items/e76fd5b6-b0cc-4ce7-be27-87bfee5c8620" data-eco-review-date="">Fuente histórica: IIAP</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Referencia histórica; no representa cifras actuales.</small>
+                        </span>
+                    </span>
+                </article>
+                <article class="selva-flip-card">
+                    <span class="selva-flip-inner">
+                        <button class="selva-flip-front selva-tema-conservacion selva-flip-toggle" type="button" aria-label="Conservación: Conservar no siempre significa dejar de usar" aria-pressed="false">
+                            <img class="selva-curiosidad-foto" src="images/castana.jpg" alt="Árbol alto junto a un camino de tierra; recurso provisional mientras se selecciona una fotografía de personas participando en la conservación." loading="lazy" decoding="async">
+                            <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Conservación</span><span class="selva-flip-frente-titulo">Conservar no siempre significa dejar de usar</span></span>
+                        </button>
+                        <span class="selva-flip-back">
+                            <span class="selva-curiosidad-encabezado"><strong class="selva-curiosidad-titulo">Conservación y uso sostenible</strong></span>
+                            <span class="selva-curiosidad-texto">En la Reserva Nacional Tambopata, la conservación se articula con el aprovechamiento sostenible de recursos como la castaña y con actividades como el turismo de naturaleza. La protección del bosque también puede involucrar a las personas que viven, trabajan y desarrollan actividades en el territorio.</span>
+                            <span class="selva-curiosidad-frase">Conservación y uso sostenible pueden formar parte de una misma estrategia.</span>
+                            <span class="selva-curiosidad-etiquetas" aria-label="Etiquetas"><span>Conservación</span><span>Uso sostenible</span><span>Territorio</span></span>
+                            <span class="selva-curiosidad-fuentes" aria-label="Fuente">
+                                <a href="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" target="_blank" rel="noopener noreferrer" aria-label="Fuente: SERNANP, Reserva Nacional Tambopata" data-source-institution="SERNANP" data-source-title="Reserva Nacional Tambopata" data-source-publication-date="" data-source-original-url="https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata" data-eco-review-date="2026-10">Fuente: SERNANP</a>
+                            </span>
+                            <small class="selva-curiosidad-revision">Revisado por EcoSelva: octubre de 2026</small>
+                        </span>
+                    </span>
+                </article>
+            </div>
+            <p class="selva-curiosidad-explorar">¿Quieres profundizar? <a href="#programas">Sigue explorando la biodiversidad de Madre de Dios <span aria-hidden="true">→</span></a></p>
+        </div>
+    </section>
+
+    <section class="general container" id="programas">
+    <p class="selva-microetiqueta">BIODIVERSIDAD · FLORA</p>
+    <h2>Flora de Madre de Dios</h2>
+    <p class="selva-seccion-intro selva-flora-intro">La diversidad vegetal de Madre de Dios forma parte de la enorme riqueza biológica de la Amazonía. Algunas especies tienen importancia forestal, alimentaria, medicinal y cultural.</p>
+
+    <div class="selva-flora-indicadores" role="region" aria-labelledby="flora-cifras-titulo">
+        <h2 id="flora-cifras-titulo" class="selva-flora-cifras-titulo">Flora de Madre de Dios en cifras</h2>
+        <p class="selva-flora-cifras-subtitulo">Registros documentados según fuentes técnicas disponibles.</p>
+        <div class="selva-flora-stats">
+            <article class="selva-flora-stat selva-flora-stat--maderables">
+                <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M21 8c-6-3-13 2-12 8-7 1-9 10-4 14-1 7 6 11 12 8 5 5 14 1 14-5 7-1 9-10 4-14 0-7-7-12-14-11Z"/><path d="M19 23v34M11 56h18M12 28l7 6 7-9M19 40l8-7"/><path fill="#e7f0de" d="M35 41h19v14H35c-9 0-9-14 0-14Z"/><ellipse cx="54" cy="48" rx="5" ry="7"/><path d="M36 45h9M35 51h6M54 45v6"/></svg><span class="selva-flora-stat-badge">Catálogo · 2022</span></div>
+                <h3>Maderables</h3>
+                <div class="selva-flora-stat-valor" role="img" aria-label="486 especies registradas"><span class="selva-flora-stat-numero" data-flora-count="486" aria-hidden="true">486</span></div>
+                <p>Especies registradas para Madre de Dios</p>
+                <button class="selva-flora-stat-accion" type="button" data-flora-modal="maderables" aria-haspopup="dialog" aria-controls="selva-flora-modal">Explorar <span aria-hidden="true">→</span></button>
+                <details class="selva-flora-stat-referencia"><summary>Fuente técnica</summary>
+                    <small class="selva-flora-stat-fuente">Catálogo · 2022</small>
+                    <small>Vásquez Martínez y Rojas Gonzáles</small>
+                    <a href="https://revistas.lamolina.edu.pe/index.php/rfp/article/download/1956/2486" target="_blank" rel="noopener noreferrer" aria-label="Ver fuente de las 486 especies maderables: catálogo de 2022" data-source-title="Catálogo de las especies forestales maderables de la Amazonía y la Yunga Peruana" data-source-authors="Rodolfo Vásquez Martínez; Rocío Del Pilar Rojas Gonzáles" data-source-publication-date="2022" data-eco-review-date="2026-10">Ver fuente <span aria-hidden="true">→</span></a>
+                </details>
+            </article>
+            <article class="selva-flora-stat selva-flora-stat--no-maderables">
+                <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M31 33C17 31 15 18 30 7c4 13 6 20 1 26ZM30 47c3-13 13-20 27-17-2 15-15 22-27 17ZM22 42C9 40 5 29 7 22c12 1 19 9 15 20Z"/><path d="M30 58V22M30 47l17-9M22 42l-9-12"/></svg><span class="selva-flora-stat-badge">SERFOR · 2019</span></div>
+                <h3>No maderables</h3>
+                <div class="selva-flora-stat-valor" role="img" aria-label="69 especies documentadas"><span class="selva-flora-stat-numero" data-flora-count="69" aria-hidden="true">69</span></div>
+                <p>Especies documentadas en la guía regional</p>
+                <button class="selva-flora-stat-accion" type="button" data-flora-modal="no-maderables" aria-haspopup="dialog" aria-controls="selva-flora-modal">Explorar <span aria-hidden="true">→</span></button>
+                <details class="selva-flora-stat-referencia"><summary>Fuente técnica</summary>
+                    <small class="selva-flora-stat-fuente">SERFOR · 2019</small>
+                    <small>Servicio Nacional Forestal y de Fauna Silvestre</small>
+                    <a href="https://repositorio.serfor.gob.pe/handle/SERFOR/854" target="_blank" rel="noopener noreferrer" aria-label="Ver fuente de las 69 especies no maderables: guía de SERFOR de 2019" data-source-institution="SERFOR" data-source-title="Guía de Productos Forestales no Maderables en Madre de Dios" data-source-publication-date="2019" data-eco-review-date="2026-10">Ver fuente <span aria-hidden="true">→</span></a>
+                </details>
+            </article>
+            <article class="selva-flora-stat selva-flora-stat--medicinales">
+                <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M29 31C17 29 15 17 29 7c4 11 5 19 0 24ZM26 46C10 45 5 32 7 24c15 1 22 10 19 22ZM30 42c4-10 13-14 24-12-3 11-13 16-24 12Z"/><path d="M28 57V21M28 46l-14-12"/><circle fill="#f7fbf4" cx="48" cy="48" r="12"/><path d="M48 42v12M42 48h12"/></svg><span class="selva-flora-stat-badge">En revisión</span></div>
+                <h3>Medicinales</h3>
+                <p class="selva-flora-stat-estado">Datos en consolidación</p>
+                <p>Existen registros locales, pero no se dispone aún de un inventario regional exhaustivo comparable.</p>
+                <button class="selva-flora-stat-accion" type="button" data-flora-modal="medicinales" aria-haspopup="dialog" aria-controls="selva-flora-modal">Ver <span aria-hidden="true">→</span></button>
+                
+            </article>
+            <article class="selva-flora-stat selva-flora-stat--alimenticias">
+                <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M26 23c-12-6-22 8-20 21 1 11 12 15 20 7 8 8 22 3 23-9 2-14-11-25-23-19Z"/><path d="M27 23c2-10 9-15 16-17M21 10c8 0 10 5 7 13"/><path fill="#cce9c5" d="M35 10c10-8 19-4 24 5-11 4-20 2-24-5Z"/><path d="M15 32c-3 3-4 7-3 11M40 33l2 3"/><circle fill="#cce9c5" cx="31" cy="57" r="6"/></svg><span class="selva-flora-stat-badge">En revisión</span></div>
+                <h3>Alimenticias / frutales</h3>
+                <p class="selva-flora-stat-estado">Datos en consolidación</p>
+                <p>No se dispone actualmente de un inventario regional exhaustivo comparable.</p>
+                <button class="selva-flora-stat-accion" type="button" data-flora-modal="alimenticias" aria-haspopup="dialog" aria-controls="selva-flora-modal">Ver <span aria-hidden="true">→</span></button>
+                
+            </article>
+        </div>
+        <dialog class="selva-flora-modal" id="selva-flora-modal" role="dialog" aria-modal="true" aria-labelledby="selva-flora-modal-titulo" aria-describedby="selva-flora-modal-descripcion">
+            <div class="selva-flora-modal-contenido">
+                <button class="selva-flora-modal-cerrar" type="button" aria-label="Cerrar ventana de Flora" autofocus>×</button>
+                <p class="selva-microetiqueta selva-flora-modal-categoria"></p>
+                <h2 id="selva-flora-modal-titulo" class="selva-flora-modal-titulo">Especies destacadas</h2>
+                <p id="selva-flora-modal-descripcion" class="selva-flora-modal-descripcion"></p>
+                <div class="selva-flora-modal-cuerpo"></div>
+            </div>
+        </dialog>
+        <template id="selva-flora-contenido-maderables">
+            <h3 class="selva-flora-modal-subtitulo">Especies representativas documentadas</h3>
+            <ul class="selva-flora-modal-especies">
+                <li><strong>Shihuahuaco</strong><em>Dipteryx micrantha</em><span>Documentada en el catálogo</span></li>
+                <li><strong>Cedro</strong><em>Cedrela odorata</em><span>Documentada en el catálogo</span></li>
+                <li><strong>Capirona</strong><em>Calycophyllum spruceanum</em><span>Documentada en el catálogo</span></li>
+            </ul>
+            <p class="selva-flora-modal-nota">Esta selección no establece un ranking ni compara abundancia, frecuencia o volumen. Los nombres comunes pueden corresponder a distintas especies.</p>
+            <div class="selva-flora-modal-fuente">
+                <h3>Fuente</h3>
+                <p>Rodolfo Vásquez Martínez y Rocío Del Pilar Rojas Gonzáles</p>
+                <p><cite>Catálogo de las especies forestales maderables de la Amazonía y la Yunga Peruana</cite> · 2022</p>
+                <a href="https://revistas.lamolina.edu.pe/index.php/rfp/article/download/1956/2486" target="_blank" rel="noopener noreferrer">Ver publicación original <span aria-hidden="true">→</span></a>
+                <small>Revisado por EcoSelva: octubre de 2026</small>
+            </div>
+        </template>
+        <template id="selva-flora-contenido-no-maderables">
+            <h3 class="selva-flora-modal-subtitulo">Especies representativas documentadas</h3>
+            <ul class="selva-flora-modal-especies">
+                <li><strong>Castaña</strong><em>Bertholletia excelsa</em><span>Documentada en la guía</span></li>
+                <li><strong>Aguaje</strong><em>Mauritia flexuosa</em><span>Documentada en la guía</span></li>
+                <li><strong>Huasái</strong><em>Euterpe precatoria</em><span>Documentada en la guía</span></li>
+            </ul>
+            <p class="selva-flora-modal-nota">Las categorías de uso pueden superponerse. Esta selección no establece un ranking ni representa el total de especies de la región.</p>
+            <div class="selva-flora-modal-fuente">
+                <h3>Fuente</h3>
+                <p>Servicio Nacional Forestal y de Fauna Silvestre · SERFOR</p>
+                <p><cite>Guía de Productos Forestales no Maderables en Madre de Dios</cite> · 2019</p>
+                <a href="https://repositorio.serfor.gob.pe/handle/SERFOR/854" target="_blank" rel="noopener noreferrer">Ver publicación original <span aria-hidden="true">→</span></a>
+                <small>Revisado por EcoSelva: octubre de 2026</small>
+            </div>
+        </template>
+        <template id="selva-flora-contenido-medicinales">
+            <div class="selva-flora-modal-informacion">
+                <p>Existen registros locales, pero todavía no se ha identificado una fuente regional exhaustiva comparable que permita presentar una cifra consolidada.</p>
+                <p>Los registros parciales pueden describir lugares, comunidades o usos específicos. No deben interpretarse como un inventario completo de Madre de Dios.</p>
+            </div>
+        </template>
+        <template id="selva-flora-contenido-alimenticias">
+            <div class="selva-flora-modal-informacion">
+                <p>No se dispone actualmente de un inventario regional exhaustivo comparable de especies alimenticias o frutales.</p>
+                <p>Una especie puede tener varios usos. Los registros locales o parciales no permiten establecer por sí solos una cifra regional consolidada.</p>
+            </div>
+        </template>
+    </div>
+    <div class="selva-flora-uso-lista" aria-label="Usos principales de la flora">
+        <span>forestal</span>
+        <span>medicinal</span>
+        <span>alimentaria</span>
+        <span>cultural</span>
+    </div>
+
+    <p class="selva-flora-nota">Los valores corresponden a registros documentados en fuentes consultadas. Las categorías pueden superponerse y no representan porcentajes de toda la flora regional.</p>
+    <p class="selva-flora-fuente">Fuente: <a href="https://repositorio.serfor.gob.pe/handle/SERFOR/854" target="_blank" rel="noopener noreferrer">SERFOR — Guía de Productos Forestales no Maderables en Madre de Dios</a></p>
+    <p class="selva-flora-revision">Última revisión de fuentes: octubre de 2026.</p>
+</section>
+<section class="selva-ambiente reveal" id="ambiente">
+        <div class="container">
+            <p class="selva-microetiqueta selva-microetiqueta--tierra">Comprende</p>
+            <h2>Ambiente</h2>
+            <p class="selva-seccion-intro">Un espacio para conocer los temas ambientales que forman parte de la realidad de Madre de Dios y la Amazonía sur.</p>
+            <ul class="selva-ambiente-temas" aria-label="Temas ambientales">
+                <li>Conservación</li>
+                <li>Bosques</li>
+                <li>Agua</li>
+                <li>Deforestación</li>
+                <li>Incendios forestales</li>
+                <li>Contaminación</li>
+                <li>Cambio climático</li>
+                <li>Restauración ecológica</li>
+                <li>Residuos</li>
+                <li>Gestión ambiental</li>
+            </ul>
+            <p class="selva-ambiente-nota">Los contenidos se incorporarán progresivamente, priorizando información clara y fuentes verificables.</p>
+            <a class="selva-ambiente-enlace" href="#explora-madre-de-dios">Explora los ecosistemas de Madre de Dios</a>
+        </div>
+    </section>
+
+    <section class="selva-explora reveal" id="explora-madre-de-dios">
+        <div class="container">
+            <p class="selva-microetiqueta">Conoce</p>
+            <h2>Explora Madre de Dios</h2>
+            <p class="selva-seccion-intro">Descubre los ecosistemas que hacen única a nuestra región.</p>
+            <div class="selva-explora-layout">
+                <figure class="selva-explora-fotografia">
+                    <img src="imagenesEco/bg-hero.jpg" alt="Río amazónico rodeado de bosque en Madre de Dios" loading="lazy" decoding="async">
+                    <figcaption>Ríos y bosques · Madre de Dios</figcaption>
+                    <div class="selva-explora-puntos" role="group" aria-label="Explora ecosistemas en la fotografía">
+                        <button class="selva-explora-hotspot selva-explora-hotspot--tierra-firme" type="button" aria-label="Bosque de tierra firme" aria-expanded="false" aria-controls="selva-ficha-tierra-firme" aria-describedby="selva-ficha-tierra-firme">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-tierra-firme" aria-hidden="true"><strong>Bosque de tierra firme</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                        <button class="selva-explora-hotspot selva-explora-hotspot--inundable" type="button" aria-label="Bosque inundable" aria-expanded="false" aria-controls="selva-ficha-inundable" aria-describedby="selva-ficha-inundable">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-inundable" aria-hidden="true"><strong>Bosque inundable</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                        <button class="selva-explora-hotspot selva-explora-hotspot--aguajal" type="button" aria-label="Aguajal" aria-expanded="false" aria-controls="selva-ficha-aguajal" aria-describedby="selva-ficha-aguajal">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-aguajal" aria-hidden="true"><strong>Aguajal</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                        <button class="selva-explora-hotspot selva-explora-hotspot--rios" type="button" aria-label="Ríos y quebradas" aria-expanded="false" aria-controls="selva-ficha-rios" aria-describedby="selva-ficha-rios">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-rios" aria-hidden="true"><strong>Ríos y quebradas</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                        <button class="selva-explora-hotspot selva-explora-hotspot--cochas" type="button" aria-label="Cochas" aria-expanded="false" aria-controls="selva-ficha-cochas" aria-describedby="selva-ficha-cochas">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-cochas" aria-hidden="true"><strong>Cochas</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                        <button class="selva-explora-hotspot selva-explora-hotspot--secundarios" type="button" aria-label="Bosques secundarios" aria-expanded="false" aria-controls="selva-ficha-secundarios" aria-describedby="selva-ficha-secundarios">
+                            <span class="selva-explora-hotspot-punto" aria-hidden="true"></span>
+                            <span class="selva-explora-hotspot-ficha" id="selva-ficha-secundarios" aria-hidden="true"><strong>Bosques secundarios</strong><span>Ficha educativa en preparación.</span><span class="selva-explora-hotspot-enlace">Explorar <span aria-hidden="true">→</span></span></span>
+                        </button>
+                    </div>
+                </figure>
+                <div class="selva-explora-contenido">
+                    <p class="selva-explora-nota">Estamos preparando fichas educativas para conocer los ecosistemas de Madre de Dios.</p>
+                    <ul class="selva-explora-ecosistemas" aria-label="Ecosistemas para explorar">
+                        <li>Bosques de tierra firme</li>
+                        <li>Bosques inundables</li>
+                        <li>Aguajal</li>
+                        <li>Ríos y quebradas</li>
+                        <li>Cochas</li>
+                        <li>Bosques secundarios</li>
+                    </ul>
+                    <p class="selva-explora-estado">Fichas educativas en preparación</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info-1" id="quienes-somos">
+        <div class="info-content container">
+            <div class="selva-sobre-layout">
+                <div class="selva-sobre-imagen">
+                    <img src="imagenesEco/sobre-ecoselva.jpg" alt="Camino entre árboles al atardecer, una experiencia personal que inspira EcoSelva" loading="lazy">
+                </div>
+                <div class="selva-sobre-contenido">
+                    <p class="selva-microetiqueta selva-microetiqueta--clara">Nuestra iniciativa</p>
+                    <h2>Sobre EcoSelva</h2>
+                    <p class="selva-sobre-principal">EcoSelva Madre de Dios es una iniciativa de educación ambiental dedicada a acercar el conocimiento sobre la biodiversidad, los ecosistemas y los principales desafíos ambientales de nuestra Amazonía, promoviendo su valoración y conservación.</p>
+                    <p>Su enfoque comprende la flora, la fauna, los bosques, el agua y otros temas ambientales de Madre de Dios y la Amazonía sur.</p>
+                    <p class="selva-lema"><strong>Educar para Preservar</strong></p>
+                    <p>Conocer, comprender y valorar nuestro entorno es parte del camino hacia su conservación.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="selva-investigaciones reveal" id="investigaciones">
+        <div class="container">
+            <p class="selva-microetiqueta selva-microetiqueta--agua">Ciencia</p>
+            <h2>Investigaciones</h2>
+            <p class="selva-proximamente">Próximamente compartiremos investigaciones, proyectos y experiencias relacionadas con el ambiente, la biodiversidad y los ecosistemas de Madre de Dios. Este será un espacio de divulgación y educación ambiental, no una revista científica.</p>
+        </div>
+    </section>
+
+    <section class="selva-colabora reveal" id="colabora">
+        <div class="container">
+            <div class="selva-colabora-encabezado">
+                <p class="selva-microetiqueta">Participa</p>
+                <h2>Colabora con EcoSelva</h2>
+                <p>Si estudias o investigas temas ambientales en Madre de Dios o la Amazonía sur, tu trabajo puede ayudar a otras personas a conocer y comprender mejor nuestro entorno. Comparte tu investigación con EcoSelva y ayúdanos a acercar el conocimiento científico a la comunidad.</p>
+            </div>
+
+            <div class="selva-colabora-informacion">
+                <article class="selva-colabora-bloque">
+                    <h3>¿Quién puede participar?</h3>
+                    <p>Estudiantes, tesistas y profesionales con trabajos sobre Madre de Dios y la Amazonía del sur del Perú.</p>
+                </article>
+                <article class="selva-colabora-bloque">
+                    <h3>Qué debe incluir tu resumen</h3>
+                    <ul>
+                        <li>Tema relacionado con Madre de Dios o la Amazonía del sur del Perú.</li>
+                        <li>Lenguaje sencillo: qué estudiaste, qué encontraste y por qué importa.</li>
+                        <li>Entre 200 y 300 palabras.</li>
+                        <li>Trabajo propio, o con autorización de los demás autores.</li>
+                    </ul>
+                </article>
+            </div>
+
+            <div class="selva-colabora-proceso">
+                <h3>Cómo funciona</h3>
+                <ol>
+                    <li>
+                        <strong>Envía tu resumen.</strong>
+                        <span>Completa el formulario con los datos de tu investigación.</span>
+                    </li>
+                    <li>
+                        <strong>Lo revisamos.</strong>
+                        <span>Verificamos que el tema sea de la región y que el texto sea claro.</span>
+                    </li>
+                    <li>
+                        <strong>Lo publicamos.</strong>
+                        <span>Aparece en la sección Investigaciones con tu nombre, tu institución y tu foto.</span>
+                    </li>
+                </ol>
+            </div>
+
+            <aside class="selva-colabora-compromiso">
+                <h3>Nuestro compromiso</h3>
+                <p>Siempre daremos el crédito: tu nombre, tu institución y, si lo compartes, el enlace a tu trabajo completo. La autoría de tu investigación sigue siendo tuya.</p>
+            </aside>
+
+            <div class="selva-colabora-accion">
+                <a class="btn-1 selva-colabora-boton" href="ENLACE_DEL_FORMULARIO" target="_blank" rel="noopener noreferrer">Enviar mi investigación</a>
+                <small>Se abre un formulario en una pestaña nueva.</small>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer" id="contacto">
+        <div class="container selva-footer-layout">
+            <div class="selva-footer-identidad">
+                <a href="#inicio" class="selva-footer-logo" aria-label="EcoSelva Madre de Dios, inicio">
+                    <img src="imagenesEco/logo-ecoselva-educacion.png" alt="EcoSelva Madre de Dios · Educar para Preservar" loading="lazy">
+                </a>
+                <p class="selva-footer-nombre"><strong>EcoSelva Madre de Dios</strong></p>
+                <p class="selva-footer-lema">Educar para Preservar</p>
+                <p class="selva-footer-descripcion">Una iniciativa de educación ambiental para conocer, comprender, valorar y preservar el ambiente y la biodiversidad de nuestra Amazonía.</p>
+                <nav class="selva-footer-nav" aria-label="Navegación secundaria">
+                    <a href="#quienes-somos">Sobre EcoSelva</a>
+                    <a href="#investigaciones">Investigaciones</a>
+                    <a href="#colabora">Colabora</a>
+                </nav>
+                <div class="selva-redes" aria-label="Redes sociales">
+                    <span role="img" aria-label="Facebook, cuenta oficial próximamente" title="Cuenta oficial próximamente">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6h1.7V3.1c-.3 0-1.3-.1-2.4-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.4v3.2h2.8V21h3.3Z"/></svg>
+                    </span>
+                    <span role="img" aria-label="Instagram, cuenta oficial próximamente" title="Cuenta oficial próximamente">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9a5.5 5.5 0 0 1-5.5 5.5h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.3-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+                    </span>
+                    <span role="img" aria-label="YouTube, cuenta oficial próximamente" title="Cuenta oficial próximamente">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.6 3.6 12 3.6 12 3.6s-7.6 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.8.5 9.4.5 9.4.5s7.6 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>
+                    </span>
+                </div>
+            </div>
+            <div class="selva-footer-contacto">
+                <p class="selva-microetiqueta selva-microetiqueta--clara">Conversemos</p>
+                <h2>Contacto</h2>
+                <p class="selva-contacto-intro">¿Tienes una pregunta o propuesta? Escríbenos. Si quieres publicar una investigación, visita la sección <a href="#colabora">Colabora</a>.</p>
+                <form>
+                    <input class="campo" type="text" name="nombre" placeholder="Nombre" aria-label="Nombre">
+                    <input class="campo" type="email" name="correo" placeholder="Correo electrónico" aria-label="Correo electrónico">
+                    <textarea class="campo" name="mensaje" placeholder="Mensaje" aria-label="Mensaje" rows="1"></textarea>
+                    <input type="submit" class="btn-2" value="Enviar mensaje">
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <div class="selva-pie-final">
+        <div class="container selva-pie-final-contenido">
+            <p>© <span id="selva-anio-actual"></span> EcoSelva Madre de Dios · Educar para Preservar</p>
+            <nav class="selva-pie-final-enlaces" aria-label="Enlaces del pie de página">
+                <a href="#quienes-somos">Sobre EcoSelva</a>
+                <a href="#contacto">Contacto</a>
+            </nav>
+        </div>
+    </div>
+
+    <button class="selva-volver-arriba" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
+    <script src="script.js" defer></script>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+{
+  "seleccion_inicial_humedales": [
+    "agua-2144",
+    "agua-2146",
+    "agua-2164",
+    "agua-2175",
+    "agua-2184",
+    "agua-2187",
+    "agua-2191",
+    "agua-2194",
+    "agua-2199",
+    "agua-2279",
+    "agua-2280",
+    "agua-2281",
+    "agua-2228",
+    "agua-2200",
+    "agua-2141",
+    "agua-2105"
+  ],
+  "criterio": "Todos los registros con nombre más los seis de mayor superficie geométrica proyectada EPSG:32719; unión sin duplicados. No es muestreo ecológico.",
+  "exclusividad": "Un solo grupo SVG visible e interactivo por escena.",
+  "bosques": "Representación conceptual y ornamental; no geometrías ambientales nuevas."
+}

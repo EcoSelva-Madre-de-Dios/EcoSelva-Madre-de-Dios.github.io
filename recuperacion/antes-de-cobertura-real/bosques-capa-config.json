@@ -1,0 +1,21 @@
+{
+  "estado": "pendiente",
+  "capa": null,
+  "fuente": null,
+  "anio_fuente": null,
+  "escala": null,
+  "procesamiento": null,
+  "campos_requeridos": [
+    "categoria_original",
+    "fuente",
+    "anio_fuente",
+    "escala",
+    "procesamiento"
+  ],
+  "contenedor_svg": "territorio-bosques-capa",
+  "atributo_filtro": "data-forest-category",
+  "regla": "Solo cargar polígonos documentados y reproyectados al mismo espacio SVG. Mantener categoría original y metadatos por entidad. No equiparar categorías educativas a categorías oficiales sin correspondencia documentada.",
+  "opacidad_seleccion": 0.85,
+  "opacidad_otras": 0.14,
+  "leyenda": "Derivar únicamente de categorías presentes en polígonos cargados."
+}

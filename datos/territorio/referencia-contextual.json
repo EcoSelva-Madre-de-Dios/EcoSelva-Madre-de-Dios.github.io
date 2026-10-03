@@ -1,0 +1,13 @@
+{
+  "colindantes": [
+    "Ucayali",
+    "Cusco",
+    "Puno",
+    "Brasil",
+    "Bolivia"
+  ],
+  "fuente": "Banco Central de Reserva del Perú, caracterización territorial de Madre de Dios",
+  "url": "https://www.bcrp.gob.pe/docs/Sucursales/Cusco/madre-de-dios-caracterizacion.pdf",
+  "alcance": "Etiquetas contextuales externas, sin nuevas geometrías ni coordenadas atribuidas a entidades. Provincias y sus trazados originales sin modificación.",
+  "orientacion": "Norte arriba en el espacio cartográfico existente."
+}

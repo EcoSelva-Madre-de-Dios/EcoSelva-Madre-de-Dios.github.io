@@ -1,0 +1,18 @@
+{
+  "archivo_original": "GRFFS_Catastro_07_10_2021.gdb",
+  "capa": "DISTRITOS_MDD",
+  "campo_agrupacion": "provincia",
+  "crs_original": "EPSG:32719",
+  "crs_geojson": "EPSG:4326",
+  "fuente": "Geodatabase aportada; entidad generadora no indicada en los campos de DISTRITOS_MDD",
+  "fecha_fuente": null,
+  "escala_original": null,
+  "procesamiento": "Reparación de geometrías y disolución por provincia. Límites interiores obtenidos por intersección de bordes provinciales; simplificación topológica de 180 m. Etiquetas: punto interior de cada geometría disuelta, antes de simplificar. Misma transformación UTM del mapa existente.",
+  "provincias": [
+    "Manu",
+    "Tahuamanu",
+    "Tambopata"
+  ],
+  "distritos": 11,
+  "uso": "Referencia educativa, sin selección ni atribución de cobertura forestal."
+}

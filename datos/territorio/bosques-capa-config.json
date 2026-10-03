@@ -1,0 +1,26 @@
+{
+  "estado": "incorporada",
+  "capa": "CobVeg_180615",
+  "fuente": "Ministerio del Ambiente (MINAM)",
+  "anio_fuente": 2015,
+  "escala": "1:100 000 según memoria descriptiva",
+  "procesamiento": "Recorte departamental y reproyección a EPSG:32719; disolución por categoría y simplificación de hasta 65 m, reducida en categorías pequeñas; GeoJSON EPSG:4326; SVG con coordenadas relativas optimizadas.",
+  "campos_requeridos": [
+    "categoria_original",
+    "fuente",
+    "anio_fuente",
+    "escala",
+    "procesamiento"
+  ],
+  "contenedor_svg": "territorio-bosques-capa",
+  "atributo_filtro": "data-forest-category",
+  "regla": "Categoría EcoSelva idéntica al nombre oficial de CobVeg2013; código original Simbolo. No agrupar arbitrariamente a los cuatro tipos educativos.",
+  "opacidad_seleccion": 0.9,
+  "opacidad_otras": 0.14,
+  "leyenda": "Derivar únicamente de categorías presentes en polígonos cargados.",
+  "atributo_categoria_original": "data-bosque-categoria",
+  "categorias": "cobertura-categorias.json",
+  "metadatos": "cobertura-metadatos.json",
+  "geojson": "cobertura-vegetal.geojson",
+  "svg": "cobertura-bosques.svg"
+}
