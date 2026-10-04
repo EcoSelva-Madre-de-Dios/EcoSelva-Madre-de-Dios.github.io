@@ -287,7 +287,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // La fotografía lateral conserva el nombre y crédito de la especie representada.
             body.append(element("p", `Fotografía lateral: ${group.species[0][0]}.`, "selva-fauna-ficha-revision"));
             back.focus({ preventScroll: true });
-            faunaModal.querySelector(".selva-fauna-modal-contenido").scrollTop = 0;
+            faunaModal.scrollTop = 0;
             if (window.matchMedia("(max-width: 640px)").matches) back.scrollIntoView({ block: "start", behavior: "instant" });
         };
         const showGroup = (focusTitle = false) => {
@@ -324,6 +324,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (focusTitle) {
                 title.tabIndex = -1;
                 title.focus({ preventScroll: true });
+                faunaModal.scrollTop = 0;
                 if (window.matchMedia("(max-width: 640px)").matches) title.scrollIntoView({ block: "start", behavior: "instant" });
             }
         };
@@ -351,7 +352,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 document.body.style.overflow = "hidden";
                 faunaModal.showModal();
                 faunaModal.scrollTop = 0;
-                faunaModal.querySelector(".selva-fauna-modal-contenido").scrollTop = 0;
                 faunaModal.querySelector(".selva-fauna-modal-cerrar").focus({ preventScroll: true });
             });
         });
