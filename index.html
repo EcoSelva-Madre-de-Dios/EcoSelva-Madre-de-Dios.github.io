@@ -2,17 +2,6 @@
 <html lang="es">
 
 <head>
-<<<<<<< Updated upstream
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0KG7JC82NV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0KG7JC82NV');
-</script>
-=======
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-0KG7JC82NV"></script>
     <script>
@@ -23,7 +12,6 @@
       gtag('config', 'G-0KG7JC82NV');
     </script>
 
->>>>>>> Stashed changes
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="EcoSelva Madre de Dios ofrece contenidos educativos sobre biodiversidad, territorio, ambiente e investigaciones de la Amazonía sur del Perú.">
@@ -41,17 +29,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="ventanas.css">
 </head>
 
 <body>
+    <a class="selva-saltar-contenido" href="#contenido">Saltar al contenido</a>
 
         <div class="menu container">
             <a href="#inicio" class="logo" aria-label="EcoSelva Madre de Dios, inicio">
-                <img src="imagenesEco/logo-ecoselva-educacion.png" alt="EcoSelva Madre de Dios - Educar para Preservar">
+                <img width="768" height="768" src="images/logo-ecoselva-educacion.png" alt="EcoSelva Madre de Dios - Educar para Preservar">
             </a>
             <input type="checkbox" id="menu">
             <label for="menu" aria-label="Abrir o cerrar menú">
-                <img src="images/menu.png" class="menu-icono" alt="">
+                <img width="70" height="60" src="images/menu.png" class="menu-icono" alt="">
             </label>
             <nav class="navbar">
                 <ul>
@@ -73,6 +63,7 @@
                 </ul>
             </nav>
         </div>
+    <main id="contenido" tabindex="-1">
     <header class="header" id="inicio">
         <div class="header-content container">
             <div class="header-txt">
@@ -113,7 +104,7 @@
                 <article class="selva-flip-card">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-flora selva-flip-toggle" type="button" aria-label="Flora: Un bosque que también alimenta" aria-pressed="false">
-                            <img class="selva-curiosidad-foto" src="images/castana-commons-745.jpg" srcset="images/castana-commons-480.jpg 480w, images/castana-commons-745.jpg 745w" sizes="(max-width: 640px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 64px) / 2), 389px" alt="Fruto abierto y semillas de castaña amazónica (Bertholletia excelsa); parte del fruto está reconstruida en la imagen." loading="lazy" decoding="async">
+                            <img width="745" height="858" class="selva-curiosidad-foto" src="images/castana-commons-745.jpg" srcset="images/castana-commons-480.jpg 480w, images/castana-commons-745.jpg 745w" sizes="(max-width: 640px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 64px) / 2), 389px" alt="Fruto abierto y semillas de castaña amazónica (Bertholletia excelsa); parte del fruto está reconstruida en la imagen." loading="lazy" decoding="async">
                             <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Flora</span><span class="selva-flip-frente-titulo">Un bosque que también alimenta</span></span>
                             <small class="selva-curiosidad-foto-credito">Fotografía: P. S. Sena (edición: RoRo) — Wikimedia Commons · CC BY-SA 4.0 · optimizada por EcoSelva.</small>
                         </button>
@@ -139,7 +130,7 @@
                 <article class="selva-flip-card">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-fauna selva-flip-toggle" type="button" aria-label="Fauna: El jaguar aún recorre estos bosques" aria-pressed="false">
-                            <img class="selva-curiosidad-foto" src="images/jaguar-madre-de-dios.jpg" alt="Jaguar (Panthera onca) en el río Los Amigos, Madre de Dios, Perú." loading="lazy" decoding="async">
+                            <img width="900" height="600" class="selva-curiosidad-foto" src="images/jaguar-madre-de-dios.jpg" alt="Jaguar (Panthera onca) en el río Los Amigos, Madre de Dios, Perú." loading="lazy" decoding="async">
                             <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Fauna</span><span class="selva-flip-frente-titulo">El jaguar aún recorre estos bosques</span></span>
                             <small class="selva-curiosidad-foto-credito">Fotografía: Geoff Gallice — Wikimedia Commons · CC BY 2.0</small>
                         </button>
@@ -164,7 +155,7 @@
                 <article class="selva-flip-card">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-ecosistemas selva-flip-toggle" type="button" aria-label="Ecosistemas: La Amazonía no es un solo bosque" aria-pressed="false">
-                            <img class="selva-curiosidad-foto" src="images/rn-tambopata.jpg" alt="Lago rodeado de bosque y palmeras, con cielo azul y nubes reflejadas en el agua." loading="lazy" decoding="async">
+                            <img width="1920" height="1080" class="selva-curiosidad-foto" src="images/rn-tambopata.jpg" alt="Lago rodeado de bosque y palmeras, con cielo azul y nubes reflejadas en el agua." loading="lazy" decoding="async">
                             <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Ecosistemas</span><span class="selva-flip-frente-titulo">La Amazonía no es un solo bosque</span></span>
                         </button>
                         <span class="selva-flip-back">
@@ -182,7 +173,7 @@
                 <article class="selva-flip-card">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-agua selva-flip-toggle" type="button" aria-label="Agua: Hay lagos que alguna vez fueron río" aria-pressed="false">
-                            <img class="selva-curiosidad-foto" src="images/agua-madre-de-dios.jpg" alt="Vista satelital de un río amazónico sinuoso entre bosque y zonas intervenidas." loading="lazy" decoding="async">
+                            <img width="1200" height="675" class="selva-curiosidad-foto" src="images/agua-madre-de-dios.jpg" alt="Vista satelital de un río amazónico sinuoso entre bosque y zonas intervenidas." loading="lazy" decoding="async">
                             <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Agua</span><span class="selva-flip-frente-titulo">Hay lagos que alguna vez fueron río</span></span>
                         </button>
                         <span class="selva-flip-back">
@@ -200,7 +191,7 @@
                 <article class="selva-flip-card">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-desafios selva-flip-toggle" type="button" aria-label="Ambiente: El territorio también guarda las huellas de nuestras actividades" aria-pressed="false">
-                            <img class="selva-curiosidad-foto" src="images/pampa-ecoselva.jpg" alt="Imagen satelital de La Pampa y su entorno amazónico, con bosque, áreas intervenidas y cursos de agua." loading="lazy" decoding="async">
+                            <img width="1003" height="768" class="selva-curiosidad-foto" src="images/pampa-ecoselva.jpg" alt="Imagen satelital de La Pampa y su entorno amazónico, con bosque, áreas intervenidas y cursos de agua." loading="lazy" decoding="async">
                             <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Ambiente</span><span class="selva-flip-frente-titulo">El territorio también guarda las huellas de nuestras actividades</span></span>
                             <small class="selva-curiosidad-credito">Imagen propia: EcoSelva Madre de Dios.</small>
                         </button>
@@ -219,7 +210,7 @@
                 <article class="selva-flip-card">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-conservacion selva-flip-toggle" type="button" aria-label="Conservación: Conservar no siempre significa dejar de usar" aria-pressed="false">
-                            <img class="selva-curiosidad-foto" src="images/castana.jpg" alt="Árbol alto junto a un camino de tierra; recurso provisional mientras se selecciona una fotografía de personas participando en la conservación." loading="lazy" decoding="async">
+                            <img width="768" height="1152" class="selva-curiosidad-foto" src="images/castana.jpg" alt="Árbol alto junto a un camino de tierra." loading="lazy" decoding="async">
                             <span class="selva-flip-frente-texto"><span class="selva-flip-categoria">Conservación</span><span class="selva-flip-frente-titulo">Conservar no siempre significa dejar de usar</span></span>
                         </button>
                         <span class="selva-flip-back">
@@ -418,7 +409,7 @@
                 <button class="selva-fauna-modal-cerrar" type="button" aria-label="Cerrar ventana de fauna">×</button>
                 <div class="selva-fauna-modal-layout">
                     <figure class="selva-fauna-modal-imagen">
-                        <img src="images/jaguar-madre-de-dios.jpg" alt="" decoding="async">
+                        <img width="900" height="600" src="images/jaguar-madre-de-dios.jpg" alt="" decoding="async">
                         <figcaption><strong class="selva-fauna-foto-nombre"></strong><em class="selva-fauna-foto-cientifico"></em><span class="selva-fauna-foto-registro"></span><small class="selva-fauna-foto-credito"></small></figcaption>
                     </figure>
                     <div class="selva-fauna-modal-contenido">
@@ -544,7 +535,7 @@
     </section>
 
     <section class="selva-investigaciones reveal" id="investigaciones">
-        <video class="selva-investigaciones-video" muted loop playsinline preload="metadata" poster="imagenesEco/investigaciones-poster.jpg" aria-hidden="true" tabindex="-1">
+        <video class="selva-investigaciones-video" muted loop playsinline preload="metadata" poster="images/investigaciones-poster.jpg" aria-hidden="true" tabindex="-1">
             <source data-src="videos/investigaciones-ecoselva.webm" type="video/webm">
             <source data-src="videos/investigaciones-ecoselva.mp4" type="video/mp4">
         </video>
@@ -570,7 +561,7 @@
                     <p>Creemos en una educación que conecte lo que aprendemos con el cuidado de nuestro entorno.</p>
                 </div>
                     <div class="selva-sobre-imagen">
-                    <img src="imagenesEco/sobre-ecoselva.jpg" alt="Camino entre árboles al atardecer, una experiencia personal que inspira EcoSelva" loading="lazy">
+                    <img width="917" height="768" src="images/sobre-ecoselva.jpg" alt="Camino entre árboles al atardecer." loading="lazy">
                 </div>
                 </div>
                 <div class="selva-sobre-proposito">
@@ -655,11 +646,12 @@
     </section>
 
 
+    </main>
     <footer class="footer" id="contacto">
         <div class="container selva-footer-layout">
             <div class="selva-footer-identidad">
                 <a href="#inicio" class="selva-footer-logo" aria-label="EcoSelva Madre de Dios, inicio">
-                    <img src="imagenesEco/logo-ecoselva-educacion.png" alt="EcoSelva Madre de Dios · Educar para Preservar" loading="lazy">
+                    <img width="768" height="768" src="images/logo-ecoselva-educacion.png" alt="EcoSelva Madre de Dios · Educar para Preservar" loading="lazy">
                 </a>
                 <p class="selva-footer-nombre"><strong>EcoSelva Madre de Dios</strong></p>
                 <p class="selva-footer-lema">Educar para Preservar</p>
@@ -705,6 +697,7 @@
 
     <button class="selva-volver-arriba" type="button" aria-label="Volver arriba" title="Volver arriba">↑</button>
     <script src="script.js" defer></script>
+    <script src="ventanas.js" defer></script>
 
 </body>
 
