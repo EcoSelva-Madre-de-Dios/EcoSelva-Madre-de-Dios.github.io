@@ -3975,3 +3975,22 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-territorio-metodologia-resumen { margin: 20px auto; max-width: 760px; color: var(--muted); font-size: 14px; text-align: center; overflow-wrap: anywhere; }
 .selva-territorio-metodologia-resumen a { color: var(--forest); text-decoration: underline; }
 .selva-historia-cuerpo .selva-curiosidad-fuentes a:hover, .selva-historia-cuerpo .selva-curiosidad-fuentes a:focus-visible { color: #765c18; }
+
+/* Las líneas sin inventario consolidado tienen una presentación secundaria. */
+#programas .selva-flora-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.selva-flora-revisiones { margin-top: 24px; padding-top: 20px; border-top: 1px solid rgb(22 61 43 / 12%); }
+.selva-flora-revisiones > h3 { margin-bottom: 16px; color: var(--forest); font-size: 16px; }
+.selva-flora-revision-lista { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+#programas .selva-flora-revisiones .selva-flora-stat { gap: 6px; padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; transform: none; }
+.selva-flora-revisiones .selva-flora-stat-cabecera { display: none; }
+.selva-flora-revisiones h4 { color: var(--forest); font-size: 14px; }
+#programas .selva-flora-revisiones .selva-flora-stat p { margin: 0; font-size: 13px; line-height: 1.6; }
+#programas .selva-flora-revisiones .selva-flora-stat-estado { color: var(--forest); font-weight: 600; }
+#investigaciones a.selva-investigaciones-etiqueta { text-transform: none; letter-spacing: normal; font-size: 14px; }
+#investigaciones a.selva-investigaciones-etiqueta:hover, #investigaciones a.selva-investigaciones-etiqueta:focus-visible { background: rgb(255 255 255 / 12%); }
+.selva-sobre-editorial a { display: inline-block; margin-top: 12px; color: var(--sand); font-size: 14px; text-decoration: underline; }
+.selva-redes[hidden], .selva-fauna-proxima[hidden], .selva-ambiente-explorar[hidden], .selva-footer-contacto[hidden], #selva-formulario-contacto[hidden], .selva-flora-revisiones [hidden] { display: none !important; }
+.selva-footer-layout:has(.selva-footer-contacto[hidden]) { grid-template-columns: minmax(0, 1fr); }
+@media (max-width: 640px) {
+    #programas .selva-flora-stats, .selva-flora-revision-lista { grid-template-columns: minmax(0, 1fr); }
+}

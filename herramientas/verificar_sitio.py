@@ -9,7 +9,8 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-ENTRYPOINTS = ('index.html', 'fuentes-metodologia.html', 'google46599e54e679b03a.html')
+ORIGIN = 'https://ecoselva-madre-de-dios.github.io'
+ENTRYPOINTS = ('index.html', 'fuentes-metodologia.html', 'google46599e54e679b03a.html', 'robots.txt', 'sitemap.xml')
 
 
 class Page(HTMLParser):
@@ -18,9 +19,20 @@ class Page(HTMLParser):
         self.ids, self.anchors, self.resources, self.images, self.scripts = [], [], [], [], []
         self.errors, self.main_count = [], 0
         self.json_blocks, self.current_json = [], None
+        self.lang, self.in_head = '', False
+        self.metadata, self.links = {}, {}
 
     def handle_starttag(self, tag, attributes):
         attrs = dict(attributes)
+        if tag == 'html':
+            self.lang = attrs.get('lang', '')
+        if tag == 'head':
+            self.in_head = True
+        if self.in_head and tag == 'meta':
+            self.metadata[attrs.get('property') or attrs.get('name')] = attrs.get('content', '')
+        if self.in_head and tag == 'link':
+            for rel in attrs.get('rel', '').split():
+                self.links.setdefault(rel, []).append(attrs.get('href', ''))
         if attrs.get('id'):
             self.ids.append(attrs['id'])
         if tag == 'main':
@@ -50,6 +62,8 @@ class Page(HTMLParser):
             self.current_json += data
 
     def handle_endtag(self, tag):
+        if tag == 'head':
+            self.in_head = False
         if tag == 'script' and self.current_json is not None:
             self.json_blocks.append(self.current_json)
             self.current_json = None
@@ -101,6 +115,17 @@ def verify():
         page = Page()
         page.feed(html)
         errors.extend(f'{entry}: {message}' for message in page.errors)
+        expected_url = ORIGIN + ('/' if entry == 'index.html' else '/' + entry)
+        if page.lang != 'es-PE' or page.links.get('canonical') != [expected_url]:
+            errors.append(f'{entry}: idioma o URL canónica incorrectos.')
+        if not page.links.get('icon'):
+            errors.append(f'{entry}: falta el favicon.')
+        if entry == 'index.html':
+            if page.metadata.get('og:url') != expected_url:
+                errors.append('index.html: og:url debe coincidir con la URL canónica.')
+            social_image = page.metadata.get('og:image', '')
+            if not social_image.startswith(ORIGIN + '/') or not (ROOT / unquote(urlsplit(social_image).path.lstrip('/'))).is_file():
+                errors.append('index.html: og:image debe apuntar a una imagen existente del sitio.')
         if page.main_count != 1:
             errors.append(f'{entry}: debe existir un único main.')
         duplicate_ids = [key for key, count in Counter(page.ids).items() if count > 1]
@@ -122,6 +147,18 @@ def verify():
         errors.append('Google Analytics debe conservar una única instalación con ID G-0KG7JC82NV dentro de head.')
     try:
         files = published_files()
+        robots = (ROOT / 'robots.txt').read_text().splitlines()
+        if any(line not in robots for line in ('User-agent: *', 'Allow: /', 'Sitemap: ' + ORIGIN + '/sitemap.xml')):
+            errors.append('robots.txt: faltan las instrucciones públicas o el sitemap.')
+        sitemap = ET.parse(ROOT / 'sitemap.xml').getroot()
+        locations = [element.text for element in sitemap.findall('{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
+        if len(locations) != len(set(locations)) or not {ORIGIN + '/', ORIGIN + '/fuentes-metodologia.html'}.issubset(locations):
+            errors.append('sitemap.xml: faltan páginas públicas o hay URLs duplicadas.')
+        for location in locations:
+            route = urlsplit(location or '')
+            target = ROOT / (unquote(route.path.lstrip('/')) or 'index.html')
+            if route.scheme + '://' + route.netloc != ORIGIN or route.query or route.fragment or not target.is_file() or target.suffix != '.html' or target.resolve() not in files:
+                errors.append(f'sitemap.xml: URL no publicada: {location}')
         svg = ET.parse(ROOT / 'datos/territorio/mapa.svg').getroot()
         ids = {element.get('id') for element in svg.iter() if element.get('id')}
         for element in svg.iter():

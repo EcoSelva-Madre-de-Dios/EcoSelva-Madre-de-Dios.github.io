@@ -691,8 +691,8 @@ document.addEventListener("DOMContentLoaded", () => {
         if (forestData.categories.length) {
             modes.bosques.keys = forestCategories.map(category => category.id);
             modes.bosques.phrase = "Cobertura vegetal · MINAM, 2015.";
-            modes.bosques.intro = "Explora las categorías originales de la cobertura vegetal.";
-            modes.bosques.note = "Cartografía de 2015 recortada a Madre de Dios. Incluye clases no forestales de la fuente; no representa el estado actual.";
+            modes.bosques.intro = "Explora las categorías originales de la cobertura vegetal representadas para Madre de Dios.";
+            modes.bosques.note = "Cartografía publicada en 2015 y recortada a Madre de Dios. No representa necesariamente el estado actual del territorio.";
         }
         let activeMode = "bosques", selectedKey = null, showAll = false, waterTypeFilter = "todos", zoomFrame = 0;
         let view = [0, 0, 600, 510];
