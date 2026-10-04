@@ -4,7 +4,7 @@
     "nombre_científico": "Bertholletia excelsa"
   },
   "fecha_revisión": "2026-10-04",
-  "responsabilidad_editorial": "EcoSelva",
+  "responsabilidad_editorial": "EcoSelva Madre de Dios",
   "URL": "https://ecoselva-madre-de-dios.github.io/fichas/castana.html",
   "indicadores": [
     {
@@ -23,7 +23,9 @@
       "fecha_revisión": "2026-10-04",
       "notas": "Información preliminar según la fuente. Producción registrada; no equivale a un censo de toda la cosecha. Categoría castaña con cáscara; no incluye la categoría castaña pelada. Se conserva la precisión de la tabla regional original.",
       "serie_regional": true,
-      "fuente_registro": "GORES y ATFFS; compilación SERFOR"
+      "fuente_registro": "GORES y ATFFS; compilación SERFOR",
+      "definición": "Cantidad de castaña con cáscara consignada por SERFOR en Cuadro 35 para Madre de Dios y el año 2021.",
+      "metodología": "Compilación de registros informados por GORES y ATFFS; compilación SERFOR. La tabla identifica las autoridades informantes y califica la información como preliminar; no detalla en ella el protocolo de levantamiento."
     },
     {
       "id": "registro-2022",
@@ -41,7 +43,9 @@
       "fecha_revisión": "2026-10-04",
       "notas": "Información preliminar según la fuente. Producción registrada; no equivale a un censo de toda la cosecha. Categoría castaña con cáscara; no incluye la categoría castaña pelada. Se conserva la precisión de la tabla regional original.",
       "serie_regional": true,
-      "fuente_registro": "Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR"
+      "fuente_registro": "Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR",
+      "definición": "Cantidad de castaña con cáscara consignada por SERFOR en Tabla 39 para Madre de Dios y el año 2022.",
+      "metodología": "Compilación de registros informados por Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR. La tabla identifica las autoridades informantes y califica la información como preliminar; no detalla en ella el protocolo de levantamiento."
     },
     {
       "id": "registro-2023",
@@ -59,7 +63,9 @@
       "fecha_revisión": "2026-10-04",
       "notas": "Información preliminar según la fuente. Producción registrada; no equivale a un censo de toda la cosecha. Categoría castaña con cáscara; no incluye la categoría castaña pelada. Se conserva la precisión de la tabla regional original.",
       "serie_regional": true,
-      "fuente_registro": "Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR"
+      "fuente_registro": "Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR",
+      "definición": "Cantidad de castaña con cáscara consignada por SERFOR en Tabla 40 para Madre de Dios y el año 2023.",
+      "metodología": "Compilación de registros informados por Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR. La tabla identifica las autoridades informantes y califica la información como preliminar; no detalla en ella el protocolo de levantamiento."
     },
     {
       "id": "registro-peru-2021",
@@ -77,7 +83,9 @@
       "fecha_revisión": "2026-10-04",
       "notas": "Información preliminar según la fuente. Producción registrada; no equivale a un censo de toda la cosecha. Ámbito nacional. No se incorpora a la serie regional ni se sustituye con este valor el del Cuadro 35.",
       "serie_regional": false,
-      "fuente_registro": "GORES y ATFFS; compilación SERFOR"
+      "fuente_registro": "GORES y ATFFS; compilación SERFOR",
+      "definición": "Cantidad de castaña con cáscara consignada por SERFOR en Cuadro 36 para Perú y el año 2021.",
+      "metodología": "Compilación de registros informados por GORES y ATFFS; compilación SERFOR. La tabla identifica las autoridades informantes y califica la información como preliminar; no detalla en ella el protocolo de levantamiento."
     },
     {
       "id": "registro-pelada-2023",
@@ -95,7 +103,9 @@
       "fecha_revisión": "2026-10-04",
       "notas": "Información preliminar según la fuente. Producción registrada; no equivale a un censo de toda la cosecha. Categoría castaña pelada. No sumar a castaña con cáscara ni utilizar ambas categorías para calcular un rendimiento de pelado.",
       "serie_regional": false,
-      "fuente_registro": "Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR"
+      "fuente_registro": "Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR",
+      "definición": "Cantidad de castaña pelada consignada por SERFOR en Tabla 40 para Madre de Dios y el año 2023.",
+      "metodología": "Compilación de registros informados por Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR. La tabla identifica las autoridades informantes y califica la información como preliminar; no detalla en ella el protocolo de levantamiento."
     }
   ],
   "serie": {
@@ -107,5 +117,116 @@
       "registro-2022",
       "registro-2023"
     ]
-  }
+  },
+  "tarjetas": [
+    "registro-2023",
+    "registro-pelada-2023"
+  ],
+  "destacado": "registro-2023",
+  "documentos": [
+    {
+      "id": "doc-anuario-2021",
+      "jerarquía": "primaria",
+      "tipo": "Informe oficial",
+      "autor": "SERFOR",
+      "título": "Anuario Forestal y de Fauna Silvestre 2021",
+      "año": 2022,
+      "ámbito": "Perú · tablas de Madre de Dios",
+      "uso": "Registros de producción de 2021; conserva categoría, ámbito, precisión y carácter preliminar.",
+      "URL": "https://repositorio.serfor.gob.pe/handle/SERFOR/943",
+      "URL_PDF": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/943/1/SERFOR%202022%20Anuario%202021.pdf#page=82"
+    },
+    {
+      "id": "doc-anuario-2022",
+      "jerarquía": "primaria",
+      "tipo": "Informe oficial",
+      "autor": "SERFOR",
+      "título": "Anuario Forestal y de Fauna Silvestre 2022",
+      "año": 2023,
+      "ámbito": "Perú · tablas de Madre de Dios",
+      "uso": "Registros de producción de 2022; conserva categoría, ámbito, precisión y carácter preliminar.",
+      "URL": "https://repositorio.serfor.gob.pe/handle/SERFOR/948",
+      "URL_PDF": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/948/1/SERFOR%202023%20Anuario%20FFS%202022.pdf#page=82"
+    },
+    {
+      "id": "doc-anuario-2023",
+      "jerarquía": "primaria",
+      "tipo": "Informe oficial",
+      "autor": "SERFOR",
+      "título": "Anuario Forestal y de Fauna Silvestre 2023",
+      "año": 2024,
+      "ámbito": "Perú · tablas de Madre de Dios",
+      "uso": "Registros de producción de 2023; conserva categoría, ámbito, precisión y carácter preliminar.",
+      "URL": "https://repositorio.serfor.gob.pe/handle/SERFOR/969",
+      "URL_PDF": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/969/1/SERFOR%202024%20-%20Anuario%202023.pdf#page=125"
+    },
+    {
+      "id": "doc-guia",
+      "jerarquía": "primaria",
+      "tipo": "Documento técnico",
+      "autor": "SERFOR",
+      "título": "Guía de Productos Forestales no Maderables en Madre de Dios",
+      "año": 2019,
+      "ámbito": "Madre de Dios",
+      "uso": "Descripción botánica y uso de la semilla; ficha de castaña, página 92.",
+      "URL": "https://repositorio.serfor.gob.pe/handle/SERFOR/854",
+      "URL_PDF": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/854/1/SERFOR%202019%20GUIA%20DE%20PFNM-EMDD.pdf#page=93"
+    },
+    {
+      "id": "doc-osinfor",
+      "jerarquía": "primaria",
+      "tipo": "Documento técnico",
+      "autor": "OSINFOR",
+      "título": "Análisis del aprovechamiento de madera en concesiones para castaña en Madre de Dios",
+      "año": 2024,
+      "ámbito": "Madre de Dios",
+      "uso": "Cadena de valor, concesiones y recomendaciones de gestión; páginas 10–15 y 26–35.",
+      "URL": "https://www.gob.pe/institucion/osinfor/informes-publicaciones/5623340-analisis-del-aprovechamiento-de-madera-en-concesiones-para-castana-en-madre-de-dios",
+      "URL_PDF": "https://cdn.www.gob.pe/uploads/document/file/6423105/5623340-analisis-del-aprovechamiento-de-madera-en-concesiones-para-castana-en-madre-de-dios.pdf?v=1720476638"
+    },
+    {
+      "id": "doc-rockwell",
+      "jerarquía": "primaria",
+      "tipo": "Artículo científico",
+      "autor": "Cara A. Rockwell y colaboradores",
+      "título": "Nut Production in Bertholletia excelsa across a Logged Forest Mosaic: Implications for Multiple Forest Use",
+      "año": 2015,
+      "ámbito": "Concesiones estudiadas en Madre de Dios",
+      "uso": "Recolección y efectos de la extracción de madera en el contexto estudiado.",
+      "URL": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0135464"
+    },
+    {
+      "id": "doc-thomas",
+      "jerarquía": "primaria",
+      "tipo": "Artículo científico",
+      "autor": "Evert Thomas y colaboradores",
+      "título": "NTFP harvesters as citizen scientists: Validating traditional and crowdsourced knowledge on seed production of Brazil nut trees in the Peruvian Amazon",
+      "año": 2017,
+      "ámbito": "Madre de Dios · entrevistas de 2012",
+      "uso": "Recolección, participación de castañeros y contraste de conocimiento local con mediciones.",
+      "URL": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0183743"
+    },
+    {
+      "id": "doc-polinizacion",
+      "jerarquía": "complementaria",
+      "tipo": "Artículo científico",
+      "autor": "Charles F. Santos y Maria L. Absy",
+      "título": "Polinizadores de Bertholletia excelsa (Lecythidales: Lecythidaceae): interações com abelhas sem ferrão (Apidae: Meliponini) e nicho trófico",
+      "año": 2010,
+      "ámbito": "Itacoatiara, Amazonas · Brasil",
+      "uso": "Interacción entre flores y abejas; contexto biológico, sin extrapolar un inventario regional.",
+      "URL": "https://www.scielo.br/j/ne/a/rywczQR65W8mX3ckPQY6zHK/"
+    },
+    {
+      "id": "doc-dispersion",
+      "jerarquía": "complementaria",
+      "tipo": "Artículo científico",
+      "autor": "Joanne M. Tuck Haugaasen y colaboradores",
+      "título": "Seed dispersal of the Brazil nut tree (Bertholletia excelsa) by scatter-hoarding rodents in a central amazonian forest",
+      "año": 2010,
+      "ámbito": "Amazonía central · Brasil",
+      "uso": "Experimento de transporte y enterramiento de semillas; resumen original en el repositorio de UEA.",
+      "URL": "https://ueaeprints.uea.ac.uk/id/eprint/20304/"
+    }
+  ]
 }

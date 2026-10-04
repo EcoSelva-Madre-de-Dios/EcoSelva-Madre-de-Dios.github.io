@@ -1,4 +1,4 @@
-/* Mejora progresiva: el contenido y los acordeones funcionan sin JavaScript. */
+/* Mejora progresiva: las tres profundidades y los datos están en el HTML. */
 document.addEventListener("DOMContentLoaded", () => {
     const article = document.querySelector("[data-ficha]");
     if (!article) return;
@@ -16,9 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!focus.hasAttribute("tabindex") && focus.tagName !== "SUMMARY") focus.tabIndex = -1;
         focus.focus({ preventScroll: true });
     };
-    if (matchMedia("(min-width: 701px)").matches) {
-        article.querySelector("#para-entender").open = true;
-    }
     const initialTarget = targetForHash(location.hash);
     if (initialTarget) {
         reveal(initialTarget);
@@ -67,4 +64,24 @@ document.addEventListener("DOMContentLoaded", () => {
         const target = targetForHash(location.hash);
         if (target) reveal(target);
     });
+
+    {
+        const navigation = document.querySelector(".ficha-navegacion");
+        const sections = [...article.querySelectorAll(".ficha-capa")];
+        const updateCurrent = () => {
+            const section = sections.filter(item => item.getBoundingClientRect().top <= 110).at(-1) || sections[0];
+            navigation.querySelectorAll("a").forEach(link => {
+                if (link.hash === `#${section.id}`) link.setAttribute("aria-current", "location");
+                else link.removeAttribute("aria-current");
+            });
+        };
+        let pending = false;
+        window.addEventListener("scroll", () => {
+            if (pending) return;
+            pending = true;
+            requestAnimationFrame(() => { updateCurrent(); pending = false; });
+        }, { passive: true });
+        window.addEventListener("resize", updateCurrent);
+        updateCurrent();
+    }
 });

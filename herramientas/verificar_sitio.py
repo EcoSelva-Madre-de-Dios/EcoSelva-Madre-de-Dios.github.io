@@ -10,6 +10,7 @@ import json
 import csv
 import re
 import sys
+from actualizar_ficha_castana import COLUMNS, check_generated
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://ecoselva-madre-de-dios.github.io'
@@ -53,7 +54,7 @@ class Page(HTMLParser):
                 self.errors.append(f'Enlace externo sin noopener: {attrs["href"]}')
         if tag == 'script':
             self.scripts.append(attrs)
-            if attrs.get('type') == 'application/json':
+            if attrs.get('type') in ('application/json', 'application/ld+json'):
                 self.current_json = ''
         for key in ('src', 'href', 'poster', 'data-src', 'data-territorio-map-src'):
             if attrs.get(key):
@@ -141,12 +142,13 @@ class IndicatorPage(HTMLParser):
 
 
 def verify_castana():
+    check_generated()
     model = json.loads((ROOT / 'datos/fichas/castana.json').read_text())
     date.fromisoformat(model['fecha_revisión'])
     records = model['indicadores']
     with (ROOT / 'datos/fichas/castana-indicadores.csv').open(encoding='utf-8-sig', newline='') as source:
         reader = csv.DictReader(source)
-        required_columns = {'indicador', 'valor', 'unidad', 'año', 'ámbito', 'fuente', 'URL', 'notas', 'publicación', 'año_publicación', 'fecha_revisión', 'localizador', 'URL_PDF'}
+        required_columns = set(COLUMNS)
         if set(reader.fieldnames or ()) != required_columns:
             raise ValueError('Castaña: faltan columnas de procedencia en el CSV.')
         csv_records = list(reader)
@@ -155,7 +157,7 @@ def verify_castana():
     ids = [record['id'] for record in records]
     if not records or len(ids) != len(set(ids)) or set(ids) != set(html.records) or len(records) != len(csv_records):
         raise ValueError('Castaña: los registros HTML, JSON y CSV deben coincidir y tener IDs únicos.')
-    fields = ('indicador', 'valor', 'unidad', 'año', 'ámbito', 'fuente', 'publicación', 'URL', 'fecha_revisión', 'notas')
+    fields = ('indicador', 'valor', 'unidad', 'año', 'ámbito', 'fuente', 'publicación', 'URL', 'fecha_revisión', 'notas', 'definición', 'metodología', 'fuente_registro')
     for record, csv_record in zip(records, csv_records):
         if Decimal(record['valor']) < 0 or record['unidad'] != 'kg' or record['ámbito'] not in ('Madre de Dios', 'Perú'):
             raise ValueError(f'Castaña: valor, unidad o ámbito inválido: {record["id"]}')
@@ -189,6 +191,24 @@ def verify_castana():
         raise ValueError('Castaña: la serie mezcla productos, unidades o ámbitos.')
     if [r['año'] for r in series] != sorted({r['año'] for r in series}):
         raise ValueError('Castaña: la serie debe tener años únicos y ordenados.')
+    page = (ROOT / 'fichas/castana.html').read_text()
+    for section in ('lo-esencial', 'para-entender', 'datos-evidencia'):
+        if not re.search(r'<section\b[^>]*\bid="' + section + '"', page):
+            raise ValueError('Castaña: las profundidades deben ser secciones continuas en el HTML.')
+    if 'ficha-grafico' in page and len(series) < 4:
+        raise ValueError('Castaña: un gráfico exige al menos cuatro observaciones comparables.')
+    if not 2 <= len(model['tarjetas']) <= 4 or len(set(model['tarjetas'])) != len(model['tarjetas']) or not set(model['tarjetas']).issubset(ids):
+        raise ValueError('Castaña: deben existir entre dos y cuatro tarjetas de indicadores únicos.')
+    documents = model['documentos']
+    if len({document['id'] for document in documents}) != len(documents):
+        raise ValueError('Castaña: hay documentos repetidos.')
+    for document in documents:
+        if any(not document.get(field) for field in ('id', 'tipo', 'autor', 'título', 'año', 'ámbito', 'uso', 'URL')) or document['jerarquía'] not in ('primaria', 'complementaria'):
+            raise ValueError('Castaña: documento sin procedencia editorial completa.')
+        if urlsplit(document['URL']).scheme != 'https':
+            raise ValueError('Castaña: el documento debe tener enlace original HTTPS.')
+    ET.parse(ROOT / 'fichas/castana-ciclo.svg')
+    ET.parse(ROOT / 'fichas/castana-patron.svg')
 
 
 def verify():
