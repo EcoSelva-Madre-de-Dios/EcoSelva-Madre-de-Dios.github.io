@@ -1,0 +1,111 @@
+{
+  "especie": {
+    "nombre": "Castaña amazónica",
+    "nombre_científico": "Bertholletia excelsa"
+  },
+  "fecha_revisión": "2026-10-04",
+  "responsabilidad_editorial": "EcoSelva",
+  "URL": "https://ecoselva-madre-de-dios.github.io/fichas/castana.html",
+  "indicadores": [
+    {
+      "id": "registro-2021",
+      "indicador": "Producción registrada de castaña con cáscara",
+      "valor": "8638185",
+      "unidad": "kg",
+      "año": 2021,
+      "ámbito": "Madre de Dios",
+      "fuente": "SERFOR",
+      "publicación": "Anuario Forestal y de Fauna Silvestre 2021",
+      "año_publicación": 2022,
+      "URL": "https://repositorio.serfor.gob.pe/handle/SERFOR/943",
+      "URL_PDF": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/943/1/SERFOR%202022%20Anuario%202021.pdf#page=82",
+      "localizador": "Cuadro 35",
+      "fecha_revisión": "2026-10-04",
+      "notas": "Información preliminar según la fuente. Producción registrada; no equivale a un censo de toda la cosecha. Categoría castaña con cáscara; no incluye la categoría castaña pelada. Se conserva la precisión de la tabla regional original.",
+      "serie_regional": true,
+      "fuente_registro": "GORES y ATFFS; compilación SERFOR"
+    },
+    {
+      "id": "registro-2022",
+      "indicador": "Producción registrada de castaña con cáscara",
+      "valor": "14447374.26",
+      "unidad": "kg",
+      "año": 2022,
+      "ámbito": "Madre de Dios",
+      "fuente": "SERFOR",
+      "publicación": "Anuario Forestal y de Fauna Silvestre 2022",
+      "año_publicación": 2023,
+      "URL": "https://repositorio.serfor.gob.pe/handle/SERFOR/948",
+      "URL_PDF": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/948/1/SERFOR%202023%20Anuario%20FFS%202022.pdf#page=82",
+      "localizador": "Tabla 39",
+      "fecha_revisión": "2026-10-04",
+      "notas": "Información preliminar según la fuente. Producción registrada; no equivale a un censo de toda la cosecha. Categoría castaña con cáscara; no incluye la categoría castaña pelada. Se conserva la precisión de la tabla regional original.",
+      "serie_regional": true,
+      "fuente_registro": "Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR"
+    },
+    {
+      "id": "registro-2023",
+      "indicador": "Producción registrada de castaña con cáscara",
+      "valor": "10156532.82",
+      "unidad": "kg",
+      "año": 2023,
+      "ámbito": "Madre de Dios",
+      "fuente": "SERFOR",
+      "publicación": "Anuario Forestal y de Fauna Silvestre 2023",
+      "año_publicación": 2024,
+      "URL": "https://repositorio.serfor.gob.pe/handle/SERFOR/969",
+      "URL_PDF": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/969/1/SERFOR%202024%20-%20Anuario%202023.pdf#page=125",
+      "localizador": "Tabla 40",
+      "fecha_revisión": "2026-10-04",
+      "notas": "Información preliminar según la fuente. Producción registrada; no equivale a un censo de toda la cosecha. Categoría castaña con cáscara; no incluye la categoría castaña pelada. Se conserva la precisión de la tabla regional original.",
+      "serie_regional": true,
+      "fuente_registro": "Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR"
+    },
+    {
+      "id": "registro-peru-2021",
+      "indicador": "Producción registrada de castaña con cáscara",
+      "valor": "8638185.12",
+      "unidad": "kg",
+      "año": 2021,
+      "ámbito": "Perú",
+      "fuente": "SERFOR",
+      "publicación": "Anuario Forestal y de Fauna Silvestre 2021",
+      "año_publicación": 2022,
+      "URL": "https://repositorio.serfor.gob.pe/handle/SERFOR/943",
+      "URL_PDF": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/943/1/SERFOR%202022%20Anuario%202021.pdf#page=83",
+      "localizador": "Cuadro 36",
+      "fecha_revisión": "2026-10-04",
+      "notas": "Información preliminar según la fuente. Producción registrada; no equivale a un censo de toda la cosecha. Ámbito nacional. No se incorpora a la serie regional ni se sustituye con este valor el del Cuadro 35.",
+      "serie_regional": false,
+      "fuente_registro": "GORES y ATFFS; compilación SERFOR"
+    },
+    {
+      "id": "registro-pelada-2023",
+      "indicador": "Producción registrada de castaña pelada",
+      "valor": "3903605.76",
+      "unidad": "kg",
+      "año": 2023,
+      "ámbito": "Madre de Dios",
+      "fuente": "SERFOR",
+      "publicación": "Anuario Forestal y de Fauna Silvestre 2023",
+      "año_publicación": 2024,
+      "URL": "https://repositorio.serfor.gob.pe/handle/SERFOR/969",
+      "URL_PDF": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/969/1/SERFOR%202024%20-%20Anuario%202023.pdf#page=125",
+      "localizador": "Tabla 40",
+      "fecha_revisión": "2026-10-04",
+      "notas": "Información preliminar según la fuente. Producción registrada; no equivale a un censo de toda la cosecha. Categoría castaña pelada. No sumar a castaña con cáscara ni utilizar ambas categorías para calcular un rendimiento de pelado.",
+      "serie_regional": false,
+      "fuente_registro": "Autoridades Regionales Forestales y de Fauna Silvestre (ARFFS); compilación SERFOR"
+    }
+  ],
+  "serie": {
+    "indicador": "Producción registrada de castaña con cáscara",
+    "unidad": "kg",
+    "ámbito": "Madre de Dios",
+    "registros": [
+      "registro-2021",
+      "registro-2022",
+      "registro-2023"
+    ]
+  }
+}

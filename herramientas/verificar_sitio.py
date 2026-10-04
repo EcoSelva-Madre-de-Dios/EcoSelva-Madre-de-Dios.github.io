@@ -1,16 +1,20 @@
 """Comprueba las páginas y sus recursos antes de publicar, sin dependencias externas."""
 from collections import Counter
+from datetime import date
+from decimal import Decimal, InvalidOperation
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 from xml.etree import ElementTree as ET
 import json
+import csv
 import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://ecoselva-madre-de-dios.github.io'
-ENTRYPOINTS = ('index.html', 'fuentes-metodologia.html', 'google46599e54e679b03a.html', 'robots.txt', 'sitemap.xml')
+PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html')
+ENTRYPOINTS = PAGES + ('google46599e54e679b03a.html', 'robots.txt', 'sitemap.xml')
 
 
 class Page(HTMLParser):
@@ -108,24 +112,105 @@ def published_files():
     return found
 
 
+class IndicatorPage(HTMLParser):
+    """Recoge la procedencia y el texto visible de cada indicador de la ficha."""
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.records, self.record, self.field = {}, None, None
+
+    def handle_starttag(self, tag, attributes):
+        attrs = dict(attributes)
+        if tag == 'details' and attrs.get('data-registro'):
+            self.record = attrs['data-registro']
+            if self.record in self.records:
+                raise ValueError(f'Indicador repetido: {self.record}')
+            self.records[self.record] = {}
+        if tag == 'dd' and self.record and attrs.get('data-campo'):
+            self.field = attrs['data-campo']
+            self.records[self.record][self.field] = {'valor': attrs.get('data-valor'), 'texto': ''}
+
+    def handle_data(self, text):
+        if self.record and self.field:
+            self.records[self.record][self.field]['texto'] += text
+
+    def handle_endtag(self, tag):
+        if tag == 'dd':
+            self.field = None
+        if tag == 'details':
+            self.record, self.field = None, None
+
+
+def verify_castana():
+    model = json.loads((ROOT / 'datos/fichas/castana.json').read_text())
+    date.fromisoformat(model['fecha_revisión'])
+    records = model['indicadores']
+    with (ROOT / 'datos/fichas/castana-indicadores.csv').open(encoding='utf-8-sig', newline='') as source:
+        reader = csv.DictReader(source)
+        required_columns = {'indicador', 'valor', 'unidad', 'año', 'ámbito', 'fuente', 'URL', 'notas', 'publicación', 'año_publicación', 'fecha_revisión', 'localizador', 'URL_PDF'}
+        if set(reader.fieldnames or ()) != required_columns:
+            raise ValueError('Castaña: faltan columnas de procedencia en el CSV.')
+        csv_records = list(reader)
+    html = IndicatorPage()
+    html.feed((ROOT / 'fichas/castana.html').read_text())
+    ids = [record['id'] for record in records]
+    if not records or len(ids) != len(set(ids)) or set(ids) != set(html.records) or len(records) != len(csv_records):
+        raise ValueError('Castaña: los registros HTML, JSON y CSV deben coincidir y tener IDs únicos.')
+    fields = ('indicador', 'valor', 'unidad', 'año', 'ámbito', 'fuente', 'publicación', 'URL', 'fecha_revisión', 'notas')
+    for record, csv_record in zip(records, csv_records):
+        if Decimal(record['valor']) < 0 or record['unidad'] != 'kg' or record['ámbito'] not in ('Madre de Dios', 'Perú'):
+            raise ValueError(f'Castaña: valor, unidad o ámbito inválido: {record["id"]}')
+        if not isinstance(record['año'], int) or not isinstance(record['año_publicación'], int) or record['año'] > record['año_publicación']:
+            raise ValueError(f'Castaña: deben distinguirse año del dato y año de publicación: {record["id"]}')
+        if record['fecha_revisión'] != model['fecha_revisión'] or date.fromisoformat(record['fecha_revisión']) > date.today():
+            raise ValueError('Castaña: fecha de revisión inválida.')
+        for key in ('URL', 'URL_PDF'):
+            if urlsplit(record[key]).scheme != 'https' or not urlsplit(record[key]).netloc:
+                raise ValueError(f'Castaña: falta una fuente original HTTPS: {record["id"]}')
+        for key, value in csv_record.items():
+            if str(record.get(key, '')) != value:
+                raise ValueError(f'Castaña: CSV y modelo difieren: {record["id"]}, {key}')
+        for field in fields:
+            entry = html.records[record['id']].get(field, {})
+            if entry.get('valor') != str(record[field]) or not entry.get('texto', '').strip():
+                raise ValueError(f'Castaña: metadato ausente o distinto en HTML: {record["id"]}, {field}')
+        visible_value = html.records[record['id']]['valor']['texto'].replace('\u202f', '').replace('\xa0', '').replace(',', '.').strip()
+        if visible_value != record['valor']:
+            raise ValueError(f'Castaña: el valor visible no conserva la precisión original: {record["id"]}')
+        for field in ('año', 'ámbito', 'unidad'):
+            if html.records[record['id']][field]['texto'].strip() != str(record[field]):
+                raise ValueError(f'Castaña: ámbito, año o unidad visible incorrectos: {record["id"]}')
+        publication = html.records[record['id']]['publicación']['texto']
+        if record['publicación'] not in publication or str(record['año_publicación']) not in publication:
+            raise ValueError(f'Castaña: publicación sin título o fecha: {record["id"]}')
+    series = [record for record in records if record['serie_regional']]
+    if not series or [r['id'] for r in series] != model['serie']['registros']:
+        raise ValueError('Castaña: serie vacía o registros mal identificados.')
+    if any(any(r[key] != model['serie'][key] for key in ('indicador', 'unidad', 'ámbito')) for r in series):
+        raise ValueError('Castaña: la serie mezcla productos, unidades o ámbitos.')
+    if [r['año'] for r in series] != sorted({r['año'] for r in series}):
+        raise ValueError('Castaña: la serie debe tener años únicos y ordenados.')
+
+
 def verify():
     errors = []
-    for entry in ENTRYPOINTS[:2]:
+    pages = {}
+    for entry in PAGES:
         html = (ROOT / entry).read_text()
         page = Page()
         page.feed(html)
+        pages[entry] = page
         errors.extend(f'{entry}: {message}' for message in page.errors)
         expected_url = ORIGIN + ('/' if entry == 'index.html' else '/' + entry)
         if page.lang != 'es-PE' or page.links.get('canonical') != [expected_url]:
             errors.append(f'{entry}: idioma o URL canónica incorrectos.')
         if not page.links.get('icon'):
             errors.append(f'{entry}: falta el favicon.')
-        if entry == 'index.html':
+        if entry in ('index.html', 'fichas/castana.html'):
             if page.metadata.get('og:url') != expected_url:
-                errors.append('index.html: og:url debe coincidir con la URL canónica.')
+                errors.append(f'{entry}: og:url debe coincidir con la URL canónica.')
             social_image = page.metadata.get('og:image', '')
             if not social_image.startswith(ORIGIN + '/') or not (ROOT / unquote(urlsplit(social_image).path.lstrip('/'))).is_file():
-                errors.append('index.html: og:image debe apuntar a una imagen existente del sitio.')
+                errors.append(f'{entry}: og:image debe apuntar a una imagen existente del sitio.')
         if page.main_count != 1:
             errors.append(f'{entry}: debe existir un único main.')
         duplicate_ids = [key for key, count in Counter(page.ids).items() if count > 1]
@@ -141,18 +226,32 @@ def verify():
                 errors.append(f'{entry}: JSON inválido: {error}')
         if re.search(r'^\s*(?:<<<<<<<|=======|>>>>>>>)', html, re.M):
             errors.append(f'{entry}: conflicto de Git sin resolver.')
-    html = (ROOT / 'index.html').read_text()
-    head = html.split('<head>', 1)[1].split('</head>', 1)[0]
-    if html.count('gtag/js?') != 1 or "gtag('config', 'G-0KG7JC82NV');" not in head or 'GTM-' in head:
-        errors.append('Google Analytics debe conservar una única instalación con ID G-0KG7JC82NV dentro de head.')
+    for entry in ('index.html', 'fichas/castana.html'):
+        html = (ROOT / entry).read_text()
+        head = html.split('<head>', 1)[1].split('</head>', 1)[0]
+        if html.count('gtag/js?') != 1 or "gtag('config', 'G-0KG7JC82NV');" not in head or 'GTM-' in head:
+            errors.append(f'{entry}: Analytics debe tener una sola instalación con ID G-0KG7JC82NV dentro de head.')
     try:
+        verify_castana()
+        for entry, page in pages.items():
+            for reference in page.anchors:
+                fragment = unquote(urlsplit(reference).fragment)
+                target = local_path(reference, (ROOT / entry).parent)
+                if target and target.suffix == '.html' and fragment and target.is_file():
+                    destination = pages.get(str(target.relative_to(ROOT)))
+                    if destination is None:
+                        destination = Page()
+                        destination.feed(target.read_text())
+                    if fragment not in destination.ids:
+                        errors.append(f'{entry}: enlace entre páginas roto: {reference}')
         files = published_files()
         robots = (ROOT / 'robots.txt').read_text().splitlines()
         if any(line not in robots for line in ('User-agent: *', 'Allow: /', 'Sitemap: ' + ORIGIN + '/sitemap.xml')):
             errors.append('robots.txt: faltan las instrucciones públicas o el sitemap.')
         sitemap = ET.parse(ROOT / 'sitemap.xml').getroot()
         locations = [element.text for element in sitemap.findall('{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc')]
-        if len(locations) != len(set(locations)) or not {ORIGIN + '/', ORIGIN + '/fuentes-metodologia.html'}.issubset(locations):
+        expected_locations = {ORIGIN + ('/' if page == 'index.html' else '/' + page) for page in PAGES}
+        if len(locations) != len(set(locations)) or not expected_locations.issubset(locations):
             errors.append('sitemap.xml: faltan páginas públicas o hay URLs duplicadas.')
         for location in locations:
             route = urlsplit(location or '')
@@ -168,12 +267,12 @@ def verify():
         for path in files:
             if path.suffix == '.css' and re.search(r'font-size:\s*(?:[0-9]|1[01])px', path.read_text()):
                 errors.append(f'{path.relative_to(ROOT)}: tamaño de letra menor de 12 px.')
-    except (ValueError, ET.ParseError) as error:
+    except (ValueError, KeyError, InvalidOperation, ET.ParseError) as error:
         errors.append(str(error))
     if errors:
         print('\n'.join(errors), file=sys.stderr)
         return 1
-    print(f'Correcto: páginas, enlaces, Analytics, mapa y {len(files)} archivos necesarios para publicar.')
+    print(f'Correcto: páginas, enlaces, indicadores/CSV, Analytics, mapa y {len(files)} archivos necesarios para publicar.')
     return 0
 
 

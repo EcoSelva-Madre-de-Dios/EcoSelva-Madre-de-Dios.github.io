@@ -26,6 +26,7 @@ jobs:
         run: |
           node --check script.js
           node --check ventanas.js
+          node --check fichas/ficha.js
       - name: Preparar y verificar el sitio
         run: python3 herramientas/preparar_publicacion.py _site
       - name: Configurar Pages
