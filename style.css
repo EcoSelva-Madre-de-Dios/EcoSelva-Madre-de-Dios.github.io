@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 :root {
     --forest-deep: #102e22;
@@ -42,7 +41,7 @@ body {
     background: var(--white);
     font-family: var(--font-body);
     line-height: 1.7;
-    overflow-x: hidden;
+
 }
 
 button,
@@ -136,7 +135,7 @@ h4,
     background-image:
         linear-gradient(90deg, rgb(11 30 23 / 80%) 0%, rgb(11 30 23 / 55%) 40%, rgb(11 30 23 / 8%) 100%),
         linear-gradient(0deg, rgb(11 30 23 / 25%), transparent 45%),
-        url("imagenesEco/bg-hero.jpg");
+        url("images/bg-hero.jpg");
     background-position: center, center, center 58%;
     background-size: cover;
     animation: selva-hero-zoom 22s ease-out both;
@@ -269,7 +268,7 @@ h4,
 }
 
 .menu .navbar .selva-nav-desplegable details > summary span {
-    font-size: 11px;
+    font-size: 12px;
     transition: transform 160ms ease;
 }
 
@@ -443,7 +442,7 @@ h4,
     gap: 9px;
     color: var(--paper);
     font-family: var(--font-heading);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.17em;
     text-transform: uppercase;
@@ -494,7 +493,7 @@ h4,
 .selva-microetiqueta {
     margin: 0 0 12px;
     color: var(--green-natural);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.2em;
     line-height: 1.5;
@@ -647,7 +646,7 @@ h4,
 .selva-flip-categoria {
     color: var(--white);
     font-family: var(--font-heading);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.16em;
     text-transform: uppercase;
@@ -702,7 +701,7 @@ h4,
     z-index: 2;
     align-self: flex-end;
     color: var(--white);
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.4;
     text-align: right;
     text-shadow: 0 1px 4px rgb(0 0 0 / 80%);
@@ -715,7 +714,7 @@ h4,
     align-self: stretch;
     margin-top: 9px;
     color: var(--white);
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1.35;
     text-shadow: 0 1px 4px rgb(0 0 0 / 90%);
 }
@@ -750,7 +749,7 @@ h4,
 
 .selva-curiosidad-encabezado .selva-curiosidad-taxonomia {
     color: #dce8dc;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .selva-curiosidad-texto {
@@ -761,7 +760,7 @@ h4,
     padding-left: 9px;
     border-left: 2px solid var(--sand);
     color: #eadba8;
-    font-size: 11px;
+    font-size: 12px;
     font-style: italic;
     line-height: 1.42;
 }
@@ -779,7 +778,7 @@ h4,
     border-radius: 999px;
     color: #eadba8;
     font-family: var(--font-heading);
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1.4;
 }
 
@@ -789,7 +788,7 @@ h4,
     flex-wrap: wrap;
     gap: 3px 8px;
     color: #cbd8d0;
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1.4;
 }
 
@@ -811,7 +810,7 @@ h4,
 
 .selva-curiosidad-revision {
     color: #aebdb4;
-    font-size: 9px;
+    font-size: 12px;
     line-height: 1.35;
 }
 
@@ -900,7 +899,7 @@ h4,
     color: var(--white);
     content: "FLORA";
     font-family: var(--font-heading);
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.2em;
 }
@@ -998,7 +997,7 @@ h4,
     border: 1px solid rgb(243 240 230 / 46%);
     border-radius: 999px;
     color: var(--paper);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 700;
     line-height: 1.4;
 }
@@ -1006,7 +1005,7 @@ h4,
 .selva-credito-cedro {
     margin-top: 10px;
     color: #f2f4ef;
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 400;
     line-height: 1.45;
 }
@@ -1142,7 +1141,7 @@ h4,
     color: var(--water);
     content: counter(ambiente-tema, decimal-leading-zero);
     font-family: var(--font-heading);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.08em;
 }
@@ -1234,7 +1233,7 @@ h4,
     color: var(--white);
     background: linear-gradient(transparent, rgb(12 32 25 / 68%));
     font-family: var(--font-heading);
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.06em;
     pointer-events: none;
 }
@@ -1318,7 +1317,7 @@ h4,
     color: var(--paper);
     background: rgb(16 46 34 / 96%);
     box-shadow: 0 8px 22px rgb(0 0 0 / 18%);
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.5;
     text-align: left;
     opacity: 0;
@@ -1429,7 +1428,7 @@ h4,
     margin-top: 14px;
     color: var(--water);
     font-family: var(--font-heading);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -1441,7 +1440,7 @@ h4,
     color: var(--paper);
     background:
         linear-gradient(90deg, rgb(16 46 34 / 96%), rgb(16 46 34 / 89%)),
-        url("imagenesEco/bg 1.1.png") center / cover no-repeat;
+        url("images/bg.png") center / cover no-repeat;
 }
 
 .selva-sobre-layout {
@@ -2057,7 +2056,7 @@ h4,
     border-top: 1px solid rgb(243 240 230 / 12%);
     color: #d0d9d2;
     background: #0b2119;
-    font-size: 11px;
+    font-size: 12px;
 }
 
 .selva-pie-final-contenido {
@@ -2367,7 +2366,7 @@ h4,
         background-image:
             linear-gradient(90deg, rgb(11 30 23 / 58%), rgb(11 30 23 / 28%)),
             linear-gradient(0deg, rgb(11 30 23 / 35%), transparent 58%),
-            url("imagenesEco/bg-hero.jpg");
+            url("images/bg-hero.jpg");
         background-position: center, center, 56% center;
     }
 
@@ -2386,7 +2385,7 @@ h4,
     }
 
     .selva-hero-kicker {
-        font-size: 9px;
+        font-size: 12px;
         letter-spacing: 0.15em;
     }
 
@@ -2398,7 +2397,7 @@ h4,
     .selva-hero-descubre {
         right: 19px;
         bottom: 22px;
-        font-size: 9px;
+        font-size: 12px;
     }
 
     .selva-curiosidades,
@@ -2697,7 +2696,7 @@ h4,
     border-radius: 999px;
     color: var(--forest);
     background: rgb(22 61 43 / 5%);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 600;
     line-height: 1.5;
 }
@@ -2712,7 +2711,7 @@ h4,
 .selva-flora-stat small {
     display: block;
     color: var(--muted);
-    font-size: 11px;
+    font-size: 12px;
     line-height: 1.5;
 }
 .selva-flora-stat .selva-flora-stat-fuente { color: var(--forest); font-weight: 700; }
@@ -2762,7 +2761,7 @@ h4,
 }
 .selva-flora-stat-cabecera { display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; margin-bottom: 10px; }
 .selva-flora-stat-icono { flex: 0 0 34px; width: 34px; height: 34px; }
-.selva-flora-stat-cabecera .selva-flora-stat-badge { font-size: 10px; white-space: nowrap; padding: 5px 8px; }
+.selva-flora-stat-cabecera .selva-flora-stat-badge { font-size: 12px; white-space: nowrap; padding: 5px 8px; }
 .selva-flora-stat--medicinales .selva-flora-stat-badge,
 .selva-flora-stat--alimenticias .selva-flora-stat-badge { color: #735e2b; border-color: rgb(207 180 92 / 15%); background: rgb(207 180 92 / 10%); }
 .selva-flora-stat .selva-flora-stat-estado { color: var(--forest); font-size: 17px; font-weight: 600; line-height: 1.4; }
@@ -2830,14 +2829,14 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-flora-modal-especies li { display: flex; flex-direction: column; gap: 7px; min-width: 0; padding: 22px 18px; border: 1px solid rgb(22 61 43 / 10%); border-radius: 14px; background: #f5f8f4; }
 .selva-flora-modal-especies strong { color: var(--forest-deep); font-size: 17px; }
 .selva-flora-modal-especies em { color: var(--forest); font-size: 13px; overflow-wrap: anywhere; }
-.selva-flora-modal-especies span { color: var(--muted); font-size: 11px; margin-top: auto; }
+.selva-flora-modal-especies span { color: var(--muted); font-size: 12px; margin-top: auto; }
 .selva-flora-modal-nota { margin-top: 18px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .selva-flora-modal-fuente { display: grid; gap: 8px; margin-top: 26px; padding: 24px; border: 1px solid rgb(22 61 43 / 9%); border-radius: 14px; background: var(--paper); }
 .selva-flora-modal-fuente h3 { color: var(--forest); font-size: 14px; }
 .selva-flora-modal-fuente p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
 .selva-flora-modal-fuente cite { font-style: normal; }
 .selva-flora-modal-fuente a { justify-self: start; padding-block: 9px; color: var(--forest); font-size: 13px; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
-.selva-flora-modal-fuente small { color: var(--muted); font-size: 11px; }
+.selva-flora-modal-fuente small { color: var(--muted); font-size: 12px; }
 .selva-flora-modal-informacion { display: grid; gap: 16px; padding: 24px; border-left: 3px solid var(--green-natural); border-radius: 0 12px 12px 0; background: #f5f8f4; color: var(--muted); font-size: 15px; line-height: 1.8; }
 .selva-flora-modal-informacion p { margin: 0; }
 @keyframes selva-flora-modal-entrar { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
@@ -2845,7 +2844,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
     .selva-flora-modal-especies { grid-template-columns: 1fr; }
     .selva-flora-modal-fuente { padding: 18px; }
     .selva-flora-modal-informacion { padding: 18px; }
-    .selva-flora-stat-cabecera .selva-flora-stat-badge { font-size: 11px; padding: 5px 10px; }
+    .selva-flora-stat-cabecera .selva-flora-stat-badge { font-size: 12px; padding: 5px 10px; }
 }
 @media (prefers-reduced-motion: reduce) {
     .selva-flora-modal[open] { animation: none; }
@@ -2873,7 +2872,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-flora-stat { padding: 22px 20px; gap: 10px; border: 1px solid rgb(22 61 43 / 8%); border-radius: 18px; box-shadow: 0 5px 20px rgb(22 61 43 / 4%); background: var(--white); }
 .selva-flora-stat-cabecera { align-items: flex-start; margin-bottom: 5px; gap: 10px; }
 .selva-flora-stat-icono { flex-basis: 44px; width: 44px; height: 44px; stroke-width: 1.8; }
-.selva-flora-stat-cabecera .selva-flora-stat-badge { display: inline-flex; align-items: center; gap: 7px; margin-top: 2px; padding: 6px 9px; border: 0; border-radius: 18px; background: #edf7f0; font-size: 11px; font-weight: 500; }
+.selva-flora-stat-cabecera .selva-flora-stat-badge { display: inline-flex; align-items: center; gap: 7px; margin-top: 2px; padding: 6px 9px; border: 0; border-radius: 18px; background: #edf7f0; font-size: 12px; font-weight: 500; }
 .selva-flora-stat-badge::before { content: '▤'; font-size: 16px; line-height: 1; }
 .selva-flora-stat--no-maderables .selva-flora-stat-badge::before { content: '▥'; }
 .selva-flora-stat--medicinales .selva-flora-stat-badge::before,
@@ -2895,7 +2894,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
     background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 130 180'%3E%3Cg fill='%23163d2b' fill-opacity='.055'%3E%3Cpath d='M62 179c1-57 14-104 37-141l3 2C79 80 68 127 67 180Z'/%3E%3Cpath d='M69 115C32 78 57 32 109 6c17 47 12 85-40 109ZM61 155C22 153 5 128 5 95c35 1 57 24 56 60ZM74 158c-1-32 16-53 51-54-2 29-17 52-51 54Z'/%3E%3C/g%3E%3C/svg%3E") bottom right / contain no-repeat;
 }
 .selva-flora-stat-referencia { display: block; width: 100%; border: 0; padding-top: 0; }
-.selva-flora-stat-referencia summary { width: fit-content; color: var(--muted); font-size: 10px; padding: 5px 0; cursor: pointer; }
+.selva-flora-stat-referencia summary { width: fit-content; color: var(--muted); font-size: 12px; padding: 5px 0; cursor: pointer; }
 .selva-flora-stat-referencia[open] { padding-top: 8px; border-top: 1px solid rgb(22 61 43 / 8%); }
 .selva-flora-stat-referencia[open] small { margin-top: 5px; }
 .selva-flora-stat-referencia summary:focus-visible { outline: 2px solid var(--forest); outline-offset: 3px; }
@@ -2941,7 +2940,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
     color: var(--forest);
     background: rgb(255 255 255 / 42%);
     font-family: var(--font-heading);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: lowercase;
@@ -3000,14 +2999,14 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-fauna-numero { display: grid; place-items: center; width: 112px; height: 112px; border: 1px solid var(--fauna-acento); border-radius: 50%; color: var(--forest-deep); font-family: 'Manrope', sans-serif; font-size: 50px; font-weight: 800; font-variant-numeric: tabular-nums; line-height: 1; }
 #programas .selva-fauna-stat h3 { margin: 18px 0 4px; color: var(--forest); font-size: 14px; letter-spacing: .06em; text-transform: uppercase; }
 #programas .selva-fauna-descripcion { margin: 0; font-size: 13px; line-height: 1.5; }
-.selva-fauna-badge { margin-top: 16px; padding: 5px 10px; border-radius: 20px; background: #f1f5ef; color: var(--forest); font-size: 11px; }
+.selva-fauna-badge { margin-top: 16px; padding: 5px 10px; border-radius: 20px; background: #f1f5ef; color: var(--forest); font-size: 12px; }
 #programas .selva-fauna-nota { max-width: 760px; margin: 24px auto 18px; font-size: 12px; line-height: 1.7; }
 .selva-fauna-fuente { padding: 18px 22px; border: 1px solid rgb(22 61 43 / 9%); border-radius: 14px; background: #f7f9f5; }
 #programas .selva-fauna-fuente p { margin: 0; font-size: 12px; line-height: 1.7; }
 .selva-fauna-fuente cite { font-style: normal; }
 .selva-fauna-fuente a { display: inline-block; margin: 8px 0; color: var(--forest); font-size: 12px; font-weight: 700; }
 .selva-fauna-fuente a:focus-visible { outline: 2px solid var(--forest); outline-offset: 4px; }
-#programas .selva-fauna-revision, #programas .selva-fauna-proxima { font-size: 11px; }
+#programas .selva-fauna-revision, #programas .selva-fauna-proxima { font-size: 12px; }
 #programas .selva-fauna-proxima { margin: 14px 0 0; }
 @media (hover: hover) and (prefers-reduced-motion: no-preference) { .selva-fauna-stat:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgb(16 46 34 / 8%); } }
 @media (max-width: 1100px) { .selva-fauna-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
@@ -3016,7 +3015,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
     .selva-fauna-stat { padding: 18px 10px; }
     .selva-fauna-numero { width: 98px; height: 98px; font-size: 44px; }
     #programas .selva-fauna-stat h3 { font-size: 12px; }
-    #programas .selva-fauna-descripcion { font-size: 11px; }
+    #programas .selva-fauna-descripcion { font-size: 12px; }
     .selva-fauna-fuente { padding: 16px; }
 }
 @media (max-width: 340px) { .selva-fauna-stats { grid-template-columns: 1fr; } }
@@ -3035,10 +3034,10 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-fauna-foto-nombre { font-family: 'Manrope', sans-serif; font-size: 23px; color: var(--forest); }
 .selva-fauna-foto-cientifico { font-size: 14px; }
 .selva-fauna-foto-registro { font-size: 13px; line-height: 1.6; }
-.selva-fauna-foto-credito { font-size: 10px; line-height: 1.7; color: var(--muted); }
+.selva-fauna-foto-credito { font-size: 12px; line-height: 1.7; color: var(--muted); }
 .selva-fauna-modal a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
 .selva-fauna-modal-contenido { padding: 38px 32px 30px; max-height: min(760px, calc(100dvh - 64px)); overflow-y: auto; }
-#programas .selva-fauna-modal-categoria { margin: 0 40px 12px 0; font-size: 11px; color: var(--green-natural); }
+#programas .selva-fauna-modal-categoria { margin: 0 40px 12px 0; font-size: 12px; color: var(--green-natural); }
 #programas .selva-fauna-modal h3 { margin: 0 0 22px; font-size: 28px; line-height: 1.25; color: var(--forest-deep); }
 .selva-fauna-modal-cerrar { position: sticky; top: 16px; float: right; margin: 16px 16px -58px 0; z-index: 2; display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid rgb(22 61 43 / 12%); border-radius: 50%; background: #fff; color: var(--forest); font-size: 28px; cursor: pointer; box-shadow: 0 2px 10px rgb(16 46 34 / 8%); }
 .selva-fauna-especies { display: grid; gap: 12px; margin: 0 0 20px; padding: 0; list-style: none; }
@@ -3047,10 +3046,10 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-fauna-especies .selva-fauna-icono { justify-self: center; margin: 0; width: 40px; height: 40px; color: var(--green-natural); }
 .selva-fauna-modal h4 { margin: 0 0 5px; font-size: 15px; color: var(--forest); }
 .selva-fauna-especies em, .selva-fauna-cientifico { display: block; font-size: 12px; color: var(--muted); }
-#programas .selva-fauna-especies p { margin: 8px 0; font-size: 11px; line-height: 1.6; }
+#programas .selva-fauna-especies p { margin: 8px 0; font-size: 12px; line-height: 1.6; }
 .selva-fauna-conocer { padding: 4px 0; text-align: left; }
 .selva-fauna-modal-cuerpo > a { font-size: 12px; line-height: 1.7; }
-#programas .selva-fauna-ficha-revision { margin: 16px 0; font-size: 11px; line-height: 1.6; }
+#programas .selva-fauna-ficha-revision { margin: 16px 0; font-size: 12px; line-height: 1.6; }
 .selva-fauna-volver { margin-bottom: 18px; padding: 0; }
 .selva-fauna-ficha { padding: 20px 0; }
 .selva-fauna-ficha dt { margin-bottom: 6px; font-size: 13px; font-weight: 700; color: var(--forest); }
@@ -3071,7 +3070,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 #programas .selva-flora-stat, #programas .selva-fauna-stat { padding: 22px 20px; border: 1px solid rgb(22 61 43 / 8%); border-radius: 18px; background: var(--white); box-shadow: 0 5px 20px rgb(22 61 43 / 4%); text-align: left; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
 #programas .selva-fauna-stat { display: grid; grid-template-columns: 44px minmax(0, 1fr); grid-template-rows: 49px auto auto 1fr auto; grid-template-areas: 'icono fuente' 'titulo titulo' 'numero numero' 'descripcion descripcion' 'accion accion'; gap: 10px; align-items: start; }
 #programas .selva-fauna-icono { grid-area: icono; width: 44px; height: 44px; margin: 0; }
-#programas .selva-fauna-stat .selva-fauna-badge { grid-area: fuente; justify-self: end; margin: 2px 0 0; padding: 6px 9px; border-radius: 18px; background: #edf7f0; color: var(--forest); font-size: 11px; font-weight: 500; white-space: nowrap; }
+#programas .selva-fauna-stat .selva-fauna-badge { grid-area: fuente; justify-self: end; margin: 2px 0 0; padding: 6px 9px; border-radius: 18px; background: #edf7f0; color: var(--forest); font-size: 12px; font-weight: 500; white-space: nowrap; }
 #programas .selva-flora-stat h3, #programas .selva-fauna-stat h3 { margin: 0; color: #50575c; font-size: 18px; font-weight: 600; letter-spacing: normal; text-transform: none; line-height: 1.4; }
 #programas .selva-fauna-stat h3 { grid-area: titulo; }
 #programas .selva-fauna-numero { grid-area: numero; display: block; width: auto; height: auto; border: 0; border-radius: 0; font-size: 48px; font-weight: 800; letter-spacing: -.04em; color: #16271e; line-height: 1.15; }
@@ -3123,7 +3122,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-historia-layout { display: grid; grid-template-columns: 38% minmax(0, 1fr); }
 .selva-historia-visual { background: var(--paper); }
 .selva-historia-visual .selva-curiosidad-foto { position: static; display: block; height: 330px; width: 100%; object-fit: cover; }
-.selva-historia-visual small { display: block; padding: 16px 20px; margin: 0; color: var(--muted); font-size: 10px; line-height: 1.6; text-shadow: none; text-align: left; }
+.selva-historia-visual small { display: block; padding: 16px 20px; margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; text-shadow: none; text-align: left; }
 .selva-historia-contenido { min-width: 0; padding: 36px 28px 28px; }
 .selva-historia-categoria { margin-right: 30px; text-align: left; }
 #selva-historia-titulo { margin-bottom: 20px; color: var(--forest-deep); font-size: 25px; line-height: 1.25; text-wrap: balance; }
@@ -3132,10 +3131,10 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-historia-cuerpo .selva-curiosidad-taxonomia { margin-top: 3px; color: var(--muted); font-size: 13px; }
 .selva-historia-cuerpo .selva-curiosidad-texto { color: var(--ink); font-size: 14px; line-height: 1.75; }
 .selva-historia-cuerpo .selva-curiosidad-frase { color: var(--forest); border-color: var(--sand); font-size: 13px; line-height: 1.7; }
-.selva-historia-cuerpo .selva-curiosidad-etiquetas > span { padding: 4px 9px; border-color: rgb(22 61 43 / 12%); color: var(--forest); background: #f1f5ef; font-size: 10px; }
-.selva-historia-cuerpo .selva-curiosidad-fuentes { color: var(--muted); font-size: 11px; line-height: 1.7; }
+.selva-historia-cuerpo .selva-curiosidad-etiquetas > span { padding: 4px 9px; border-color: rgb(22 61 43 / 12%); color: var(--forest); background: #f1f5ef; font-size: 12px; }
+.selva-historia-cuerpo .selva-curiosidad-fuentes { color: var(--muted); font-size: 12px; line-height: 1.7; }
 .selva-historia-cuerpo .selva-curiosidad-fuentes a { color: var(--forest); text-decoration-color: rgb(22 61 43 / 35%); }
-.selva-historia-cuerpo .selva-curiosidad-revision { color: var(--muted); font-size: 10px; line-height: 1.6; }
+.selva-historia-cuerpo .selva-curiosidad-revision { color: var(--muted); font-size: 12px; line-height: 1.6; }
 .selva-historia-cerrar { position: sticky; top: 12px; float: right; z-index: 2; width: 40px; height: 40px; margin: 12px 12px -52px 0; border: 1px solid rgb(22 61 43 / 12%); border-radius: 50%; background: white; color: var(--forest); font-size: 26px; cursor: pointer; }
 @media (max-width: 900px) {
     .selva-introduccion .container { gap: 28px; }
@@ -3210,8 +3209,8 @@ body.selva-flora-modal-abierto { overflow: hidden; }
     .selva-investigaciones { padding-block: 40px; }
     .selva-colabora { padding-block: 48px; }
     .selva-introduccion-accesos a { column-gap: 8px; padding: 12px 10px; }
-    .selva-introduccion-accesos strong { font-size: 10px; letter-spacing: .03em; }
-    .selva-introduccion-accesos a > span:nth-last-child(2) { font-size: 11px; }
+    .selva-introduccion-accesos strong { font-size: 12px; letter-spacing: .03em; }
+    .selva-introduccion-accesos a > span:nth-last-child(2) { font-size: 12px; }
 }
 
 /* Ambiente: cuatro áreas editoriales y un único dialog progresivo. */
@@ -3240,7 +3239,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-ambiente-modal-descripcion { margin-bottom: 24px; color: var(--muted); font-size: 14px; line-height: 1.7; }
 .selva-ambiente-opciones { display: grid; gap: 10px; list-style: none; padding: 0; }
 .selva-ambiente-opciones button { display: flex; width: 100%; gap: 16px; align-items: center; padding: 16px; border: 1px solid rgb(22 61 43 / 10%); border-radius: 10px; background: #fafbf8; color: var(--forest); text-align: left; font-size: 14px; cursor: pointer; }
-.selva-ambiente-opciones button span:first-child { color: var(--muted); font-size: 11px; }
+.selva-ambiente-opciones button span:first-child { color: var(--muted); font-size: 12px; }
 .selva-ambiente-opciones button span:last-child { margin-left: auto; }
 .selva-ambiente-ficha-estado { padding-block: 20px; color: var(--muted); font-size: 14px; }
 .selva-ambiente-cerrar { position: sticky; top: 12px; float: right; z-index: 2; width: 40px; height: 40px; margin: 12px 12px -52px 0; border: 1px solid rgb(22 61 43 / 12%); border-radius: 50%; background: white; color: var(--forest); font-size: 26px; cursor: pointer; }
@@ -3289,7 +3288,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-territorio-simbolo.is-selected circle, .selva-territorio-simbolo.is-highlighted circle, .selva-territorio-simbolo:focus-visible circle { fill: #e1ebdb; stroke-opacity: 1; }
 [data-territorio-activo='humedales'] .selva-territorio-simbolo path { stroke: var(--water); stroke-dasharray: 3 1; }
 [data-territorio-activo='rios'] .selva-territorio-limite { fill: var(--paper); }
-.selva-territorio-mapa figcaption { padding: 12px 18px; color: var(--muted); font-size: 11px; line-height: 1.6; border-top: 1px solid rgb(22 61 43 / 8%); }
+.selva-territorio-mapa figcaption { padding: 12px 18px; color: var(--muted); font-size: 12px; line-height: 1.6; border-top: 1px solid rgb(22 61 43 / 8%); }
 .selva-territorio-panel { position: relative; min-width: 0; padding: 24px; border: 1px solid rgb(22 61 43 / 10%); border-radius: 16px; background: white; }
 .selva-territorio-panel::after { content: ''; position: absolute; bottom: 0; right: 0; width: 72px; height: 24px; background-image: var(--ecoselva-rios); opacity: .05; pointer-events: none; }
 .selva-territorio-panel h3 { color: var(--forest); font-size: 24px; font-weight: 600; }
@@ -3300,9 +3299,9 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-territorio-ficha { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgb(22 61 43 / 12%); }
 .selva-territorio-ficha h4 { color: var(--forest); font-size: 16px; }
 .selva-territorio-ficha p { margin: 10px 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
-.selva-territorio-ficha a, .selva-territorio-fuentes a { color: var(--water); font-size: 11px; text-decoration: underline; text-underline-offset: 3px; }
-.selva-territorio-aviso { margin: 20px 0 10px; color: var(--muted); font-size: 11px; line-height: 1.7; }
-.selva-territorio-fuentes { color: var(--muted); font-size: 11px; line-height: 1.7; }
+.selva-territorio-ficha a, .selva-territorio-fuentes a { color: var(--water); font-size: 12px; text-decoration: underline; text-underline-offset: 3px; }
+.selva-territorio-aviso { margin: 20px 0 10px; color: var(--muted); font-size: 12px; line-height: 1.7; }
+.selva-territorio-fuentes { color: var(--muted); font-size: 12px; line-height: 1.7; }
 .selva-territorio-fuentes summary { width: fit-content; color: var(--forest); font-size: 12px; font-weight: 700; cursor: pointer; }
 .selva-territorio-fuentes ul { padding-left: 18px; margin: 14px 0; }
 .selva-territorio-fuentes li { margin-bottom: 10px; }
@@ -3311,7 +3310,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .selva-territorio-limite, .selva-territorio-rio-linea { transition: none; animation: none !important; } }
 
 /* Investigaciones: video editorial con respaldo estático local. */
-#investigaciones { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: center; min-height: 430px; padding: 52px 0; background: #102e22 url('imagenesEco/investigaciones-poster.jpg') center / cover no-repeat; }
+#investigaciones { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: center; min-height: 430px; padding: 52px 0; background: #102e22 url('images/investigaciones-poster.jpg') center / cover no-repeat; }
 #investigaciones::before { content: ''; position: absolute; inset: 0; width: auto; height: auto; background: linear-gradient(90deg, rgba(9,31,23,.82), rgba(16,46,34,.68)); opacity: 1; z-index: 1; pointer-events: none; }
 #investigaciones::after { content: ''; position: absolute; inset: auto 0 0; height: 26px; background-color: var(--sand); mask: var(--ecoselva-rios) center / auto 26px repeat-x; -webkit-mask: var(--ecoselva-rios) center / auto 26px repeat-x; opacity: .12; z-index: 2; pointer-events: none; }
 .selva-investigaciones-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 400ms ease; z-index: 0; }
@@ -3321,14 +3320,14 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 #investigaciones h2 { color: #fff; font-weight: 600; }
 .selva-investigaciones-editorial { margin: 18px auto 0; color: rgba(255,255,255,.88); font-family: var(--font-heading); font-size: clamp(18px, 2vw, 22px); line-height: 1.5; }
 #investigaciones .selva-proximamente { max-width: 680px; margin-top: 18px; color: rgba(255,255,255,.78); font-size: 14px; line-height: 1.8; }
-.selva-investigaciones-etiqueta { display: inline-block; margin-top: 24px; padding: 7px 13px; border: 1px solid rgba(255,255,255,.25); border-radius: 6px; color: var(--sand); font-size: 10px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
+.selva-investigaciones-etiqueta { display: inline-block; margin-top: 24px; padding: 7px 13px; border: 1px solid rgba(255,255,255,.25); border-radius: 6px; color: var(--sand); font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; }
 @media (max-width: 1024px) { #investigaciones { min-height: 390px; padding-block: 40px; } }
 @media (max-width: 640px) { #investigaciones { min-height: 360px; padding-block: 36px; } .selva-investigaciones-contenido { width: calc(100% - 36px); } #investigaciones .selva-proximamente { font-size: 13px; line-height: 1.65; } .selva-investigaciones-editorial { margin-top: 14px; } .selva-investigaciones-etiqueta { margin-top: 18px; } }
 @media (prefers-reduced-motion: reduce) { #investigaciones .selva-investigaciones-video { opacity: 0; transition: none; } }
 /* Territorio: capas procesadas de GRFFS_Catastro; estilos limitados a esta sección. */
 #explora-madre-de-dios .selva-territorio-layout { grid-template-columns: minmax(0, 2.125fr) minmax(0, 1fr); }
 .selva-territorio-leyenda { margin-bottom: 8px; color: var(--forest); font-weight: 600; }
-.selva-territorio-metadatos { display: grid; gap: 5px; margin-top: 16px; font-size: 11px; line-height: 1.6; overflow-wrap: anywhere; }
+.selva-territorio-metadatos { display: grid; gap: 5px; margin-top: 16px; font-size: 12px; line-height: 1.6; overflow-wrap: anywhere; }
 .selva-territorio-metadatos dt { color: var(--forest); font-weight: 700; }
 .selva-territorio-metadatos dd { margin: 0 0 9px; color: var(--muted); }
 .selva-territorio-opciones label { color: var(--forest); font-size: 12px; font-weight: 600; }
@@ -3388,25 +3387,25 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-territorio-controles button { width: 44px; height: 44px; border: 1px solid rgb(22 61 43 / 18%); border-radius: 10px; background: rgba(255,255,255,.94); color: var(--forest); font-size: 23px; cursor: pointer; box-shadow: 0 2px 8px rgb(22 61 43 / 5%); }
 .selva-territorio-controles button:disabled { opacity: .4; cursor: default; }
 .selva-territorio-tooltip { position: absolute; max-width: 210px; padding: 7px 10px; border-radius: 7px; background: var(--forest-deep); color: white; font-size: 12px; line-height: 1.5; box-shadow: 0 3px 10px rgb(0 0 0 / 12%); z-index: 4; pointer-events: none; }
-.selva-territorio-ayuda { position: absolute; left: 20px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 8px; background: rgba(255,255,255,.9); color: var(--forest); font-size: 11px; pointer-events: none; }
+.selva-territorio-ayuda { position: absolute; left: 20px; bottom: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 7px 10px; border-radius: 8px; background: rgba(255,255,255,.9); color: var(--forest); font-size: 12px; pointer-events: none; }
 .selva-territorio-ayuda svg { width: 16px; height: 16px; }
 .selva-territorio-volver-vista { margin: 0 22px 10px; border: 0; background: transparent; color: #176d7a; font-size: 12px; font-weight: 600; cursor: pointer; }
-.selva-territorio-nota-escena { padding: 0 22px 16px; color: var(--muted); font-size: 11px; line-height: 1.7; }
+.selva-territorio-nota-escena { padding: 0 22px 16px; color: var(--muted); font-size: 12px; line-height: 1.7; }
 .selva-territorio-panel-icono { width: 46px; height: 46px; padding: 9px; margin-bottom: 12px; color: var(--forest); background: #eaf0e3; border-radius: 12px; }
 [data-territorio-activo='rios'] .selva-territorio-panel-icono, [data-territorio-activo='rios'] .selva-territorio-modo-icono { color: #176d7a; }
 [data-territorio-activo='humedales'] .selva-territorio-panel-icono { color: #417b62; background: #e0ece5; }
 #explora-madre-de-dios .selva-territorio-acceso { display: flex; align-items: center; gap: 10px; padding: 12px; min-height: 48px; border-left: 3px solid var(--ambient-color, #176d7a); }
 .selva-territorio-acceso svg { flex: 0 0 26px; width: 26px; height: 26px; color: var(--ambient-color, #176d7a); }
 .selva-territorio-acceso strong { display: block; font-size: 12px; }
-.selva-territorio-acceso small { display: block; margin-top: 4px; color: var(--muted); font-size: 10px; line-height: 1.5; }
+.selva-territorio-acceso small { display: block; margin-top: 4px; color: var(--muted); font-size: 12px; line-height: 1.5; }
 #explora-madre-de-dios .selva-territorio-acceso[aria-pressed='true'] { background: #e7efdf; border-color: var(--ambient-color, #176d7a); }
 .selva-territorio-ficha-ayuda { padding: 14px; border-radius: 12px; background: #f5f7f1; }
 .selva-territorio-ficha-ayuda > svg { width: 36px; height: 36px; color: #176d7a; margin-bottom: 12px; }
 #explora-madre-de-dios .selva-territorio-todos { color: #176d7a; font-weight: 600; text-align: center; border: 1px solid #8ab2b4; background: #f4faf8; }
-.selva-territorio-alcance { font-size: 10px; line-height: 1.6; color: var(--muted); }
+.selva-territorio-alcance { font-size: 12px; line-height: 1.6; color: var(--muted); }
 #explora-madre-de-dios .selva-territorio-leyenda { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
-.selva-territorio-leyenda-item { display: inline-flex; align-items: center; gap: 6px; font-size: 10px; }
-.selva-territorio-leyenda small { flex-basis: 100%; color: var(--muted); font-size: 10px; font-weight: 400; }
+.selva-territorio-leyenda-item { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; }
+.selva-territorio-leyenda small { flex-basis: 100%; color: var(--muted); font-size: 12px; font-weight: 400; }
 .selva-territorio-muestra { display: inline-block; width: 14px; height: 10px; background: #86b8b5; border-radius: 2px; }
 .selva-territorio-muestra--tierra { background: #285a3b; }.selva-territorio-muestra--inundable { background: #417b62; }.selva-territorio-muestra--aguajal { background: #6d8f55; }.selva-territorio-muestra--secundario { background: #73a56e; }
 .selva-territorio-muestra--rio, .selva-territorio-muestra--seleccionado { width: 21px; height: 3px; background: #176d7a; border-radius: 4px; }.selva-territorio-muestra--seleccionado { height: 5px; box-shadow: 0 0 0 2px white; }
@@ -3449,9 +3448,9 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 .selva-territorio-etiquetas .is-selected text { fill: #145a67; font-weight: 700; }
 .selva-territorio-etiquetas .is-selected rect { stroke: #65959b; }
 .selva-territorio-ubicacion { position: absolute; top: 18px; left: 24px; z-index: 2; pointer-events: none; }
-.selva-territorio-ubicacion strong { display: block; color: #65796c; font-size: 11px; font-weight: 600; letter-spacing: .04em; }
-.selva-territorio-ubicacion span { display: block; margin-top: 4px; color: #849287; font-size: 10px; }
-.selva-territorio-escala { position: absolute; bottom: 16px; left: 24px; z-index: 2; width: fit-content; padding: 5px 7px; background: rgba(248,250,247,.9); color: #5c7163; font-size: 9px; pointer-events: none; }
+.selva-territorio-ubicacion strong { display: block; color: #65796c; font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+.selva-territorio-ubicacion span { display: block; margin-top: 4px; color: #849287; font-size: 12px; }
+.selva-territorio-escala { position: absolute; bottom: 16px; left: 24px; z-index: 2; width: fit-content; padding: 5px 7px; background: rgba(248,250,247,.9); color: #5c7163; font-size: 12px; pointer-events: none; }
 .selva-territorio-escala > div { display: flex; justify-content: space-between; gap: 16px; margin-bottom: 3px; }
 .selva-territorio-escala i { display: block; height: 5px; border: 1px solid #63776b; border-top: 0; background: linear-gradient(90deg,#63776b 50%,transparent 50%); }
 #explora-madre-de-dios .selva-territorio-controles { top: 14px; right: 16px; gap: 0; border: 1px solid #d8e1da; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgb(20 45 32 / 7%); }
@@ -3467,27 +3466,27 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 #explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-acceso { border-left: 3px solid var(--ambient-color); }
 #explora-madre-de-dios .selva-territorio-acceso svg { width: 20px; height: 20px; flex-basis: 20px; }
 #explora-madre-de-dios .selva-territorio-ficha { margin-top: 20px; padding-top: 18px; }
-.selva-territorio-tipo-ficha { display: block; margin-bottom: 8px; color: #64806e; font-size: 9px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; }
+.selva-territorio-tipo-ficha { display: block; margin-bottom: 8px; color: #64806e; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; font-weight: 600; }
 #explora-madre-de-dios .selva-territorio-ficha h4 { font-size: 19px; font-weight: 600; }
 #explora-madre-de-dios .selva-territorio-ficha p { font-size: 12px; }
-.selva-territorio-datos-principales { display: grid; grid-template-columns: 1fr; gap: 4px; margin-block: 15px; font-size: 11px; line-height: 1.6; }
-.selva-territorio-datos-principales dt { color: #718174; font-size: 10px; }
+.selva-territorio-datos-principales { display: grid; grid-template-columns: 1fr; gap: 4px; margin-block: 15px; font-size: 12px; line-height: 1.6; }
+.selva-territorio-datos-principales dt { color: #718174; font-size: 12px; }
 .selva-territorio-datos-principales dd { margin: 0 0 8px; color: #284c37; font-weight: 500; }
 .selva-territorio-registro { margin-top: 16px; padding-top: 12px; border-top: 1px solid #e6ece6; }
-.selva-territorio-registro summary { color: #35737a; font-size: 11px; cursor: pointer; }
+.selva-territorio-registro summary { color: #35737a; font-size: 12px; cursor: pointer; }
 .selva-territorio-detalle-agua { display: block; width: 100%; height: 130px; padding: 12px; background: #f2f6f1; border: 1px solid #e1e8df; border-radius: 9px; margin-top: 12px; pointer-events: none; }
-.selva-territorio-detalle-nota { display: block; margin-top: 6px; color: #78877b; font-size: 10px; }
-#explora-madre-de-dios .selva-territorio-mapa figcaption { padding: 16px 22px; font-size: 10px; background: rgba(255,255,255,.7); }
+.selva-territorio-detalle-nota { display: block; margin-top: 6px; color: #78877b; font-size: 12px; }
+#explora-madre-de-dios .selva-territorio-mapa figcaption { padding: 16px 22px; font-size: 12px; background: rgba(255,255,255,.7); }
 #explora-madre-de-dios .selva-territorio-leyenda { gap: 16px; margin-bottom: 10px; }
-#explora-madre-de-dios .selva-territorio-leyenda-item { font-size: 11px; }
-#explora-madre-de-dios .selva-territorio-nota-escena { min-height: 42px; padding-bottom: 12px; font-size: 10px; }
-#explora-madre-de-dios .selva-territorio-ayuda { left: auto; right: 18px; bottom: 14px; max-width: 190px; font-size: 10px; }
+#explora-madre-de-dios .selva-territorio-leyenda-item { font-size: 12px; }
+#explora-madre-de-dios .selva-territorio-nota-escena { min-height: 42px; padding-bottom: 12px; font-size: 12px; }
+#explora-madre-de-dios .selva-territorio-ayuda { left: auto; right: 18px; bottom: 14px; max-width: 190px; font-size: 12px; }
 #explora-madre-de-dios .selva-territorio-svg { touch-action: pan-y; }
 #explora-madre-de-dios .is-zoomed .selva-territorio-svg { cursor: grab; touch-action: none; }
 #explora-madre-de-dios .is-zoomed .selva-territorio-svg:active { cursor: grabbing; }
 #explora-madre-de-dios .selva-territorio-svg:focus-visible { outline: 2px solid var(--sand); outline-offset: -3px; }
 @media (max-width: 980px) { #explora-madre-de-dios .selva-territorio-layout { grid-template-columns: minmax(0,1fr) 300px; } #explora-madre-de-dios .selva-territorio-panel { padding: 20px; } }
-@media (max-width: 760px) { #explora-madre-de-dios .selva-territorio-layout { grid-template-columns: 1fr; } #explora-madre-de-dios .selva-territorio-panel { border-left: 0; border-top: 1px solid #dce4de; } #explora-madre-de-dios .selva-territorio-canvas { height: 410px; } #explora-madre-de-dios .selva-territorio-mapa-cabecera { padding: 18px 18px 0; } .selva-territorio-ubicacion { top: 12px; left: 18px; } .selva-territorio-escala { left: 14px; bottom: 8px; } #explora-madre-de-dios .selva-territorio-ayuda { right: 10px; bottom: 8px; max-width: 170px; } #explora-madre-de-dios .selva-territorio-opciones:has(.selva-territorio-acceso) { grid-template-columns: repeat(2,minmax(0,1fr)); } #explora-madre-de-dios .selva-territorio-acceso { gap: 6px; padding: 10px 8px; font-size: 11px; } #explora-madre-de-dios .selva-territorio-acceso svg { width: 18px; height: 18px; flex-basis: 18px; } }
+@media (max-width: 760px) { #explora-madre-de-dios .selva-territorio-layout { grid-template-columns: 1fr; } #explora-madre-de-dios .selva-territorio-panel { border-left: 0; border-top: 1px solid #dce4de; } #explora-madre-de-dios .selva-territorio-canvas { height: 410px; } #explora-madre-de-dios .selva-territorio-mapa-cabecera { padding: 18px 18px 0; } .selva-territorio-ubicacion { top: 12px; left: 18px; } .selva-territorio-escala { left: 14px; bottom: 8px; } #explora-madre-de-dios .selva-territorio-ayuda { right: 10px; bottom: 8px; max-width: 170px; } #explora-madre-de-dios .selva-territorio-opciones:has(.selva-territorio-acceso) { grid-template-columns: repeat(2,minmax(0,1fr)); } #explora-madre-de-dios .selva-territorio-acceso { gap: 6px; padding: 10px 8px; font-size: 12px; } #explora-madre-de-dios .selva-territorio-acceso svg { width: 18px; height: 18px; flex-basis: 18px; } }
 @media (prefers-reduced-motion: reduce) { #explora-madre-de-dios .selva-territorio-etiquetas * { transition: none; } }.selva-territorio-etiquetas .is-highlighted rect { fill: #eaf4f1; stroke: #46838a; }
 .selva-territorio-etiquetas .is-highlighted text { fill: #145a67; font-weight: 700; }
 /* Referencia provincial y Bosques: base neutral; cobertura pendiente. */
@@ -3497,7 +3496,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 #explora-madre-de-dios .selva-territorio-provincias-nombres { pointer-events: none; }
 #explora-madre-de-dios .selva-territorio-provincias-limites path { fill: none; stroke: rgba(32,42,37,.30); stroke-width: 1; vector-effect: non-scaling-stroke; }
 #explora-madre-de-dios .selva-territorio-provincias-nombres text { fill: rgba(32,42,37,.55); font-family: Manrope, sans-serif; font-weight: 600; letter-spacing: .08em; paint-order: stroke; stroke: var(--paper, #f8faf7); stroke-width: 2; stroke-opacity: .7; }
-#explora-madre-de-dios .selva-territorio-provincias-control { position: absolute; z-index: 3; top: 66px; left: 24px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 8px; border: 1px solid #dce4de; border-radius: 6px; background: rgba(255,255,255,.94); color: #56675d; font-size: 11px; cursor: pointer; }
+#explora-madre-de-dios .selva-territorio-provincias-control { position: absolute; z-index: 3; top: 66px; left: 24px; display: inline-flex; align-items: center; gap: 6px; padding: 5px 8px; border: 1px solid #dce4de; border-radius: 6px; background: rgba(255,255,255,.94); color: #56675d; font-size: 12px; cursor: pointer; }
 #explora-madre-de-dios .selva-territorio-provincias-control input { width: 13px; height: 13px; margin: 0; accent-color: #31634b; }
 #explora-madre-de-dios .selva-territorio-provincias-control:focus-within { outline: 2px solid #31634b; outline-offset: 3px; }
 #territorio-bosques-capa [data-forest-category] { transition: opacity .2s ease; }
@@ -3545,7 +3544,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 #explora-madre-de-dios .selva-territorio-bosque-real:focus-visible { stroke: #f8f8e9; stroke-width: 1.8; outline: none; }
 #explora-madre-de-dios [data-territorio-scene='bosques'] rect { display: none; }
 #explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); align-items: start; gap: 8px 14px; }
-#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda-item { align-items: flex-start; font-size: 10px; line-height: 1.5; }
+#explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda-item { align-items: flex-start; font-size: 12px; line-height: 1.5; }
 #explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda-item > svg { flex-shrink: 0; }
 #explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-color { margin-top: 2px; }
 #explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda-item.is-muted span { color: #78847b; }
@@ -3576,7 +3575,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 #explora-madre-de-dios .selva-territorio-brujula-ejes { stroke: #95a08e; stroke-width: .8; fill: none; }
 #explora-madre-de-dios .selva-territorio-brujula-norte { fill: #42664e; }
 #explora-madre-de-dios .selva-territorio-brujula-sur { fill: #ced5c9; }
-#explora-madre-de-dios .selva-territorio-brujula text { text-anchor: middle; font-family: Manrope,sans-serif; font-size: 10px; font-weight: 500; fill: #7b8878; }
+#explora-madre-de-dios .selva-territorio-brujula text { text-anchor: middle; font-family: Manrope,sans-serif; font-size: 12px; font-weight: 500; fill: #7b8878; }
 #explora-madre-de-dios .selva-territorio-brujula .selva-territorio-brujula-n { font-weight: 700; fill: #42664e; }
 @media (max-width: 760px) { #explora-madre-de-dios .selva-territorio-brujula { width: 48px; height: 48px; right: 74px; top: 13px; } }
 
@@ -3586,17 +3585,17 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 }
 #explora-madre-de-dios .selva-territorio-leyenda,
 #explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda { display: flex; flex-wrap: wrap; gap: 7px 15px; align-items: center; padding-block: 5px; }
-#explora-madre-de-dios .selva-territorio-leyenda-item { display: inline-flex; align-items: center; gap: 5px; padding: 0; border: 0; background: none; cursor: default; font-size: 10px; }
+#explora-madre-de-dios .selva-territorio-leyenda-item { display: inline-flex; align-items: center; gap: 5px; padding: 0; border: 0; background: none; cursor: default; font-size: 12px; }
 #explora-madre-de-dios [data-territorio-activo='bosques'] .selva-territorio-leyenda-item > svg { display: none; }
 #explora-madre-de-dios .selva-territorio-leyenda-item .selva-territorio-color { width: 9px; height: 9px; margin: 0; border-radius: 2px; }
-#explora-madre-de-dios .selva-territorio-leyenda-aviso { width: 100%; font-size: 9px; }
+#explora-madre-de-dios .selva-territorio-leyenda-aviso { width: 100%; font-size: 12px; }
 #explora-madre-de-dios .has-element-selection .selva-territorio-opciones { max-height: 185px; overflow-y: auto; scrollbar-width: thin; }
 #explora-madre-de-dios [data-territorio-activo='rios'] .selva-territorio-acceso { border-left: 3px solid #176D7A; background: #f7fbfc; }
 #explora-madre-de-dios [data-territorio-activo='rios'] .selva-territorio-acceso svg { color: #176D7A; }
 #explora-madre-de-dios [data-territorio-activo='rios'] .selva-territorio-acceso[aria-pressed='true'] { border-color: #176D7A; background: #e7f2f4; }
 #explora-madre-de-dios [data-territorio-activo='rios'] .selva-territorio-rio.is-selected .selva-territorio-rio-linea { stroke: #176D7A; }
 #explora-madre-de-dios .selva-territorio-filtros-agua { display: flex; gap: 5px; margin-bottom: 15px; }
-#explora-madre-de-dios .selva-territorio-filtros-agua button { display: inline-flex; align-items: center; justify-content: center; gap: 4px; flex: 1; padding: 8px 4px; border: 1px solid #dce6df; border-radius: 7px; background: #f7faf8; color: #476653; font-size: 11px; cursor: pointer; transition: background .2s,border-color .2s; }
+#explora-madre-de-dios .selva-territorio-filtros-agua button { display: inline-flex; align-items: center; justify-content: center; gap: 4px; flex: 1; padding: 8px 4px; border: 1px solid #dce6df; border-radius: 7px; background: #f7faf8; color: #476653; font-size: 12px; cursor: pointer; transition: background .2s,border-color .2s; }
 #explora-madre-de-dios .selva-territorio-filtros-agua button svg { width: 17px; height: 17px; flex-shrink: 0; }
 #explora-madre-de-dios .selva-territorio-filtros-agua button[aria-pressed='true'] { background: #e3eee7; border-color: #567F6C; color: #345b47; }
 #explora-madre-de-dios .selva-territorio-filtros-agua button:hover { border-color: #567F6C; }
@@ -3607,7 +3606,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { #explora-madre-de-dios .selva-territorio-filtros-agua button { transition: none; } }
 /* Contexto histórico de las fichas educativas de Bosques. */
 #explora-madre-de-dios .selva-territorio-ficha-contexto { margin: 13px 0; padding-top: 10px; border-top: 1px solid #dce4de; }
-#explora-madre-de-dios .selva-territorio-ficha-contexto p { margin: 3px 0; font-size: 10px; line-height: 1.5; }
+#explora-madre-de-dios .selva-territorio-ficha-contexto p { margin: 3px 0; font-size: 12px; line-height: 1.5; }
 #explora-madre-de-dios .selva-territorio-ficha-contexto p:first-child { font-weight: 600; color: #405d4d; }
 #explora-madre-de-dios .selva-territorio-ficha-contexto ~ .selva-territorio-registro > a { display: block; margin-top: 10px; }
 
@@ -3809,7 +3808,7 @@ body.selva-flora-modal-abierto { overflow: hidden; }
 #colabora .selva-colabora-kicker {
     margin-bottom: 7px;
     color: var(--water);
-    font-size: 10px;
+    font-size: 12px;
     font-weight: 700;
     letter-spacing: .14em;
     text-transform: uppercase;
@@ -3961,3 +3960,16 @@ body.selva-flora-modal-abierto { overflow: hidden; }
         transition: none;
     }
 }
+
+/* Accesibilidad: navegación directa y lectura en pantallas pequeñas. */
+.selva-saltar-contenido { position: fixed; top: 10px; left: 10px; z-index: 10000; padding: 12px 18px; color: #fff; background: var(--forest-deep); border-radius: 6px; transform: translateY(-160%); }
+.selva-saltar-contenido:focus { transform: translateY(0); }
+.selva-microetiqueta--tierra, .selva-introduccion-accesos a[href="#explora-madre-de-dios"] .selva-acceso-icono { color: #92501f; }
+.selva-historia-cuerpo .selva-curiosidad-fuentes, .selva-historia-cuerpo .selva-curiosidad-fuentes a, .selva-historia-cuerpo .selva-curiosidad-etiquetas { color: var(--forest); font-size: 13px; }
+.selva-territorio-mapa-carga { display: grid; place-content: center; min-height: 350px; padding: 24px; text-align: center; }
+.selva-territorio-ficha p, .selva-curiosidad-fuentes, .selva-flora-stat-fuente { font-size: 13px; }
+@media (max-width: 640px) { .selva-territorio-mapa-carga { min-height: 300px; } }
+
+.selva-territorio-metodologia-resumen { margin: 20px auto; max-width: 760px; color: var(--muted); font-size: 14px; text-align: center; overflow-wrap: anywhere; }
+.selva-territorio-metodologia-resumen a { color: var(--forest); text-decoration: underline; }
+.selva-historia-cuerpo .selva-curiosidad-fuentes a:hover, .selva-historia-cuerpo .selva-curiosidad-fuentes a:focus-visible { color: #765c18; }
