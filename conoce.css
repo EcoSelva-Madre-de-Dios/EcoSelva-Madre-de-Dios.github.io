@@ -1,0 +1,147 @@
+/* Estructura externa del mini atlas; no modifica capas ni controles cartográficos. */
+.conoce-madre { padding-block: 56px 0; background: var(--paper); color: var(--ink); }
+.conoce-cabecera h2 { margin-block: 12px 16px; font: 700 clamp(32px, 4.2vw, 48px)/1.15 var(--font-heading); letter-spacing: -.035em; color: var(--forest-deep); }
+.conoce-subtitulo { max-width: 790px; font-size: 20px; color: var(--forest); line-height: 1.6; }
+.conoce-introduccion { max-width: 790px; margin-top: 12px; font-size: 15px; color: var(--muted); line-height: 1.75; }
+.conoce-accesos { display: flex; gap: 8px; margin-block: 24px 32px; padding-block: 2px 8px; overflow-x: auto; }
+.conoce-accesos a { flex: 0 0 auto; padding: 10px 18px; border: 1px solid #c9d2c3; border-radius: 6px; background: #fff; color: var(--forest); font-size: 14px; font-weight: 600; }
+.conoce-accesos a:hover { background: #e3eadc; border-color: var(--forest); }
+.conoce-accesos a:focus-visible, .conoce-modulo :is(a,summary):focus-visible, .conoce-cierre a:focus-visible, .conoce-modal :focus-visible { outline: 3px solid var(--water); outline-offset: 4px; }
+.conoce-modulo { padding-block: 30px; border-top: 1px solid #c9d2c3; }
+.conoce-modulo-cabecera { margin-bottom: 22px; }
+.conoce-numero { margin-bottom: 9px; color: #476044; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.conoce-modulo h3, #conoce-madre-de-dios .conoce-mapa-titulo, .conoce-cierre h3 { color: var(--forest-deep); font: 700 clamp(24px, 2.6vw, 30px)/1.25 var(--font-heading); letter-spacing: -.025em; }
+.conoce-modulo h4, .conoce-cierre h4 { color: var(--forest-deep); font: 700 17px/1.5 var(--font-heading); }
+.conoce-cabecera p, .conoce-modulo p, .conoce-cierre p { line-height: 1.75; }
+.conoce-ubicacion-grid { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.6fr); align-items: start; gap: 36px; }
+.conoce-localizador { max-width: 340px; margin-inline: auto; }
+.conoce-localizador img { display: block; width: 100%; height: auto; }
+.conoce-localizador figcaption, .conoce-limites figcaption { margin-top: 9px; color: #52614f; font-size: 12px; line-height: 1.6; }
+.conoce-ubicacion-texto > p { font-size: 15px; margin-bottom: 22px; }
+.conoce-datos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding-block: 16px; border-block: 1px solid #c9d2c3; }
+.conoce-datos > div { min-width: 0; }
+.conoce-datos dt { margin-bottom: 6px; color: #52614f; font-size: 12px; font-weight: 600; }
+.conoce-datos dd { color: var(--forest); font: 700 24px/1.35 var(--font-heading); font-variant-numeric: tabular-nums; }
+.conoce-datos dd > span { font-size: 13px; font-weight: 400; }
+.conoce-datos .conoce-dato-capital { font-size: 17px; }
+.conoce-datos small { display: block; margin-top: 6px; font: 400 12px/1.6 var(--font-body); color: #52614f; }
+.conoce-limites { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .7fr); align-items: center; gap: 20px; max-width: 560px; margin-block: 18px 12px; }
+.conoce-limites img { display: block; width: 100%; height: auto; }
+.conoce-limites figcaption { font-size: 13px; }
+.conoce-limites-detalle { margin-top: 18px; }
+.conoce-limites-detalle > summary { cursor: pointer; color: var(--forest); font-size: 14px; line-height: 1.7; }
+.conoce-provincias { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
+.conoce-provincia { min-width: 0; border: 1px solid #c9d2c3; border-radius: 10px; background: #fff; }
+.conoce-provincia > summary { padding: 20px; list-style: none; cursor: pointer; border-radius: 10px; }
+.conoce-provincia > summary::-webkit-details-marker { display: none; }
+.conoce-provincia > summary::marker { content: ''; }
+.conoce-provincia > summary:hover { background: #f5f7ef; }
+.conoce-provincia > summary > strong { display: block; color: var(--forest-deep); font: 700 21px/1.35 var(--font-heading); }
+.conoce-provincia-capital { display: block; margin-top: 8px; font-size: 14px; color: #52614f; }
+.conoce-provincia-cantidad { display: block; margin-top: 16px; font-size: 13px; font-weight: 600; color: var(--forest); }
+.conoce-distritos { display: flex; flex-wrap: wrap; gap: 6px; margin-block: 10px 18px; }
+.conoce-distritos > span { padding: 4px 8px; border-radius: 4px; background: #e8eedf; font-size: 12px; color: var(--forest); }
+.conoce-provincia-abrir { display: block; font-size: 14px; font-weight: 600; color: var(--forest); }
+.conoce-provincia > .conoce-detalle { padding: 20px; border-top: 1px solid #c9d2c3; font-size: 14px; }
+.conoce-referencia { margin-top: 14px; color: #52614f; font-size: 12px; line-height: 1.65; }
+.conoce-fuentes { width: fit-content; margin-top: 14px; max-width: 100%; }
+.conoce-fuentes > summary { cursor: pointer; color: var(--forest); font-size: 13px; font-weight: 600; padding-block: 8px; text-decoration: underline; text-underline-offset: 4px; }
+.conoce-fuentes[open] { width: 100%; }
+.conoce-fuentes > .conoce-detalle { padding: 22px; background: #fff; border: 1px solid #c9d2c3; border-radius: 8px; margin-top: 8px; }
+#conoce-madre-de-dios .selva-explora { padding-block: 30px 36px; background: var(--paper); }
+#conoce-madre-de-dios .selva-explora > .container { border-top: 1px solid #c9d2c3; padding-top: 30px; }
+#conoce-madre-de-dios .selva-territorio-subtitulo { margin-top: 12px; }
+.conoce-geografia-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.conoce-geografia-bloque { min-width: 0; padding: 20px; background: #fff; border: 1px solid #d1d9ca; border-radius: 8px; }
+.conoce-geografia-bloque > summary, .conoce-persona > summary { cursor: pointer; }
+.conoce-geografia-bloque summary h4, .conoce-persona summary h4 { display: inline; }
+.conoce-bloque-resumen { margin-top: 8px; font-size: 14px; color: #52614f; }
+.conoce-bloque-detalle { margin-top: 16px; }
+.conoce-bloque-detalle > img { display: block; width: 100%; height: auto; margin-block: 12px; }
+.conoce-bloque-detalle > p { margin-top: 12px; font-size: 14px; }
+.conoce-geografia-bloque .conoce-referencia { font-size: 12px; }
+.conoce-enlace { display: inline-block; margin-top: 16px; color: var(--forest); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.conoce-timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; gap: 24px; }
+.conoce-timeline li { position: relative; padding-top: 22px; border-top: 2px solid #b5c1a6; }
+.conoce-timeline li::before { content: ''; position: absolute; top: -6px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--forest); }
+.conoce-tiempo { margin-bottom: 10px; color: #755230; font-size: 12px; font-weight: 600; }
+.conoce-timeline li > p:last-child { margin-top: 10px; font-size: 14px; }
+.conoce-personas-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+.conoce-persona { padding-left: 20px; border-left: 3px solid #a5b994; }
+.conoce-persona .conoce-bloque-detalle > p { margin-top: 10px; font-size: 15px; }
+.conoce-persona .conoce-bloque-detalle > .conoce-referencia { font-size: 12px; }
+.conoce-cierre { padding-block: 30px; border-top: 1px solid #c9d2c3; }
+.conoce-importancia { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-top: 24px; }
+.conoce-importancia p { margin-top: 8px; font-size: 14px; }
+.conoce-importancia a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
+.conoce-cierre-frase { margin-top: 24px; max-width: 770px; font-size: 17px; color: var(--forest); }
+.conoce-siguiente { margin-block: 16px 0; padding: 12px 18px; border-radius: 6px; background: var(--forest); color: #fff; text-decoration: none; }
+#conoce-madre-de-dios .selva-introduccion { padding-block: 28px 42px; }
+#conoce-madre-de-dios .selva-introduccion h2 { font-size: 29px; }
+#conoce-madre-de-dios .selva-introduccion .container { max-width: 1200px; }
+.conoce-modal { width: min(800px, calc(100vw - 40px)); max-height: calc(100dvh - 56px); padding: 0; }
+.conoce-modal .selva-territorio-fuentes-modal-cabecera { position: sticky; top: 0; z-index: 1; background: #fff; }
+.conoce-modal-contenido { padding: 24px; font-size: 15px; line-height: 1.75; }
+.conoce-modal-contenido p + p { margin-top: 16px; }
+.conoce-modal a, .conoce-detalle a { color: var(--forest); text-decoration: underline; text-underline-offset: 4px; }
+.conoce-documento + .conoce-documento { margin-top: 24px; padding-top: 24px; border-top: 1px solid #d1d9ca; }
+.conoce-documento h4 { color: var(--forest-deep); font: 700 17px/1.5 var(--font-heading); margin-bottom: 16px; }
+.conoce-documento dl, .conoce-ficha-provincia { display: grid; grid-template-columns: 155px minmax(0, 1fr); gap: 10px 20px; font-size: 14px; line-height: 1.7; }
+.conoce-documento dt, .conoce-ficha-provincia dt { color: #52614f; }
+.conoce-documento dd, .conoce-ficha-provincia dd { overflow-wrap: anywhere; min-width: 0; }
+.conoce-ficha-provincia { margin-bottom: 20px; }
+.conoce-modal-contenido .conoce-referencia { font-size: 13px; }
+@media (max-width: 1100px) {
+    .conoce-datos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .conoce-ubicacion-grid { gap: 24px; }
+    .conoce-provincia > summary { padding: 18px; }
+}
+@media (max-width: 760px) {
+    .conoce-madre { padding-top: 34px; }
+    .conoce-subtitulo { font-size: 18px; }
+    .conoce-accesos { margin-block: 20px 22px; }
+    .conoce-accesos a { padding-inline: 14px; }
+    .conoce-modulo { padding-block: 24px; }
+    .conoce-ubicacion-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+    .conoce-localizador { width: min(100%, 180px); }
+    .conoce-localizador figcaption { font-size: 12px; }
+    .conoce-limites { grid-template-columns: minmax(0, 1fr); gap: 6px; margin-inline: auto; max-width: 360px; }
+    .conoce-limites figcaption { margin-top: 0; }
+    .conoce-datos { gap: 14px 22px; }
+    .conoce-datos dd { font-size: 25px; }
+    .conoce-provincias { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .conoce-provincia > summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 12px; padding: 16px 18px; }
+    .conoce-provincia > summary > strong { font-size: 20px; }
+    .conoce-provincia-capital { grid-column: 1 / -1; margin-top: 5px; }
+    .conoce-provincia-cantidad { grid-column: 2; grid-row: 1; margin-top: 4px; white-space: nowrap; }
+    .conoce-distritos { grid-column: 1 / -1; margin-block: 10px; }
+    .conoce-provincia-abrir { grid-column: 1 / -1; font-size: 13px; }
+    #conoce-madre-de-dios .selva-explora { padding-block: 0 26px; }
+    #conoce-madre-de-dios .selva-explora > .container { padding-top: 24px; }
+    .conoce-geografia-grid { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .conoce-geografia-bloque { padding: 18px; }
+    .conoce-geografia-bloque > img { max-width: 380px; }
+    .conoce-timeline { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .conoce-timeline li { border-top: 0; border-left: 2px solid #b5c1a6; padding: 0 0 22px 20px; }
+    .conoce-timeline li:last-child { padding-bottom: 0; }
+    .conoce-timeline li::before { top: 5px; left: -6px; }
+    .conoce-personas-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+    .conoce-importancia { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+    .conoce-cierre-frase { font-size: 16px; }
+    #conoce-madre-de-dios .selva-introduccion { padding-block: 12px 32px; }
+    #conoce-madre-de-dios .selva-introduccion .container { gap: 18px; }
+    #conoce-madre-de-dios .selva-introduccion h2 { font-size: 25px; }
+    .conoce-modal { inset: auto 0 0; width: 100%; max-height: 88dvh; margin: 0; border-radius: 18px 18px 0 0; }
+    .conoce-modal-contenido { padding: 20px; }
+    .conoce-documento dl, .conoce-ficha-provincia { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+    .conoce-documento dd, .conoce-ficha-provincia dd { margin-bottom: 10px; }
+}
+@media (max-width: 360px) {
+    #conoce-madre-de-dios .selva-explora > .container { width: calc(100% - 24px); }
+}
+@media (prefers-reduced-motion: reduce) { .conoce-modal[open] { animation: none; } }
+@media print {
+    .conoce-accesos, .conoce-modal { display: none; }
+    .conoce-madre { background: #fff; }
+    .conoce-modulo { break-inside: auto; }
+}

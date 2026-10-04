@@ -141,6 +141,53 @@ class IndicatorPage(HTMLParser):
             self.record, self.field = None, None
 
 
+class AtlasPage(HTMLParser):
+    """Verifica la ubicación de los módulos y de la implementación única del mapa."""
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.stack, self.parents, self.sequence, self.map_hosts = [], {}, [], []
+
+    def handle_starttag(self, tag, attributes):
+        attrs = dict(attributes)
+        id = attrs.get('id')
+        if id:
+            self.parents[id] = tuple(self.stack)
+        if tag in ('header', 'section', 'footer') and id and not self.stack:
+            self.sequence.append(id)
+        if attrs.get('data-territorio-map-src'):
+            self.map_hosts.append((attrs['data-territorio-map-src'], tuple(self.stack)))
+        if tag == 'section':
+            self.stack.append(id)
+
+    def handle_endtag(self, tag):
+        if tag == 'section':
+            self.stack.pop()
+
+
+def verify_conoce():
+    page = AtlasPage()
+    page.feed((ROOT / 'index.html').read_text())
+    if page.sequence[:2] != ['inicio', 'conoce-madre-de-dios']:
+        raise ValueError('Conoce Madre de Dios debe aparecer inmediatamente después del Hero.')
+    for id in ('conoce-ubicacion', 'conoce-provincias', 'explora-madre-de-dios',
+               'conoce-geografia', 'conoce-historia', 'conoce-personas', 'selva-introduccion'):
+        if page.parents.get(id) != ('conoce-madre-de-dios',):
+            raise ValueError(f'Conoce: módulo sin integrar o mapa duplicado: {id}')
+    for id in ('programas', 'ambiente', 'investigaciones', 'quienes-somos', 'colabora'):
+        if page.parents.get(id) != ():
+            raise ValueError(f'Conoce: la sección {id} debe continuar independiente.')
+    if page.map_hosts != [('datos/territorio/mapa.svg', ('conoce-madre-de-dios', 'explora-madre-de-dios'))]:
+        raise ValueError('Conoce: debe existir una sola carga del mapa original dentro del módulo 03.')
+    for id in ('selva-territorio-datos', 'selva-territorio-descripciones', 'selva-territorio-cobertura-datos', 'selva-territorio-fuentes-modal'):
+        if 'conoce-madre-de-dios' not in page.parents.get(id, ()):
+            raise ValueError(f'Conoce: parte de la implementación cartográfica quedó fuera: {id}')
+    for id in ('conoce-provincia-tambopata', 'conoce-provincia-manu', 'conoce-provincia-tahuamanu'):
+        if page.parents.get(id) != ('conoce-madre-de-dios', 'conoce-provincias'):
+            raise ValueError(f'Conoce: ficha provincial inexistente o mal ubicada: {id}')
+    for name in ('conoce-peru.svg', 'conoce-limites.svg', 'conoce-relieve.svg'):
+        ET.parse(ROOT / 'images' / name)
+
+
 def verify_castana():
     check_generated()
     model = json.loads((ROOT / 'datos/fichas/castana.json').read_text())
@@ -253,6 +300,7 @@ def verify():
             errors.append(f'{entry}: Analytics debe tener una sola instalación con ID G-0KG7JC82NV dentro de head.')
     try:
         verify_castana()
+        verify_conoce()
         for entry, page in pages.items():
             for reference in page.anchors:
                 fragment = unquote(urlsplit(reference).fragment)
