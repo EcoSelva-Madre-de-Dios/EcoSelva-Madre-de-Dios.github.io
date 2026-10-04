@@ -1,0 +1,53 @@
+name: Verificar y publicar EcoSelva
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    steps:
+      - uses: actions/checkout@v6
+      - name: Comprobar JavaScript
+        run: |
+          node --check script.js
+          node --check ventanas.js
+      - name: Preparar y verificar el sitio
+        run: python3 herramientas/preparar_publicacion.py _site
+      - name: Configurar Pages
+        if: github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - name: Subir el sitio
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: _site
+
+  publicar:
+    if: github.event_name != 'pull_request'
+    needs: verificar
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar la web
+        id: deployment
+        uses: actions/deploy-pages@v4

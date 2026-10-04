@@ -47,9 +47,29 @@ document.addEventListener("DOMContentLoaded", () => {
     if (navbar) {
         const navigationLinks = [...navbar.querySelectorAll('a[href^="#"]')];
         const menuToggle = document.querySelector("#menu");
+        const menuButton = document.querySelector('label[for="menu"]');
         const dropdown = navbar.querySelector(".selva-nav-desplegable details");
         const dropdownSummary = dropdown?.querySelector("summary");
         const menuBar = navbar.closest(".menu");
+
+        const updateMenuButton = () => menuButton?.setAttribute("aria-expanded", String(menuToggle?.checked || false));
+        menuToggle?.addEventListener("change", updateMenuButton);
+        menuButton?.addEventListener("keydown", event => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            event.preventDefault();
+            menuToggle.checked = !menuToggle.checked;
+            updateMenuButton();
+        });
+        menuBar?.addEventListener("keydown", event => {
+            if (event.key !== "Escape") return;
+            if (dropdown?.open) dropdown.open = false;
+            if (menuToggle?.checked) {
+                menuToggle.checked = false;
+                updateMenuButton();
+                menuButton?.focus({ preventScroll: true });
+            }
+        });
+        updateMenuButton();
 
         const updateMenuSurface = () => {
             menuBar?.classList.toggle("selva-menu-scrolled", window.scrollY > 48);
@@ -79,6 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
                 if (menuToggle) {
                     menuToggle.checked = false;
+                    updateMenuButton();
                 }
             });
         });
@@ -219,6 +240,10 @@ document.addEventListener("DOMContentLoaded", () => {
             anfibios: { name: "Anfibios", source: amphibianSource, reference: "Crnobrna y colaboradores · Biodiversity Data Journal (2025)", place: "Cuenca del río Las Piedras, Madre de Dios", photo: "images/fauna-rana.jpg", author: "Hugo Claessen", photoSource: "https://commons.wikimedia.org/wiki/File:Ameerega_trivittata02.jpg", license: "CC BY-SA 2.5", licenseUrl: "https://creativecommons.org/licenses/by-sa/2.5/", photoPlace: "Ubicación de la fotografía no indicada; imagen ilustrativa de la especie", species: [["Rana venenosa de tres franjas", "Ameerega trivittata"], ["Rana de muslos brillantes", "Allobates femoralis"], ["Sapo de costados lisos", "Rhaebo guttatus"]] }
         };
         const body = faunaModal.querySelector(".selva-fauna-modal-cuerpo");
+        const photoSizes = { mamiferos: [900, 600], aves: [960, 1021], reptiles: [960, 622], anfibios: [321, 324] };
+        Object.entries(faunaGroups).forEach(([key, group]) => {
+            [group.photoWidth, group.photoHeight] = photoSizes[key];
+        });
         const title = faunaModal.querySelector("#selva-fauna-modal-titulo");
         const back = faunaModal.querySelector(".selva-fauna-volver");
         let activeGroup;
@@ -278,6 +303,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     const photo = element("img");
                     photo.src = group.photo;
                     photo.alt = species[0];
+                    photo.width = group.photoWidth;
+                    photo.height = group.photoHeight;
                     item.append(photo);
                 } else {
                     const icon = document.querySelector(`[data-fauna-categoria="${activeGroup}"] .selva-fauna-icono`).cloneNode(true);
@@ -311,6 +338,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const photo = faunaModal.querySelector(".selva-fauna-modal-imagen img");
                 photo.src = group.photo;
                 photo.alt = `${group.species[0][0]} (${group.species[0][1]}). ${group.photoPlace}.`;
+                photo.width = group.photoWidth;
+                photo.height = group.photoHeight;
                 faunaModal.querySelector(".selva-fauna-foto-nombre").textContent = group.species[0][0];
                 faunaModal.querySelector(".selva-fauna-foto-cientifico").textContent = group.species[0][1];
                 faunaModal.querySelector(".selva-fauna-foto-registro").textContent = "Especie documentada en Madre de Dios.";
@@ -613,6 +642,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const territory = document.querySelector(".selva-territorio-layout");
     if (territory) {
+        const initializeTerritory = () => {
         const topics = JSON.parse(document.getElementById("selva-territorio-datos").textContent);
         const forestData = JSON.parse(document.getElementById("selva-territorio-cobertura-datos")?.textContent || '{"categories":[],"topics":{}}');
         Object.assign(topics, forestData.topics);
@@ -680,7 +710,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return second.width * second.height - first.width * first.height;
         }).slice(0, 3).forEach(key => { labelSettings[key] = [.25, 16, -24]; });
         const mapLabels = Object.entries(labelSettings).map(([key, settings]) => {
-            const path = svg.querySelector(`[data-mapa-feature="${key}"] .selva-territorio-rio-linea, [data-mapa-feature="${key}"] .selva-territorio-agua-forma`);
+            const visual = svg.querySelector(`[data-mapa-feature="${key}"] .selva-territorio-rio-linea, [data-mapa-feature="${key}"] .selva-territorio-agua-forma`);
+            const path = visual.localName === "use" ? svg.querySelector(visual.getAttribute("href")) : visual;
             const group = document.createElementNS(svg.namespaceURI, "g");
             group.dataset.mapLabel = key; group.setAttribute("role", "button");
             group.setAttribute("aria-label", "Explorar " + topics[key].name); group.setAttribute("tabindex", "-1");
@@ -708,8 +739,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 group.classList.toggle("is-selected", key === selectedKey);
                 if (group.style.display === "none") return;
                 const point = path.getPointAtLength(path.getTotalLength() * settings[0]);
-                text.setAttribute("font-size", 11 * ratio);
-                const width = (text.textContent.length * 6.3 + 16) * ratio, height = 23 * ratio;
+                text.setAttribute("font-size", 12 * ratio);
+                const width = (text.textContent.length * 6.9 + 16) * ratio, height = 24 * ratio;
                 let x = Math.max(view[0] + 10 * ratio, Math.min(view[0] + view[2] - width - 10 * ratio, point.x + settings[1] * ratio));
                 let y = Math.max(view[1] + 12 * ratio, Math.min(view[1] + view[3] - height - 12 * ratio, point.y + settings[2] * ratio));
                 for (let i = 0; i < 4 && occupied.some(box => x < box.x + box.w && x + width > box.x && y < box.y + box.h && y + height > box.y); i++) y = Math.min(view[1] + view[3] - height, y + height + 5 * ratio);
@@ -742,8 +773,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const updateScale = () => {
             scaleElement.hidden = activeMode === "bosques" && !forestData.categories.length;
             const matrix = svg.getScreenCTM(); if (!matrix) return;
-            svg.querySelectorAll(".selva-territorio-provincias-nombres text").forEach(text => text.setAttribute("font-size", 11 / matrix.a));
-            svg.querySelectorAll(".selva-territorio-colindantes text").forEach(text => text.setAttribute("font-size", (canvas.clientWidth < 450 ? 9 : 10) / matrix.a));
+            svg.querySelectorAll(".selva-territorio-provincias-nombres text").forEach(text => text.setAttribute("font-size", 12 / matrix.a));
+            svg.querySelectorAll(".selva-territorio-colindantes text").forEach(text => text.setAttribute("font-size", 12 / matrix.a));
             let km = 100;
             if (100000 / metresPerSvgUnit * matrix.a > 150) km = 50;
             if (km * 1000 / metresPerSvgUnit * matrix.a < 50) km = 150;
@@ -895,7 +926,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 preview.setAttribute("viewBox", [box.x - margin, box.y - margin, box.width + 2 * margin, box.height + 2 * margin].join(" "));
                 preview.setAttribute("class", "selva-territorio-detalle-agua");
                 preview.setAttribute("role", "img"); preview.setAttribute("aria-label", "Forma registrada de " + topic.name);
-                const shape = feature.querySelector(".selva-territorio-agua-forma").cloneNode(true);
+                const visual = feature.querySelector(".selva-territorio-agua-forma");
+                const original = visual.localName === "use" ? svg.querySelector(visual.getAttribute("href")) : visual;
+                const shape = original.cloneNode(true);
+                shape.removeAttribute("id");
                 shape.removeAttribute("class"); shape.setAttribute("fill", topic.waterType === "Pantano" ? "#668f75" : "#3c9098");
                 shape.setAttribute("stroke", "#176d7a"); shape.setAttribute("stroke-width", ".8"); shape.setAttribute("vector-effect", "non-scaling-stroke");
                 preview.append(shape); card.append(preview, node("small", "selva-territorio-detalle-nota", "Detalle ampliado de la geometría registrada"));
@@ -1081,6 +1115,55 @@ document.addEventListener("DOMContentLoaded", () => {
         window.addEventListener("resize", () => { updateMapLabels(); updateScale(); });
         reducedMotion.addEventListener("change", () => { if (reducedMotion.matches) { cancelAnimationFrame(zoomFrame); svg.setAttribute("viewBox", view.join(" ")); } });
         setMode("rios", false, true);
+        };
+
+        const host = territory.querySelector("[data-territorio-map-src]");
+        const canvas = territory.querySelector(".selva-territorio-canvas");
+        const controls = [...document.querySelectorAll("[data-territorio-modo]"), ...territory.querySelectorAll("[data-territorio-zoom], #territorio-provincias")];
+        let loading = false, loaded = false;
+        controls.forEach(control => { control.disabled = true; });
+        const loadTerritory = async () => {
+            if (loading || loaded) return;
+            loading = true;
+            canvas.setAttribute("aria-busy", "true");
+            const message = host.querySelector("[role='status']");
+            const retry = host.querySelector("button");
+            if (message) message.textContent = "Cargando mapa…";
+            if (retry) retry.hidden = true;
+            let loadedSvg;
+            try {
+                const response = await fetch(host.dataset.territorioMapSrc);
+                if (!response.ok) throw new Error(`Mapa: HTTP ${response.status}`);
+                const document = new DOMParser().parseFromString(await response.text(), "image/svg+xml");
+                if (document.querySelector("parsererror") || document.documentElement.localName !== "svg") throw new Error("El mapa no es un SVG válido.");
+                loadedSvg = window.document.importNode(document.documentElement, true);
+                host.replaceWith(loadedSvg);
+                controls.forEach(control => { control.disabled = false; });
+                initializeTerritory();
+                loaded = true;
+                observer?.disconnect();
+            } catch (error) {
+                console.error("No se pudo cargar el mapa de EcoSelva:", error);
+                loadedSvg?.remove();
+                if (!host.isConnected) canvas.prepend(host);
+                if (message) message.textContent = "No se pudo cargar el mapa. Puedes volver a intentarlo.";
+                if (retry) retry.hidden = false;
+                controls.forEach(control => { control.disabled = true; });
+            } finally {
+                loading = false;
+                canvas.setAttribute("aria-busy", "false");
+            }
+        };
+        let observer;
+        if (host) {
+            host.querySelector("button")?.addEventListener("click", loadTerritory);
+            if ("IntersectionObserver" in window) {
+                observer = new IntersectionObserver(entries => {
+                    if (entries.some(entry => entry.isIntersecting)) loadTerritory();
+                }, { rootMargin: "600px" });
+                observer.observe(territory);
+            } else loadTerritory();
+        } else initializeTerritory();
     }
 
 
