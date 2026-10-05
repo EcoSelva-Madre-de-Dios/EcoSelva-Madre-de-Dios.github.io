@@ -1,0 +1,146 @@
+{
+  "titulo": "Mapa educativo de conservación · EcoSelva Madre de Dios",
+  "revision_ecoselva": "2026-10-04",
+  "capas": {
+    "anp": {
+      "institucion": "SERNANP",
+      "url_servicio": "https://geoservicios.sernanp.gob.pe/arcgis/rest/services/sernanp_visor/servicio_descarga/MapServer/1",
+      "consulta": "https://geoservicios.sernanp.gob.pe/arcgis/rest/services/sernanp_visor/servicio_descarga/MapServer/1/query?f=geojson&outFields=%2A&returnGeometry=true&outSR=4326&where=anp_codi+IN+%28%27PN03%27%2C%27PN08%27%2C%27PN11%27%2C%27RN09%27%2C%27RC03%27%2C%27RC06%27%29",
+      "crs_descarga": "EPSG:4326",
+      "fecha_version": "No expuesta por el servicio",
+      "consulta_utc": "2026-10-05",
+      "sha256_descarga": "749fa336fdb094d6aa6abfba1d6f9ea5bc3f652e1c5b61c9d32647aebf22c415",
+      "bytes_descarga": 1707427,
+      "elementos_descarga": 6
+    },
+    "departamento": {
+      "institucion": "IGN · Proyecto Atlas Digital del Perú, servido por GeoSERNANP",
+      "url_servicio": "https://geospatial.sernanp.gob.pe/arcgis_server/rest/services/sernanp_peru/peru_ign_002000/MapServer/0",
+      "consulta": "https://geospatial.sernanp.gob.pe/arcgis_server/rest/services/sernanp_peru/peru_ign_002000/MapServer/0/query?f=geojson&outFields=%2A&returnGeometry=true&outSR=4326&where=UPPER%28departamen%29%3D%27MADRE+DE+DIOS%27",
+      "crs_descarga": "EPSG:4326",
+      "fecha_version": "Registro de referencia: 2018-09-18; no fecha de demarcación legal",
+      "consulta_utc": "2026-10-05",
+      "sha256_descarga": "c30a6c3f4724417ed32752acd477e05256c24113c8490f435eb1d1fef38ac995",
+      "bytes_descarga": 643091,
+      "elementos_descarga": 1
+    },
+    "provincias": {
+      "institucion": "IGN · Proyecto Atlas Digital del Perú, servido por GeoSERNANP",
+      "url_servicio": "https://geospatial.sernanp.gob.pe/arcgis_server/rest/services/sernanp_peru/peru_ign_002000/MapServer/1",
+      "consulta": "https://geospatial.sernanp.gob.pe/arcgis_server/rest/services/sernanp_peru/peru_ign_002000/MapServer/1/query?f=geojson&outFields=%2A&returnGeometry=true&outSR=4326&where=UPPER%28departamen%29%3D%27MADRE+DE+DIOS%27",
+      "crs_descarga": "EPSG:4326",
+      "fecha_version": "Registro de referencia: 2018-09-18; no fecha de demarcación legal",
+      "consulta_utc": "2026-10-05",
+      "sha256_descarga": "8007722bca28db30d97efb996b5ed35cb62849396abf037911e1349954dadcbb",
+      "bytes_descarga": 1703204,
+      "elementos_descarga": 3
+    },
+    "rios": {
+      "institucion": "SERNANP",
+      "url_servicio": "https://geospatial.sernanp.gob.pe/arcgis_server/rest/services/sernanp_peru/peru_hidrografia_001700/MapServer/0",
+      "consulta": "https://geospatial.sernanp.gob.pe/arcgis_server/rest/services/sernanp_peru/peru_hidrografia_001700/MapServer/0/query?f=geojson&outFields=%2A&returnGeometry=true&outSR=4326&where=id_dpto%3D%2717%27+AND+UPPER%28nom_hpl%29+IN+%28%27MADRE+DE+DIOS%27%2C%27TAMBOPATA%27%2C%27MANU%27%2C%27R%C3%8DO+MANU%27%2C%27TAHUAMANU%27%2C%27LAS+PIEDRAS%27%2C%27HEATH%27%2C%27INAMBARI%27%29",
+      "crs_descarga": "EPSG:4326",
+      "fecha_version": "No expuesta por el servicio",
+      "consulta_utc": "2026-10-05",
+      "sha256_descarga": "d5933679304e375d3768210f5484a4fe300b4c64d9c276f86298167a0cae63a8",
+      "bytes_descarga": 425645,
+      "elementos_descarga": 103
+    }
+  },
+  "crs_procesamiento": "EPSG:32719 · WGS 84 / UTM 19S",
+  "crs_geojson": "EPSG:4326",
+  "recorte": "ANP y ríos contra geometría IGN departamental sin simplificar; límite referencial de registro 2018",
+  "simplificacion_metros": {
+    "anp": "300 m máximo; adaptativa hasta variación de área ≤0,5 %, tolerancia por ANP en control_geometria",
+    "departamento": 250,
+    "provincias": 250,
+    "rios": 100
+  },
+  "metodo": "Shapely make_valid → intersección métrica → simplificación preserve_topology → validación → GeoJSON (6 decimales) y SVG (0.1 unidades). Escala lineal en UTM 19S.",
+  "versiones": {
+    "shapely": "2.1.2",
+    "pyproj": "3.8.0"
+  },
+  "control_geometria": [
+    {
+      "codigo": "PN03",
+      "tipo": "Polygon",
+      "valida": true,
+      "tolerancia_metros": 300,
+      "puntos_originales": 9740,
+      "puntos_finales": 336,
+      "variacion_area_recortada_pct": 0.05038
+    },
+    {
+      "codigo": "PN08",
+      "tipo": "Polygon",
+      "valida": true,
+      "tolerancia_metros": 300,
+      "puntos_originales": 10788,
+      "puntos_finales": 293,
+      "variacion_area_recortada_pct": 0.15267
+    },
+    {
+      "codigo": "PN11",
+      "tipo": "Polygon",
+      "valida": true,
+      "tolerancia_metros": 300,
+      "puntos_originales": 8470,
+      "puntos_finales": 241,
+      "variacion_area_recortada_pct": 0.01616
+    },
+    {
+      "codigo": "RN09",
+      "tipo": "Polygon",
+      "valida": true,
+      "tolerancia_metros": 300,
+      "puntos_originales": 6484,
+      "puntos_finales": 268,
+      "variacion_area_recortada_pct": 0.03892
+    },
+    {
+      "codigo": "RC03",
+      "tipo": "Polygon",
+      "valida": true,
+      "tolerancia_metros": 300,
+      "puntos_originales": 2281,
+      "puntos_finales": 167,
+      "variacion_area_recortada_pct": 0.05404
+    },
+    {
+      "codigo": "RC06",
+      "tipo": "MultiPolygon",
+      "valida": true,
+      "tolerancia_metros": 37.5,
+      "puntos_originales": 3005,
+      "puntos_finales": 377,
+      "variacion_area_recortada_pct": 0.14094
+    }
+  ],
+  "puntos_anp_originales": 40768,
+  "puntos_anp_finales": 1682,
+  "dimensiones_svg": [
+    900,
+    866
+  ],
+  "atributos_publicados": [
+    "id",
+    "codigo",
+    "nombre",
+    "categoria",
+    "departamentos",
+    "total_ha",
+    "mdd_ha"
+  ],
+  "condiciones": {
+    "url": "https://geo.sernanp.gob.pe/visorsernanp/",
+    "lectura": "El visor autoriza la utilización y creación de mapas derivados pertenecientes al SERNANP cuando se referencia al SERNANP como fuente. No se atribuye una licencia Creative Commons a las capas. IGN identificado como fuente de límites referenciales."
+  },
+  "limitaciones": [
+    "Educativo: no define demarcación legal, rutas ni accesos.",
+    "Los valores legales y departamentales proceden de documentos oficiales, nunca del área calculada del dibujo recortado.",
+    "No contiene posiciones de comunidades ni PIACI, carreteras, minería o incendios.",
+    "ACP excluidas: el listado 2026 contiene plazos vencidos y no permite confirmar un total vigente.",
+    "Los números identifican polígonos; no indican lugares de visita."
+  ]
+}

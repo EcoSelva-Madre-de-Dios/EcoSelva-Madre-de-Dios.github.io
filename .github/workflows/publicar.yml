@@ -29,6 +29,7 @@ jobs:
           node --check fichas/ficha.js
           node --check conoce.js
           node --check historia.js
+          node --check areas-protegidas.js
       - name: Preparar y verificar el sitio
         run: python3 herramientas/preparar_publicacion.py _site
       - name: Configurar Pages

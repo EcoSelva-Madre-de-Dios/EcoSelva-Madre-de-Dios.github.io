@@ -14,7 +14,7 @@ from actualizar_ficha_castana import COLUMNS, check_generated
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://ecoselva-madre-de-dios.github.io'
-PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html', 'historia.html')
+PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html')
 ENTRYPOINTS = PAGES + ('google46599e54e679b03a.html', 'robots.txt', 'sitemap.xml')
 
 
@@ -229,6 +229,62 @@ def verify_historia():
         raise ValueError('Historia: Conoce requiere cuatro o cinco hitos y acceso a la página completa.')
 
 
+def verify_conservacion():
+    model = json.loads((ROOT / 'datos/conservacion/areas.json').read_text())
+    areas = model['areas']
+    codes = {'PN03', 'PN08', 'PN11', 'RN09', 'RC03', 'RC06'}
+    if len(areas) != 6 or {a['codigo'] for a in areas} != codes:
+        raise ValueError('Conservación: se requieren las seis ANP nacionales, sin duplicados.')
+    if sum(Decimal(str(a['mdd_ha'])) for a in areas) != Decimal('3849456.00'):
+        raise ValueError('Conservación: la suma departamental debe conservar las cifras del mapa oficial.')
+    if model['cobertura']['acp_vigentes'] is not None or model['cobertura']['porcentaje_nacional'] != 45.24:
+        raise ValueError('Conservación: no confundir cobertura nacional con ACP ni publicar un conteo de vigencia no confirmado.')
+    sources = {source['id']: source for source in model['fuentes']}
+    for area in areas:
+        if area['estado'] != 'VERIFICADO' or not 0 < area['mdd_ha'] <= area['total_ha']:
+            raise ValueError('Conservación: superficie o estado inválido.')
+        date.fromisoformat(area['fecha_creacion'])
+        for key in ('protege', 'ecosistemas', 'destacados', 'personas', 'amenaza', 'nota_fecha', 'departamentos'):
+            if not area[key]:
+                raise ValueError(f'Conservación: ficha incompleta: {area["id"]}, {key}')
+        if not all(id in sources for id in area['fuentes']):
+            raise ValueError('Conservación: falta la procedencia específica de una ficha.')
+    for source in sources.values():
+        if not all(source[key] for key in ('titulo', 'fecha', 'url', 'alcance', 'institucion', 'tipo', 'revision')) or urlsplit(source['url']).scheme != 'https':
+            raise ValueError('Conservación: fuente sin metadatos completos.')
+    html = (ROOT / 'areas-protegidas.html').read_text()
+    page, structure = Page(), AtlasPage()
+    page.feed(html)
+    structure.feed(html)
+    if structure.sequence[:5] != ['comprender', 'explorar', 'naturaleza-personas', 'conectados', 'conservar']:
+        raise ValueError('Conservación: cinco módulos en orden.')
+    if json.loads(page.json_blocks[-1]) != model:
+        raise ValueError('Conservación: datos interactivos distintos del modelo público.')
+    if any('ficha-' + area['id'] not in page.ids for area in areas) or any('fuente-' + id not in page.ids for id in sources):
+        raise ValueError('Conservación: fichas o fuentes inaccesibles sin JavaScript.')
+    for area in areas:
+        if area['nombre'] not in html or any(area[key] not in html for key in ('protege', 'ecosistemas', 'destacados', 'personas', 'amenaza')):
+            raise ValueError('Conservación: contenido esencial debe existir en HTML.')
+    geo = json.loads((ROOT / 'datos/conservacion/anp.geojson').read_text())
+    if len(geo['features']) != 6 or {f['properties']['codigo'] for f in geo['features']} != codes:
+        raise ValueError('Conservación: GeoJSON incompleto.')
+    for f in geo['features']:
+        area = next(a for a in areas if a['codigo'] == f['properties']['codigo'])
+        if f['geometry']['type'] not in ('Polygon', 'MultiPolygon') or f['properties']['mdd_ha'] != area['mdd_ha'] or f['properties']['total_ha'] != area['total_ha']:
+            raise ValueError('Conservación: geometría o métricas cartográficas distintas de la ficha.')
+    svg = ET.parse(ROOT / 'datos/conservacion/mapa.svg').getroot()
+    zones = [node for node in svg.iter() if node.get('data-anp')]
+    if len(zones) != 6 or {node.get('data-anp') for node in zones} != {a['id'] for a in areas}:
+        raise ValueError('Conservación: SVG no corresponde a las seis geometrías oficiales.')
+    metadata = json.loads((ROOT / 'datos/conservacion/metadatos.json').read_text())
+    if metadata['crs_procesamiento'].split(' · ')[0] != 'EPSG:32719' or metadata['crs_geojson'] != 'EPSG:4326':
+        raise ValueError('Conservación: CRS desconocido.')
+    if len(metadata['control_geometria']) != 6 or any(not c['valida'] or c['variacion_area_recortada_pct'] > .5 for c in metadata['control_geometria']):
+        raise ValueError('Conservación: falta validación o hay simplificación excesiva.')
+    if 'Explorar las áreas protegidas →' not in (ROOT / 'index.html').read_text() or 'Conoce las áreas protegidas actuales →' not in (ROOT / 'historia.html').read_text():
+        raise ValueError('Conservación: faltan accesos desde Conoce o Historia.')
+
+
 def verify_castana():
     check_generated()
     model = json.loads((ROOT / 'datos/fichas/castana.json').read_text())
@@ -313,7 +369,7 @@ def verify():
             errors.append(f'{entry}: idioma o URL canónica incorrectos.')
         if not page.links.get('icon'):
             errors.append(f'{entry}: falta el favicon.')
-        if entry in ('index.html', 'fichas/castana.html', 'historia.html'):
+        if entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html'):
             if page.metadata.get('og:url') != expected_url:
                 errors.append(f'{entry}: og:url debe coincidir con la URL canónica.')
             social_image = page.metadata.get('og:image', '')
@@ -334,7 +390,7 @@ def verify():
                 errors.append(f'{entry}: JSON inválido: {error}')
         if re.search(r'^\s*(?:<<<<<<<|=======|>>>>>>>)', html, re.M):
             errors.append(f'{entry}: conflicto de Git sin resolver.')
-    for entry in ('index.html', 'fichas/castana.html', 'historia.html'):
+    for entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html'):
         html = (ROOT / entry).read_text()
         head = html.split('<head>', 1)[1].split('</head>', 1)[0]
         if html.count('gtag/js?') != 1 or "gtag('config', 'G-0KG7JC82NV');" not in head or 'GTM-' in head:
@@ -343,6 +399,7 @@ def verify():
         verify_castana()
         verify_conoce()
         verify_historia()
+        verify_conservacion()
         for entry, page in pages.items():
             for reference in page.anchors:
                 fragment = unquote(urlsplit(reference).fragment)

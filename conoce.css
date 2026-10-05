@@ -152,3 +152,10 @@
     .conoce-madre { background: #fff; }
     .conoce-modulo { break-inside: auto; }
 }
+.conoce-conservacion{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:24px;padding:20px 22px;border:1px solid #c8d9cb;border-radius:8px;background:#f3f6ee;text-align:left}
+.conoce-conservacion strong{font-family:Manrope,Arial,sans-serif;font-size:16px;color:#173c2d}
+.conoce-conservacion p{font-size:13px;line-height:1.65;margin:8px 0 0;color:#3f5347}
+.conoce-conservacion p a{color:#173c2d;text-decoration:underline}
+.conoce-conservacion-acceso{flex-shrink:0;display:inline-flex;align-items:center;min-height:44px;padding:11px 16px;background:#173c2d;color:#fff;border-radius:5px;font-size:13px;font-weight:600;text-decoration:none}
+.conoce-conservacion-acceso:focus-visible{outline:3px solid #94621e;outline-offset:4px}
+@media(max-width:700px){.conoce-conservacion{flex-direction:column;align-items:flex-start;gap:16px;padding:18px}.conoce-conservacion-acceso{font-size:12px}}
