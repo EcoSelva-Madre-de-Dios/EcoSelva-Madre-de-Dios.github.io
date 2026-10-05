@@ -67,6 +67,10 @@
 .conoce-timeline li::before { content: ''; position: absolute; top: -6px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--forest); }
 .conoce-tiempo { margin-bottom: 10px; color: #755230; font-size: 12px; font-weight: 600; }
 .conoce-timeline li > p:last-child { margin-top: 10px; font-size: 14px; }
+#conoce-historia .conoce-timeline { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; }
+#conoce-historia .conoce-timeline h4 { font-size: 15px; }
+.conoce-historia-acceso { padding: 12px 18px; border-radius: 6px; background: var(--forest); color: #fff; text-decoration: none; }
+@media (min-width: 761px) and (max-width: 1000px) { #conoce-historia .conoce-timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .conoce-personas-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
 .conoce-personas-intro { max-width: 760px; margin-bottom: 20px; font-size: 15px; }
 .conoce-persona { padding-left: 20px; border-left: 3px solid #a5b994; }
@@ -124,6 +128,7 @@
     .conoce-geografia-bloque { padding: 18px; }
     .conoce-geografia-bloque > img { max-width: 380px; }
     .conoce-timeline { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    #conoce-historia .conoce-timeline { grid-template-columns: minmax(0, 1fr); gap: 0; }
     .conoce-timeline li { border-top: 0; border-left: 2px solid #b5c1a6; padding: 0 0 22px 20px; }
     .conoce-timeline li:last-child { padding-bottom: 0; }
     .conoce-timeline li::before { top: 5px; left: -6px; }

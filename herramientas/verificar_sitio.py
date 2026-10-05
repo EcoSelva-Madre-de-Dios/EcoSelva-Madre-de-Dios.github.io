@@ -14,7 +14,7 @@ from actualizar_ficha_castana import COLUMNS, check_generated
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://ecoselva-madre-de-dios.github.io'
-PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html')
+PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html', 'historia.html')
 ENTRYPOINTS = PAGES + ('google46599e54e679b03a.html', 'robots.txt', 'sitemap.xml')
 
 
@@ -188,6 +188,47 @@ def verify_conoce():
         ET.parse(ROOT / 'images' / name)
 
 
+class HistoryPage(Page):
+    def __init__(self):
+        super().__init__()
+        self.milestones, self.citations = [], []
+
+    def handle_starttag(self, tag, attributes):
+        super().handle_starttag(tag, attributes)
+        attrs = dict(attributes)
+        if 'data-historia-categoria' in attrs:
+            self.milestones.append(attrs)
+        if 'data-historia-fuente' in attrs:
+            self.citations.append(attrs.get('href', ''))
+
+
+def verify_historia():
+    html = (ROOT / 'historia.html').read_text()
+    structure, page = AtlasPage(), HistoryPage()
+    structure.feed(html)
+    page.feed(html)
+    chapters = ['territorio', 'contactos', 'organizacion', 'transformaciones', 'conservacion', 'memoria']
+    if structure.sequence != chapters + ['fuentes']:
+        raise ValueError('Historia: se requieren seis capítulos ordenados y referencias al final.')
+    if any(structure.parents.get(chapter) != () for chapter in chapters):
+        raise ValueError('Historia: los capítulos deben ser independientes entre sí.')
+    categories = {'pueblos', 'contacto', 'economia', 'politica', 'infraestructura', 'conservacion'}
+    if {item['data-historia-categoria'] for item in page.milestones} != categories:
+        raise ValueError('Historia: faltan categorías de la línea de tiempo.')
+    if len(page.milestones) < 6:
+        raise ValueError('Historia: línea de tiempo incompleta.')
+    for item in page.milestones:
+        sources = item.get('data-historia-fuentes', '').split(',')
+        if item.get('data-historia-estado') != 'VERIFICADO' or not all('fuente-' + source in page.ids for source in sources):
+            raise ValueError('Historia: hito sin verificación o sin referencias existentes.')
+    if any(not reference.startswith('#fuente-') or reference[1:] not in page.ids for reference in page.citations):
+        raise ValueError('Historia: enlace a fuente inexistente.')
+    homepage = (ROOT / 'index.html').read_text().split('id="conoce-historia"', 1)[1].split('</section>', 1)[0]
+    timeline = homepage.split('<ol class="conoce-timeline">', 1)[1].split('</ol>', 1)[0]
+    if len(re.findall(r'<li>', timeline)) not in (4, 5) or 'href="historia.html"' not in homepage:
+        raise ValueError('Historia: Conoce requiere cuatro o cinco hitos y acceso a la página completa.')
+
+
 def verify_castana():
     check_generated()
     model = json.loads((ROOT / 'datos/fichas/castana.json').read_text())
@@ -272,7 +313,7 @@ def verify():
             errors.append(f'{entry}: idioma o URL canónica incorrectos.')
         if not page.links.get('icon'):
             errors.append(f'{entry}: falta el favicon.')
-        if entry in ('index.html', 'fichas/castana.html'):
+        if entry in ('index.html', 'fichas/castana.html', 'historia.html'):
             if page.metadata.get('og:url') != expected_url:
                 errors.append(f'{entry}: og:url debe coincidir con la URL canónica.')
             social_image = page.metadata.get('og:image', '')
@@ -293,7 +334,7 @@ def verify():
                 errors.append(f'{entry}: JSON inválido: {error}')
         if re.search(r'^\s*(?:<<<<<<<|=======|>>>>>>>)', html, re.M):
             errors.append(f'{entry}: conflicto de Git sin resolver.')
-    for entry in ('index.html', 'fichas/castana.html'):
+    for entry in ('index.html', 'fichas/castana.html', 'historia.html'):
         html = (ROOT / entry).read_text()
         head = html.split('<head>', 1)[1].split('</head>', 1)[0]
         if html.count('gtag/js?') != 1 or "gtag('config', 'G-0KG7JC82NV');" not in head or 'GTM-' in head:
@@ -301,6 +342,7 @@ def verify():
     try:
         verify_castana()
         verify_conoce()
+        verify_historia()
         for entry, page in pages.items():
             for reference in page.anchors:
                 fragment = unquote(urlsplit(reference).fragment)
