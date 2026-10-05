@@ -13,6 +13,7 @@ import re
 import sys
 from actualizar_ficha_castana import COLUMNS, check_generated
 import actualizar_biblioteca
+import actualizar_flora
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://ecoselva-madre-de-dios.github.io'
@@ -444,6 +445,83 @@ def verify_territorio_educativo():
         ET.parse(ROOT / 'images' / name)
 
 
+class FloraPage(Page):
+    """Comprueba que la ampliación y sus recursos permanezcan en la pestaña Flora."""
+    VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input',
+            'link', 'meta', 'param', 'source', 'track', 'wbr'}
+
+    def __init__(self):
+        super().__init__()
+        self.stack, self.parents, self.cases, self.choices, self.species = [], {}, [], [], []
+
+    def handle_starttag(self, tag, attributes):
+        super().handle_starttag(tag, attributes)
+        attrs = dict(attributes)
+        if attrs.get('id'):
+            self.parents[attrs['id']] = tuple(id for _, id in self.stack if id)
+        for key, records in (('data-flora-caso', self.cases), ('data-flora-recurso', self.choices),
+                             ('data-flora-especie', self.species)):
+            if key in attrs:
+                records.append(attrs[key])
+        if tag not in self.VOID:
+            self.stack.append((tag, attrs.get('id')))
+
+    def handle_endtag(self, tag):
+        super().handle_endtag(tag)
+        for i in range(len(self.stack) - 1, -1, -1):
+            if self.stack[i][0] == tag:
+                del self.stack[i:]
+                break
+
+
+def verify_flora():
+    model = json.loads((ROOT / 'datos/flora/lectura.json').read_text())
+    html = (ROOT / 'index.html').read_text()
+    page = FloraPage()
+    page.feed(html)
+    modules = ('flora-productos-usos', 'flora-maderables', 'flora-no-maderables',
+               'flora-medicinales', 'flora-alimentos', 'flora-cultura', 'flora-recorrido',
+               'flora-relaciones', 'flora-manejo', 'flora-economia', 'flora-seguir', 'flora-fuentes')
+    if any('selva-biodiversidad-panel-flora' not in page.parents.get(id, ()) for id in modules):
+        raise ValueError('Flora: la ampliación debe estar dentro de la pestaña existente de Biodiversidad.')
+    expected = ['castana', 'madera', 'aguaje', 'paca', 'medicinal']
+    if page.cases != expected or page.choices != expected or [item['id'] for item in model['recursos']] != expected:
+        raise ValueError('Flora: se requieren cinco recorridos accesibles, sin duplicados.')
+    stages = ['Bosque', 'Recurso', 'Aprovechamiento', 'Transformación', 'Producto', 'Uso', 'Manejo y conservación']
+    date.fromisoformat(model['revision'])
+    for item in model['recursos']:
+        if [step['etapa'] for step in item['pasos']] != stages or any(not step['texto'] for step in item['pasos']):
+            raise ValueError('Flora: recorrido incompleto o sin manejo y conservación.')
+        if not item['alcance'] or not item['fuentes'] or not set(item['fuentes']).issubset(model['fuentes']):
+            raise ValueError('Flora: recurso sin alcance o referencias.')
+    sources = model['fuentes']
+    for id, source in sources.items():
+        if any(not source.get(key) for key in ('institucion', 'documento', 'alcance', 'url', 'localizador', 'revision')):
+            raise ValueError('Flora: referencia incompleta: ' + id)
+        date.fromisoformat(source['revision'])
+        if urlsplit(source['url']).scheme != 'https' or 'flora-fuente-' + id not in page.ids:
+            raise ValueError('Flora: referencia original inexistente: ' + id)
+        if 'anio' not in source or (source['anio'] is not None and not isinstance(source['anio'], int)):
+            raise ValueError('Flora: año de fuente inventado o inválido: ' + id)
+    figures = {item['categoria']: item for item in model['cifras']}
+    for category, value, year, source in (('maderables', 486, 2022, 'catalogo'), ('no-maderables', 69, 2019, 'pfnm')):
+        item = figures[category]
+        if (item['valor'], item['anio'], item['fuente'], item['unidad']) != (value, year, source, 'especies'):
+            raise ValueError('Flora: no cambiar ni confundir los conteos originales y sus ámbitos.')
+        if not item['ambito'] or not item['metodologia'] or f'data-flora-count="{value}"' not in html:
+            raise ValueError('Flora: contador sin procedencia o método.')
+    if any(figures[key]['valor'] is not None or figures[key]['estado'] != 'En revisión'
+           for key in ('medicinales', 'alimenticias')):
+        raise ValueError('Flora: no publicar totales regionales sin inventario comparable.')
+    names = ['shihuahuaco', 'cedro', 'capirona', 'castana', 'aguaje', 'huasai']
+    if page.species != names or [item['id'] for item in model['especies_destacadas']] != names:
+        raise ValueError('Flora: conservar las seis especies destacadas y sus fuentes.')
+    for species in model['especies_destacadas']:
+        if not species['localizador'] or not species['fuentes'] or not set(species['fuentes']).issubset(sources):
+            raise ValueError('Flora: especie sin procedencia.')
+    actualizar_flora.check_generated()
+
+
 def verify():
     errors = []
     pages = {}
@@ -491,6 +569,7 @@ def verify():
         verify_conservacion()
         verify_biblioteca()
         verify_territorio_educativo()
+        verify_flora()
         for entry, page in pages.items():
             for reference in page.anchors:
                 fragment = unquote(urlsplit(reference).fragment)

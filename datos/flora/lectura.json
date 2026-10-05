@@ -1,0 +1,568 @@
+{
+  "revision": "2026-10-05",
+  "nota_categorias": "Las categorías se superponen; especies, registros, productos y usos no son unidades equivalentes.",
+  "cifras": [
+    {
+      "categoria": "maderables",
+      "valor": 486,
+      "unidad": "especies",
+      "anio": 2022,
+      "ambito": "Madre de Dios",
+      "fuente": "catalogo",
+      "metodologia": "Compilación taxonómica y distribución departamental del catálogo; no censo de árboles."
+    },
+    {
+      "categoria": "no-maderables",
+      "valor": 69,
+      "unidad": "especies",
+      "anio": 2019,
+      "ambito": "Ámbitos estudiados en Madre de Dios",
+      "fuente": "pfnm",
+      "metodologia": "Revisión bibliográfica, caminatas etnobotánicas, entrevistas e identificación botánica."
+    },
+    {
+      "categoria": "medicinales",
+      "valor": null,
+      "unidad": "especies",
+      "estado": "En revisión"
+    },
+    {
+      "categoria": "alimenticias",
+      "valor": null,
+      "unidad": "especies",
+      "estado": "En revisión"
+    }
+  ],
+  "fuentes": {
+    "catalogo": {
+      "institucion": "Universidad Nacional Agraria La Molina · Revista Forestal del Perú; Vásquez Martínez y Rojas Gonzáles",
+      "documento": "Catálogo de las especies forestales maderables de la Amazonía y la Yunga Peruana",
+      "anio": 2022,
+      "alcance": "Amazonía y Yunga peruana; distribución departamental. Compila bibliografía, colecciones y observaciones de campo; incluye especies utilizadas y con aptitud maderable. No es un censo de árboles ni una medición de producción.",
+      "url": "https://revistas.lamolina.edu.pe/index.php/rfp/article/download/1956/2486",
+      "localizador": "Figura 9 y texto de p. 16; entradas taxonómicas de las especies destacadas.",
+      "revision": "2026-10-05",
+      "etiqueta": "Catálogo forestal"
+    },
+    "pfnm": {
+      "institucion": "SERFOR · Melchor-Castro y Bejarano",
+      "documento": "Guía de Productos Forestales no Maderables en Madre de Dios",
+      "anio": 2019,
+      "alcance": "Estudio de usos en la Comunidad Nativa de Infierno, mercados de Puerto Maldonado y concesionarios de Madre de Dios. Revisión bibliográfica, caminatas etnobotánicas, entrevistas e identificación botánica; no inventario exhaustivo de toda la flora regional.",
+      "url": "https://repositorio.serfor.gob.pe/handle/SERFOR/854",
+      "localizador": "Pp. 6, 8, 12–15 y 18 (alcance y método); 23 (shimbillo), 30 (tamishi), 41 (bobinsana), 46 (sangre de grado), 81 (huasaí), 82 (huito), 84 (aguaje), 92–93 (castaña) y 96 (shiringa).",
+      "revision": "2026-10-05",
+      "etiqueta": "SERFOR"
+    },
+    "manejo": {
+      "institucion": "SERFOR",
+      "documento": "Manual de Buenas Prácticas de Aprovechamiento Forestal",
+      "anio": 2022,
+      "alcance": "Orientaciones técnicas para el sector maderable peruano. Censo, planificación, silvicultura, trazabilidad y protección de fauna; no prueba de sostenibilidad de una operación particular.",
+      "url": "https://repositorio.serfor.gob.pe/handle/SERFOR/931",
+      "localizador": "Pp. 22, 27–35, 38–42 y 45–49; documento técnico, no autorización de aprovechamiento.",
+      "revision": "2026-10-05",
+      "etiqueta": "SERFOR"
+    },
+    "aguaje": {
+      "institucion": "IIAP / Profonanpe · Del Castillo Torres, Freitas Alvarado y Del Águila Pasquel",
+      "documento": "El aguaje: Superalimento amazónico, y los beneficios del manejo y conservación de los aguajales para el desarrollo regional amazónico",
+      "anio": 2021,
+      "alcance": "Amazonía peruana; varios ejemplos y mediciones proceden de Loreto. Se emplean las relaciones ecológicas y criterios de cosecha; no se trasladan cifras, ensayos clínicos ni inventarios a Madre de Dios.",
+      "url": "https://repositorio.iiap.gob.pe/items/d813bd00-ce3e-4e6c-a42d-a0015e0ec626",
+      "localizador": "Pp. 5–6, 18–19 y 21–27: frutos, alimento y anidamiento de fauna, impacto de la tala y cosecha sin derribar la palmera.",
+      "revision": "2026-10-05",
+      "etiqueta": "IIAP / Profonanpe"
+    },
+    "bambu": {
+      "institucion": "IIAP · Rodríguez Vásquez y colaboradores",
+      "documento": "Secado de tablillas de bambú nativo en la Amazonía peruana",
+      "anio": 2022,
+      "alcance": "Manual técnico de Pucallpa, Ucayali, sobre bambúes nativos. Usos y potencialidades de Guadua weberbaueri y procesos de secado; no inventario de empresas o cosechas de Madre de Dios.",
+      "url": "https://repositorio.iiap.gob.pe/items/ec52e91f-0b96-4503-9c7b-19330940fa70",
+      "localizador": "Pp. 10–11 y 16–28: paca, culmos, usos y transformación; no se extrapolan programas experimentales de secado.",
+      "revision": "2026-10-05",
+      "etiqueta": "IIAP"
+    },
+    "cobertura": {
+      "institucion": "MINAM",
+      "documento": "Mapa Nacional de Cobertura Vegetal. Memoria descriptiva",
+      "anio": 2015,
+      "alcance": "Cartografía de cobertura vegetal del Perú; documenta pacales y bosques con paca en Madre de Dios. No determina el uso de cada planta, abundancia de especies ni extracción autorizada.",
+      "url": "https://sinia.minam.gob.pe/sites/default/files/archivos/public/docs/memoria_descriptiva_cobertura_vegetal_2.pdf",
+      "localizador": "Apartados 3.1.14 y 3.1.15: pacal y bosque con paca; Guadua sarcocarpa y G. weberbaueri.",
+      "revision": "2026-10-05",
+      "etiqueta": "MINAM"
+    },
+    "bdpi": {
+      "institucion": "Ministerio de Cultura · BDPI",
+      "documento": "Ficha del pueblo Ese Eja",
+      "anio": null,
+      "alcance": "Pueblo Ese Eja, especialmente las cuencas Madre de Dios y Tambopata. Síntesis institucional con bibliografía; sus prácticas no representan a todos los pueblos ni habitantes de la región.",
+      "url": "https://bdpi.cultura.gob.pe/pueblos/ese-eja",
+      "localizador": "Instituciones distintivas; cosmovisión y sabiduría ancestral; bibliografía. La página no indica fecha de publicación.",
+      "revision": "2026-10-05",
+      "etiqueta": "Ministerio de Cultura · BDPI"
+    },
+    "cesteria": {
+      "institucion": "Ministerio de Cultura",
+      "documento": "Resolución Viceministerial N.° 046-2018-VMPCIC-MC",
+      "anio": 2018,
+      "alcance": "Reconocimiento de los conocimientos, saberes y usos asociados a la cestería del pueblo Ese Eja en Madre de Dios. Ámbito cultural específico.",
+      "url": "https://transparencia.cultura.gob.pe/rvm-ndeg046-2018-vmpcic-mc",
+      "localizador": "Resolución del 26 de marzo de 2018; vínculo con territorio, especies vegetales y conocimientos transmitidos.",
+      "revision": "2026-10-05",
+      "etiqueta": "Ministerio de Cultura"
+    },
+    "osinfor": {
+      "institucion": "OSINFOR",
+      "documento": "Análisis del aprovechamiento de madera en concesiones para castaña en Madre de Dios",
+      "anio": 2024,
+      "alcance": "Concesiones para castaña de Madre de Dios; análisis de registros, cadena de valor y gestión. No constituye una certificación de todas las concesiones ni de cualquier intensidad de extracción.",
+      "url": "https://www.gob.pe/institucion/osinfor/informes-publicaciones/5623340-analisis-del-aprovechamiento-de-madera-en-concesiones-para-castana-en-madre-de-dios",
+      "localizador": "Pp. 10–15 y 26–35: producción, cadena de valor, calidad, impactos y recomendaciones.",
+      "revision": "2026-10-05",
+      "etiqueta": "OSINFOR"
+    },
+    "dispersion": {
+      "institucion": "University of East Anglia · Haugaasen y colaboradores",
+      "documento": "Seed dispersal of the Brazil nut tree (Bertholletia excelsa) by scatter-hoarding rodents in a central amazonian forest",
+      "anio": 2010,
+      "alcance": "Experimento de dispersión y enterramiento de semillas en Amazonía central, Brasil. Relación biológica de la especie; no medición de tasas regionales en Madre de Dios.",
+      "url": "https://ueaeprints.uea.ac.uk/id/eprint/20304/",
+      "localizador": "Resumen original del artículo; transporte, enterramiento, recuperación y disponibilidad de semillas.",
+      "revision": "2026-10-05",
+      "etiqueta": "Haugaasen y colaboradores"
+    },
+    "rockwell": {
+      "institucion": "PLOS ONE · Rockwell y colaboradores",
+      "documento": "Nut Production in Bertholletia excelsa across a Logged Forest Mosaic: Implications for Multiple Forest Use",
+      "anio": 2015,
+      "alcance": "Concesiones estudiadas en Madre de Dios. Investigación sobre producción de semillas y aprovechamiento de madera; los resultados dependen del contexto y la intensidad estudiados.",
+      "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0135464",
+      "localizador": "Artículo científico: métodos, resultados y discusión; evidencia ampliada en la ficha de castaña existente.",
+      "revision": "2026-10-05",
+      "etiqueta": "Rockwell y colaboradores"
+    }
+  },
+  "recursos": [
+    {
+      "id": "castana",
+      "nombre": "Castaña",
+      "nombre_cientifico": "Bertholletia excelsa",
+      "alcance": "Ejemplo de Madre de Dios. La secuencia distingue fruto, semilla y acondicionamiento; no sustituye un plan de manejo ni las buenas prácticas de calidad.",
+      "pasos": [
+        {
+          "etapa": "Bosque",
+          "texto": "El árbol forma parte del bosque de castaña y de sus relaciones con otras plantas y animales."
+        },
+        {
+          "etapa": "Recurso",
+          "texto": "El fruto leñoso contiene las semillas que conocemos como castañas."
+        },
+        {
+          "etapa": "Aprovechamiento",
+          "texto": "Los recolectores recogen los frutos del bosque y obtienen sus semillas."
+        },
+        {
+          "etapa": "Transformación",
+          "texto": "Separación y acondicionamiento de las semillas. El producto sin cáscara y deshidratado requiere procesos de calidad, no solo recolección."
+        },
+        {
+          "etapa": "Producto",
+          "texto": "Castaña con cáscara o sin cáscara: productos distintos, que no deben mezclarse al leer estadísticas."
+        },
+        {
+          "etapa": "Uso",
+          "texto": "Alimento y comercialización; la cadena también vincula recolectores, acopiadores y transformación."
+        },
+        {
+          "etapa": "Manejo y conservación",
+          "texto": "Conservar el castañal, evaluar la regeneración y los impactos de otros aprovechamientos. La recolección por sí sola no demuestra sostenibilidad."
+        }
+      ],
+      "fuentes": [
+        "pfnm",
+        "osinfor",
+        "rockwell"
+      ]
+    },
+    {
+      "id": "madera",
+      "nombre": "Madera",
+      "nombre_cientifico": "Diversas especies; consulta las destacadas del catálogo",
+      "alcance": "Secuencia general de aprovechamiento maderable. No autoriza la corta de ninguna especie ni demuestra que todas admitan el mismo manejo.",
+      "pasos": [
+        {
+          "etapa": "Bosque",
+          "texto": "Árboles vivos dentro de un bosque que también contiene fauna, suelo, agua y otros recursos."
+        },
+        {
+          "etapa": "Recurso",
+          "texto": "Madera del fuste; un árbol en pie todavía cumple funciones ecológicas."
+        },
+        {
+          "etapa": "Aprovechamiento",
+          "texto": "Censo y planificación antes de la corta. La madera se obtiene en trozas y requiere identificación y trazabilidad."
+        },
+        {
+          "etapa": "Transformación",
+          "texto": "El aserrado convierte la madera en rollo en tablas y piezas; cada transformación requiere control de procedencia."
+        },
+        {
+          "etapa": "Producto",
+          "texto": "Madera aserrada o piezas transformadas, diferentes del árbol y de la troza."
+        },
+        {
+          "etapa": "Uso",
+          "texto": "Material para distintos usos según la especie y sus propiedades. La guía regional documenta tallados de cedro."
+        },
+        {
+          "etapa": "Manejo y conservación",
+          "texto": "Proteger árboles semilleros y de futura cosecha, regeneración y áreas importantes para la fauna; monitorear efectos y cumplir las normas aplicables."
+        }
+      ],
+      "fuentes": [
+        "catalogo",
+        "manejo",
+        "pfnm"
+      ]
+    },
+    {
+      "id": "aguaje",
+      "nombre": "Aguaje",
+      "nombre_cientifico": "Mauritia flexuosa",
+      "alcance": "Presencia y usos en Madre de Dios: SERFOR 2019. Criterios de cosecha y relaciones ecológicas: IIAP 2021, con experiencias de otras áreas amazónicas.",
+      "pasos": [
+        {
+          "etapa": "Bosque",
+          "texto": "Palmeras de aguaje en ambientes del bosque; explora su relación con el paisaje en Territorio."
+        },
+        {
+          "etapa": "Recurso",
+          "texto": "Frutos de las palmeras femeninas. La pulpa es el recurso alimentario."
+        },
+        {
+          "etapa": "Aprovechamiento",
+          "texto": "Cosechar los racimos sin derribar la palmera: el IIAP documenta métodos de ascenso con equipos y capacitación."
+        },
+        {
+          "etapa": "Transformación",
+          "texto": "Aprovechamiento de la pulpa para preparar productos alimentarios, como refrescos y helados, registrados por SERFOR."
+        },
+        {
+          "etapa": "Producto",
+          "texto": "Fruto o pulpa y sus derivados; son distintas presentaciones de un mismo recurso."
+        },
+        {
+          "etapa": "Uso",
+          "texto": "Alimento para las personas. Los frutos también alimentan fauna; no toda semilla consumida llega a dispersarse."
+        },
+        {
+          "etapa": "Manejo y conservación",
+          "texto": "Evitar la tala de palmeras productivas y evaluar cuánto se cosecha, la regeneración y la disponibilidad para la fauna. No se prescribe una cuota regional."
+        }
+      ],
+      "fuentes": [
+        "pfnm",
+        "aguaje"
+      ]
+    },
+    {
+      "id": "paca",
+      "nombre": "Paca",
+      "nombre_cientifico": "Guadua weberbaueri · uno de los bambúes llamados paca",
+      "alcance": "Presencia de pacales en Madre de Dios: MINAM 2015. Secado, usos y potencialidades: manual IIAP de Pucallpa 2022; no describe una cadena comercial regional comprobada.",
+      "pasos": [
+        {
+          "etapa": "Bosque",
+          "texto": "La paca forma parte de los bosques y pacales descritos en Territorio."
+        },
+        {
+          "etapa": "Recurso",
+          "texto": "Culmo: la caña o tallo del bambú. El nombre común paca no identifica una sola especie."
+        },
+        {
+          "etapa": "Aprovechamiento",
+          "texto": "El material se obtiene de los culmos. La fuente de secado no establece una cuota de cosecha sostenible para Madre de Dios."
+        },
+        {
+          "etapa": "Transformación",
+          "texto": "Seccionamiento en piezas o tablillas y secado adecuado al uso final. El manual estudia estos procesos; no se trasladan aquí sus parámetros de laboratorio."
+        },
+        {
+          "etapa": "Producto",
+          "texto": "Cañas, piezas o tablillas de bambú acondicionado."
+        },
+        {
+          "etapa": "Uso",
+          "texto": "El IIAP describe usos y potencialidades de esta especie en estructuras ligeras, artesanía y muebles. No prueba su escala de comercialización en la región."
+        },
+        {
+          "etapa": "Manejo y conservación",
+          "texto": "Antes de ampliar el aprovechamiento, conocer el ciclo de la especie, la regeneración y las condiciones del lugar. Un ensayo de secado no acredita sostenibilidad de la cosecha."
+        }
+      ],
+      "fuentes": [
+        "cobertura",
+        "bambu"
+      ]
+    },
+    {
+      "id": "medicinal",
+      "nombre": "Planta medicinal",
+      "nombre_cientifico": "Croton erythrochilus · sangre de grado",
+      "alcance": "Ejemplo etnobotánico de la guía institucional de Madre de Dios. El nombre científico corresponde al registro de esa fuente; no se intercambia con otras especies llamadas sangre de grado.",
+      "pasos": [
+        {
+          "etapa": "Bosque",
+          "texto": "Árbol documentado en una guía que estudia plantas útiles en ámbitos locales de Madre de Dios."
+        },
+        {
+          "etapa": "Recurso",
+          "texto": "Exudado rojo: la descripción botánica de la fuente lo identifica como látex."
+        },
+        {
+          "etapa": "Aprovechamiento",
+          "texto": "La guía registra el uso del exudado. No se adopta como protocolo de cosecha sostenible ni se propone un método de extracción."
+        },
+        {
+          "etapa": "Transformación",
+          "texto": "Información no verificada para Madre de Dios en las fuentes consultadas."
+        },
+        {
+          "etapa": "Producto",
+          "texto": "Exudado conocido como sangre de grado; no es un medicamento validado por el solo hecho de aparecer en una guía."
+        },
+        {
+          "etapa": "Uso",
+          "texto": "Uso medicinal tradicional recogido en una fuente institucional con descripción etnobotánica. No se ofrecen dosis, recetas ni recomendaciones de tratamiento."
+        },
+        {
+          "etapa": "Manejo y conservación",
+          "texto": "Estudiar los efectos de la extracción sobre el árbol y su regeneración. Para este registro no se ha verificado una intensidad sostenible de aprovechamiento regional."
+        }
+      ],
+      "fuentes": [
+        "pfnm"
+      ]
+    }
+  ],
+  "especies_destacadas": [
+    {
+      "id": "shihuahuaco",
+      "nombre": "Shihuahuaco",
+      "nombre_cientifico": "Dipteryx micrantha",
+      "campos": [
+        {
+          "campo": "Tipo",
+          "texto": "Árbol · maderable"
+        },
+        {
+          "campo": "Producto o uso",
+          "texto": "Madera; especie documentada en el catálogo de 2022."
+        },
+        {
+          "campo": "Parte aprovechada",
+          "texto": "Fuste, en el aprovechamiento maderable."
+        },
+        {
+          "campo": "Función ecológica",
+          "texto": "Información no verificada para Madre de Dios en las fuentes consultadas."
+        },
+        {
+          "campo": "Importancia cultural",
+          "texto": "Información no verificada para Madre de Dios en las fuentes consultadas."
+        },
+        {
+          "campo": "Distribución documentada",
+          "texto": "Madre de Dios, según el registro departamental de la fuente; no indica abundancia en toda la región."
+        }
+      ],
+      "fuentes": [
+        "catalogo",
+        "manejo"
+      ],
+      "localizador": "p. 61"
+    },
+    {
+      "id": "cedro",
+      "nombre": "Cedro",
+      "nombre_cientifico": "Cedrela odorata",
+      "campos": [
+        {
+          "campo": "Tipo",
+          "texto": "Árbol · maderable"
+        },
+        {
+          "campo": "Producto o uso",
+          "texto": "Madera; especie documentada en el catálogo de 2022."
+        },
+        {
+          "campo": "Parte aprovechada",
+          "texto": "Fuste, en el aprovechamiento maderable."
+        },
+        {
+          "campo": "Función ecológica",
+          "texto": "Información no verificada para Madre de Dios en las fuentes consultadas."
+        },
+        {
+          "campo": "Importancia cultural",
+          "texto": "Información no verificada para Madre de Dios en las fuentes consultadas."
+        },
+        {
+          "campo": "Distribución documentada",
+          "texto": "Madre de Dios, según el registro departamental de la fuente; no indica abundancia en toda la región."
+        }
+      ],
+      "fuentes": [
+        "catalogo",
+        "manejo"
+      ],
+      "localizador": "p. 99"
+    },
+    {
+      "id": "capirona",
+      "nombre": "Capirona",
+      "nombre_cientifico": "Calycophyllum spruceanum",
+      "campos": [
+        {
+          "campo": "Tipo",
+          "texto": "Árbol · maderable"
+        },
+        {
+          "campo": "Producto o uso",
+          "texto": "Madera; especie documentada en el catálogo de 2022."
+        },
+        {
+          "campo": "Parte aprovechada",
+          "texto": "Fuste, en el aprovechamiento maderable."
+        },
+        {
+          "campo": "Función ecológica",
+          "texto": "Información no verificada para Madre de Dios en las fuentes consultadas."
+        },
+        {
+          "campo": "Importancia cultural",
+          "texto": "Información no verificada para Madre de Dios en las fuentes consultadas."
+        },
+        {
+          "campo": "Distribución documentada",
+          "texto": "Madre de Dios, según el registro departamental de la fuente; no indica abundancia en toda la región."
+        }
+      ],
+      "fuentes": [
+        "catalogo",
+        "manejo"
+      ],
+      "localizador": "entrada Calycophyllum spruceanum"
+    },
+    {
+      "id": "castana",
+      "nombre": "Castaña",
+      "nombre_cientifico": "Bertholletia excelsa",
+      "campos": [
+        {
+          "campo": "Tipo",
+          "texto": "Árbol · producto no maderable · uso alimentario"
+        },
+        {
+          "campo": "Producto o uso",
+          "texto": "Semilla para alimento; el fruto también figura como material para contenedores."
+        },
+        {
+          "campo": "Parte aprovechada",
+          "texto": "Semillas y envoltura leñosa del fruto, según el uso."
+        },
+        {
+          "campo": "Función ecológica",
+          "texto": "La dispersión y el enterramiento de semillas por roedores están documentados en Amazonía central, Brasil; no se trasladan tasas a Madre de Dios."
+        },
+        {
+          "campo": "Importancia cultural",
+          "texto": "Información no verificada para Madre de Dios en las fuentes consultadas."
+        },
+        {
+          "campo": "Distribución documentada",
+          "texto": "Documentada en la guía de Madre de Dios; el detalle del bosque se explica en Territorio."
+        }
+      ],
+      "fuentes": [
+        "pfnm",
+        "dispersion"
+      ],
+      "localizador": "SERFOR, pp. 92–93; relación biológica: Haugaasen et al., resumen original."
+    },
+    {
+      "id": "aguaje",
+      "nombre": "Aguaje",
+      "nombre_cientifico": "Mauritia flexuosa",
+      "campos": [
+        {
+          "campo": "Tipo",
+          "texto": "Palmera · producto no maderable · uso alimentario y material"
+        },
+        {
+          "campo": "Producto o uso",
+          "texto": "Fruto para alimento; cáscara y semillas para adornos, según la guía."
+        },
+        {
+          "campo": "Parte aprovechada",
+          "texto": "Fruto, pulpa, cáscara y semillas según el uso."
+        },
+        {
+          "campo": "Función ecológica",
+          "texto": "Frutos como alimento de fauna y troncos muertos como sitios de anidamiento: IIAP, contexto amazónico. No equivale a un inventario de fauna regional."
+        },
+        {
+          "campo": "Importancia cultural",
+          "texto": "La guía recoge usos materiales de frutos y semillas en su ámbito local; no se generalizan a todas las comunidades."
+        },
+        {
+          "campo": "Distribución documentada",
+          "texto": "Registro en la guía de Madre de Dios; paisaje relacionado: aguajales de Territorio."
+        }
+      ],
+      "fuentes": [
+        "pfnm",
+        "aguaje"
+      ],
+      "localizador": "SERFOR, p. 84; IIAP, pp. 18–19."
+    },
+    {
+      "id": "huasai",
+      "nombre": "Huasái",
+      "nombre_cientifico": "Euterpe precatoria",
+      "campos": [
+        {
+          "campo": "Tipo",
+          "texto": "Palmera · producto no maderable · varios usos"
+        },
+        {
+          "campo": "Producto o uso",
+          "texto": "Pulpa del fruto como alimento; semillas para adornos y artesanía. La guía también recoge un uso medicinal tradicional."
+        },
+        {
+          "campo": "Parte aprovechada",
+          "texto": "Pulpa y semillas; ramas y raíces en el registro medicinal, sin recomendación de uso."
+        },
+        {
+          "campo": "Función ecológica",
+          "texto": "Información no verificada para Madre de Dios en las fuentes consultadas."
+        },
+        {
+          "campo": "Importancia cultural",
+          "texto": "Adornos y artesanía documentados en el ámbito local de la guía; no representan una práctica universal de la región."
+        },
+        {
+          "campo": "Distribución documentada",
+          "texto": "Documentada en la guía de Madre de Dios; no informa un censo regional de individuos."
+        }
+      ],
+      "fuentes": [
+        "pfnm"
+      ],
+      "localizador": "SERFOR, p. 81. El registro medicinal es etnobotánico, no evidencia clínica."
+    }
+  ]
+}
