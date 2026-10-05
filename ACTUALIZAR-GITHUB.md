@@ -1,19 +1,18 @@
 # Actualizar EcoSelva
 
-La web se publica automáticamente cuando los cambios llegan a `main` en GitHub. Guardar un archivo en el editor prepara el cambio local; para verlo en la web, confirma el cambio y envíalo al repositorio.
+La web se publica automáticamente cuando los cambios llegan a `main` en GitHub. Guardar un archivo en el editor prepara el cambio local; para verlo publicado, usa **Control de código fuente → Confirmar → Sincronizar cambios** en VS Code.
 
-En VS Code puedes usar **Control de código fuente → Confirmar → Sincronizar cambios**. Antes de sincronizar, revisa qué archivos estás enviando. Si Git indica que existen cambios remotos o conflictos, intégralos conservando tus cambios; no reemplaces toda la carpeta.
+GitHub Pages ya está configurado con **GitHub Actions**. El flujo **Verificar y publicar EcoSelva** genera la biblioteca, Flora, la ficha de castaña y los archivos agrupados de CSS y JavaScript; después comprueba enlaces, datos, Analytics y cartografía antes de publicar. Si falla una comprobación, la versión pública anterior se conserva.
 
-El flujo **Verificar y publicar EcoSelva** comprueba JavaScript, rutas, enlaces, Google Analytics y el SVG antes de publicar. Para usarlo como única fuente, selecciona **GitHub Actions** en **Settings → Pages → Build and deployment → Source**. Así, si falla una comprobación, mantiene la versión anterior de la web y muestra el error en la pestaña **Actions** del repositorio.
+Edita los archivos fuente, como `index.html`, `style.css`, `ecoselva.css`, `flora.css` y `territorio.css`. `assets/` contiene las versiones agrupadas que genera el flujo. El registro editorial principal es `datos/fuentes.json`; `datos/biblioteca/documentos.json` se genera desde ese registro. Los conjuntos científicos conservan su procedencia y sus fechas propias.
 
-Mientras siga seleccionada la publicación desde la rama `main`, GitHub también ejecuta su publicación habitual; `_config.yml` excluye las copias y los archivos internos de ese método. Evita mantener ambas publicaciones activas seleccionando **GitHub Actions** una sola vez.
-
-La publicación incluye solo los archivos utilizados por las páginas. `recuperacion/`, las herramientas, los originales y los datos que no utiliza la web se conservan en el repositorio y quedan fuera del sitio público. No borres recursos solo porque no se utilicen en la página principal.
-
-Para revisar los cambios localmente, con Python 3:
+Para generar y revisar los cambios localmente:
 
 ```text
-python herramientas/verificar_sitio.py
+python3 herramientas/actualizar_sitio.py
+python3 herramientas/verificar_sitio.py
 ```
 
-Sitio: https://ecoselva-madre-de-dios.github.io/
+La publicación añade una versión a CSS, JavaScript y las solicitudes de datos, para que una actualización use los recursos correspondientes. Las herramientas, la documentación, los archivos de recuperación y los originales que no utiliza la web permanecen fuera de la publicación.
+
+Sitio: [EcoSelva Madre de Dios](https://ecoselva-madre-de-dios.github.io/).

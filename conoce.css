@@ -9,18 +9,18 @@
 .conoce-accesos a:focus-visible, .conoce-modulo :is(a,summary):focus-visible, .conoce-cierre a:focus-visible, .conoce-modal :focus-visible { outline: 3px solid var(--water); outline-offset: 4px; }
 .conoce-modulo { padding-block: 30px; border-top: 1px solid #c9d2c3; }
 .conoce-modulo-cabecera { margin-bottom: 22px; }
-.conoce-numero { margin-bottom: 9px; color: #476044; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.conoce-numero { margin-bottom: 9px; color: #476044; font-size: var(--text-credit); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .conoce-modulo h3, #conoce-madre-de-dios .conoce-mapa-titulo, .conoce-cierre h3 { color: var(--forest-deep); font: 700 clamp(24px, 2.6vw, 30px)/1.25 var(--font-heading); letter-spacing: -.025em; }
 .conoce-modulo h4, .conoce-cierre h4 { color: var(--forest-deep); font: 700 17px/1.5 var(--font-heading); }
 .conoce-cabecera p, .conoce-modulo p, .conoce-cierre p { line-height: 1.75; }
 .conoce-ubicacion-grid { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.6fr); align-items: start; gap: 36px; }
 .conoce-localizador { max-width: 340px; margin-inline: auto; }
 .conoce-localizador img { display: block; width: 100%; height: auto; }
-.conoce-localizador figcaption, .conoce-limites figcaption { margin-top: 9px; color: #52614f; font-size: 12px; line-height: 1.6; }
+.conoce-localizador figcaption, .conoce-limites figcaption { margin-top: 9px; color: #52614f; font-size: var(--text-credit); line-height: 1.6; }
 .conoce-ubicacion-texto > p { font-size: 15px; margin-bottom: 22px; }
 .conoce-datos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; padding-block: 16px; border-block: 1px solid #c9d2c3; }
 .conoce-datos > div { min-width: 0; }
-.conoce-datos dt { margin-bottom: 6px; color: #52614f; font-size: 12px; font-weight: 600; }
+.conoce-datos dt { margin-bottom: 6px; color: #52614f; font-size: var(--text-credit); font-weight: 600; }
 .conoce-datos dd { color: var(--forest); font: 700 24px/1.35 var(--font-heading); font-variant-numeric: tabular-nums; }
 .conoce-datos dd > span { font-size: 13px; font-weight: 400; }
 .conoce-datos .conoce-dato-capital { font-size: 17px; }
@@ -34,16 +34,16 @@
 .conoce-provincia { min-width: 0; border: 1px solid #c9d2c3; border-radius: 10px; background: #fff; }
 .conoce-provincia > summary { padding: 20px; list-style: none; cursor: pointer; border-radius: 10px; }
 .conoce-provincia > summary::-webkit-details-marker { display: none; }
-.conoce-provincia > summary::marker { content: ''; }
+.conoce-provincia > summary::marker { content: ""; }
 .conoce-provincia > summary:hover { background: #f5f7ef; }
 .conoce-provincia > summary > strong { display: block; color: var(--forest-deep); font: 700 21px/1.35 var(--font-heading); }
 .conoce-provincia-capital { display: block; margin-top: 8px; font-size: 14px; color: #52614f; }
 .conoce-provincia-cantidad { display: block; margin-top: 16px; font-size: 13px; font-weight: 600; color: var(--forest); }
 .conoce-distritos { display: flex; flex-wrap: wrap; gap: 6px; margin-block: 10px 18px; }
-.conoce-distritos > span { padding: 4px 8px; border-radius: 4px; background: #e8eedf; font-size: 12px; color: var(--forest); }
+.conoce-distritos > span { padding: 4px 8px; border-radius: 4px; background: #e8eedf; font-size: var(--text-credit); color: var(--forest); }
 .conoce-provincia-abrir { display: block; font-size: 14px; font-weight: 600; color: var(--forest); }
 .conoce-provincia > .conoce-detalle { padding: 20px; border-top: 1px solid #c9d2c3; font-size: 14px; }
-.conoce-referencia { margin-top: 14px; color: #52614f; font-size: 12px; line-height: 1.65; }
+.conoce-referencia { margin-top: 14px; color: #52614f; font-size: var(--text-credit); line-height: 1.65; }
 .conoce-fuentes { width: fit-content; margin-top: 14px; max-width: 100%; }
 .conoce-fuentes > summary { cursor: pointer; color: var(--forest); font-size: 13px; font-weight: 600; padding-block: 8px; text-decoration: underline; text-underline-offset: 4px; }
 .conoce-fuentes[open] { width: 100%; }
@@ -59,13 +59,13 @@
 .conoce-bloque-detalle { margin-top: 16px; }
 .conoce-bloque-detalle > img { display: block; width: 100%; height: auto; margin-block: 12px; }
 .conoce-bloque-detalle > p { margin-top: 12px; font-size: 14px; }
-.conoce-geografia-bloque .conoce-referencia { font-size: 12px; }
-.conoce-bloque-detalle > .conoce-esquema-etiqueta { font-size: 12px; color: #52614f; }
+.conoce-geografia-bloque .conoce-referencia { font-size: var(--text-credit); }
+.conoce-bloque-detalle > .conoce-esquema-etiqueta { font-size: var(--text-credit); color: #52614f; }
 .conoce-enlace { display: inline-block; margin-top: 16px; color: var(--forest); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
 .conoce-timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; gap: 24px; }
 .conoce-timeline li { position: relative; padding-top: 22px; border-top: 2px solid #b5c1a6; }
-.conoce-timeline li::before { content: ''; position: absolute; top: -6px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--forest); }
-.conoce-tiempo { margin-bottom: 10px; color: #755230; font-size: 12px; font-weight: 600; }
+.conoce-timeline li::before { content: ""; position: absolute; top: -6px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--forest); }
+.conoce-tiempo { margin-bottom: 10px; color: #755230; font-size: var(--text-credit); font-weight: 600; }
 .conoce-timeline li > p:last-child { margin-top: 10px; font-size: 14px; }
 #conoce-historia .conoce-timeline { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; }
 #conoce-historia .conoce-timeline h4 { font-size: 15px; }
@@ -75,7 +75,7 @@
 .conoce-personas-intro { max-width: 760px; margin-bottom: 20px; font-size: 15px; }
 .conoce-persona { padding-left: 20px; border-left: 3px solid #a5b994; }
 .conoce-persona .conoce-bloque-detalle > p { margin-top: 10px; font-size: 15px; }
-.conoce-persona .conoce-bloque-detalle > .conoce-referencia { font-size: 12px; }
+.conoce-persona .conoce-bloque-detalle > .conoce-referencia { font-size: var(--text-credit); }
 .conoce-cierre { padding-block: 30px; border-top: 1px solid #c9d2c3; }
 .conoce-importancia { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-top: 24px; }
 .conoce-importancia p { margin-top: 8px; font-size: 14px; }
@@ -110,7 +110,7 @@
     .conoce-modulo { padding-block: 24px; }
     .conoce-ubicacion-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
     .conoce-localizador { width: min(100%, 180px); }
-    .conoce-localizador figcaption { font-size: 12px; }
+    .conoce-localizador figcaption { font-size: var(--text-credit); }
     .conoce-limites { grid-template-columns: minmax(0, 1fr); gap: 6px; margin-inline: auto; max-width: 360px; }
     .conoce-limites figcaption { margin-top: 0; }
     .conoce-datos { gap: 14px 22px; }
@@ -158,4 +158,4 @@
 .conoce-conservacion p a{color:#173c2d;text-decoration:underline}
 .conoce-conservacion-acceso{flex-shrink:0;display:inline-flex;align-items:center;min-height:44px;padding:11px 16px;background:#173c2d;color:#fff;border-radius:5px;font-size:13px;font-weight:600;text-decoration:none}
 .conoce-conservacion-acceso:focus-visible{outline:3px solid #94621e;outline-offset:4px}
-@media(max-width:700px){.conoce-conservacion{flex-direction:column;align-items:flex-start;gap:16px;padding:18px}.conoce-conservacion-acceso{font-size:12px}}
+@media(max-width:700px){.conoce-conservacion{flex-direction:column;align-items:flex-start;gap:16px;padding:18px}.conoce-conservacion-acceso{font-size: var(--text-credit)}}

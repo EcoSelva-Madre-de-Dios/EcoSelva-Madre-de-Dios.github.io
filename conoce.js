@@ -1,9 +1,6 @@
 /* Mejora progresiva de los detalles del mini atlas; no interviene en el mapa. */
 document.addEventListener("DOMContentLoaded", () => {
     const section = document.getElementById("conoce-madre-de-dios");
-    section?.querySelectorAll("[data-conoce-desktop-open]").forEach(details => {
-        details.open = matchMedia("(min-width: 761px)").matches;
-    });
     const modal = document.getElementById("conoce-modal");
     if (!section || !modal || typeof modal.showModal !== "function") return;
     const title = modal.querySelector("#conoce-modal-titulo");

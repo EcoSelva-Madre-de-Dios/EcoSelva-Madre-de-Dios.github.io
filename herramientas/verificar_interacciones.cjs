@@ -1,0 +1,109 @@
+/* Prueba de navegador opcional: requiere playwright y @axe-core/playwright. */
+const { chromium } = require('playwright');
+const { default: AxeBuilder } = require('@axe-core/playwright');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const base = process.argv[2] || 'http://127.0.0.1:8765/';
+const pages = ['index.html', 'flora.html', 'territorio.html', 'biblioteca.html', 'historia.html', 'areas-protegidas.html', 'fichas/castana.html', 'fuentes-metodologia.html'];
+const results = [];
+async function accessible(page, selector) {
+    let builder = new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']);
+    if (selector) builder = builder.include(selector);
+    const result = await builder.analyze();
+    assert.equal(result.violations.length, 0, JSON.stringify(result.violations.map(v => ({ id: v.id, nodes: v.nodes.map(n => n.target) }))));
+}
+(async () => {
+    const browser = await chromium.launch();
+    for (const width of [320, 390, 820, 1440]) {
+        const context = await browser.newContext({ viewport: { width, height: 920 }, reducedMotion: 'reduce' });
+        const page = await context.newPage();
+        const errors = [];
+        page.on('pageerror', error => errors.push(error.message));
+        page.on('response', response => {
+            if (response.url().startsWith(base) && response.status() >= 400) errors.push(`${response.status()} ${response.url()}`);
+        });
+        for (const file of pages) {
+            await page.goto(new URL(file, base).href);
+            await page.evaluate(() => document.fonts.ready);
+            assert.equal(await page.locator('h1').count(), 1, file + ': un título principal');
+            assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, file + ': desborde horizontal a ' + width);
+            if ([390, 1440].includes(width)) await accessible(page);
+        }
+        await page.goto(new URL('index.html', base).href);
+        assert(await page.locator('a[href="mailto:ecoselvamadrededios@gmail.com"]').isVisible());
+        const menu = page.locator('label[for="menu"]');
+        if (await menu.isVisible()) {
+            await menu.click();
+            await page.locator('.navbar summary').first().click();
+            assert(await page.locator('.navbar a[href="historia.html"]').isVisible());
+            assert(await page.locator('.navbar a[href="areas-protegidas.html"]').isVisible());
+            await page.keyboard.press('Escape');
+            assert.equal(await page.locator('#menu').isChecked(), false);
+        }
+        await page.locator('#selva-biodiversidad-tab-fauna').click();
+        for (const group of ['mamiferos', 'aves', 'reptiles', 'anfibios']) {
+            const trigger = page.locator(`[data-fauna-explorar="${group}"]`);
+            await trigger.click();
+            await page.locator('#selva-fauna-modal[open]').waitFor();
+            assert.equal(await page.locator('.selva-fauna-especies li').count(), 3);
+            await page.locator('.selva-fauna-conocer').first().click();
+            assert(await page.locator('.selva-fauna-ficha').isVisible());
+            await page.locator('.selva-fauna-volver').click();
+            if ([390, 1440].includes(width)) await accessible(page, '#selva-fauna-modal');
+            await page.keyboard.press('Escape');
+            assert(await trigger.evaluate(e => e === document.activeElement));
+        }
+        await page.goto(new URL('flora.html', base).href);
+        assert.equal(await page.locator('[data-flora-especie]').count(), 6);
+        for (const id of ['castana', 'madera', 'aguaje', 'paca', 'medicinal']) {
+            await page.locator(`[data-flora-recurso="${id}"]`).click();
+            assert(await page.locator(`#flora-caso-${id}`).isVisible());
+            assert.equal(await page.locator(`#flora-caso-${id} .flora-pasos>li`).count(), 7);
+        }
+        await page.goto(new URL('index.html#flora-caso-aguaje', base).href);
+        await page.waitForURL('**/flora.html#flora-caso-aguaje');
+        assert(await page.locator('#flora-caso-aguaje').isVisible());
+        await page.goto(new URL('territorio.html', base).href);
+        await page.locator('.selva-territorio-svg').waitFor({ timeout: 20000 });
+        assert.equal(await page.locator('[data-territorio-capa]').count(), 3);
+        assert.equal(await page.locator('.selva-territorio-tabs').count(), 0);
+        assert.equal(await page.locator('[data-mapa-modo="humedales"]').count(), 174);
+        assert.equal(await page.locator('.selva-territorio-opciones [data-territorio-tema]').count(), 6);
+        for (const mode of ['bosques', 'humedales']) {
+            await page.locator(`[data-territorio-capa="${mode}"]`).check();
+            assert.equal(await page.locator('.selva-territorio-layout').getAttribute('data-territorio-activo'), mode);
+        }
+        assert(await page.locator('[data-territorio-capa="rios"]').isChecked());
+        assert(await page.locator('[data-territorio-capa="bosques"]').isChecked());
+        await page.locator('[data-territorio-overlay-toggle="distritos"]').check();
+        await page.locator('[data-territorio-overlay="distritos"]').waitFor();
+        assert.equal(await page.locator('[data-territorio-overlay="distritos"]>path').count(), 11);
+        await page.locator('[data-territorio-overlay-toggle="anp"]').check();
+        assert.equal(await page.locator('[data-territorio-overlay="anp"]>path').count(), 6);
+        const origin = page.locator('[data-territorio-explorar]').first();
+        await origin.locator('xpath=ancestor::details[1]').locator('summary').click();
+        await origin.scrollIntoViewIfNeeded();
+        const y = await page.evaluate(() => scrollY);
+        await origin.click();
+        await page.locator('.territorio-retorno').waitFor({ state: 'visible' });
+        await page.locator('.territorio-retorno').click();
+        assert(await origin.evaluate(e => document.activeElement === e));
+        assert(Math.abs(await page.evaluate(() => scrollY) - y) < 6);
+        if ([390, 1440].includes(width)) await accessible(page);
+        assert.equal(errors.length, 0, errors.join('\n'));
+        results.push({ width, pages: pages.length, fauna: 4, flora: 5, humedales: 174, distritos: 11, anp: 6, retorno: true });
+        console.log('Correcto: ocho páginas y recorridos a ' + width + ' px.');
+        await context.close();
+    }
+    const noJS = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
+    const page = await noJS.newPage();
+    for (const file of ['index.html', 'flora.html', 'territorio.html']) {
+        await page.goto(new URL(file, base).href);
+        assert(await page.locator('main').isVisible());
+        if (file === 'flora.html') assert.equal(await page.locator('[data-flora-caso]:visible').count(), 5);
+        if (file === 'territorio.html') assert(await page.getByRole('link', { name: 'Ver el mapa', exact: true }).isVisible());
+    }
+    await noJS.close();
+    await browser.close();
+    if (process.env.ECOSELVA_QA_RESULT) fs.writeFileSync(process.env.ECOSELVA_QA_RESULT, JSON.stringify(results, null, 2));
+})().catch(error => { console.error(error); process.exit(1); });

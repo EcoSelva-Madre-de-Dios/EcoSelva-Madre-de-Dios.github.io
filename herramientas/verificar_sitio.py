@@ -14,10 +14,11 @@ import sys
 from actualizar_ficha_castana import COLUMNS, check_generated
 import actualizar_biblioteca
 import actualizar_flora
+import actualizar_assets
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://ecoselva-madre-de-dios.github.io'
-PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html')
+PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html', 'flora.html', 'territorio.html')
 ENTRYPOINTS = PAGES + ('google46599e54e679b03a.html', 'robots.txt', 'sitemap.xml')
 
 
@@ -109,8 +110,18 @@ def published_files():
                 references = re.findall(r'url\(\s*[\"\']?([^\)\"\']+)', text)
             else:
                 references = re.findall(r'''["']([^"'\n]+\.(?:png|jpe?g|svg|webp|gif|mp4|webm|css|js|json)(?:[?#][^"'\n]*)?)["']''', text)
+        if path.suffix == '.json':
+            def collect(value):
+                if isinstance(value, dict):
+                    for item in value.values(): yield from collect(item)
+                elif isinstance(value, list):
+                    for item in value: yield from collect(item)
+                elif isinstance(value, str) and value.startswith(('images/', 'datos/')) and local_path(value, ROOT) and local_path(value, ROOT).is_file():
+                    yield value
+            references = list(collect(json.loads(path.read_text())))
         for reference in references:
-            target = local_path(reference.strip(), path.parent)
+            base = ROOT if path.suffix == '.json' or path.name == 'eco-base.js' else path.parent
+            target = local_path(reference.strip(), base)
             if target is not None:
                 pending.append(target)
     return found
@@ -169,24 +180,24 @@ class AtlasPage(HTMLParser):
 
 def verify_conoce():
     page = AtlasPage()
-    page.feed((ROOT / 'index.html').read_text())
+    homepage = (ROOT / 'index.html').read_text()
+    page.feed(homepage)
     if page.sequence[:2] != ['inicio', 'conoce-madre-de-dios']:
         raise ValueError('Conoce Madre de Dios debe aparecer inmediatamente después del Hero.')
     for id in ('conoce-ubicacion', 'conoce-provincias', 'explora-madre-de-dios',
-               'conoce-geografia', 'conoce-historia', 'conoce-personas', 'selva-introduccion'):
+               'conoce-geografia', 'conoce-historia', 'conoce-personas'):
         if page.parents.get(id) != ('conoce-madre-de-dios',):
-            raise ValueError(f'Conoce: módulo sin integrar o mapa duplicado: {id}')
-    for id in ('programas', 'ambiente', 'investigaciones', 'quienes-somos', 'colabora'):
+            raise ValueError('Conoce: resumen mal integrado: ' + id)
+    for id in ('biodiversidad', 'ambiente', 'investigaciones', 'quienes-somos', 'colabora'):
         if page.parents.get(id) != ():
-            raise ValueError(f'Conoce: la sección {id} debe continuar independiente.')
-    if page.map_hosts != [('datos/territorio/mapa.svg', ('conoce-madre-de-dios', 'explora-madre-de-dios'))]:
-        raise ValueError('Conoce: debe existir una sola carga del mapa original dentro del módulo 03.')
-    for id in ('selva-territorio-datos', 'selva-territorio-descripciones', 'selva-territorio-cobertura-datos', 'selva-territorio-fuentes-modal'):
-        if 'conoce-madre-de-dios' not in page.parents.get(id, ()):
-            raise ValueError(f'Conoce: parte de la implementación cartográfica quedó fuera: {id}')
+            raise ValueError('Conoce: sección no independiente: ' + id)
+    if page.map_hosts or 'type="application/json"' in homepage:
+        raise ValueError('Inicio: el mapa y sus JSON deben cargar en Territorio, por intención del visitante.')
     for id in ('conoce-provincia-tambopata', 'conoce-provincia-manu', 'conoce-provincia-tahuamanu'):
         if page.parents.get(id) != ('conoce-madre-de-dios', 'conoce-provincias'):
-            raise ValueError(f'Conoce: ficha provincial inexistente o mal ubicada: {id}')
+            raise ValueError('Conoce: falta una ficha provincial: ' + id)
+    if 'href="mailto:ecoselvamadrededios@gmail.com"' not in homepage or 'selva-formulario-contacto' in homepage:
+        raise ValueError('Contacto: debe ofrecer un canal real, sin formulario simulado.')
     for name in ('conoce-peru.svg', 'conoce-limites.svg', 'conoce-relieve.svg'):
         ET.parse(ROOT / 'images' / name)
 
@@ -227,9 +238,8 @@ def verify_historia():
     if any(not reference.startswith('#fuente-') or reference[1:] not in page.ids for reference in page.citations):
         raise ValueError('Historia: enlace a fuente inexistente.')
     homepage = (ROOT / 'index.html').read_text().split('id="conoce-historia"', 1)[1].split('</section>', 1)[0]
-    timeline = homepage.split('<ol class="conoce-timeline">', 1)[1].split('</ol>', 1)[0]
-    if len(re.findall(r'<li>', timeline)) not in (4, 5) or 'href="historia.html"' not in homepage:
-        raise ValueError('Historia: Conoce requiere cuatro o cinco hitos y acceso a la página completa.')
+    if 'href="historia.html"' not in homepage:
+        raise ValueError('Historia: falta el acceso desde el resumen de Conoce.')
 
 
 def verify_conservacion():
@@ -365,15 +375,24 @@ def verify_biblioteca():
     if not documents or len({doc['id'] for doc in documents}) != len(documents):
         raise ValueError('Biblioteca: catálogo vacío o documentos duplicados.')
     date.fromisoformat(model['revision'])
-    originals = (ROOT / 'fichas/castana.html').read_text() + (ROOT / 'historia.html').read_text() + (ROOT / 'areas-protegidas.html').read_text()
+    originals = '\n'.join((ROOT / page).read_text() for page in PAGES if page != 'biblioteca.html')
     for doc in documents:
-        if any(not doc.get(key) for key in ('id', 'titulo', 'autor', 'anio', 'tipo', 'tema', 'alcance', 'uso', 'url', 'contexto')):
+        if any(not doc.get(key) for key in ('id', 'titulo', 'autor', 'tipo', 'tema', 'alcance', 'uso', 'url', 'contexto')):
             raise ValueError('Biblioteca: falta procedencia o contexto del documento.')
-        if not isinstance(doc['anio'], int) or doc['tema'] not in ('bosques', 'mapas', 'conservacion', 'historia', 'ciencia'):
+        if (doc['anio'] is not None and not isinstance(doc['anio'], int)) or doc['tema'] not in ('bosques', 'mapas', 'conservacion', 'historia', 'ciencia'):
             raise ValueError('Biblioteca: año o tema inválido.')
         for key in ('url', 'pdf'):
             if doc.get(key) and (urlsplit(doc[key]).scheme != 'https' or doc[key].replace('&', '&amp;') not in originals):
                 raise ValueError(f'Biblioteca: {doc["id"]} no remite a una fuente original de EcoSelva.')
+        for reference in doc.get('contextos', []):
+            target = local_path(reference, ROOT)
+            fragment = unquote(urlsplit(reference).fragment)
+            context_page = Page()
+            if target is None or not target.is_file():
+                raise ValueError('Biblioteca: falta un contexto de la fuente compartida.')
+            context_page.feed(target.read_text())
+            if fragment and fragment not in context_page.ids:
+                raise ValueError('Biblioteca: ancla inexistente en un contexto de la fuente compartida.')
         context = urlsplit(doc['contexto'])
         target = local_path(doc['contexto'], ROOT)
         if target is None or not target.is_file() or target.suffix != '.html':
@@ -399,22 +418,22 @@ def verify_biblioteca():
 
 def verify_territorio_educativo():
     """Comprueba integración y procedencia de las fichas y capas adicionales."""
-    html = (ROOT / 'index.html').read_text()
+    html = (ROOT / 'territorio.html').read_text()
     page = AtlasPage()
     page.feed(html)
     modules = ('territorio-bosques', 'territorio-castanales', 'territorio-rios',
                'territorio-humedales', 'territorio-aguajales', 'territorio-conexiones',
                'territorio-beneficios', 'territorio-cambios', 'territorio-ciencia',
-               'territorio-actividades', 'territorio-metodologia', 'territorio-lectura-datos')
-    if any(page.parents.get(id) != ('conoce-madre-de-dios', 'explora-madre-de-dios') for id in modules):
-        raise ValueError('Territorio: la ampliación debe permanecer dentro del módulo existente.')
+               'territorio-actividades', 'territorio-metodologia')
+    if any(page.parents.get(id) != ('explora-madre-de-dios',) for id in modules):
+        raise ValueError('Territorio: capítulos fuera de su página de lectura.')
+    if page.map_hosts != [('datos/territorio/mapa.svg', ('explora-madre-de-dios',))]:
+        raise ValueError('Territorio: debe existir un único visor del mapa original.')
     model = json.loads((ROOT / 'datos/territorio/lectura.json').read_text())
-    embedded = re.search(r'<script type="application/json" id="territorio-lectura-datos">(.*?)</script>', html, re.S)
-    if not embedded or json.loads(embedded.group(1)) != model:
-        raise ValueError('Territorio: las fichas deben conservar el modelo educativo público.')
     date.fromisoformat(model['revision'])
-    old = re.search(r'<script type="application/json" id="selva-territorio-datos">(.*?)</script>', html, re.S)
-    topics = json.loads(old.group(1))
+    if 'type="application/json"' in html or 'territorio-retorno' not in html or 'role="tablist"' in html:
+        raise ValueError('Territorio: carga bajo demanda, regreso al origen y control único de capas obligatorios.')
+    topics = json.loads((ROOT / 'datos/territorio/registros-visor.json').read_text())
     river_ids = {id for id, topic in topics.items() if topic.get('mode') == 'rios'}
     if set(model['rios']) != river_ids:
         raise ValueError('Territorio: no asignar fichas a ríos sin trazado ni omitir los existentes.')
@@ -476,14 +495,14 @@ class FloraPage(Page):
 
 def verify_flora():
     model = json.loads((ROOT / 'datos/flora/lectura.json').read_text())
-    html = (ROOT / 'index.html').read_text()
+    html = (ROOT / 'flora.html').read_text()
     page = FloraPage()
     page.feed(html)
     modules = ('flora-productos-usos', 'flora-maderables', 'flora-no-maderables',
                'flora-medicinales', 'flora-alimentos', 'flora-cultura', 'flora-recorrido',
                'flora-relaciones', 'flora-manejo', 'flora-economia', 'flora-seguir', 'flora-fuentes')
     if any('selva-biodiversidad-panel-flora' not in page.parents.get(id, ()) for id in modules):
-        raise ValueError('Flora: la ampliación debe estar dentro de la pestaña existente de Biodiversidad.')
+        raise ValueError('Flora: el contenido debe conservarse en su página completa.')
     expected = ['castana', 'madera', 'aguaje', 'paca', 'medicinal']
     if page.cases != expected or page.choices != expected or [item['id'] for item in model['recursos']] != expected:
         raise ValueError('Flora: se requieren cinco recorridos accesibles, sin duplicados.')
@@ -495,7 +514,14 @@ def verify_flora():
         if not item['alcance'] or not item['fuentes'] or not set(item['fuentes']).issubset(model['fuentes']):
             raise ValueError('Flora: recurso sin alcance o referencias.')
     sources = model['fuentes']
+    registry = json.loads((ROOT / 'datos/fuentes.json').read_text())
+    documents = {doc['id']: doc for doc in registry['documentos']}
+    if set(registry['flora']) != set(sources):
+        raise ValueError('Flora: registro principal sin correspondencia completa con las fuentes del modelo.')
     for id, source in sources.items():
+        document = documents[registry['flora'][id]]
+        if urlsplit(document['url'])._replace(fragment='') != urlsplit(source['url'])._replace(fragment='') or document['anio'] != source['anio']:
+            raise ValueError('Flora: la referencia del registro difiere de la fuente científica original: ' + id)
         if any(not source.get(key) for key in ('institucion', 'documento', 'alcance', 'url', 'localizador', 'revision')):
             raise ValueError('Flora: referencia incompleta: ' + id)
         date.fromisoformat(source['revision'])
@@ -536,7 +562,7 @@ def verify():
             errors.append(f'{entry}: idioma o URL canónica incorrectos.')
         if not page.links.get('icon'):
             errors.append(f'{entry}: falta el favicon.')
-        if entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html'):
+        if entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html', 'flora.html', 'territorio.html'):
             if page.metadata.get('og:url') != expected_url:
                 errors.append(f'{entry}: og:url debe coincidir con la URL canónica.')
             social_image = page.metadata.get('og:image', '')
@@ -557,12 +583,17 @@ def verify():
                 errors.append(f'{entry}: JSON inválido: {error}')
         if re.search(r'^\s*(?:<<<<<<<|=======|>>>>>>>)', html, re.M):
             errors.append(f'{entry}: conflicto de Git sin resolver.')
-    for entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html'):
+    for entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html', 'flora.html', 'territorio.html'):
         html = (ROOT / entry).read_text()
         head = html.split('<head>', 1)[1].split('</head>', 1)[0]
         if html.count('gtag/js?') != 1 or "gtag('config', 'G-0KG7JC82NV');" not in head or 'GTM-' in head:
             errors.append(f'{entry}: Analytics debe tener una sola instalación con ID G-0KG7JC82NV dentro de head.')
     try:
+        actualizar_assets.check_generated()
+        registry = json.loads((ROOT / 'datos/fuentes.json').read_text())
+        urls = [urlsplit(doc['url'])._replace(fragment='').geturl() for doc in registry['documentos']]
+        if len(urls) != len(set(urls)):
+            raise ValueError('Fuentes: documentos duplicados en el registro principal.')
         verify_castana()
         verify_conoce()
         verify_historia()

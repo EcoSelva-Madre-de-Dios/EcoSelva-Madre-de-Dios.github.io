@@ -1,0 +1,117 @@
+{
+  "mamiferos": {
+    "name": "Mamíferos",
+    "source": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata",
+    "reference": "SERNANP · Reserva Nacional Tambopata",
+    "place": "Reserva Nacional Tambopata, Madre de Dios",
+    "photo": "images/jaguar-madre-de-dios.jpg",
+    "author": "Geoff Gallice",
+    "photoSource": "https://commons.wikimedia.org/wiki/File:Jaguar_Madre_de_Dios_Peru.jpg",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "photoPlace": "Río Los Amigos, Madre de Dios, Perú",
+    "species": [
+      [
+        "Jaguar",
+        "Panthera onca"
+      ],
+      [
+        "Lobo de río",
+        "Pteronura brasiliensis"
+      ],
+      [
+        "Sachavaca",
+        "Tapirus terrestris"
+      ]
+    ],
+    "photoWidth": 900,
+    "photoHeight": 600
+  },
+  "aves": {
+    "name": "Aves",
+    "source": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata",
+    "reference": "SERNANP · Reserva Nacional Tambopata",
+    "place": "Reserva Nacional Tambopata, Madre de Dios",
+    "photo": "images/fauna-guacamayo.jpg",
+    "author": "chuck624",
+    "photoSource": "https://commons.wikimedia.org/wiki/File:Ara_macao_-Puntarenas_Province,_Costa_Rica-8.jpg",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "photoPlace": "Puntarenas, Costa Rica; fotografía ilustrativa de la especie",
+    "species": [
+      [
+        "Guacamayo rojo",
+        "Ara macao"
+      ],
+      [
+        "Águila harpía",
+        "Harpia harpyja"
+      ],
+      [
+        "Gallito de las rocas",
+        "Rupicola peruvianus",
+        "Madre de Dios",
+        "https://biodiversidadanp.sernanp.gob.pe/personaje-del-mes/rupicola-peruvianus/",
+        "SERNANP · Gallito de las rocas"
+      ]
+    ],
+    "photoWidth": 960,
+    "photoHeight": 1021
+  },
+  "reptiles": {
+    "name": "Reptiles",
+    "source": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata",
+    "reference": "SERNANP · Reserva Nacional Tambopata",
+    "place": "Reserva Nacional Tambopata, Madre de Dios",
+    "photo": "images/fauna-caiman.jpg",
+    "author": "Whaldener Endo",
+    "photoSource": "https://commons.wikimedia.org/wiki/File:Melanosuchus_niger_RDS_Uacari.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "photoPlace": "Reserva de Desarrollo Sostenible Uacari, Brasil; fotografía ilustrativa de la especie",
+    "species": [
+      [
+        "Caimán negro",
+        "Melanosuchus niger"
+      ],
+      [
+        "Taricaya",
+        "Podocnemis unifilis"
+      ],
+      [
+        "Boa constrictora",
+        "Boa constrictor"
+      ]
+    ],
+    "photoWidth": 960,
+    "photoHeight": 622
+  },
+  "anfibios": {
+    "name": "Anfibios",
+    "source": "https://doi.org/10.3897/BDJ.13.e154136",
+    "reference": "Crnobrna y colaboradores · Biodiversity Data Journal (2025)",
+    "place": "Cuenca del río Las Piedras, Madre de Dios",
+    "photo": "images/fauna-rana.jpg",
+    "author": "Hugo Claessen",
+    "photoSource": "https://commons.wikimedia.org/wiki/File:Ameerega_trivittata02.jpg",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "photoPlace": "Ubicación de la fotografía no indicada; imagen ilustrativa de la especie",
+    "species": [
+      [
+        "Rana venenosa de tres franjas",
+        "Ameerega trivittata"
+      ],
+      [
+        "Rana de muslos brillantes",
+        "Allobates femoralis"
+      ],
+      [
+        "Sapo de costados lisos",
+        "Rhaebo guttatus"
+      ]
+    ],
+    "photoWidth": 321,
+    "photoHeight": 324
+  }
+}

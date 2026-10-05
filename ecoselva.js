@@ -1,5 +1,11 @@
 /* Componentes progresivos compartidos; las funciones originales conservan su lógica. */
-const ecoAssetsBase = new URL('.', document.currentScript.src);
+const ecoAssetsBase = new URL(document.currentScript.src.includes('/assets/') ? '../' : '.', document.currentScript.src);
+window.ecoResourceURL = resource => {
+    const url = new URL(resource, ecoAssetsBase);
+    const version = document.documentElement.dataset.ecoVersion;
+    if (version && url.origin === location.origin) url.searchParams.set('v', version);
+    return url.href;
+};
 document.addEventListener('DOMContentLoaded', () => {
     const node = (tag, className, text) => {
         const element = document.createElement(tag);
@@ -72,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const a = node('a', className, label); a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer'; return a;
     };
     let catalogPromise;
-    const catalog = () => catalogPromise ||= fetch(new URL('datos/biblioteca/documentos.json', ecoAssetsBase))
+    const catalog = () => catalogPromise ||= fetch(window.ecoResourceURL('datos/fuentes.json'))
         .then(response => { if (!response.ok) throw new Error('No se pudo cargar la biblioteca.'); return response.json(); })
         .catch(error => { catalogPromise = null; throw error; });
     let documentViewer, contextViewer;
@@ -93,15 +99,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 figure.append(image, node('figcaption', '', 'Primera página del original · ' + document.autor)); layout.append(figure);
             }
             const details = node('section', 'eco-document-details');
-            details.append(node('p', 'eco-eyebrow', document.tipo + ' · ' + document.anio), node('h3', '', document.titulo), node('p', 'eco-card-secondary', document.autor));
+            details.append(node('p', 'eco-eyebrow', document.tipo + ' · ' + (document.anio || 'Sin fecha indicada')), node('h3', '', document.titulo), node('p', 'eco-card-secondary', document.autor));
             const metadata = node('dl', 'eco-document-metadata');
             [['Ámbito', document.alcance], ['Páginas', document.paginas], ['Tamaño', document.bytes ? (document.bytes / 1000000).toFixed(1).replace('.', ',') + ' MB' : null]].forEach(([key, value]) => {
                 if (value !== null && value !== undefined) metadata.append(node('dt', '', key), node('dd', '', String(value)));
             });
+            if (document.fecha_documento) metadata.append(node('dt', '', 'Fecha o periodo del documento'), node('dd', '', document.fecha_documento));
             details.append(metadata, node('h4', '', 'Por qué lo usamos'), node('p', '', document.uso));
             const actions = node('div', 'eco-card-actions');
-            actions.append(external(document.pdf || document.url, document.pdf ? 'PDF original / descarga ↗' : 'Leer artículo original ↗', 'eco-button'));
+            actions.append(external(document.pdf || document.url, document.pdf ? 'PDF original / descarga ↗' : 'Consultar fuente original ↗', 'eco-button'));
             const context = node('a', 'eco-text-link', 'Ver el contexto en EcoSelva →'); context.href = new URL(document.contexto, ecoAssetsBase).href; actions.append(context);
+            if (document.contextos?.length > 1) {
+                const contexts = node('details', 'eco-document-contexts');
+                contexts.append(node('summary', '', 'Otros lugares donde citamos esta fuente'));
+                const list = node('ul');
+                document.contextos.filter(url => url !== document.contexto).forEach(url => {
+                    const item = node('li'); const link = node('a', 'eco-text-link', url.startsWith('historia') ? 'Historia de Madre de Dios →' : url.startsWith('areas-protegidas') ? 'Áreas protegidas →' : 'Otra lectura de EcoSelva →');
+                    link.href = new URL(url, ecoAssetsBase).href; item.append(link); list.append(item);
+                });
+                contexts.append(list); details.append(contexts);
+            }
             details.append(actions);
             if (document.pdf && document.previsualizacion_pdf) {
                 const load = node('button', 'eco-button eco-button-outline', 'Cargar PDF completo · ' + (document.bytes / 1000000).toFixed(1).replace('.', ',') + ' MB'); load.type = 'button';

@@ -1,5 +1,6 @@
 {
-  "revision": "2026-10-05",
+  "revision_editorial": "2026-10-05",
+  "nota": "Registro editorial de fuentes. Las fechas de comprobación de documentos y las revisiones de conjuntos de datos se conservan en sus registros originales.",
   "documentos": [
     {
       "id": "doc-anuario-2021",
@@ -1096,5 +1097,18 @@
       "url": "https://repositorio.ana.gob.pe/handle/20.500.12543/3292",
       "contexto": "territorio.html#territorio-fuente-ana"
     }
-  ]
+  ],
+  "flora": {
+    "catalogo": "fuente-flora-catalogo",
+    "pfnm": "fuente-flora-pfnm",
+    "manejo": "fuente-flora-manejo",
+    "aguaje": "fuente-flora-aguaje",
+    "bambu": "fuente-flora-bambu",
+    "cobertura": "fuente-flora-cobertura",
+    "bdpi": "fuente-flora-bdpi",
+    "cesteria": "fuente-flora-cesteria",
+    "osinfor": "doc-osinfor",
+    "dispersion": "fuente-flora-dispersion",
+    "rockwell": "doc-rockwell"
+  }
 }

@@ -1,24 +1,6 @@
 /* Sistema compartido: composición y presentación; no interviene en los datos. */
-:root {
-  --layout-max:1440px; --layout-wide:1320px; --layout-content:1180px;
-  --reading-max:760px; --reading-narrow:640px; --page-gutter:clamp(20px,4vw,72px);
-  --space-1:8px; --space-2:12px; --space-3:16px; --space-4:24px; --space-5:32px;
-  --space-6:48px; --space-7:64px; --space-8:88px; --space-9:120px;
-  --radius-sm:6px; --radius-md:10px; --radius-lg:16px; --radius-xl:24px;
-  --forest-deep:#102e22; --forest:#163d2b; --green-natural:#3d7a4d;
-  --earth:#c77a3d; --water:#287c83; --sand:#cfb45c;
-  --ink:#202a25; --muted:#59635d; --paper:#f3f0e6; --white:#fff;
-  --earth-text:#82502c; --water-text:#24656b; --line:#d3dbd1;
-  --font-heading:Manrope,Arial,sans-serif; --font-body:Inter,Arial,sans-serif;
-  --shadow-raised:0 8px 24px rgb(16 46 34 / 8%);
-  --shadow-dialog:0 24px 80px rgb(16 46 34 / 24%);
-  --motion-fast:180ms; --motion-card:220ms; --motion-dialog:220ms;
-  /* Referencia del sistema; las consultas @media utilizan sus valores literales. */
-  --breakpoint-mobile:767px; --breakpoint-tablet:1100px;
-  --anp-bosque:var(--forest); --anp-texto:var(--ink); --anp-suave:var(--muted);
-  --anp-papel:var(--paper); --anp-linea:var(--line); --anp-agua:var(--water-text); --anp-tierra:var(--earth-text);
-}
-.eco-site {font-family:var(--font-body);font-size:16px;line-height:1.7;color:var(--ink)}
+
+.eco-site {font-family:var(--font-body);font-size:var(--text-reading);line-height:1.7;color:var(--ink)}
 .eco-site :is(h1,h2,h3,h4){font-family:var(--font-heading)}
 .eco-site :is(a,button,summary,input,textarea,select):focus-visible{outline:3px solid var(--water-text);outline-offset:4px}
 .eco-site :is(button,summary){min-height:44px}
@@ -46,7 +28,7 @@
 .eco-site :is(.eco-barra a:not(.eco-marca),.anp-barra a:not(.anp-marca),.historia-barra a:not(.historia-marca),.ficha-volver){font-size:14px;color:var(--forest)}
 .eco-site .eco-migas{padding-block:var(--space-4);font-size:13px;line-height:1.6}
 .eco-site .eco-migas ol{display:flex;flex-wrap:wrap;gap:8px 12px;list-style:none;padding:0;margin:0}
-.eco-site .eco-migas li+li::before{content:'›';margin-right:12px;color:var(--muted)}
+.eco-site .eco-migas li+li::before{content:"›";margin-right:12px;color:var(--muted)}
 .eco-site .eco-migas a{color:var(--forest);text-decoration:underline;text-underline-offset:4px}
 .eco-site .eco-migas [aria-current]{color:var(--muted)}
 .eco-site :is(.eco-pie,.anp-pie,.historia-pie){display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--space-4);padding-block:var(--space-5);font-size:13px;border-top:1px solid var(--line)}
@@ -84,15 +66,15 @@
 .eco-site #sabias-que .selva-flip-card{height:auto;aspect-ratio:4/3;border-radius:var(--radius-md);box-shadow:none;transition:transform var(--motion-card),box-shadow var(--motion-card),border-color var(--motion-card)}
 .eco-site #sabias-que .selva-flip-front{padding:var(--space-4)}
 .eco-site #sabias-que .selva-flip-frente-titulo{font-size:clamp(19px,1.5vw,24px)}
-.eco-site :is(.selva-fauna-stats,#programas .selva-flora-stats){gap:0;max-width:none}
+.eco-site :is(.selva-fauna-stats,#biodiversidad .selva-flora-stats){gap:0;max-width:none}
 .eco-site .selva-fauna-stats{grid-template-columns:repeat(4,minmax(0,1fr))}
-.eco-site #programas .selva-flora-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
-.eco-site #programas :is(.selva-flora-stat,.selva-fauna-stat){border:0;border-left:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none;padding:var(--space-4);transform:none}
-.eco-site #programas :is(.selva-flora-stat,.selva-fauna-stat):first-child{border-left:0}
-.eco-site #programas .selva-flora-revisiones .selva-flora-stat{padding:0;border:0}
+.eco-site #biodiversidad .selva-flora-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+.eco-site #biodiversidad :is(.selva-flora-stat,.selva-fauna-stat){border:0;border-left:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none;padding:var(--space-4);transform:none}
+.eco-site #biodiversidad :is(.selva-flora-stat,.selva-fauna-stat):first-child{border-left:0}
+.eco-site #biodiversidad .selva-flora-revisiones .selva-flora-stat{padding:0;border:0}
 .eco-site .selva-flora-revisiones .selva-flora-stat::after{display:none}
-.eco-site #programas :is(.selva-flora-stat p,.selva-fauna-stat p){font-size:15px}
-.eco-site #programas :is(.selva-flora-explorar,.selva-fauna-explorar){min-height:44px}
+.eco-site #biodiversidad :is(.selva-flora-stat p,.selva-fauna-stat p){font-size:15px}
+.eco-site #biodiversidad :is(.selva-flora-explorar,.selva-fauna-explorar){min-height:44px}
 .eco-site #explora-madre-de-dios .selva-territorio-layout{grid-template-columns:minmax(0,7fr) minmax(320px,3fr);border-radius:var(--radius-lg);box-shadow:none}
 .eco-site #explora-madre-de-dios .selva-territorio-canvas{height:clamp(500px,41vw,620px)}
 .eco-site #explora-madre-de-dios .selva-territorio-panel{padding:var(--space-4)}
@@ -220,8 +202,8 @@
   :root{--page-gutter:28px}
   .eco-site .header-content{grid-template-columns:minmax(0,7fr) minmax(0,5fr)}
   .eco-site #conoce-madre-de-dios .selva-introduccion .container{grid-template-columns:1fr;gap:var(--space-5)}
-  .eco-site :is(.selva-flip-grid,.selva-fauna-stats,#programas .selva-flora-stats,.conoce-provincias,.conoce-geografia-grid,.anp-categorias,.anp-actores,.anp-ejemplos,.anp-amenazas,.anp-paisajes){grid-template-columns:repeat(2,minmax(0,1fr))}
-  .eco-site #programas :is(.selva-flora-stat,.selva-fauna-stat){border-left:0;border-top:1px solid var(--line);padding-block:var(--space-4)}
+  .eco-site :is(.selva-flip-grid,.selva-fauna-stats,#biodiversidad .selva-flora-stats,.conoce-provincias,.conoce-geografia-grid,.anp-categorias,.anp-actores,.anp-ejemplos,.anp-amenazas,.anp-paisajes){grid-template-columns:repeat(2,minmax(0,1fr))}
+  .eco-site #biodiversidad :is(.selva-flora-stat,.selva-fauna-stat){border-left:0;border-top:1px solid var(--line);padding-block:var(--space-4)}
   .eco-site #explora-madre-de-dios .selva-territorio-layout,.eco-site .anp-explorador{grid-template-columns:minmax(0,1fr)}
   .eco-site #explora-madre-de-dios .selva-territorio-panel{border-left:0;border-top:1px solid var(--line)}
   .eco-site .anp-panel{min-height:0;display:block}
@@ -252,9 +234,9 @@
   .eco-site .selva-introduccion-accesos{grid-template-columns:1fr;gap:0}
   .eco-site .selva-introduccion-accesos a{min-height:88px;padding-block:var(--space-3)}
   .eco-site #sabias-que .selva-flip-card{aspect-ratio:4/3;height:auto}
-  .eco-site #programas :is(.selva-flora-stats,.selva-fauna-stats){grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
-  .eco-site #programas :is(.selva-flora-stat,.selva-fauna-stat){padding:20px 10px;border:0;border-top:1px solid var(--line)}
-  .eco-site #programas :is(.selva-flora-stat p,.selva-fauna-stat p){font-size:15px}
+  .eco-site #biodiversidad :is(.selva-flora-stats,.selva-fauna-stats){grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
+  .eco-site #biodiversidad :is(.selva-flora-stat,.selva-fauna-stat){padding:20px 10px;border:0;border-top:1px solid var(--line)}
+  .eco-site #biodiversidad :is(.selva-flora-stat p,.selva-fauna-stat p){font-size:15px}
   .eco-site #explora-madre-de-dios .selva-territorio-layout{grid-template-columns:minmax(0,1fr)}
   .eco-site #explora-madre-de-dios .selva-territorio-canvas{height:380px}
   .eco-site #explora-madre-de-dios .selva-territorio-panel{border-left:0;border-top:1px solid var(--line);padding:var(--space-4)}
@@ -264,7 +246,7 @@
   .eco-site #colabora .selva-colabora-layout{grid-template-columns:1fr;gap:var(--space-5)}
   .eco-site #colabora .selva-colabora-columna--proceso{padding:var(--space-4)}
   .eco-site :is(.anp-hero,.historia-hero,.ficha-hero){grid-template-columns:1fr;gap:var(--space-5);padding-block:var(--space-5) var(--space-6)}
-  .eco-site .ficha-hero{grid-template-areas:'texto' 'foto'}
+  .eco-site .ficha-hero{grid-template-areas:"texto" "foto"}
   .eco-site .ficha-foto{width:min(100%,420px);justify-self:center}
   .eco-site .ficha-foto img{max-height:440px}
   .eco-site .ficha-identidad h1{font-size:clamp(42px,10vw,58px)}
@@ -283,8 +265,8 @@
   .eco-site :is(.anp-barra>.anp-ancho,.historia-barra>.historia-ancho,.eco-barra>.eco-wide,.ficha-barra){gap:12px;min-height:76px;padding-block:12px}
   .eco-site :is(.anp-marca,.historia-marca,.ficha-barra .ficha-marca,.eco-marca){font-size:18px;gap:8px}
   .eco-site :is(.anp-marca,.historia-marca,.ficha-marca,.eco-marca) img{width:40px;height:40px}
-  .eco-site :is(.anp-barra a:not(.anp-marca),.historia-barra a:not(.historia-marca),.eco-barra a:not(.eco-marca),.ficha-volver){font-size:12px;max-width:130px;text-align:right}
-  .eco-site .eco-migas{padding-block:var(--space-3);font-size:12px}
+  .eco-site :is(.anp-barra a:not(.anp-marca),.historia-barra a:not(.historia-marca),.eco-barra a:not(.eco-marca),.ficha-volver){font-size: var(--text-credit);max-width:130px;text-align:right}
+  .eco-site .eco-migas{padding-block:var(--space-3);font-size: var(--text-credit)}
   .eco-site .metodologia section[aria-labelledby=metodologia-editorial]{grid-template-columns:1fr;gap:var(--space-2)}
   .eco-site .metodologia section[aria-labelledby=metodologia-editorial]>h3{margin-top:var(--space-4)}
   .eco-site .metodologia>.selva-territorio-fuentes{padding:var(--space-4) var(--space-3)}
@@ -317,7 +299,7 @@
 .eco-site .eco-card:is([aria-pressed=true],[aria-current],[data-eco-active=true]){border-color:var(--water-text);box-shadow:inset 0 0 0 1px var(--water-text)}
 .eco-site .eco-card :is(h2,h3,h4,h5){color:var(--forest);line-height:1.3;overflow-wrap:anywhere}
 .eco-site .eco-card-content{padding:var(--space-4);display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:var(--space-2)}
-.eco-site .eco-eyebrow{font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;line-height:1.5;color:var(--earth-text);margin:0 0 var(--space-2)}
+.eco-site .eco-eyebrow{font-size: var(--text-credit);font-weight:700;letter-spacing:.09em;text-transform:uppercase;line-height:1.5;color:var(--earth-text);margin:0 0 var(--space-2)}
 .eco-site .eco-card-secondary,.eco-site .eco-card-scope{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
 .eco-site .eco-card-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:var(--space-3)}
 .eco-site .eco-button{display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border:1px solid var(--forest);border-radius:var(--radius-sm);background:var(--forest);color:var(--white);font:600 14px/1.5 var(--font-heading);text-decoration:none;cursor:pointer;transition:background-color var(--motion-fast),box-shadow var(--motion-fast)}
@@ -348,11 +330,11 @@
 .eco-site .eco-bento-feature>img{width:100%;height:320px;object-fit:cover;object-position:center 42%;transition:transform var(--motion-card)}
 .eco-site .eco-bento-feature>div{position:relative;padding:var(--space-5);background:var(--white);flex:1}
 .eco-site .eco-bento :is(h3){font-size:clamp(25px,2.5vw,34px);margin-bottom:12px}
-.eco-site .eco-bento p:not(.eco-eyebrow){font-size:16px;line-height:1.7;margin:0 0 20px}
-.eco-site .eco-bento small{display:block;font-size:12px;line-height:1.6;margin-top:20px;color:var(--muted)}
+.eco-site .eco-bento p:not(.eco-eyebrow){font-size:var(--text-reading);line-height:1.7;margin:0 0 20px}
+.eco-site .eco-bento small{display:block;font-size: var(--text-credit);line-height:1.6;margin-top:20px;color:var(--muted)}
 .eco-site .eco-bento small a{color:var(--water-text)}
 .eco-site .eco-bento-map{display:flex;gap:var(--space-4);padding:var(--space-5);background:var(--forest);color:var(--white);text-decoration:none;position:relative}
-.eco-site .eco-bento-map::after{content:'';position:absolute;right:-35px;bottom:-60px;width:180px;height:180px;border:1px solid #ffffff22;border-radius:50%;box-shadow:0 0 0 18px #ffffff0c,0 0 0 40px #ffffff09;pointer-events:none}
+.eco-site .eco-bento-map::after{content:"";position:absolute;right:-35px;bottom:-60px;width:180px;height:180px;border:1px solid #ffffff22;border-radius:50%;box-shadow:0 0 0 18px #ffffff0c,0 0 0 40px #ffffff09;pointer-events:none}
 .eco-site .eco-bento-map :is(h3,.eco-text-link){color:var(--white)}
 .eco-site .eco-bento-map .eco-eyebrow{color:var(--sand)}
 .eco-site .eco-bento-map>.eco-icon{width:40px;height:40px;margin-top:4px}
@@ -367,7 +349,7 @@
 .eco-site .eco-library-feature>img{width:100%;height:300px;object-fit:contain;box-shadow:var(--shadow-raised)}
 .eco-site .eco-library-feature h2{font-size:26px;margin:12px 0;line-height:1.25}
 .eco-site .eco-library-feature p:not(.eco-eyebrow){font-size:15px;margin-bottom:20px}
-.eco-site .eco-feature-source{display:block;color:var(--muted);font-size:12px;line-height:1.6;margin-top:16px;overflow-wrap:anywhere}
+.eco-site .eco-feature-source{display:block;color:var(--muted);font-size: var(--text-credit);line-height:1.6;margin-top:16px;overflow-wrap:anywhere}
 .eco-site .eco-library-catalog{padding-bottom:var(--space-7);scroll-margin-top:24px}
 .eco-site .eco-library-tools{padding:var(--space-4);background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);margin-bottom:var(--space-5)}
 .eco-site .eco-library-tools label{display:block;font-size:14px;font-weight:600;margin-bottom:8px}
@@ -414,7 +396,7 @@
 .eco-site .eco-document-layout:not(:has(.eco-document-cover)){grid-template-columns:1fr}
 .eco-site .eco-document-cover{margin:0;padding:16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md)}
 .eco-site .eco-document-cover img{width:100%;height:auto;max-height:480px;object-fit:contain}
-.eco-site .eco-document-cover figcaption{font-size:12px;line-height:1.6;color:var(--muted);margin-top:12px}
+.eco-site .eco-document-cover figcaption{font-size: var(--text-credit);line-height:1.6;color:var(--muted);margin-top:12px}
 .eco-site .eco-document-metadata{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14px;margin:24px 0}
 .eco-site .eco-document-metadata dt{font-weight:600;color:var(--forest)}
 .eco-site .eco-document-metadata dd{margin:0;color:var(--muted)}
@@ -456,7 +438,7 @@
 }
 /* El avance se integra en la navegación existente, sin añadir otra barra. */
 .eco-site [data-eco-progress]{isolation:isolate;padding-right:64px}
-.eco-site [data-eco-progress]::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--water-text);transform:scaleX(var(--eco-progress,0));transform-origin:left;pointer-events:none}
+.eco-site [data-eco-progress]::after{content:"";position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--water-text);transform:scaleX(var(--eco-progress,0));transform-origin:left;pointer-events:none}
 .eco-site .eco-reading-status{position:absolute;right:12px;top:50%;transform:translateY(-50%);font:600 12px var(--font-body);color:var(--muted);font-variant-numeric:tabular-nums;background:var(--white);padding-left:10px}
 .eco-site :is(.anp-nav,.historia-navegacion)[data-eco-progress] .eco-reading-status{background:var(--paper)}
 .eco-site a.eco-progress-active{color:var(--forest);font-weight:700}
@@ -469,7 +451,7 @@
 .eco-site [data-eco-compare]{position:relative;--eco-comparison:50%;aspect-ratio:4/3;background:var(--paper);overflow:hidden;border-radius:var(--radius-md)}
 .eco-site [data-eco-compare]>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .eco-site [data-eco-compare]>img:first-of-type{z-index:1;clip-path:inset(0 calc(100% - var(--eco-comparison)) 0 0)}
-.eco-site [data-eco-compare]::after{content:'';position:absolute;left:var(--eco-comparison);top:0;bottom:56px;width:2px;background:var(--white);box-shadow:0 0 3px var(--forest);pointer-events:none;z-index:2}
+.eco-site [data-eco-compare]::after{content:"";position:absolute;left:var(--eco-comparison);top:0;bottom:56px;width:2px;background:var(--white);box-shadow:0 0 3px var(--forest);pointer-events:none;z-index:2}
 .eco-site [data-eco-compare] label{position:absolute;bottom:0;left:0;width:100%;padding:10px 16px;background:var(--white);color:var(--forest);display:flex;align-items:center;gap:16px;font-size:13px;z-index:3}
 .eco-site [data-eco-compare] input{flex:1;min-width:0;min-height:44px;accent-color:var(--forest)}
 @media(min-width:1024px){.eco-site [data-eco-story-step]{min-height:285px}}
@@ -512,7 +494,7 @@
   .eco-site dialog[data-eco-presentation=drawer] .selva-fauna-modal-imagen>img{object-fit:contain}
   .eco-site [data-eco-story]>.ficha-ilustracion{position:relative;top:auto}
   .eco-site .eco-story-step{padding-left:16px;margin-bottom:16px}
-  .eco-site .eco-reading-status{font-size:12px;right:8px;padding-left:8px}
+  .eco-site .eco-reading-status{font-size: var(--text-credit);right:8px;padding-left:8px}
   .eco-site [data-eco-progress]{padding-right:60px}
 }
 @media(prefers-reduced-motion:reduce){

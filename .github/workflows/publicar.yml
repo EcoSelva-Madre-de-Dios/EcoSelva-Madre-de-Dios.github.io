@@ -22,16 +22,19 @@ jobs:
       pages: read
     steps:
       - uses: actions/checkout@v6
+      - name: Generar el sitio desde sus fuentes
+        run: python3 herramientas/actualizar_sitio.py
       - name: Comprobar JavaScript
         run: |
           node --check script.js
-          node --check ventanas.js
           node --check fichas/ficha.js
           node --check conoce.js
           node --check historia.js
           node --check areas-protegidas.js
           node --check ecoselva.js
           node --check flora.js
+          node --check territorio.js
+          node --check assets/eco-base.js
       - name: Preparar y verificar el sitio
         run: python3 herramientas/preparar_publicacion.py _site
       - name: Configurar Pages

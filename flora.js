@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
             button.setAttribute('aria-pressed', String(button.dataset.floraRecurso === id));
         });
         if (announce && status) {
-            status.textContent = `Recorrido seleccionado: ${selected.querySelector('h4').textContent}.`;
+            status.textContent = `Recorrido seleccionado: ${selected.querySelector('h3').textContent}.`;
         }
     };
 
@@ -30,8 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const revealTarget = (target, scroll = true) => {
         if (!target || !flora.contains(target)) return;
-        // Activar la pestaña con su controlador original, incluso al volver desde Fauna.
-        if (flora.hidden) document.getElementById('selva-biodiversidad-tab-flora')?.click();
         const panel = target.closest('[data-flora-caso]');
         if (panel && !selector?.hidden) selectResource(panel.dataset.floraCaso);
         let ancestor = target;
@@ -53,9 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         try { target = document.getElementById(decodeURIComponent(anchor.hash.slice(1))); }
         catch { return; }
         if (!target || !flora.contains(target)) return;
-        // Cerrar el diálogo original antes de navegar a una referencia de la página.
-        const dialog = anchor.closest('dialog[open]');
-        dialog?.querySelector('.selva-flora-modal-cerrar')?.click();
         revealTarget(target);
     });
     revealTarget(hashTarget());

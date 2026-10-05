@@ -81,7 +81,7 @@ def fragments(model):
         comparison.append(f'<div><h4>{escape(r["ámbito"])}</h4><dl><dt>Fuente</dt><dd>{escape(r["fuente"])} · {escape(r["localizador"])} · publicación {r["año_publicación"]}</dd><dt>Año del dato</dt><dd>{r["año"]}</dd><dt>Valor</dt><dd>{number(r["valor"])} {escape(r["unidad"])}</dd><dt>Ámbito</dt><dd>{escape(r["ámbito"])}</dd><dt>Nota</dt><dd>{note} {link("#" + id, "Consultar registro")}</dd></dl></div>')
     result['comparacion'] = '<div class="ficha-comparacion">' + ''.join(comparison) + '</div>'
     result['registros'] = '<div class="ficha-registros">' + ''.join(record_detail(r) for r in model['indicadores']) + '</div>'
-    preview_ids = {doc["id"] for doc in json.loads((ROOT / "datos/biblioteca/documentos.json").read_text())["documentos"]}
+    preview_ids = {doc["id"] for doc in json.loads((ROOT / "datos/fuentes.json").read_text())["documentos"]}
     groups = []
     for group, title, intro in [('primaria', 'Fuentes primarias · Madre de Dios', 'Documentos oficiales y estudios originales que sostienen el contenido regional.'), ('complementaria', 'Lectura complementaria · Brasil', 'Estudios originales para entender procesos biológicos. Su ámbito no es Madre de Dios.')]:
         cards = []

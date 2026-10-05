@@ -24,7 +24,7 @@
 .ficha-hero { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); grid-template-areas: 'texto foto'; gap: 46px; align-items: center; padding-block: 44px 60px; }
 .ficha-identidad { grid-area: texto; position: relative; padding-block: 24px; isolation: isolate; }
 .ficha-identidad::before { content: ''; position: absolute; z-index: -1; inset: -15px -15px 0 40%; opacity: .35; background: url('castana-patron.svg') repeat; mask-image: linear-gradient(to left, #000, transparent); }
-.ficha-etiqueta { color: #496244; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; line-height: 1.6; }
+.ficha-etiqueta { color: #496244; font-size:var(--text-credit); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; line-height: 1.6; }
 .ficha-identidad h1 { margin-top: 16px; font-size: clamp(38px, 4.4vw, 60px); letter-spacing: -.045em; }
 .ficha-cientifico { margin-block: 12px 28px; color: #526359; font-size: 21px; }
 .ficha-metadatos { display: flex; flex-wrap: wrap; gap: 14px 24px; font-size: 13px; line-height: 1.65; }
@@ -45,7 +45,7 @@
 .ficha-destacado p + p { margin-top: 12px; }
 .ficha-destacado > p:not(.ficha-etiqueta) { font-size: 14px; }
 .ficha-ideas { display: grid; gap: 18px; }
-.ficha-ideas dt { margin-bottom: 4px; color: #75522f; font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.ficha-ideas dt { margin-bottom: 4px; color: #75522f; font-size:var(--text-credit); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .ficha-ideas dd { font-size: 15px; line-height: 1.65; }
 .ficha-ideas .ficha-referencia { display: block; margin-top: 4px; }
 .ficha-acciones { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-top: 28px; }
@@ -157,7 +157,7 @@
     .ficha-barra { gap: 12px; padding-block: 12px; }
     .ficha-barra .ficha-marca { gap: 8px; font-size: 13px; }
     .ficha-marca img { width: 42px; height: 42px; }
-    .ficha-volver { max-width: 116px; font-size: 12px; text-align: right; }
+    .ficha-volver { max-width: 116px; font-size:var(--text-credit); text-align: right; }
     .ficha-migas { padding-block: 16px; }
     .ficha-navegacion { justify-content: space-between; gap: 4px; padding: 8px; }
     .ficha-navegacion a { flex: 1; text-align: center; padding-inline: 8px; }
