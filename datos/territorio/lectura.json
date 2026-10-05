@@ -1,0 +1,85 @@
+{
+  "revision": "2026-10-05",
+  "fuentes": {
+    "anp": "#territorio-fuente-anp",
+    "cincia": "#territorio-fuente-cincia",
+    "ecosistemas": "#territorio-fuente-ecosistemas"
+  },
+  "rios": {
+    "madre": {
+      "importancia": "Articula cursos y actividades de la cuenca. CINCIA estudió comunidades acuáticas del canal principal y tributarios durante el proyecto 2020–2022; ese muestreo no describe todo el río ni su estado actual.",
+      "ambientes": "Cauce, orillas y planicie de inundación; las conexiones con otros ambientes varían con las crecidas.",
+      "biodiversidad": "Peces, macroinvertebrados y perifiton son grupos estudiados por CINCIA en sus estaciones. Su composición depende del lugar y momento de muestreo.",
+      "anp": "Consulta la capa de ANP para observar los contornos. Esta ficha no calcula intersecciones ni asigna una ANP a todo el río.",
+      "fuentes": [
+        "cincia",
+        "ecosistemas"
+      ]
+    },
+    "tambopata": {
+      "importancia": "SERNANP sitúa la Reserva Nacional Tambopata en la cuenca de este río; permite relacionar el paisaje fluvial con ambientes conservados.",
+      "ambientes": "Río, bosque ribereño y cochas del paisaje de Tambopata. Una cocha puede mantener conexiones estacionales con otros cuerpos de agua.",
+      "biodiversidad": "SERNANP documenta lobos de río en cochas de la reserva, por ejemplo Sandoval. No es un inventario de especies del cauce ni de cada laguna del mapa.",
+      "anp": "Reserva Nacional Tambopata. Relación territorial descrita por SERNANP; no equivale a una intersección calculada para cada segmento.",
+      "fuentes": [
+        "anp",
+        "ecosistemas"
+      ]
+    },
+    "manu": {
+      "importancia": "SERNANP describe el río Manu como recorrido de acceso al sector amazónico del Parque Nacional del Manu.",
+      "ambientes": "Cauce, orillas, bosque y cuerpos de agua del paisaje amazónico protegido.",
+      "biodiversidad": "SERNANP describe ambientes y fauna del parque. No se asigna ese inventario a cada tramo representado del río.",
+      "anp": "Parque Nacional del Manu; relación del recorrido fluvial descrita por SERNANP.",
+      "fuentes": [
+        "anp",
+        "ecosistemas"
+      ]
+    },
+    "piedras": {
+      "importancia": "El registro cartográfico lo relaciona con la cuenca Madre de Dios. Su recorrido permite explorar el vínculo entre cursos de agua y cobertura vegetal.",
+      "ambientes": "Comparar cauce y cobertura de las orillas ayuda a formular preguntas sobre conectividad; la superposición no verifica el ambiente actual.",
+      "biodiversidad": "Esta base no incluye un inventario biológico del río Las Piedras. Para identificar especies se necesita una fuente de campo con lugar y fecha.",
+      "anp": "La ficha no determina una relación específica con ANP. Consulta sus contornos y fuentes en la capa correspondiente.",
+      "fuentes": [
+        "ecosistemas"
+      ]
+    },
+    "inambari": {
+      "importancia": "Afluente incluido en el estudio acuático de CINCIA publicado en 2023. Ayuda a comprender que los cambios pueden transmitirse hacia el río principal.",
+      "ambientes": "Cauce, orillas y la conexión con el río Madre de Dios; el tramo muestreado por CINCIA no representa toda la cuenca.",
+      "biodiversidad": "CINCIA evaluó comunidades acuáticas en estaciones de estudio, incluidas peces y macroinvertebrados; sus resultados tienen un alcance espacial y temporal definido.",
+      "anp": "Esta ficha no calcula relaciones con ANP. Los contornos disponibles se consultan como referencia educativa.",
+      "fuentes": [
+        "cincia",
+        "ecosistemas"
+      ]
+    },
+    "heath": {
+      "importancia": "SERNANP relaciona el río y las Pampas del Heath con el Parque Nacional Bahuaja Sonene. Permite distinguir bosque, agua y sabana hidrofítica.",
+      "ambientes": "Río y ambientes asociados a las Pampas del Heath; la sabana hidrofítica con palmeras no es equivalente a un aguajal.",
+      "biodiversidad": "La fuente de SERNANP describe fauna y ambientes del parque; la base fluvial no contiene inventarios por segmento.",
+      "anp": "Parque Nacional Bahuaja Sonene; relación territorial descrita por SERNANP.",
+      "fuentes": [
+        "anp",
+        "ecosistemas"
+      ]
+    }
+  },
+  "ubicacion": "Tramo cartográfico recortado a Madre de Dios. El encuadre no representa toda la cuenca.",
+  "amenazas": "La pérdida de bosque ribereño, la alteración del cauce y los cambios de calidad del agua pueden afectar conexiones y organismos. Son mecanismos a evaluar; esta base no mide su intensidad ni confirma impactos actuales en cada tramo.",
+  "humedales": {
+    "Laguna": {
+      "caracteristicas": "Cuerpo de agua clasificado como Laguna por la fuente. El registro no determina su origen, permanencia, conexión estacional ni calidad del agua.",
+      "importancia": "Los ambientes lacustres pueden ofrecer hábitat y recursos; sus funciones concretas requieren conocer profundidad, agua y conexiones.",
+      "vegetacion": "No inventariada en esta capa. No se infiere un aguajal ni una especie por la forma del polígono.",
+      "fauna": "No inventariada en este registro; una figura de agua no demuestra la presencia de peces, aves o lobos de río."
+    },
+    "Pantano": {
+      "caracteristicas": "Clasificación Pantano del registro MasaAgua. Describe una categoría de la fuente, sin determinar el tipo de vegetación ni el régimen de inundación actual.",
+      "importancia": "En humedales, agua, suelo y vegetación pueden intervenir en regulación hídrica, almacenamiento de carbono y hábitat. Su magnitud varía y no se calcula aquí.",
+      "vegetacion": "No inventariada en esta capa. Pantano no identifica automáticamente un bosque de palmeras ni un aguajal.",
+      "fauna": "No inventariada en este registro. Los ejemplos educativos de fauna no se asignan a este polígono."
+    }
+  }
+}

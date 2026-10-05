@@ -4,6 +4,7 @@ from datetime import date
 from decimal import Decimal, InvalidOperation
 from html.parser import HTMLParser
 from pathlib import Path
+from hashlib import sha256
 from urllib.parse import unquote, urlsplit
 from xml.etree import ElementTree as ET
 import json
@@ -395,6 +396,54 @@ def verify_biblioteca():
         raise ValueError('Iconos: falta una categoría del sistema compartido.')
 
 
+def verify_territorio_educativo():
+    """Comprueba integración y procedencia de las fichas y capas adicionales."""
+    html = (ROOT / 'index.html').read_text()
+    page = AtlasPage()
+    page.feed(html)
+    modules = ('territorio-bosques', 'territorio-castanales', 'territorio-rios',
+               'territorio-humedales', 'territorio-aguajales', 'territorio-conexiones',
+               'territorio-beneficios', 'territorio-cambios', 'territorio-ciencia',
+               'territorio-actividades', 'territorio-metodologia', 'territorio-lectura-datos')
+    if any(page.parents.get(id) != ('conoce-madre-de-dios', 'explora-madre-de-dios') for id in modules):
+        raise ValueError('Territorio: la ampliación debe permanecer dentro del módulo existente.')
+    model = json.loads((ROOT / 'datos/territorio/lectura.json').read_text())
+    embedded = re.search(r'<script type="application/json" id="territorio-lectura-datos">(.*?)</script>', html, re.S)
+    if not embedded or json.loads(embedded.group(1)) != model:
+        raise ValueError('Territorio: las fichas deben conservar el modelo educativo público.')
+    date.fromisoformat(model['revision'])
+    old = re.search(r'<script type="application/json" id="selva-territorio-datos">(.*?)</script>', html, re.S)
+    topics = json.loads(old.group(1))
+    river_ids = {id for id, topic in topics.items() if topic.get('mode') == 'rios'}
+    if set(model['rios']) != river_ids:
+        raise ValueError('Territorio: no asignar fichas a ríos sin trazado ni omitir los existentes.')
+    for record in model['rios'].values():
+        if any(not record.get(key) for key in ('importancia', 'ambientes', 'biodiversidad', 'anp', 'fuentes')) or not set(record['fuentes']).issubset(model['fuentes']):
+            raise ValueError('Territorio: ficha sin explicación o fuente comprobable.')
+    coverage = json.loads((ROOT / 'datos/territorio/cobertura-categorias.json').read_text())
+    # El archivo de categorías conserva su esquema original.
+    forest_ids = {item['id'] for item in coverage}
+    selected_ids = re.findall(r'data-territorio-explorar="([^"]+)"', html)
+    if not set(selected_ids).issubset(river_ids | forest_ids):
+        raise ValueError('Territorio: acceso educativo a una geometría inexistente.')
+    metadata = json.loads((ROOT / 'datos/territorio/capas-adicionales-metadatos.json').read_text())
+    svg_file = ROOT / 'datos/territorio/capas-adicionales.svg'
+    if metadata['sha256_svg'] != sha256(svg_file.read_bytes()).hexdigest():
+        raise ValueError('Territorio: los contornos no coinciden con sus metadatos.')
+    svg = ET.parse(svg_file).getroot()
+    if svg.get('viewBox') != '0 0 600 510' or metadata['crs_visualizacion'] != 'EPSG:32719':
+        raise ValueError('Territorio: las capas adicionales deben usar el encuadre y CRS originales.')
+    for key, count in (('distritos', 11), ('anp', 6)):
+        record = metadata[key]
+        if record['cantidad'] != count or sha256((ROOT / record['archivo']).read_bytes()).hexdigest() != record['sha256']:
+            raise ValueError('Territorio: origen de contornos modificado sin regenerar: ' + key)
+        group = next((node for node in svg if node.get('data-territorio-overlay') == key), None)
+        if group is None or len(group) != count or group.get('fill') != 'none':
+            raise ValueError('Territorio: capa adicional incompleta o con relleno que oculta el mapa.')
+    for name in ('territorio-rio.svg', 'territorio-observa.svg'):
+        ET.parse(ROOT / 'images' / name)
+
+
 def verify():
     errors = []
     pages = {}
@@ -441,6 +490,7 @@ def verify():
         verify_historia()
         verify_conservacion()
         verify_biblioteca()
+        verify_territorio_educativo()
         for entry, page in pages.items():
             for reference in page.anchors:
                 fragment = unquote(urlsplit(reference).fragment)

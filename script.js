@@ -642,6 +642,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const territory = document.querySelector(".selva-territorio-layout");
     if (territory) {
+        let exploreTopic = null, pendingTopic = null;
         const initializeTerritory = () => {
         const topics = JSON.parse(document.getElementById("selva-territorio-datos").textContent);
         const forestData = JSON.parse(document.getElementById("selva-territorio-cobertura-datos")?.textContent || '{"categories":[],"topics":{}}');
@@ -720,18 +721,18 @@ document.addEventListener("DOMContentLoaded", () => {
             const text = document.createElementNS(svg.namespaceURI, "text");
             text.textContent = topics[key].name.replace("Río ", "");
             group.append(leader, background, text); labelLayer.append(group);
-            group.addEventListener("click", () => { if (activeMode === topics[key].mode) select(key); });
-            group.addEventListener("pointerenter", () => { if (activeMode === topics[key].mode) highlight(key); });
+            group.addEventListener("click", () => { if (enabledLayers.has(topics[key].mode)) select(key); });
+            group.addEventListener("pointerenter", () => { if (enabledLayers.has(topics[key].mode)) highlight(key); });
             group.addEventListener("pointerleave", () => highlight(null));
             return { key, path, group, leader, background, text, settings };
         });
         const updateMapLabels = () => {
-            labelLayer.style.display = activeMode === "bosques" ? "none" : "";
-            labelLayer.setAttribute("aria-hidden", String(activeMode === "bosques"));
+            labelLayer.style.display = enabledLayers.has("rios") || enabledLayers.has("humedales") ? "" : "none";
+            labelLayer.setAttribute("aria-hidden", String(!enabledLayers.has("rios") && !enabledLayers.has("humedales")));
             const ratio = 1 / (svg.getScreenCTM()?.a || 1);
             const occupied = [];
             mapLabels.forEach(({ key, path, group, leader, background, text, settings }) => {
-                const visible = activeMode === topics[key].mode && (view[2] >= 540 || key === selectedKey);
+                const visible = enabledLayers.has(topics[key].mode) && features.some(feature => feature.dataset.mapaFeature === key && feature.getAttribute("aria-hidden") !== "true") && (view[2] >= 540 || key === selectedKey);
                 group.style.display = visible ? "" : "none";
                 group.style.pointerEvents = visible ? "" : "none";
                 group.setAttribute("aria-hidden", String(!visible));
@@ -802,7 +803,131 @@ document.addEventListener("DOMContentLoaded", () => {
             use.setAttribute("href", "#territorio-icono-" + key); el.append(use); return el;
         };
         const waterKeys = () => waterTypeFilter === "todos" ? (showAll ? allWater : initialWater) : allWater.filter(key => topics[key].waterType === waterTypeFilter);
+        // Lectura educativa: reutiliza textos del aula y conserva el registro cartográfico.
+        const lectura = JSON.parse(document.getElementById("territorio-lectura-datos").textContent);
+        const aula = territory.closest("#explora-madre-de-dios");
+        const layerInputs = [...territory.querySelectorAll("[data-territorio-capa]")];
+        const overlayInputs = [...territory.querySelectorAll("[data-territorio-overlay-toggle]")];
+        const layerStatus = territory.querySelector("[data-territorio-capas-status]");
+        const enabledLayers = new Set();
+        let overlayPromise = null, overlayReady = false, overlayError = "";
+        const updateLayerStatus = () => {
+            const names = [...layerInputs.filter(input => input.checked).map(input => input.parentElement.textContent.trim()),
+                ...(provinceToggle.checked ? ["Provincias"] : []),
+                ...overlayInputs.filter(input => input.checked && overlayReady).map(input => input.parentElement.textContent.trim())];
+            layerStatus.textContent = (names.length ? "Capas visibles: " + names.join(" · ") + "." : "No hay capas activadas; se conserva el contorno de referencia.") +
+                (overlayError ? " " + overlayError : overlayPromise && !overlayReady ? " Cargando contornos adicionales…" : "") +
+                " Las fechas y límites de uso se explican en Datos y metodología.";
+        };
+        const updateScenes = () => {
+            scenes.forEach(scene => {
+                const visible = enabledLayers.has(scene.dataset.territorioScene);
+                scene.style.display = visible ? "" : "none";
+                scene.style.pointerEvents = visible ? "" : "none";
+                scene.setAttribute("aria-hidden", String(!visible));
+                if (visible) scene.removeAttribute("inert"); else scene.setAttribute("inert", "");
+            });
+            layerInputs.forEach(input => { input.checked = enabledLayers.has(input.dataset.territorioCapa); });
+            overlayInputs.forEach(input => svg.querySelectorAll('[data-territorio-overlay="' + input.dataset.territorioOverlayToggle + '"]').forEach(group => {
+                group.style.display = input.checked ? "" : "none";
+            }));
+            updateLayerStatus();
+        };
+        const loadOverlays = () => {
+            if (overlayReady) return Promise.resolve();
+            if (overlayPromise) return overlayPromise;
+            overlayError = "";
+            overlayPromise = (async () => {
+                const response = await fetch("datos/territorio/capas-adicionales.svg");
+                if (!response.ok) throw new Error("HTTP " + response.status);
+                const doc = new DOMParser().parseFromString(await response.text(), "image/svg+xml");
+                if (doc.querySelector("parsererror") || doc.documentElement.localName !== "svg") throw new Error("SVG inválido");
+                for (const name of ["anp", "distritos"]) {
+                    const original = doc.querySelector('[data-territorio-overlay="' + name + '"]');
+                    if (!original) throw new Error("Capa ausente: " + name);
+                }
+                for (const name of ["anp", "distritos"]) {
+                    const group = document.importNode(doc.querySelector('[data-territorio-overlay="' + name + '"]'), true);
+                    group.setAttribute("clip-path", "url(#territorio-limite-clip)");
+                    svg.insertBefore(group, labelLayer);
+                }
+                overlayReady = true;
+            })().catch(error => {
+                console.error("No se pudieron cargar los contornos adicionales:", error);
+                overlayInputs.forEach(input => { input.checked = false; });
+                overlayError = "No se pudieron cargar los contornos adicionales. Activa una casilla para volver a intentar.";
+            }).finally(() => { overlayPromise = null; updateScenes(); updateLegend(); });
+            updateLayerStatus();
+            return overlayPromise;
+        };
+        overlayInputs.forEach(input => input.addEventListener("change", () => {
+            if (input.checked) loadOverlays();
+            updateScenes(); updateLegend();
+        }));
+        layerInputs.forEach(input => input.addEventListener("change", () => {
+            if (input.checked) enabledLayers.add(input.dataset.territorioCapa);
+            else enabledLayers.delete(input.dataset.territorioCapa);
+            if (selectedKey && !enabledLayers.has(topics[selectedKey].mode)) clearSelection();
+            tooltip.hidden = true;
+            updateScenes(); updateFeatures(); updateMapLabels(); updateLegend();
+        }));
+        provinceToggle.addEventListener("change", updateLayerStatus);
+        const appendLearning = (key, target) => {
+            const topic = topics[key];
+            const more = node("details", "territorio-ficha-aprender");
+            more.append(node("summary", "", "Comprender este ambiente"));
+            const dl = node("dl", "");
+            const add = (label, value) => dl.append(node("dt", "", label), node("dd", "", value));
+            if (topic.mode === "rios") {
+                const record = lectura.rios[key];
+                if (!record) return;
+                add("Ubicación del trazado", lectura.ubicacion);
+                add("Importancia", record.importancia);
+                add("Ambientes relacionados", record.ambientes);
+                add("Biodiversidad y alcance", record.biodiversidad);
+                add("Áreas protegidas relacionadas", record.anp);
+                add("Cambios que estudiar", lectura.amenazas);
+                more.append(dl);
+                record.fuentes.forEach(id => {
+                    const link = node("a", "territorio-referencia", "Consultar fuente: " + ({anp:"SERNANP", cincia:"CINCIA, 2023", ecosistemas:"MINAM, 2019"}[id]));
+                    link.href = lectura.fuentes[id]; more.append(link);
+                });
+            } else if (topic.mode === "humedales") {
+                const record = lectura.humedales[topic.waterType];
+                if (!record) return;
+                add("Características y límites del registro", record.caracteristicas);
+                add("Importancia del tipo de ambiente", record.importancia);
+                add("Vegetación", record.vegetacion); add("Fauna", record.fauna); more.append(dl);
+                const link = node("a", "territorio-referencia", "Comprender humedales y aguajales →"); link.href = "#territorio-humedales"; more.append(link);
+                const source = node("a", "territorio-referencia", "Contexto educativo: MINAM, 2019 →"); source.href = "#territorio-fuente-ecosistemas"; more.append(source);
+            } else {
+                const template = aula.querySelector('[data-territorio-explorar="' + key + '"]')?.closest("details")?.querySelector("dl");
+                if (template) {
+                    [...template.querySelectorAll("dt")].slice(1).forEach(dt => add(dt.textContent, dt.nextElementSibling.textContent));
+                    more.append(dl, node("p", "", "Relaciones educativas, no un inventario de especies o amenazas de este polígono."));
+                }
+                const link = node("a", "territorio-referencia", "Aprender sobre los bosques y sus fuentes →"); link.href = "#territorio-bosques"; more.append(link);
+            }
+            target.append(more);
+        };
+
+        const appendLayerLegend = () => {
+            const items = [];
+            if (enabledLayers.has("rios") && activeMode !== "rios") items.push(["rio", "Ríos · cursos mostrados"]);
+            if (enabledLayers.has("humedales") && activeMode !== "humedales") items.push(["laguna", "Lagunas · MasaAgua"], ["pantano", "Pantanos · MasaAgua"]);
+            items.forEach(([kind, text]) => {
+                const item = node("span", "selva-territorio-leyenda-item");
+                item.append(node("i", "selva-territorio-muestra selva-territorio-muestra--" + kind), node("span", "", text)); legend.append(item);
+            });
+            if (enabledLayers.has("bosques") && activeMode !== "bosques") legend.append(node("small", "", "Cobertura vegetal · categorías MINAM, 2015; colores EcoSelva."));
+            overlayInputs.filter(input => input.checked && overlayReady).forEach(input => {
+                legend.append(node("small", "", input.dataset.territorioOverlayToggle === "anp" ? "ANP · contornos verdes discontinuos" : "Distritos · contornos marrones discontinuos"));
+            });
+        };
         const updateLegend = () => {
+            if (!enabledLayers.has(activeMode)) {
+                legend.replaceChildren(node("span", "", "La capa principal está desactivada. Consulta las capas visibles en las casillas del mapa.")); appendLayerLegend(); return;
+            }
             if (activeMode === "bosques") {
                 legend.replaceChildren(...modes.bosques.keys.map(key => {
                     const item = node("span", "selva-territorio-leyenda-item");
@@ -811,7 +936,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     item.setAttribute("aria-current", selectedKey === key ? "true" : "false");
                     item.append(swatch, icon(topics[key].icon || key), node("span", "", key === "tierra" ? "Tierra firme" : topics[key].name)); return item;
                 }), node("small", "selva-territorio-leyenda-aviso", forestData.categories.length ? "Categorías originales · MINAM, 2015. Colores de visualización EcoSelva; incluye coberturas no forestales." : "Colores educativos. La distribución espacial detallada está en preparación."));
-                return;
+                appendLayerLegend(); return;
             }
             const items = activeMode === "bosques" ? modes.bosques.keys.map(key => [key, topics[key].name.replace("Bosque de ", "").replace("Bosque ", "")]) :
                 activeMode === "rios" ? (selectedKey ? [["seleccionado", "Río seleccionado"], ["rio", "Otros cursos mostrados"]] : [["rio", "Cursos mostrados"]]) :
@@ -821,6 +946,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 item.append(node("i", "selva-territorio-muestra selva-territorio-muestra--" + kind), node("span", "", text)); return item;
             }));
             if (activeMode === "bosques") legend.append(node("small", "", "Representación educativa"));
+            appendLayerLegend();
         };
         const setView = (next, animate = true) => {
             cancelAnimationFrame(zoomFrame);
@@ -874,11 +1000,12 @@ document.addEventListener("DOMContentLoaded", () => {
             const visibleWater = new Set(waterKeys());
             features.forEach(feature => {
                 const key = feature.dataset.mapaFeature;
-                const visible = feature.dataset.mapaModo === activeMode && (activeMode !== "bosques" || modes.bosques.keys.includes(key)) && (activeMode !== "humedales" || visibleWater.has(key));
+                const featureMode = feature.dataset.mapaModo;
+                const visible = enabledLayers.has(featureMode) && (featureMode !== "bosques" || modes.bosques.keys.includes(key)) && (featureMode !== "humedales" || visibleWater.has(key));
                 feature.style.display = visible ? "" : "none";
                 feature.style.pointerEvents = visible ? "" : "none";
                 feature.setAttribute("aria-hidden", String(!visible));
-                feature.tabIndex = visible && (activeMode === "rios" || selectedKey === key || (activeMode === "bosques" && !selectedKey && key === modes.bosques.keys[0])) ? 0 : -1;
+                feature.tabIndex = visible && (featureMode === "rios" || selectedKey === key || (featureMode === "bosques" && !selectedKey && key === modes.bosques.keys[0])) ? 0 : -1;
                 feature.classList.toggle("is-selected", visible && selectedKey === key);
                 if (visible) { feature.setAttribute("role", "button"); feature.setAttribute("aria-pressed", String(selectedKey === key)); }
                 else { feature.removeAttribute("role"); feature.removeAttribute("aria-pressed"); feature.classList.remove("is-highlighted"); }
@@ -938,6 +1065,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const sourceButton = node("button", "selva-territorio-registro-abrir", "Fuentes y datos del registro ↗"); sourceButton.type = "button";
             sourceButton.setAttribute("aria-haspopup", "dialog"); sourceButton.setAttribute("aria-controls", "selva-territorio-fuentes-modal");
             sourceButton.addEventListener("click", () => openSources(sourceButton, sources, "Fuentes y datos del registro · " + topic.name, "registro"));
+            appendLearning(key, card);
             card.append(sourceButton, sources);
             if (topic.source) {
                 const link = node("a", "", topic.reference + " ↗");
@@ -946,7 +1074,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         };
         const select = (key, interact = true) => {
-            if (!topics[key] || topics[key].mode !== activeMode) return;
+            if (!topics[key]) return;
+            if (topics[key].mode !== activeMode) setMode(topics[key].mode, false, false, true);
+            enabledLayers.add(topics[key].mode); updateScenes();
             if (interact && performance.now() - lastDragAt < 250) return;
             selectedKey = key;
             if (interact) markExplored();
@@ -1029,20 +1159,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         };
-        const setMode = (mode, moveFocus = false, initial = false) => {
+        const setMode = (mode, moveFocus = false, initial = false, keepLayers = false) => {
             const scroll = { left: window.scrollX, top: window.scrollY };
             activeMode = mode; selectedKey = null; showAll = false; waterTypeFilter = "todos";
+            if (!keepLayers) enabledLayers.clear();
+            enabledLayers.add(mode);
+            if (mode !== "bosques") { filterForest(null); territory.dataset.forest = "todos"; }
             territory.dataset.territorioActivo = mode;
             tooltip.hidden = true; setView([0, 0, 600, 510], false);
-            scenes.forEach(scene => {
-                const visible = scene.dataset.territorioScene === mode;
-                scene.style.display = visible ? "" : "none";
-                scene.style.pointerEvents = visible ? "" : "none";
-                scene.setAttribute("aria-hidden", String(!visible));
-                if (visible) scene.removeAttribute("inert"); else scene.setAttribute("inert", "");
-                scene.classList.remove("is-entering");
-                if (visible) { scene.getBoundingClientRect(); scene.classList.add("is-entering"); }
-            });
+            updateScenes();
             tabs.forEach(tab => {
                 const selected = tab.dataset.territorioModo === mode;
                 tab.setAttribute("aria-selected", String(selected)); tab.tabIndex = selected ? 0 : -1;
@@ -1073,7 +1198,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
         features.forEach(feature => {
-            const available = () => feature.getAttribute("aria-hidden") !== "true" && feature.dataset.mapaModo === activeMode;
+            const available = () => feature.getAttribute("aria-hidden") !== "true" && enabledLayers.has(feature.dataset.mapaModo);
             feature.addEventListener("click", () => { if (available()) select(feature.dataset.mapaFeature); });
             feature.addEventListener("keydown", event => { if (available() && (event.key === "Enter" || event.key === " ")) { event.preventDefault(); select(feature.dataset.mapaFeature); } });
             feature.addEventListener("pointerenter", event => { if (available()) highlight(feature.dataset.mapaFeature, event); });
@@ -1114,12 +1239,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         window.addEventListener("resize", () => { updateMapLabels(); updateScale(); });
         reducedMotion.addEventListener("change", () => { if (reducedMotion.matches) { cancelAnimationFrame(zoomFrame); svg.setAttribute("viewBox", view.join(" ")); } });
+        exploreTopic = key => {
+            if (!topics[key]) return;
+            setMode(topics[key].mode);
+            select(key);
+            territory.scrollIntoView({behavior: reducedMotion.matches ? "instant" : "smooth", block: "start"});
+            card.querySelector(".selva-territorio-ficha-volver")?.focus({preventScroll: true});
+        };
         setMode("rios", false, true);
         };
 
         const host = territory.querySelector("[data-territorio-map-src]");
         const canvas = territory.querySelector(".selva-territorio-canvas");
-        const controls = [...document.querySelectorAll("[data-territorio-modo]"), ...territory.querySelectorAll("[data-territorio-zoom], #territorio-provincias")];
+        const controls = [...document.querySelectorAll("[data-territorio-modo]"), ...territory.querySelectorAll("[data-territorio-zoom], #territorio-provincias, [data-territorio-capa], [data-territorio-overlay-toggle]")];
         let loading = false, loaded = false;
         controls.forEach(control => { control.disabled = true; });
         const loadTerritory = async () => {
@@ -1142,6 +1274,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 initializeTerritory();
                 loaded = true;
                 observer?.disconnect();
+                if (pendingTopic) { const key = pendingTopic; pendingTopic = null; exploreTopic(key); }
             } catch (error) {
                 console.error("No se pudo cargar el mapa de EcoSelva:", error);
                 loadedSvg?.remove();
@@ -1154,6 +1287,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 canvas.setAttribute("aria-busy", "false");
             }
         };
+        territory.closest("#explora-madre-de-dios").querySelectorAll("[data-territorio-explorar]").forEach(button => {
+            button.disabled = false;
+            button.addEventListener("click", () => {
+                if (loaded || !host) exploreTopic?.(button.dataset.territorioExplorar);
+                else {
+                    pendingTopic = button.dataset.territorioExplorar;
+                    territory.scrollIntoView({block: "start", behavior: "instant"});
+                    loadTerritory();
+                }
+            });
+        });
         let observer;
         if (host) {
             host.querySelector("button")?.addEventListener("click", loadTerritory);
@@ -1166,6 +1310,53 @@ document.addEventListener("DOMContentLoaded", () => {
         } else initializeTerritory();
     }
 
+
+    // Actividades locales: sin llamadas externas y con alternativas en noscript.
+    const territorioAula = document.getElementById("explora-madre-de-dios");
+    if (territorioAula) {
+        const quiz = territorioAula.querySelector("[data-territorio-quiz]");
+        const answers = [...quiz.querySelectorAll("[data-territorio-respuesta]")];
+        answers.forEach(button => {
+            button.disabled = false; button.setAttribute("aria-pressed", "false");
+            button.addEventListener("click", () => {
+                answers.forEach(answer => answer.setAttribute("aria-pressed", String(answer === button)));
+                const value = button.dataset.territorioRespuesta;
+                quiz.querySelector(".territorio-feedback").textContent = value === "rio" ?
+                    "Correcto: el elemento central es un río, con un cauce sinuoso entre orillas. El bosque lo acompaña. La ilustración no permite identificar todos los humedales." :
+                    value === "bosque" ? "El bosque aparece en las orillas. Observa el elemento central por el que fluye el agua y prueba otra respuesta." :
+                    "El agua puede conectar humedales, pero aquí se representa un cauce con flujo. Observa el elemento central y prueba otra respuesta.";
+            });
+        });
+        const form = territorioAula.querySelector("[data-territorio-relaciona]");
+        form.querySelectorAll("button").forEach(button => { button.disabled = false; });
+        const expected = {bosque: "carbono", rio: "agua", humedal: "regulacion"};
+        const names = {bosque: "bosque → almacenamiento de carbono", rio: "río → conducción de agua", humedal: "humedal → almacenamiento y regulación hídrica"};
+        form.addEventListener("submit", event => {
+            event.preventDefault();
+            if (!form.reportValidity()) return;
+            const wrong = Object.keys(expected).filter(name => {
+                const field = form.elements.namedItem(name);
+                const match = field.value === expected[name];
+                field.setAttribute("aria-invalid", String(!match));
+                field.setAttribute("aria-describedby", "territorio-relaciona-feedback");
+                return !match;
+            });
+            const feedback = form.querySelector(".territorio-feedback");
+            feedback.id = "territorio-relaciona-feedback";
+            feedback.textContent = wrong.length ? "Has relacionado " + (3 - wrong.length) + " de 3 funciones destacadas. Revisa: " + wrong.map(name => names[name]).join("; ") + ". Estas funciones son ejemplos y no son exclusivas de un ambiente." :
+                "Correcto: bosque → carbono; río → agua; humedal → regulación hídrica. Los humedales también pueden almacenar carbono y los bosques influir en el agua: las funciones se conectan.";
+        });
+        form.addEventListener("reset", () => {
+            form.querySelector(".territorio-feedback").textContent = "";
+            form.querySelectorAll("select").forEach(field => { field.removeAttribute("aria-invalid"); field.removeAttribute("aria-describedby"); });
+        });
+        // Abre las fuentes desplegables al seguir una referencia local.
+        territorioAula.querySelectorAll('a[href^="#territorio-"]').forEach(link => link.addEventListener("click", () => {
+            const target = document.getElementById(link.hash.slice(1));
+            let parent = target?.parentElement;
+            while (parent && parent !== territorioAula) { if (parent.localName === "details") parent.open = true; parent = parent.parentElement; }
+        }));
+    }
 
     const ecosystemHotspots = [...document.querySelectorAll(".selva-explora-hotspot")];
     const setHotspotState = (hotspot, isOpen) => {

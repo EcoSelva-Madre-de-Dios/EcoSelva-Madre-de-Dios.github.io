@@ -1,0 +1,39 @@
+{
+  "revision": "2026-10-05",
+  "crs_entrada": "EPSG:4326",
+  "crs_visualizacion": "EPSG:32719",
+  "viewBox": [
+    0,
+    0,
+    600,
+    510
+  ],
+  "encuadre_utm": [
+    128391.71231609437,
+    8518757.157827288,
+    537867.0407774012,
+    8908848.009558184
+  ],
+  "procesamiento": "Reproyección de GeoJSON ya publicados; encuadre uniforme del mapa original, norte arriba. Sin nueva simplificación. Redondeo a 0,01 unidades SVG. Contornos superpuestos, sin relleno ni cálculo de nuevas superficies.",
+  "clip": "El visor utiliza territorio-limite-clip del mapa original para ambas capas. ANP procede de un recorte IGN distinto; esta superposición no se usa para demarcación ni cálculo de áreas.",
+  "distritos": {
+    "archivo": "datos/territorio/distritos.geojson",
+    "sha256": "c70433638a268cf44bfdf36d4162c819e4eaf8fc72604e5eb2cf5c540160db30",
+    "cantidad": 11,
+    "fuente": "DISTRITOS_MDD de la geodatabase aportada; generador, año de observación, escala y fecha de descarga no documentados.",
+    "incorporacion": "2026-10-02",
+    "fecha_descarga": null,
+    "uso": "Referencia educativa; no demarcación legal. La capa de origen ya se simplificó a 180 m."
+  },
+  "anp": {
+    "archivo": "datos/conservacion/anp.geojson",
+    "sha256": "5f44b3395ec32d140f03aa15efafb1f5f563011bc3a1491cf1be3cbbf255cb54",
+    "cantidad": 6,
+    "fuente": "SERNANP, servicio oficial de descarga; seis ANP nacionales.",
+    "consulta": "2026-10-05",
+    "fecha_version": null,
+    "metadatos": "datos/conservacion/metadatos.json",
+    "uso": "Contornos de referencia. No incluye ACP ni determina vigencia jurídica."
+  },
+  "sha256_svg": "24ef304ab5aea09489d3151f6287d64cb9858ae84ba721716f3cad607b7a0d23"
+}

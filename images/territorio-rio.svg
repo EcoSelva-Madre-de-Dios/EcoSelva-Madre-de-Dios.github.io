@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-labelledby="titulo descripcion">
+  <title id="titulo">Red de una cuenca y dinámica fluvial</title>
+  <desc id="descripcion">La cuenca contiene quebradas y afluentes que desembocan en el río principal. En la planicie aparecen meandros, una cocha separada y bosque ribereño. Las flechas indican el flujo del agua. Esquema educativo, sin escala.</desc>
+  <defs><marker id="flecha" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#24656b"/></marker><g id="arbol"><path d="M0 0v35" stroke="#705034" stroke-width="8"/><path d="M0-32-28 8h56Z" fill="#427450"/></g></defs>
+  <rect width="1000" height="480" rx="22" fill="#f0f3e8"/>
+  <path d="M80 400Q20 280 80 135Q180 15 460 30Q790 10 950 170Q1000 330 915 435" fill="none" stroke="#8b9e84" stroke-width="4" stroke-dasharray="12 10"/>
+  <path d="M70 225 166 86 215 188 275 69 359 198" fill="#c9d6c4" stroke="#8b9e84" stroke-width="3"/>
+  <path d="M165 142Q150 230 232 280M275 115Q270 217 346 240M425 78Q450 161 454 256" fill="none" stroke="#62a4a9" stroke-width="10"/>
+  <path d="M78 310Q248 203 340 259Q440 315 510 217Q570 124 650 216Q726 326 815 257Q881 224 941 348" fill="none" stroke="#62a4a9" stroke-width="35" stroke-linecap="round"/>
+  <path d="M640 347Q588 301 584 366Q591 439 660 410Q683 389 670 375" fill="none" stroke="#62a4a9" stroke-width="22" stroke-linecap="round"/>
+  <path d="M211 275 266 263M460 269 496 239M749 291 792 279M905 298 927 325" fill="none" stroke="#24656b" stroke-width="4" marker-end="url(#flecha)"/>
+  <g><use href="#arbol" x="351" y="373"/><use href="#arbol" x="407" y="347"/><use href="#arbol" x="780" y="178"/><use href="#arbol" x="830" y="151"/><use href="#arbol" x="887" y="179"/></g>
+  <g fill="#163d2b" font-family="sans-serif" font-size="52" font-weight="700"><text x="60" y="75">1</text><text x="386" y="141">2</text><text x="186" y="366">3</text><text x="580" y="111">4</text><text x="693" y="421">5</text><text x="876" y="118">6</text></g>
+</svg>
