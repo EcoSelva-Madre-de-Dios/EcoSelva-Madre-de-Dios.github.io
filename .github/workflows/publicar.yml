@@ -30,6 +30,7 @@ jobs:
           node --check conoce.js
           node --check historia.js
           node --check areas-protegidas.js
+          node --check ecoselva.js
       - name: Preparar y verificar el sitio
         run: python3 herramientas/preparar_publicacion.py _site
       - name: Configurar Pages

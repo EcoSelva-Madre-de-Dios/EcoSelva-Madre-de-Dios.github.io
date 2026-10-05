@@ -26,7 +26,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const closeButton = modal.querySelector(".ficha-glosario-cerrar");
     let openingLink;
     let restoreFocus = true;
+    let previousOverflow;
     modal.addEventListener("close", () => {
+        document.documentElement.style.overflow = previousOverflow;
         if (restoreFocus && openingLink?.isConnected) openingLink.focus({ preventScroll: true });
         restoreFocus = true;
     });
@@ -47,7 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
             openingLink = link;
             modal.querySelector("#ficha-glosario-titulo").textContent = entry.querySelector("dt").textContent;
             modal.querySelector("#ficha-glosario-definicion").replaceChildren(...[...entry.querySelector("dd").childNodes].map(node => node.cloneNode(true)));
+            previousOverflow = document.documentElement.style.overflow;
             modal.showModal();
+            document.documentElement.style.overflow = "hidden";
             closeButton.focus({ preventScroll: true });
         });
     });
