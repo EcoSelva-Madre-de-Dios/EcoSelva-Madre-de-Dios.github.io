@@ -67,7 +67,7 @@ def fragments(model):
     cards = []
     for id in model['tarjetas']:
         r = records[id]
-        cards.append(f'<article class="ficha-indicador" aria-labelledby="tarjeta-{id}"><p class="ficha-etiqueta">Producción registrada</p><h4 id="tarjeta-{id}">Castaña {"pelada" if "pelada" in r["indicador"] else "con cáscara"}</h4><p class="ficha-indicador-valor">{number(r["valor"])} <span>{escape(r["unidad"])}</span></p><p>{escape(r["ámbito"])} · año del dato: <strong>{r["año"]}</strong></p><p class="ficha-nota">{escape(r["fuente"])} · {escape(r["localizador"])} · documento publicado en {r["año_publicación"]}. Información preliminar.</p>{link("#" + id, "Ver ficha del dato ↓")}</article>')
+        cards.append(f'<article class="ficha-indicador" data-eco-card="data" aria-labelledby="tarjeta-{id}"><p class="ficha-etiqueta">Producción registrada</p><h4 id="tarjeta-{id}">Castaña {"pelada" if "pelada" in r["indicador"] else "con cáscara"}</h4><p class="ficha-indicador-valor">{number(r["valor"])} <span>{escape(r["unidad"])}</span></p><p>{escape(r["ámbito"])} · año del dato: <strong>{r["año"]}</strong></p><p class="ficha-nota">{escape(r["fuente"])} · {escape(r["localizador"])} · documento publicado en {r["año_publicación"]}. Información preliminar.</p>{link("#" + id, "Ver ficha del dato ↓")}</article>')
     result['tarjetas'] = '<div class="ficha-indicadores">' + ''.join(cards) + '</div>'
     rows = []
     for id in model['serie']['registros']:
@@ -81,14 +81,16 @@ def fragments(model):
         comparison.append(f'<div><h4>{escape(r["ámbito"])}</h4><dl><dt>Fuente</dt><dd>{escape(r["fuente"])} · {escape(r["localizador"])} · publicación {r["año_publicación"]}</dd><dt>Año del dato</dt><dd>{r["año"]}</dd><dt>Valor</dt><dd>{number(r["valor"])} {escape(r["unidad"])}</dd><dt>Ámbito</dt><dd>{escape(r["ámbito"])}</dd><dt>Nota</dt><dd>{note} {link("#" + id, "Consultar registro")}</dd></dl></div>')
     result['comparacion'] = '<div class="ficha-comparacion">' + ''.join(comparison) + '</div>'
     result['registros'] = '<div class="ficha-registros">' + ''.join(record_detail(r) for r in model['indicadores']) + '</div>'
+    preview_ids = {doc["id"] for doc in json.loads((ROOT / "datos/biblioteca/documentos.json").read_text())["documentos"]}
     groups = []
     for group, title, intro in [('primaria', 'Fuentes primarias · Madre de Dios', 'Documentos oficiales y estudios originales que sostienen el contenido regional.'), ('complementaria', 'Lectura complementaria · Brasil', 'Estudios originales para entender procesos biológicos. Su ámbito no es Madre de Dios.')]:
         cards = []
         for doc in model['documentos']:
             if doc['jerarquía'] != group:
                 continue
-            title = escape(doc['título']).replace('Bertholletia excelsa', '<em>Bertholletia excelsa</em>')
-            cards.append(f'<li id="{doc["id"]}"><p class="ficha-etiqueta">{escape(doc["tipo"])}</p><p class="ficha-doc-autor">{escape(doc["autor"])}</p><h5>{title}</h5><p class="ficha-nota">Publicación: {doc["año"]} · {escape(doc["ámbito"])}</p><p><strong>Por qué lo usamos:</strong> {escape(doc["uso"])}</p><div class="ficha-doc-enlaces">{link(doc["URL"], "Abrir documento ↗")}{(" · " + link(doc["URL_PDF"], "PDF original ↗")) if doc.get("URL_PDF") else ""}</div></li>')
+            doc_title = escape(doc['título']).replace('Bertholletia excelsa', '<em>Bertholletia excelsa</em>')
+            preview = f'<button class="eco-button eco-button-outline" type="button" data-eco-document="{doc["id"]}" aria-haspopup="dialog">{"Previsualizar" if doc.get("URL_PDF") else "Contexto y fuente"}</button>' if doc["id"] in preview_ids else ""
+            cards.append(f'<li class="eco-card" data-eco-card="{"document" if doc.get("URL_PDF") else "article"}" id="{doc["id"]}"><p class="ficha-etiqueta">{escape(doc["tipo"])}</p><p class="ficha-doc-autor">{escape(doc["autor"])}</p><h5>{doc_title}</h5><p class="ficha-nota">Publicación: {doc["año"]} · {escape(doc["ámbito"])}</p><p><strong>Por qué lo usamos:</strong> {escape(doc["uso"])}</p><div class="ficha-doc-enlaces">{link(doc["URL"], "Abrir documento ↗")}{(" · " + link(doc["URL_PDF"], "PDF original ↗")) if doc.get("URL_PDF") else ""}</div>{preview}</li>')
         groups.append(f'<div class="ficha-documental ficha-documental--{group}"><h4>{title}</h4><p class="ficha-nota">{intro}</p><ul class="ficha-documentos">{"".join(cards)}</ul></div>')
     result['documentos'] = ''.join(groups)
     owner = escape(model['responsabilidad_editorial'])

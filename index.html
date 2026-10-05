@@ -63,6 +63,7 @@
                             <ul>
                                 <li><a href="#quienes-somos">Sobre EcoSelva</a></li>
                                 <li><a href="#colabora">Colabora</a></li>
+                                <li><a href="biblioteca.html">Biblioteca</a></li>
                             </ul>
                         </details>
                     </li>
@@ -103,9 +104,9 @@
                 <button type="button" id="territorio-tab-rios" role="tab" data-territorio-modo="rios" aria-selected="false" aria-controls="territorio-panel" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#territorio-icono-rios"/></svg><span>Ríos</span></button>
                 <button type="button" id="territorio-tab-humedales" role="tab" data-territorio-modo="humedales" aria-selected="false" aria-controls="territorio-panel" tabindex="-1"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#territorio-icono-humedales"/></svg><span>Humedales</span></button>
             </div>
-            <div class="selva-territorio-layout" data-territorio-activo="bosques">
+            <div class="selva-territorio-layout" data-eco-card="map" data-territorio-activo="bosques">
                 <figure class="selva-territorio-mapa">
-                    <div class="selva-territorio-mapa-cabecera"><div><strong class="selva-territorio-escena-titulo">Bosques</strong><p class="selva-territorio-escena-frase">Cobertura vegetal · MINAM, 2015.</p></div><svg class="selva-territorio-modo-icono" viewBox="0 0 24 24" aria-hidden="true"><use href="#territorio-icono-bosques"/></svg></div><div class="selva-territorio-canvas"><div class="selva-territorio-ubicacion" aria-hidden="true"><strong>Madre de Dios</strong><span>Perú · vista regional</span></div><div class="selva-territorio-escala" aria-label="Escala gráfica aproximada"><div><span>0</span><span class="selva-territorio-escala-valor">100 km</span></div><i></i></div><div class="selva-territorio-mapa-carga" data-territorio-map-src="datos/territorio/mapa.svg"><p role="status">El mapa se cargará al llegar a esta sección.</p><button type="button" hidden>Volver a intentar</button><noscript><p><a href="datos/territorio/mapa.svg">Ver el mapa</a>. Activa JavaScript para explorar sus capas.</p></noscript></div><label class="selva-territorio-provincias-control"><input type="checkbox" id="territorio-provincias" checked> Provincias</label><svg class="selva-territorio-brujula" viewBox="0 0 64 64" role="img" aria-label="Orientación cartográfica: norte arriba, sur abajo, este a la derecha y oeste a la izquierda"><path class="selva-territorio-brujula-ejes" d="M32 16v32M16 32h32"/><path class="selva-territorio-brujula-norte" d="m32 17-5 15h10Z"/><path class="selva-territorio-brujula-sur" d="m32 47-4-15h8Z"/><circle cx="32" cy="32" r="2"/><text class="selva-territorio-brujula-n" x="32" y="11">N</text><text x="32" y="61">S</text><text x="58" y="36">E</text><text x="6" y="36">O</text></svg><div class="selva-territorio-controles" role="group" aria-label="Vista del mapa"><button type="button" data-territorio-zoom="in" aria-label="Acercar mapa">+</button><button type="button" data-territorio-zoom="out" aria-label="Alejar mapa">−</button><button type="button" data-territorio-zoom="reset" aria-label="Restablecer vista">⟳</button></div><span class="selva-territorio-tooltip" hidden></span><p class="selva-territorio-ayuda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 2 14 10-7 1-3 7Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Haz clic en el mapa para explorar</p></div><button type="button" class="selva-territorio-volver-vista" hidden>← Ver todo Madre de Dios</button><p class="selva-territorio-nota-escena">Cartografía publicada en 2015 y recortada a Madre de Dios. No representa necesariamente el estado actual del territorio.</p>
+                    <div class="selva-territorio-mapa-cabecera"><div><strong class="selva-territorio-escena-titulo">Bosques</strong><p class="selva-territorio-escena-frase">Cobertura vegetal · MINAM, 2015.</p></div><svg class="selva-territorio-modo-icono" viewBox="0 0 24 24" aria-hidden="true"><use href="#territorio-icono-bosques"/></svg></div><div class="selva-territorio-canvas"><div class="selva-territorio-ubicacion" aria-hidden="true"><strong>Madre de Dios</strong><span>Perú · vista regional</span></div><div class="selva-territorio-escala" aria-label="Escala gráfica aproximada"><div><span>0</span><span class="selva-territorio-escala-valor">100 km</span></div><i></i></div><div class="selva-territorio-mapa-carga" data-territorio-map-src="datos/territorio/mapa.svg"><p role="status">El mapa se cargará al llegar a esta sección.</p><button type="button" hidden>Volver a intentar</button><noscript><p><a href="datos/territorio/mapa.svg">Ver el mapa</a>. Activa JavaScript para explorar sus capas.</p></noscript></div><label class="selva-territorio-provincias-control"><input type="checkbox" id="territorio-provincias" checked> Provincias</label><svg class="selva-territorio-brujula" viewBox="0 0 64 64" role="img" aria-label="Orientación cartográfica: norte arriba, sur abajo, este a la derecha y oeste a la izquierda"><path class="selva-territorio-brujula-ejes" d="M32 16v32M16 32h32"/><path class="selva-territorio-brujula-norte" d="m32 17-5 15h10Z"/><path class="selva-territorio-brujula-sur" d="m32 47-4-15h8Z"/><circle cx="32" cy="32" r="2"/><text class="selva-territorio-brujula-n" x="32" y="11">N</text><text x="32" y="61">S</text><text x="58" y="36">E</text><text x="6" y="36">O</text></svg><div class="selva-territorio-controles" role="group" aria-label="Vista del mapa"><button type="button" data-territorio-zoom="in" data-eco-tip="Acercar la vista del mapa" aria-label="Acercar mapa">+</button><button type="button" data-territorio-zoom="out" data-eco-tip="Alejar la vista del mapa" aria-label="Alejar mapa">−</button><button type="button" data-territorio-zoom="reset" data-eco-tip="Volver a la extensión inicial" aria-label="Restablecer vista">⟳</button></div><span class="selva-territorio-tooltip" hidden></span><p class="selva-territorio-ayuda"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 2 14 10-7 1-3 7Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>Haz clic en el mapa para explorar</p></div><button type="button" class="selva-territorio-volver-vista" hidden>← Ver todo Madre de Dios</button><p class="selva-territorio-nota-escena">Cartografía publicada en 2015 y recortada a Madre de Dios. No representa necesariamente el estado actual del territorio.</p>
                     <figcaption><div class="selva-territorio-leyenda" aria-live="polite">Cobertura vegetal · MINAM, 2015.</div>Mapa educativo elaborado por EcoSelva a partir de información cartográfica del Gobierno Regional de Madre de Dios y fuentes indicadas en cada capa.</figcaption>
                 </figure>
                 <div class="selva-territorio-panel" id="territorio-panel" role="tabpanel" aria-labelledby="territorio-tab-bosques">
@@ -159,7 +160,7 @@
             <h2>¿Sabías que...?</h2>
             <p class="selva-seccion-intro">Seis historias para mirar Madre de Dios desde otra perspectiva.</p>
             <div class="selva-flip-grid">
-                <article class="selva-flip-card">
+                <article class="selva-flip-card" data-eco-card="visual">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-flora selva-flip-toggle" type="button" aria-label="Flora: Un bosque que también alimenta" aria-pressed="false">
                             <img width="745" height="858" class="selva-curiosidad-foto" src="images/castana-commons-745.jpg" srcset="images/castana-commons-480.jpg 480w, images/castana-commons-745.jpg 745w" sizes="(max-width: 640px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 64px) / 2), 389px" alt="Fruto abierto y semillas de castaña amazónica (Bertholletia excelsa); parte del fruto está reconstruida en la imagen." loading="lazy" decoding="async">
@@ -186,7 +187,7 @@
                         </span>
                     </span>
                 </article>
-                <article class="selva-flip-card">
+                <article class="selva-flip-card" data-eco-card="visual">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-fauna selva-flip-toggle" type="button" aria-label="Fauna: El jaguar aún recorre estos bosques" aria-pressed="false">
                             <img width="900" height="600" class="selva-curiosidad-foto" src="images/jaguar-madre-de-dios.jpg" alt="Jaguar (Panthera onca) en el río Los Amigos, Madre de Dios, Perú." loading="lazy" decoding="async">
@@ -211,7 +212,7 @@
                         </span>
                     </span>
                 </article>
-                <article class="selva-flip-card">
+                <article class="selva-flip-card" data-eco-card="visual">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-ecosistemas selva-flip-toggle" type="button" aria-label="Ecosistemas: La Amazonía no es un solo bosque" aria-pressed="false">
                             <img width="1920" height="1080" class="selva-curiosidad-foto" src="images/rn-tambopata.jpg" alt="Lago rodeado de bosque y palmeras, con cielo azul y nubes reflejadas en el agua." loading="lazy" decoding="async">
@@ -229,7 +230,7 @@
                         </span>
                     </span>
                 </article>
-                <article class="selva-flip-card">
+                <article class="selva-flip-card" data-eco-card="visual">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-agua selva-flip-toggle" type="button" aria-label="Agua: Hay lagos que alguna vez fueron río" aria-pressed="false">
                             <img width="1200" height="675" class="selva-curiosidad-foto" src="images/agua-madre-de-dios.jpg" alt="Vista satelital de un río amazónico sinuoso entre bosque y zonas intervenidas." loading="lazy" decoding="async">
@@ -247,7 +248,7 @@
                         </span>
                     </span>
                 </article>
-                <article class="selva-flip-card">
+                <article class="selva-flip-card" data-eco-card="visual">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-desafios selva-flip-toggle" type="button" aria-label="Ambiente: El territorio también guarda las huellas de nuestras actividades" aria-pressed="false">
                             <img width="1003" height="768" class="selva-curiosidad-foto" src="images/pampa-ecoselva.jpg" alt="Imagen satelital de La Pampa y su entorno amazónico, con bosque, áreas intervenidas y cursos de agua." loading="lazy" decoding="async">
@@ -266,7 +267,7 @@
                         </span>
                     </span>
                 </article>
-                <article class="selva-flip-card">
+                <article class="selva-flip-card" data-eco-card="visual">
                     <span class="selva-flip-inner">
                         <button class="selva-flip-front selva-tema-conservacion selva-flip-toggle" type="button" aria-label="Conservación: Conservar no siempre significa dejar de usar" aria-pressed="false">
                             <img width="768" height="1152" class="selva-curiosidad-foto" src="images/castana.jpg" alt="Árbol alto junto a un camino de tierra." loading="lazy" decoding="async">
@@ -317,7 +318,7 @@
         <p class="selva-flora-cifras-subtitulo" hidden>Registros documentados según fuentes técnicas disponibles.</p>
         <p class="selva-microetiqueta selva-biodiversidad-cifras">En cifras</p>
         <div class="selva-flora-stats">
-            <article class="selva-flora-stat selva-flora-stat--maderables">
+            <article class="selva-flora-stat selva-flora-stat--maderables" data-eco-card="stat">
                 <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M21 8c-6-3-13 2-12 8-7 1-9 10-4 14-1 7 6 11 12 8 5 5 14 1 14-5 7-1 9-10 4-14 0-7-7-12-14-11Z"/><path d="M19 23v34M11 56h18M12 28l7 6 7-9M19 40l8-7"/><path fill="#e7f0de" d="M35 41h19v14H35c-9 0-9-14 0-14Z"/><ellipse cx="54" cy="48" rx="5" ry="7"/><path d="M36 45h9M35 51h6M54 45v6"/></svg><span class="selva-flora-stat-badge">Catálogo · 2022</span></div>
                 <h3>Maderables</h3>
                 <div class="selva-flora-stat-valor" role="img" aria-label="486 especies registradas"><span class="selva-flora-stat-numero" data-flora-count="486" aria-hidden="true">486</span></div>
@@ -329,7 +330,7 @@
                     <a href="https://revistas.lamolina.edu.pe/index.php/rfp/article/download/1956/2486" target="_blank" rel="noopener noreferrer" aria-label="Ver fuente de las 486 especies maderables: catálogo de 2022" data-source-title="Catálogo de las especies forestales maderables de la Amazonía y la Yunga Peruana" data-source-authors="Rodolfo Vásquez Martínez; Rocío Del Pilar Rojas Gonzáles" data-source-publication-date="2022" data-eco-review-date="2026-10">Ver fuente <span aria-hidden="true">→</span></a>
                 </details>
             </article>
-            <article class="selva-flora-stat selva-flora-stat--no-maderables">
+            <article class="selva-flora-stat selva-flora-stat--no-maderables" data-eco-card="stat">
                 <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M31 33C17 31 15 18 30 7c4 13 6 20 1 26ZM30 47c3-13 13-20 27-17-2 15-15 22-27 17ZM22 42C9 40 5 29 7 22c12 1 19 9 15 20Z"/><path d="M30 58V22M30 47l17-9M22 42l-9-12"/></svg><span class="selva-flora-stat-badge">SERFOR · 2019</span></div>
                 <h3>No maderables</h3>
                 <div class="selva-flora-stat-valor" role="img" aria-label="69 especies documentadas"><span class="selva-flora-stat-numero" data-flora-count="69" aria-hidden="true">69</span></div>
@@ -345,7 +346,7 @@
         <section class="selva-flora-revisiones" aria-labelledby="selva-flora-revisiones-titulo">
             <h3 id="selva-flora-revisiones-titulo">Líneas en revisión</h3>
             <div class="selva-flora-revision-lista">
-            <article class="selva-flora-stat selva-flora-stat--medicinales">
+            <article class="selva-flora-stat selva-flora-stat--medicinales" data-eco-card="stat">
                 <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M29 31C17 29 15 17 29 7c4 11 5 19 0 24ZM26 46C10 45 5 32 7 24c15 1 22 10 19 22ZM30 42c4-10 13-14 24-12-3 11-13 16-24 12Z"/><path d="M28 57V21M28 46l-14-12"/><circle fill="#f7fbf4" cx="48" cy="48" r="12"/><path d="M48 42v12M42 48h12"/></svg><span class="selva-flora-stat-badge" hidden>En revisión</span></div>
                 <h4>Medicinales</h4>
                 <p class="selva-flora-stat-estado">En revisión</p>
@@ -353,7 +354,7 @@
                 <button hidden class="selva-flora-stat-accion" type="button" data-flora-modal="medicinales" aria-haspopup="dialog" aria-controls="selva-flora-modal">Ver <span aria-hidden="true">→</span></button>
 
             </article>
-            <article class="selva-flora-stat selva-flora-stat--alimenticias">
+            <article class="selva-flora-stat selva-flora-stat--alimenticias" data-eco-card="stat">
                 <div class="selva-flora-stat-cabecera"><svg class="selva-flora-stat-icono" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="#cce9c5" d="M26 23c-12-6-22 8-20 21 1 11 12 15 20 7 8 8 22 3 23-9 2-14-11-25-23-19Z"/><path d="M27 23c2-10 9-15 16-17M21 10c8 0 10 5 7 13"/><path fill="#cce9c5" d="M35 10c10-8 19-4 24 5-11 4-20 2-24-5Z"/><path d="M15 32c-3 3-4 7-3 11M40 33l2 3"/><circle fill="#cce9c5" cx="31" cy="57" r="6"/></svg><span class="selva-flora-stat-badge" hidden>En revisión</span></div>
                 <h4>Alimenticias / frutales</h4>
                 <p class="selva-flora-stat-estado">En revisión</p>
@@ -440,28 +441,28 @@
         <div class="selva-biodiversidad-panel selva-biodiversidad-fauna" id="selva-biodiversidad-panel-fauna" role="tabpanel" aria-labelledby="selva-biodiversidad-tab-fauna" tabindex="0" hidden>
             <p class="selva-microetiqueta selva-fauna-cifras">En cifras</p>
             <div class="selva-fauna-stats" aria-label="Registros regionales de fauna">
-                <article class="selva-fauna-stat selva-fauna-stat--mamiferos" data-fauna-categoria="mamiferos">
+                <article class="selva-fauna-stat selva-fauna-stat--mamiferos" data-eco-card="stat" data-fauna-categoria="mamiferos">
                     <svg class="selva-fauna-icono" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="10" cy="14" rx="3" ry="4"/><ellipse cx="18" cy="9" rx="3" ry="4"/><ellipse cx="27" cy="11" rx="3" ry="4"/><ellipse cx="33" cy="18" rx="3" ry="4"/><path d="M12 28c0-4 4-6 6-9 2-3 5-3 7 0 2 3 6 6 6 10 0 6-6 4-10 3-4 1-9 2-9-4Z"/></svg>
                     <h3>Mamíferos</h3>
                     <div class="selva-fauna-numero" role="img" aria-label="214 especies de mamíferos registradas"><span data-fauna-count="214" aria-hidden="true">214</span></div>
                     <p class="selva-fauna-descripcion">especies registradas</p><span class="selva-fauna-badge">CEPLAN · 2024</span>
                     <button class="selva-fauna-explorar" type="button" data-fauna-explorar="mamiferos" aria-haspopup="dialog" aria-controls="selva-fauna-modal" aria-label="Explorar mamíferos">Explorar →</button>
                 </article>
-                <article class="selva-fauna-stat selva-fauna-stat--aves" data-fauna-categoria="aves">
+                <article class="selva-fauna-stat selva-fauna-stat--aves" data-eco-card="stat" data-fauna-categoria="aves">
                     <svg class="selva-fauna-icono" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 33 30 9M12 29C5 17 18 5 33 6c1 15-11 28-21 23ZM18 23l-1-10M23 18l8-1M13 28l9 1"/></svg>
                     <h3>Aves</h3>
                     <div class="selva-fauna-numero" role="img" aria-label="755 especies de aves registradas"><span data-fauna-count="755" aria-hidden="true">755</span></div>
                     <p class="selva-fauna-descripcion">especies registradas</p><span class="selva-fauna-badge">CEPLAN · 2024</span>
                     <button class="selva-fauna-explorar" type="button" data-fauna-explorar="aves" aria-haspopup="dialog" aria-controls="selva-fauna-modal" aria-label="Explorar aves">Explorar →</button>
                 </article>
-                <article class="selva-fauna-stat selva-fauna-stat--reptiles" data-fauna-categoria="reptiles">
+                <article class="selva-fauna-stat selva-fauna-stat--reptiles" data-eco-card="stat" data-fauna-categoria="reptiles">
                     <svg class="selva-fauna-icono" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 32c-6-2-5-8 2-8h13c9 0 10-10 3-10H15c-7 0-7-8-1-8h8M12 32h13c12 0 14-13 5-17M22 6c3-3 9-2 10 1-1 4-7 5-10 3ZM32 7h4l2-2M36 7l2 2"/><circle cx="28" cy="7" r=".6"/></svg>
                     <h3>Reptiles</h3>
                     <div class="selva-fauna-numero" role="img" aria-label="132 especies de reptiles reportadas"><span data-fauna-count="132" aria-hidden="true">132</span></div>
                     <p class="selva-fauna-descripcion">especies reportadas</p><span class="selva-fauna-badge">CEPLAN · 2024</span>
                     <button class="selva-fauna-explorar" type="button" data-fauna-explorar="reptiles" aria-haspopup="dialog" aria-controls="selva-fauna-modal" aria-label="Explorar reptiles">Explorar →</button>
                 </article>
-                <article class="selva-fauna-stat selva-fauna-stat--anfibios" data-fauna-categoria="anfibios">
+                <article class="selva-fauna-stat selva-fauna-stat--anfibios" data-eco-card="stat" data-fauna-categoria="anfibios">
                     <svg class="selva-fauna-icono" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="14" cy="11" r="4"/><circle cx="26" cy="11" r="4"/><path d="M10 14c-4 11 1 17 10 17s14-6 10-17M15 19c3 3 7 3 10 0M9 22l-5 5 6 6H5M31 22l5 5-6 6h5M15 28l-3 6M25 28l3 6"/><circle cx="14" cy="11" r=".7"/><circle cx="26" cy="11" r=".7"/></svg>
                     <h3>Anfibios</h3>
                     <div class="selva-fauna-numero" role="img" aria-label="124 especies de anfibios registradas"><span data-fauna-count="124" aria-hidden="true">124</span></div>
@@ -476,7 +477,7 @@
                 <p class="selva-fauna-revision">Última revisión de fuentes: <time datetime="2026-10">octubre de 2026</time>.</p>
             </div>
             <p class="selva-fauna-proxima" hidden>Peces · próxima categoría</p>
-            <dialog class="selva-fauna-modal eco-editorial" id="selva-fauna-modal" aria-labelledby="selva-fauna-modal-titulo">
+            <dialog class="selva-fauna-modal eco-editorial" id="selva-fauna-modal" data-eco-presentation="drawer" aria-labelledby="selva-fauna-modal-titulo">
                 <header class="eco-modal-barra"><span class="eco-modal-contexto">EcoSelva · Fauna</span><button class="selva-fauna-modal-cerrar" type="button" aria-label="Cerrar ventana de fauna">×</button></header>
 
                 <div class="selva-fauna-modal-layout">
@@ -578,6 +579,11 @@
         </div>
     </section>
 
+
+<section class="eco-discover" id="biblioteca" aria-labelledby="biblioteca-titulo"><div class="container"><header class="eco-discover-heading"><div><p class="eco-eyebrow">Leer · mirar · explorar</p><h2 id="biblioteca-titulo">Sigue el hilo del conocimiento</h2><p>De una especie a su territorio, y de una historia a sus fuentes.</p></div><a class="eco-button eco-button-outline" href="biblioteca.html">Explorar biblioteca <svg class="eco-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/ecoselva-iconos.svg#biblioteca"></use></svg></a></header><div class="eco-bento">
+<article class="eco-card eco-bento-feature" data-eco-card="visual"><img src="images/castana-commons-745.jpg" width="745" height="858" loading="lazy" decoding="async" alt="Fruto abierto y semillas de castaña; parte del fruto está reconstruida en la imagen."><div><p class="eco-eyebrow">Flora · ficha educativa</p><h3>Castaña amazónica</h3><p>Lo esencial, los procesos del bosque y los datos que puedes consultar.</p><a class="eco-button" href="fichas/castana.html">Explorar la ficha <span class="eco-arrow" aria-hidden="true">→</span></a><small>P. S. Sena · edición RoRo · <a href="https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_fruit_and_seeds.jpg" target="_blank" rel="noopener noreferrer">Wikimedia Commons · CC BY-SA 4.0 ↗</a></small></div></article>
+<a class="eco-card eco-bento-map" data-eco-card="map" href="#explora-madre-de-dios"><svg class="eco-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/ecoselva-iconos.svg#mapas"></use></svg><div><p class="eco-eyebrow">Atlas · capas y registros</p><h3>Un territorio conectado</h3><p>Acércate a los bosques, los ríos y los humedales.</p><span class="eco-text-link">Abrir el mapa <span class="eco-arrow" aria-hidden="true">→</span></span></div></a>
+<article class="eco-card eco-bento-document" data-eco-card="document"><img src="images/documentos/doc-osinfor.webp" width="420" height="594" alt="Primera página del documento de OSINFOR sobre concesiones para castaña" loading="lazy" decoding="async"><div><p class="eco-eyebrow">Documento · OSINFOR · 2024</p><h3>Detrás de la ficha</h3><p>Consulta el informe original sobre concesiones para castaña.</p><button class="eco-button" type="button" data-eco-document="doc-osinfor" aria-haspopup="dialog">Previsualizar <span class="eco-arrow" aria-hidden="true">↗</span></button></div></article></div></div></section>
     <section class="info-1" id="quienes-somos">
         <div class="info-content container">
             <div class="selva-sobre-layout">
@@ -692,7 +698,7 @@
                 <p class="selva-footer-nombre"><strong>EcoSelva Madre de Dios</strong></p>
                 <p class="selva-footer-lema">Educar para Preservar</p>
                 <p class="selva-footer-descripcion">Historias, datos y recursos para aprender sobre Madre de Dios.</p>
-                <nav class="selva-footer-nav" aria-label="Navegación secundaria">
+                <nav class="selva-footer-nav" aria-label="Navegación secundaria"><a href="biblioteca.html">Biblioteca</a>
                     <a href="#quienes-somos">Sobre EcoSelva</a>
                     <a href="#investigaciones">Investigaciones</a>
                     <a href="#colabora">Colabora</a>

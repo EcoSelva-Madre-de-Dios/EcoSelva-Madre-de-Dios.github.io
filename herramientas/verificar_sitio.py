@@ -11,10 +11,11 @@ import csv
 import re
 import sys
 from actualizar_ficha_castana import COLUMNS, check_generated
+import actualizar_biblioteca
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://ecoselva-madre-de-dios.github.io'
-PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html')
+PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html')
 ENTRYPOINTS = PAGES + ('google46599e54e679b03a.html', 'robots.txt', 'sitemap.xml')
 
 
@@ -355,6 +356,45 @@ def verify_castana():
     ET.parse(ROOT / 'fichas/castana-patron.svg')
 
 
+def verify_biblioteca():
+    actualizar_biblioteca.check_generated()
+    model = json.loads((ROOT / 'datos/biblioteca/documentos.json').read_text())
+    documents = model['documentos']
+    if not documents or len({doc['id'] for doc in documents}) != len(documents):
+        raise ValueError('Biblioteca: catálogo vacío o documentos duplicados.')
+    date.fromisoformat(model['revision'])
+    originals = (ROOT / 'fichas/castana.html').read_text() + (ROOT / 'historia.html').read_text() + (ROOT / 'areas-protegidas.html').read_text()
+    for doc in documents:
+        if any(not doc.get(key) for key in ('id', 'titulo', 'autor', 'anio', 'tipo', 'tema', 'alcance', 'uso', 'url', 'contexto')):
+            raise ValueError('Biblioteca: falta procedencia o contexto del documento.')
+        if not isinstance(doc['anio'], int) or doc['tema'] not in ('bosques', 'mapas', 'conservacion', 'historia', 'ciencia'):
+            raise ValueError('Biblioteca: año o tema inválido.')
+        for key in ('url', 'pdf'):
+            if doc.get(key) and (urlsplit(doc[key]).scheme != 'https' or doc[key].replace('&', '&amp;') not in originals):
+                raise ValueError(f'Biblioteca: {doc["id"]} no remite a una fuente original de EcoSelva.')
+        context = urlsplit(doc['contexto'])
+        target = local_path(doc['contexto'], ROOT)
+        if target is None or not target.is_file() or target.suffix != '.html':
+            raise ValueError('Biblioteca: falta la página de contexto.')
+        page = Page()
+        page.feed(target.read_text())
+        if not context.fragment or context.fragment not in page.ids:
+            raise ValueError('Biblioteca: el contexto no enlaza a una fuente existente.')
+        if doc.get('pdf'):
+            if not all(isinstance(doc.get(key), int) and doc[key] > 0 for key in ('bytes', 'paginas', 'ancho', 'alto')) or not re.fullmatch(r'[0-9a-f]{64}', doc.get('sha256', '')):
+                raise ValueError('Biblioteca: metadatos comprobados del PDF incompletos.')
+            date.fromisoformat(doc['fecha_comprobacion'])
+            cover = local_path(doc['portada'], ROOT)
+            if cover is None or not cover.is_file() or cover.suffix != '.webp':
+                raise ValueError('Biblioteca: portada original inexistente.')
+        elif any(key in doc for key in ('portada', 'paginas', 'bytes', 'sha256')):
+            raise ValueError('Biblioteca: un artículo sin PDF no debe mostrar metadatos inventados.')
+    icons = ET.parse(ROOT / 'images/ecoselva-iconos.svg').getroot()
+    expected = {'bosques', 'biodiversidad', 'flora', 'fauna', 'mapas', 'satelite', 'datos', 'documentos', 'biblioteca', 'conservacion', 'educacion', 'ciencia'}
+    if not expected.issubset({element.get('id') for element in icons.iter()}):
+        raise ValueError('Iconos: falta una categoría del sistema compartido.')
+
+
 def verify():
     errors = []
     pages = {}
@@ -369,7 +409,7 @@ def verify():
             errors.append(f'{entry}: idioma o URL canónica incorrectos.')
         if not page.links.get('icon'):
             errors.append(f'{entry}: falta el favicon.')
-        if entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html'):
+        if entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html'):
             if page.metadata.get('og:url') != expected_url:
                 errors.append(f'{entry}: og:url debe coincidir con la URL canónica.')
             social_image = page.metadata.get('og:image', '')
@@ -390,7 +430,7 @@ def verify():
                 errors.append(f'{entry}: JSON inválido: {error}')
         if re.search(r'^\s*(?:<<<<<<<|=======|>>>>>>>)', html, re.M):
             errors.append(f'{entry}: conflicto de Git sin resolver.')
-    for entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html'):
+    for entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html'):
         html = (ROOT / entry).read_text()
         head = html.split('<head>', 1)[1].split('</head>', 1)[0]
         if html.count('gtag/js?') != 1 or "gtag('config', 'G-0KG7JC82NV');" not in head or 'GTM-' in head:
@@ -400,6 +440,7 @@ def verify():
         verify_conoce()
         verify_historia()
         verify_conservacion()
+        verify_biblioteca()
         for entry, page in pages.items():
             for reference in page.anchors:
                 fragment = unquote(urlsplit(reference).fragment)
