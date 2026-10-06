@@ -1,4 +1,4 @@
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
   'use strict';
   const block = document.getElementById('anp-datos');
   if (!block) return;
@@ -12,9 +12,6 @@
   const ficheDialog = document.querySelector('.anp-dialogo-ficha');
   const sourceDialog = document.querySelector('.anp-dialogo-fuente');
   const enhanced = typeof ficheDialog.showModal === 'function';
-  const origins = new Map();
-  const opened = new Set();
-  let previousOverflow = '';
   let selected = null;
   let category = 'todos';
   let svg = null;
@@ -27,41 +24,12 @@
   function openDialog(dialog, content, origin, title) {
     dialog.querySelector('.anp-dialogo-contenido').replaceChildren(content);
     dialog.querySelector('header h2').textContent = title;
-    if (!dialog.open) {
-      origins.set(dialog, origin);
-      if (!opened.size) {
-        previousOverflow = document.documentElement.style.overflow;
-        document.documentElement.style.overflow = 'hidden';
-      }
-      opened.add(dialog);
-      dialog.showModal();
-    }
-    dialog.scrollTop = 0;
-    dialog.querySelector('[data-anp-cerrar]').focus({ preventScroll: true });
+    window.ecoDialog.open(dialog, origin);
   }
-  [ficheDialog, sourceDialog].forEach(dialog => {
-    dialog.querySelector('[data-anp-cerrar]').addEventListener('click', () => dialog.close());
-    dialog.addEventListener('close', () => {
-      opened.delete(dialog);
-      if (!opened.size) document.documentElement.style.overflow = previousOverflow;
-      const origin = origins.get(dialog);
-      if (origin?.isConnected && !origin.closest('[hidden]')) origin.focus({ preventScroll: true });
-      origins.delete(dialog);
-      dialog.querySelector('.anp-dialogo-contenido').replaceChildren();
-    });
-    dialog.addEventListener('click', event => {
-      if (event.target !== dialog) return;
-      const rect = dialog.getBoundingClientRect();
-      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
-    });
-    dialog.addEventListener('keydown', event => {
-      if (event.key !== 'Tab') return;
-      const controls = [...dialog.querySelectorAll('button, a[href], summary, [tabindex="0"]')].filter(node => node.getClientRects().length);
-      const first = controls[0], last = controls.at(-1);
-      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-      else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-    });
-  });
+  [ficheDialog, sourceDialog].forEach(dialog => window.ecoDialog.register(dialog, {
+    closeSelector: '[data-anp-cerrar]',
+    onClose: () => dialog.querySelector('.anp-dialogo-contenido').replaceChildren()
+  }));
   function reveal(id) {
     const target = document.getElementById(id);
     if (!target) return;
@@ -141,15 +109,15 @@
     filters.querySelectorAll('button').forEach(control => control.setAttribute('aria-pressed', String(control === button)));
     renderMapState();
     const count = model.areas.filter(area => category === 'todos' || area.tipo === category).length;
-    document.querySelector('.anp-conteo').textContent = `${count} de 6 áreas nacionales · selecciona un nombre`;
+    document.querySelector('.anp-conteo').textContent = `${count} de ${areas.size} áreas nacionales · selecciona un nombre`;
   });
   async function loadMap() {
     try {
-      const response = await fetch('datos/conservacion/mapa.svg');
+      const response = await fetch(window.ecoResourceURL('datos/conservacion/mapa.svg'));
       if (!response.ok) return;
       const doc = new DOMParser().parseFromString(await response.text(), 'image/svg+xml');
       const root = doc.documentElement;
-      if (root.localName !== 'svg' || root.querySelector('parsererror') || root.querySelectorAll('[data-anp]').length !== 6) return;
+      if (root.localName !== 'svg' || root.querySelector('parsererror') || root.querySelectorAll('[data-anp]').length !== areas.size) return;
       svg = document.importNode(root, true);
       svg.querySelectorAll('[data-anp]').forEach(zone => {
         zone.setAttribute('href', '#ficha-' + zone.dataset.anp);
@@ -181,6 +149,10 @@
     metricControls.querySelectorAll('button').forEach(control => control.setAttribute('aria-pressed', String(control === button)));
     document.querySelector('.anp-grafico-titulo').textContent = (key === 'total_ha' ? 'Superficie total del ANP' : 'Superficie dentro de Madre de Dios') + ' · hectáreas (ha)';
   });
-  if (location.hash) reveal(decodeURIComponent(location.hash.slice(1)));
-  window.addEventListener('hashchange', () => reveal(decodeURIComponent(location.hash.slice(1))));
-})();
+  const revealHash = () => {
+    try { if (location.hash) reveal(decodeURIComponent(location.hash.slice(1))); }
+    catch { /* Un fragmento inválido no impide usar filtros ni fichas. */ }
+  };
+  revealHash();
+  window.addEventListener('hashchange', revealHash);
+});

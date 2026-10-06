@@ -27,6 +27,8 @@ jobs:
       - name: Comprobar JavaScript
         run: |
           node --check script.js
+          node --check dialogos.js
+          node --check navegacion.js
           node --check fichas/ficha.js
           node --check conoce.js
           node --check historia.js
@@ -35,6 +37,7 @@ jobs:
           node --check flora.js
           node --check territorio.js
           node --check assets/eco-base.js
+          node --check assets/eco-editorial.js
       - name: Preparar y verificar el sitio
         run: python3 herramientas/preparar_publicacion.py _site
       - name: Configurar Pages

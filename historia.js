@@ -1,10 +1,12 @@
 /* Mejora progresiva: el texto, los hitos y las referencias ya están en el HTML. */
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
     'use strict';
     const modal = document.querySelector('.historia-modal');
     const contenido = modal.querySelector('.historia-modal-contenido');
-    let origen = null;
-    let overflowAnterior = '';
+    window.ecoDialog.register(modal, {
+        closeSelector: '[data-historia-cerrar]',
+        onClose: () => contenido.replaceChildren()
+    });
 
     const revelar = (elemento) => {
         for (let padre = elemento.parentElement; padre; padre = padre.parentElement) {
@@ -28,39 +30,8 @@
         copia.removeAttribute('tabindex');
         copia.querySelectorAll('[id]').forEach((nodo) => nodo.removeAttribute('id'));
         contenido.replaceChildren(copia);
-        origen = enlace;
-        overflowAnterior = document.documentElement.style.overflow;
-        modal.showModal();
-        document.documentElement.style.overflow = 'hidden';
-        modal.scrollTop = 0;
+        window.ecoDialog.open(modal, enlace);
     });
-    modal.querySelector('[data-historia-cerrar]').addEventListener('click', () => modal.close());
-    modal.addEventListener('keydown', (evento) => {
-        if (evento.key !== 'Tab') return;
-        const controles = [...modal.querySelectorAll('button, a[href]')];
-        const primero = controles[0];
-        const ultimo = controles[controles.length - 1];
-        if (evento.shiftKey && document.activeElement === primero) {
-            evento.preventDefault();
-            ultimo.focus();
-        } else if (!evento.shiftKey && document.activeElement === ultimo) {
-            evento.preventDefault();
-            primero.focus();
-        }
-    });
-    modal.addEventListener('click', (evento) => {
-        if (evento.target !== modal) return;
-        const caja = modal.getBoundingClientRect();
-        if (evento.clientX < caja.left || evento.clientX > caja.right ||
-            evento.clientY < caja.top || evento.clientY > caja.bottom) modal.close();
-    });
-    modal.addEventListener('close', () => {
-        document.documentElement.style.overflow = overflowAnterior;
-        contenido.replaceChildren();
-        origen?.focus({ preventScroll: true });
-        origen = null;
-    });
-
     const filtros = document.querySelector('.historia-filtros');
     const conteo = document.querySelector('.historia-conteo');
     const hitos = [...document.querySelectorAll('[data-historia-categoria]')];
@@ -84,7 +55,9 @@
     filtrar('todos');
 
     const abrirDestino = () => {
-        const destino = document.getElementById(location.hash.slice(1));
+        let destino;
+        try { destino = document.getElementById(decodeURIComponent(location.hash.slice(1))); }
+        catch { return; }
         if (!destino) return;
         if (destino.closest('[data-historia-categoria]')) filtrar('todos');
         revelar(destino);
@@ -107,4 +80,4 @@
         document.querySelectorAll('.historia-capitulo').forEach((capitulo) => observador.observe(capitulo));
         observador.observe(document.querySelector('.historia-hero'));
     }
-})();
+});

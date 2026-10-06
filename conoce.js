@@ -5,15 +5,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!section || !modal || typeof modal.showModal !== "function") return;
     const title = modal.querySelector("#conoce-modal-titulo");
     const content = modal.querySelector(".conoce-modal-contenido");
-    const close = modal.querySelector(".conoce-modal-cerrar");
-    let opener;
-    let previousOverflow;
-    let backdropPressed = false;
-    const outside = event => {
-        const rect = modal.getBoundingClientRect();
-        return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
-    };
-    section.querySelectorAll(".conoce-provincia, .conoce-fuentes").forEach(details => {
+    window.ecoDialog.register(modal, { closeSelector: '.conoce-modal-cerrar' });
+    section.querySelectorAll(".conoce-fuentes").forEach(details => {
         const summary = details.querySelector("summary");
         summary.setAttribute("aria-haspopup", "dialog");
         summary.setAttribute("aria-controls", modal.id);
@@ -21,27 +14,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey || event.button) return;
             if (document.querySelector("dialog[open]")) return;
             event.preventDefault();
-            opener = summary;
-            previousOverflow = document.body.style.overflow;
             title.textContent = details.dataset.conoceTitulo;
             content.replaceChildren(...[...details.querySelector(".conoce-detalle").childNodes].map(node => node.cloneNode(true)));
-            modal.dataset.conoceTipo = details.classList.contains("conoce-provincia") ? "provincia" : "fuentes";
-            document.body.style.overflow = "hidden";
-            modal.showModal();
-            modal.scrollTop = 0;
-            close.focus({ preventScroll: true });
+            modal.dataset.conoceTipo = 'fuentes';
+            window.ecoDialog.open(modal, summary);
         });
-    });
-    close.addEventListener("click", () => modal.close());
-    modal.addEventListener("close", () => {
-        document.body.style.overflow = previousOverflow;
-        opener?.focus({ preventScroll: true });
-        backdropPressed = false;
-    });
-    modal.addEventListener("pointerdown", event => { backdropPressed = event.target === modal && outside(event); });
-    modal.addEventListener("click", event => {
-        if (backdropPressed && event.target === modal && outside(event)) modal.close();
-        backdropPressed = false;
     });
     // Conserva el acceso directo a fuentes y fichas; los detalles son nativos sin JS.
     const reveal = hash => {

@@ -2,9 +2,11 @@
 
 La web se publica automáticamente cuando los cambios llegan a `main` en GitHub. Guardar un archivo en el editor prepara el cambio local; para verlo publicado, usa **Control de código fuente → Confirmar → Sincronizar cambios** en VS Code.
 
-GitHub Pages ya está configurado con **GitHub Actions**. El flujo **Verificar y publicar EcoSelva** genera la biblioteca, Flora, la ficha de castaña y los archivos agrupados de CSS y JavaScript; después comprueba enlaces, datos, Analytics y cartografía antes de publicar. Si falla una comprobación, la versión pública anterior se conserva.
+GitHub Pages ya está configurado con **GitHub Actions**. El flujo **Verificar y publicar EcoSelva** genera la biblioteca, Flora, la ficha de castaña, las cabeceras y pies comunes y los archivos agrupados de CSS y JavaScript; después comprueba enlaces, datos, Analytics y cartografía antes de publicar. Si falla una comprobación, la versión pública anterior se conserva.
 
 Edita los archivos fuente, como `index.html`, `style.css`, `ecoselva.css`, `flora.css` y `territorio.css`. `assets/` contiene las versiones agrupadas que genera el flujo. El registro editorial principal es `datos/fuentes.json`; `datos/biblioteca/documentos.json` se genera desde ese registro. Los conjuntos científicos conservan su procedencia y sus fechas propias.
+
+Los enlaces del menú y del pie de las lecturas se editan en `herramientas/actualizar_navegacion.py`. `dialogos.js` gestiona las ventanas y `navegacion.css` controla el bloqueo del fondo. Las páginas editoriales usan sus paquetes ligeros; la portada y las lecturas del mapa conservan sus estilos específicos.
 
 Para generar y revisar los cambios localmente:
 

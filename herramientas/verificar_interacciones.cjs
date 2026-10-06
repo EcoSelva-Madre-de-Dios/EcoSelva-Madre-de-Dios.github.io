@@ -28,9 +28,25 @@ async function accessible(page, selector) {
             assert.equal(await page.locator('h1').count(), 1, file + ': un título principal');
             assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, file + ': desborde horizontal a ' + width);
             if ([390, 1440].includes(width)) await accessible(page);
+            if (file !== 'index.html') {
+                const menu = page.locator('.eco-global-menu');
+                await menu.locator('summary').click();
+                assert(await menu.getByRole('link', { name: 'Historia', exact: true }).isVisible());
+                assert(await menu.getByRole('link', { name: 'Áreas protegidas', exact: true }).isVisible());
+                assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+                await page.keyboard.press('Escape');
+                assert.equal(await menu.getAttribute('open'), null);
+                assert(await menu.locator('summary').evaluate(e => document.activeElement === e));
+            }
         }
         await page.goto(new URL('index.html', base).href);
         assert(await page.locator('a[href="mailto:ecoselvamadrededios@gmail.com"]').isVisible());
+        const province = page.locator('.conoce-provincia').first();
+        await province.locator('summary').click();
+        assert.equal(await province.getAttribute('open'), '');
+        assert(await province.locator('.conoce-detalle').isVisible());
+        assert.equal(await page.locator('dialog[open]').count(), 0);
+        await province.locator('summary').click();
         const menu = page.locator('label[for="menu"]');
         if (await menu.isVisible()) {
             await menu.click();
@@ -55,6 +71,15 @@ async function accessible(page, selector) {
         }
         await page.goto(new URL('flora.html', base).href);
         assert.equal(await page.locator('[data-flora-especie]').count(), 6);
+        if (width === 1440) {
+            const grid = page.locator('.flora-grid').filter({ has: page.locator('details') }).first();
+            const cards = grid.locator(':scope > details');
+            const heights = await cards.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().height));
+            await cards.first().locator('summary').click();
+            const after = await cards.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().height));
+            assert(after[0] > heights[0]);
+            for (let i = 1; i < heights.length; i++) assert(Math.abs(after[i] - heights[i]) < 1, 'Tarjeta vecina de Flora estirada');
+        }
         for (const id of ['castana', 'madera', 'aguaje', 'paca', 'medicinal']) {
             await page.locator(`[data-flora-recurso="${id}"]`).click();
             assert(await page.locator(`#flora-caso-${id}`).isVisible());
@@ -90,11 +115,73 @@ async function accessible(page, selector) {
         assert(await origin.evaluate(e => document.activeElement === e));
         assert(Math.abs(await page.evaluate(() => scrollY) - y) < 6);
         if ([390, 1440].includes(width)) await accessible(page);
+        if (width === 1440) {
+            for (const selector of ['.conoce-geografia-grid', '.conoce-personas-grid']) {
+                const cards = page.locator(selector).locator(':scope > details');
+                const heights = await cards.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().height));
+                await cards.first().locator('summary').click();
+                const after = await cards.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().height));
+                assert(after[0] > heights[0]);
+                for (let i = 1; i < heights.length; i++) assert(Math.abs(after[i] - heights[i]) < 1, 'Tarjeta vecina de Territorio estirada');
+            }
+        }
+        await page.goto(new URL('areas-protegidas.html#%', base).href);
+        await page.locator('[data-anp-seleccionar="manu"]').click();
+        if (width > 700) await page.locator('.anp-panel [data-anp-ficha]').click();
+        const fiche = page.locator('.anp-dialogo-ficha');
+        await fiche.waitFor({ state: 'visible' });
+        const source = fiche.locator('[data-anp-fuente]').first();
+        await source.click();
+        await page.locator('.anp-dialogo-fuente[open]').waitFor();
+        assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).overflow), 'hidden');
+        await page.keyboard.press('Escape');
+        assert(await source.evaluate(e => document.activeElement === e));
+        assert.equal(await page.evaluate(() => getComputedStyle(document.documentElement).overflow), 'hidden');
+        await page.keyboard.press('Escape');
+        assert.equal(await page.locator('dialog[open]').count(), 0);
+        assert.notEqual(await page.evaluate(() => getComputedStyle(document.documentElement).overflow), 'hidden');
+        await page.goto(new URL('biblioteca.html', base).href);
+        await page.locator('[data-eco-document="doc-osinfor"]').click();
+        await page.locator('#eco-document-viewer[open]').waitFor();
+        assert.equal(await page.locator('#eco-document-viewer iframe').count(), 0);
+        if ([390, 1440].includes(width)) await accessible(page, '#eco-document-viewer');
+        await page.keyboard.press('Escape');
+        assert(await page.locator('[data-eco-document="doc-osinfor"]').evaluate(e => document.activeElement === e));
         assert.equal(errors.length, 0, errors.join('\n'));
         results.push({ width, pages: pages.length, fauna: 4, flora: 5, humedales: 174, distritos: 11, anp: 6, retorno: true });
         console.log('Correcto: ocho páginas y recorridos a ' + width + ' px.');
         await context.close();
     }
+    const delayed = await browser.newContext({ viewport: { width: 390, height: 920 }, reducedMotion: 'reduce' });
+    const pendingPage = await delayed.newPage();
+    let releaseMap;
+    const gate = new Promise(resolve => { releaseMap = resolve; });
+    await pendingPage.route('**/datos/territorio/mapa.svg*', async route => { await gate; await route.continue(); });
+    await pendingPage.goto(new URL('territorio.html', base).href);
+    await pendingPage.locator('[data-territorio-capa="humedales"]').check();
+    await pendingPage.locator('[data-territorio-capa="bosques"]').check();
+    await pendingPage.locator('[data-territorio-capa="rios"]').uncheck();
+    releaseMap();
+    await pendingPage.locator('.selva-territorio-svg').waitFor({ timeout: 20000 });
+    assert.equal(await pendingPage.locator('.selva-territorio-layout').getAttribute('data-territorio-activo'), 'bosques');
+    assert(await pendingPage.locator('[data-territorio-capa="humedales"]').isChecked());
+    assert(await pendingPage.locator('[data-territorio-capa="bosques"]').isChecked());
+    assert.equal(await pendingPage.locator('[data-territorio-capa="rios"]').isChecked(), false);
+    await pendingPage.unroute('**/datos/territorio/mapa.svg*');
+    await pendingPage.route('**/datos/territorio/mapa.svg*', route => route.abort());
+    await pendingPage.goto(new URL('territorio.html', base).href);
+    await pendingPage.locator('[data-territorio-map-src] button').waitFor({ state: 'visible' });
+    await pendingPage.locator('.selva-territorio-fuentes-abrir').click();
+    await pendingPage.locator('#selva-territorio-fuentes-modal[open]').waitFor();
+    await pendingPage.keyboard.press('Escape');
+    await pendingPage.locator('[data-territorio-capa="bosques"]').check();
+    await pendingPage.locator('[data-territorio-map-src] button').waitFor({ state: 'visible' });
+    await pendingPage.unroute('**/datos/territorio/mapa.svg*');
+    await pendingPage.locator('[data-territorio-map-src] button').click();
+    await pendingPage.locator('.selva-territorio-svg').waitFor({ timeout: 20000 });
+    assert(await pendingPage.locator('[data-territorio-capa="bosques"]').isChecked());
+    await delayed.close();
+    console.log('Correcto: selección antes de la descarga, fuentes con fallo de red y reintento.');
     const noJS = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
     const page = await noJS.newPage();
     for (const file of ['index.html', 'flora.html', 'territorio.html']) {

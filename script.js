@@ -240,19 +240,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const title = faunaModal.querySelector("#selva-fauna-modal-titulo");
         const back = faunaModal.querySelector(".selva-fauna-volver");
         let activeGroup;
-        let openingButton;
-        let previousOverflow;
-        let restorePending = false;
-        const restoreFaunaFocus = () => {
-            if (!restorePending || faunaModal.open) return;
-            restorePending = false;
-            document.body.style.overflow = previousOverflow;
-            openingButton?.focus({ preventScroll: true });
-        };
-        const closeFaunaModal = () => {
-            faunaModal.close();
-            restoreFaunaFocus();
-        };
+        window.ecoDialog.register(faunaModal, { closeSelector: '.selva-fauna-modal-cerrar' });
         const element = (tag, text, className) => {
             const node = document.createElement(tag);
             if (text) node.textContent = text;
@@ -338,10 +326,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     button.parentElement.append(feedback); return;
                 } finally { button.disabled = false; button.removeAttribute("aria-busy"); }
                 if (document.querySelector("dialog[open]")) return;
-                restoreFaunaFocus();
                 activeGroup = button.dataset.faunaExplorar;
                 const group = faunaGroups[activeGroup];
-                openingButton = button;
                 faunaModal.querySelector(".selva-fauna-modal-categoria").textContent = group.name;
                 const photo = faunaModal.querySelector(".selva-fauna-modal-imagen img");
                 photo.src = group.photo;
@@ -354,50 +340,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 const credit = faunaModal.querySelector(".selva-fauna-foto-credito");
                 credit.replaceChildren(document.createTextNode(`Foto: ${group.author} · `), link("Wikimedia Commons", group.photoSource), document.createTextNode(" · "), link(group.license, group.licenseUrl), document.createTextNode(`. ${group.photoPlace}. Consulta: octubre de 2026.`));
                 showGroup();
-                previousOverflow = document.body.style.overflow;
-                restorePending = true;
-                document.body.style.overflow = "hidden";
-                faunaModal.showModal();
-                faunaModal.scrollTop = 0;
-                faunaModal.querySelector(".selva-fauna-modal-cerrar").focus({ preventScroll: true });
+                window.ecoDialog.open(faunaModal, button);
             });
         });
         back.addEventListener("click", () => showGroup(true));
-        faunaModal.querySelector(".selva-fauna-modal-cerrar").addEventListener("click", closeFaunaModal);
-        faunaModal.addEventListener("close", restoreFaunaFocus);
-        faunaModal.addEventListener("cancel", (event) => { event.preventDefault(); closeFaunaModal(); });
-        let backdropDown = false;
-        const outside = (event) => {
-            const rect = faunaModal.getBoundingClientRect();
-            return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
-        };
-        faunaModal.addEventListener("pointerdown", (event) => { backdropDown = event.target === faunaModal && outside(event); });
-        faunaModal.addEventListener("click", (event) => {
-            if (backdropDown && event.target === faunaModal && outside(event)) closeFaunaModal();
-            backdropDown = false;
-        });
-        faunaModal.addEventListener("keydown", (event) => {
-            if (event.key !== "Tab") return;
-            const nodes = [...faunaModal.querySelectorAll("button, a[href]")].filter((node) => node.getClientRects().length);
-            const first = nodes[0];
-            const last = nodes[nodes.length - 1];
-            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-        });
+
     }
 
     const storyModal = document.querySelector("#selva-historia-modal");
     if (storyModal) {
-        let openingCard;
-        let previousOverflow;
-        let restorePending = false;
-        const restoreStoryFocus = () => {
-            if (!restorePending || storyModal.open) return;
-            restorePending = false;
-            document.body.style.overflow = previousOverflow;
-            openingCard?.focus({ preventScroll: true });
-        };
-        const closeStory = () => { storyModal.close(); restoreStoryFocus(); };
+        window.ecoDialog.register(storyModal, { closeSelector: '.selva-historia-cerrar' });
         document.querySelectorAll("#sabias-que .selva-flip-card").forEach((card) => {
             const button = card.querySelector(".selva-flip-toggle");
             const content = card.querySelector(".selva-flip-back");
@@ -413,8 +365,6 @@ document.addEventListener("DOMContentLoaded", () => {
             button.querySelector(".selva-flip-frente-texto").append(cue);
             button.addEventListener("click", () => {
                 if (storyModal.open) return;
-                restoreStoryFocus();
-                openingCard = button;
                 storyModal.querySelector(".selva-historia-categoria").textContent = button.querySelector(".selva-flip-categoria").textContent;
                 storyModal.querySelector("#selva-historia-titulo").textContent = button.querySelector(".selva-flip-frente-titulo").textContent;
                 const visual = storyModal.querySelector(".selva-historia-visual");
@@ -427,35 +377,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Clonar mantiene texto, etiquetas, enlaces y todos los atributos de las fuentes.
                 const body = storyModal.querySelector(".selva-historia-cuerpo");
                 body.replaceChildren(...[...content.childNodes].map((node) => node.cloneNode(true)));
-                previousOverflow = document.body.style.overflow;
-                restorePending = true;
-                document.body.style.overflow = "hidden";
-                storyModal.showModal();
-                storyModal.scrollTop = 0;
-                storyModal.querySelector(".selva-historia-cerrar").focus({ preventScroll: true });
+                window.ecoDialog.open(storyModal, button);
             });
         });
-        storyModal.querySelector(".selva-historia-cerrar").addEventListener("click", closeStory);
-        storyModal.addEventListener("cancel", (event) => { event.preventDefault(); closeStory(); });
-        storyModal.addEventListener("close", restoreStoryFocus);
-        let backdropDown = false;
-        const outside = (event) => {
-            const rect = storyModal.getBoundingClientRect();
-            return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
-        };
-        storyModal.addEventListener("pointerdown", (event) => { backdropDown = event.target === storyModal && outside(event); });
-        storyModal.addEventListener("click", (event) => {
-            if (backdropDown && event.target === storyModal && outside(event)) closeStory();
-            backdropDown = false;
-        });
-        storyModal.addEventListener("keydown", (event) => {
-            if (event.key !== "Tab") return;
-            const focusable = [...storyModal.querySelectorAll("button, a[href]")].filter((node) => node.getClientRects().length);
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-        });
+
     }
 
     document.querySelectorAll(".selva-introduccion-accesos a").forEach(access => {

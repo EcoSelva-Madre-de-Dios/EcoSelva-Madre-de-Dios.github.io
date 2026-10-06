@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const territory = document.querySelector(".selva-territorio-layout");
     if (territory) {
         let exploreTopic = null, pendingTopic = null;
+        let requestedMode = null;
         let topics, forestData, forestDescriptions, lectura;
         let origin = null;
         const returnOrigin = territory.querySelector(".territorio-retorno");
@@ -22,20 +23,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         const sourceModal = document.getElementById("selva-territorio-fuentes-modal");
         const sourceBody = sourceModal.querySelector(".selva-territorio-fuentes-modal-cuerpo");
-        let sourceOpener, sourceOverflow, sourceBackdrop = false;
-        const outsideSource = event => { const rect = sourceModal.getBoundingClientRect(); return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom; };
+        window.ecoDialog.register(sourceModal, { closeSelector: '.selva-territorio-fuentes-cerrar' });
         const openSources = (trigger, content, title, type) => {
             if (document.querySelector("dialog[open]")) return;
-            sourceOpener = trigger; sourceOverflow = document.body.style.overflow;
             sourceBody.replaceChildren(...[...content.childNodes].filter(child => child.nodeName !== "SUMMARY").map(child => child.cloneNode(true)));
             sourceModal.querySelector("h3").textContent = title; sourceModal.dataset.sourceType = type;
-            document.body.style.overflow = "hidden"; sourceModal.showModal(); sourceModal.scrollTop = 0;
-            sourceModal.querySelector(".selva-territorio-fuentes-cerrar").focus({preventScroll:true});
+            window.ecoDialog.open(sourceModal, trigger);
         };
-        sourceModal.querySelector(".selva-territorio-fuentes-cerrar").addEventListener("click", () => sourceModal.close());
-        sourceModal.addEventListener("close", () => { document.body.style.overflow = sourceOverflow; sourceOpener?.focus({preventScroll:true}); sourceBackdrop = false; });
-        sourceModal.addEventListener("pointerdown", event => { sourceBackdrop = event.target === sourceModal && outsideSource(event); });
-        sourceModal.addEventListener("click", event => { if (sourceBackdrop && event.target === sourceModal && outsideSource(event)) sourceModal.close(); sourceBackdrop = false; });
         territory.closest("#explora-madre-de-dios").querySelector(".selva-territorio-fuentes-abrir").addEventListener("click", event => {
             const content = territory.closest("#explora-madre-de-dios").querySelector(".selva-territorio-fuentes");
             openSources(event.currentTarget, content, "Fuentes y metodología del mapa", "metodologia");
@@ -612,14 +606,29 @@ document.addEventListener("DOMContentLoaded", () => {
             if (origin) { returnOrigin.hidden = false; returnOrigin.focus({ preventScroll: true }); }
             else card.querySelector(".selva-territorio-ficha-volver")?.focus({preventScroll: true});
         };
-        setMode("rios", false, true);
+        const requestedLayers = layerInputs.filter(input => input.checked).map(input => input.dataset.territorioCapa);
+        requestedLayers.forEach(mode => enabledLayers.add(mode));
+        setMode(requestedMode || requestedLayers.at(-1) || 'rios', false, true, true);
+        enabledLayers.clear();
+        requestedLayers.forEach(mode => enabledLayers.add(mode));
+        updateScenes(); updateFeatures(); updateMapLabels(); updateLegend();
+        provinceToggle.dispatchEvent(new Event('change'));
+        if (overlayInputs.some(input => input.checked)) loadOverlays();
         };
 
         const host = territory.querySelector("[data-territorio-map-src]");
         const canvas = territory.querySelector(".selva-territorio-canvas");
         const controls = [...territory.querySelectorAll("[data-territorio-zoom], #territorio-provincias, [data-territorio-capa], [data-territorio-overlay-toggle]")];
         let loading = false, loaded = false;
-        controls.forEach(control => { control.disabled = true; });
+        const selections = controls.filter(control => control.matches('input[type="checkbox"]'));
+        controls.forEach(control => { control.disabled = !selections.includes(control); });
+        selections.forEach(control => control.addEventListener('change', () => {
+            if (loaded) return;
+            if (control.dataset.territorioCapa && control.checked) requestedMode = control.dataset.territorioCapa;
+            if (requestedMode && !territory.querySelector('[data-territorio-capa="' + requestedMode + '"]').checked) requestedMode = null;
+            territory.querySelector('[data-territorio-capas-status]').textContent = 'Las capas seleccionadas se aplicarán al terminar de cargar el mapa.';
+            loadTerritory();
+        }));
         const loadTerritory = async () => {
             if (loading || loaded) return;
             loading = true;
@@ -650,7 +659,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!host.isConnected) canvas.prepend(host);
                 if (message) message.textContent = "No se pudo cargar el mapa. Puedes volver a intentarlo.";
                 if (retry) retry.hidden = false;
-                controls.forEach(control => { control.disabled = true; });
+                controls.forEach(control => { control.disabled = !selections.includes(control); });
+                territory.querySelector('[data-territorio-capas-status]').textContent = 'Tus capas seleccionadas se conservan. Vuelve a intentar la carga del mapa.';
             } finally {
                 loading = false;
                 canvas.setAttribute("aria-busy", "false");

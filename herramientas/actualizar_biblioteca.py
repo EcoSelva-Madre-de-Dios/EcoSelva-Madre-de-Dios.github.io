@@ -3,6 +3,8 @@ import sys
 from pathlib import Path
 from html import escape as e
 import json
+import re
+from actualizar_navegacion import fragments
 root=Path(__file__).resolve().parents[1];registry=json.loads((root/'datos/fuentes.json').read_text());docs=registry['documentos']
 def icon(name):return f'<svg class="eco-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="images/ecoselva-iconos.svg#{name}"></use></svg>'
 def button(doc):return f'<button class="eco-button" type="button" data-eco-document="{doc["id"]}" aria-haspopup="dialog">{"Previsualizar" if doc.get("pdf") else "Contexto y fuente"} <span class="eco-arrow" aria-hidden="true">↗</span></button>'
@@ -30,6 +32,10 @@ html=f'''<!DOCTYPE html>
 <section class="eco-library-paths eco-wide" aria-labelledby="rutas-titulo"><p class="eco-eyebrow">Continúa la exploración</p><h2 id="rutas-titulo">De la fuente al territorio</h2><div class="eco-resource-grid"><a class="eco-card eco-resource-card" data-eco-card="resource" href="fichas/castana.html">{icon('flora')}<span><strong>Castaña amazónica</strong>Una ficha para leer en tres profundidades.</span>{icon('flecha')}</a><a class="eco-card eco-resource-card" data-eco-card="protected-area" href="areas-protegidas.html">{icon('conservacion')}<span><strong>Áreas protegidas</strong>Explora el mapa y sus fichas.</span>{icon('flecha')}</a><a class="eco-card eco-resource-card" data-eco-card="map" href="territorio.html">{icon('mapas')}<span><strong>Explora el territorio</strong>Bosques, ríos y humedales en el mapa.</span>{icon('flecha')}</a></div></section></main>
 <footer class="eco-pie eco-wide"><a href="index.html">← EcoSelva Madre de Dios</a><a href="fuentes-metodologia.html">Fuentes y metodología</a><a href="#contenido">Volver al comienzo ↑</a><a href="mailto:ecoselvamadrededios@gmail.com">ecoselvamadrededios@gmail.com</a><span>Revisión editorial · 5 de octubre de 2026</span></footer></body></html>'''
 
+header, footer = fragments('biblioteca.html')
+html = re.sub(r'<header class="eco-barra">.*?</header>', lambda _: header, html, count=1, flags=re.S)
+html = re.sub(r'<footer class="eco-pie eco-wide">.*?</footer>', lambda _: footer, html, count=1, flags=re.S)
+html = html.replace('assets/eco-base.css', 'assets/eco-editorial.css').replace('assets/eco-base.js', 'assets/eco-editorial.js')
 pagina=root/'biblioteca.html'
 def check_generated():
  if json.loads((root/'datos/biblioteca/documentos.json').read_text()) != {'revision':registry['revision_editorial'],'documentos':docs}:

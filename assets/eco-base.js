@@ -1,3 +1,65 @@
+/* dialogos.js */
+/* Diálogos nativos: cierre, fondo y retorno de foco compartidos. */
+(() => {
+    'use strict';
+    const records = new WeakMap();
+    const finish = dialog => {
+        const record = records.get(dialog);
+        if (!record?.active || dialog.open) return;
+        record.active = false;
+        record.outsideDown = false;
+        const origin = record.origin;
+        record.origin = null;
+        record.options.onClose?.();
+        const current = [...document.querySelectorAll('dialog[open]')].at(-1);
+        if (record.restoreFocus && origin?.isConnected && origin.getClientRects().length && (!current || current.contains(origin))) {
+            origin.focus({ preventScroll: true });
+        }
+    };
+    const close = (dialog, { restoreFocus = true } = {}) => {
+        const record = records.get(dialog);
+        if (record) record.restoreFocus = restoreFocus;
+        if (dialog.open) dialog.close();
+        finish(dialog);
+    };
+    const register = (dialog, options = {}) => {
+        if (records.has(dialog)) {
+            Object.assign(records.get(dialog).options, options);
+            return dialog;
+        }
+        const record = { options, active: false, outsideDown: false };
+        records.set(dialog, record);
+        const outside = event => {
+            const bounds = dialog.getBoundingClientRect();
+            return event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom;
+        };
+        dialog.addEventListener('pointerdown', event => {
+            record.outsideDown = event.target === dialog && outside(event);
+        });
+        dialog.addEventListener('click', event => {
+            const button = event.target.closest(record.options.closeSelector || '[data-eco-dialog-close]');
+            if ((button && dialog.contains(button)) || (record.outsideDown && event.target === dialog && outside(event))) close(dialog);
+            record.outsideDown = false;
+        });
+        dialog.addEventListener('cancel', event => { event.preventDefault(); close(dialog); });
+        dialog.addEventListener('close', () => finish(dialog));
+        return dialog;
+    };
+    const open = (dialog, origin = document.activeElement) => {
+        if (dialog.open || typeof dialog.showModal !== 'function') return false;
+        register(dialog);
+        const record = records.get(dialog);
+        record.origin = origin;
+        record.restoreFocus = true;
+        record.active = true;
+        dialog.showModal();
+        dialog.scrollTop = 0;
+        dialog.querySelector(record.options.closeSelector || '[data-eco-dialog-close]')?.focus({ preventScroll: true });
+        return true;
+    };
+    window.ecoDialog = { register, open, close };
+})();
+
 /* script.js */
 document.addEventListener("DOMContentLoaded", () => {
     const followLegacyHash = () => {
@@ -241,19 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const title = faunaModal.querySelector("#selva-fauna-modal-titulo");
         const back = faunaModal.querySelector(".selva-fauna-volver");
         let activeGroup;
-        let openingButton;
-        let previousOverflow;
-        let restorePending = false;
-        const restoreFaunaFocus = () => {
-            if (!restorePending || faunaModal.open) return;
-            restorePending = false;
-            document.body.style.overflow = previousOverflow;
-            openingButton?.focus({ preventScroll: true });
-        };
-        const closeFaunaModal = () => {
-            faunaModal.close();
-            restoreFaunaFocus();
-        };
+        window.ecoDialog.register(faunaModal, { closeSelector: '.selva-fauna-modal-cerrar' });
         const element = (tag, text, className) => {
             const node = document.createElement(tag);
             if (text) node.textContent = text;
@@ -339,10 +389,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     button.parentElement.append(feedback); return;
                 } finally { button.disabled = false; button.removeAttribute("aria-busy"); }
                 if (document.querySelector("dialog[open]")) return;
-                restoreFaunaFocus();
                 activeGroup = button.dataset.faunaExplorar;
                 const group = faunaGroups[activeGroup];
-                openingButton = button;
                 faunaModal.querySelector(".selva-fauna-modal-categoria").textContent = group.name;
                 const photo = faunaModal.querySelector(".selva-fauna-modal-imagen img");
                 photo.src = group.photo;
@@ -355,50 +403,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 const credit = faunaModal.querySelector(".selva-fauna-foto-credito");
                 credit.replaceChildren(document.createTextNode(`Foto: ${group.author} · `), link("Wikimedia Commons", group.photoSource), document.createTextNode(" · "), link(group.license, group.licenseUrl), document.createTextNode(`. ${group.photoPlace}. Consulta: octubre de 2026.`));
                 showGroup();
-                previousOverflow = document.body.style.overflow;
-                restorePending = true;
-                document.body.style.overflow = "hidden";
-                faunaModal.showModal();
-                faunaModal.scrollTop = 0;
-                faunaModal.querySelector(".selva-fauna-modal-cerrar").focus({ preventScroll: true });
+                window.ecoDialog.open(faunaModal, button);
             });
         });
         back.addEventListener("click", () => showGroup(true));
-        faunaModal.querySelector(".selva-fauna-modal-cerrar").addEventListener("click", closeFaunaModal);
-        faunaModal.addEventListener("close", restoreFaunaFocus);
-        faunaModal.addEventListener("cancel", (event) => { event.preventDefault(); closeFaunaModal(); });
-        let backdropDown = false;
-        const outside = (event) => {
-            const rect = faunaModal.getBoundingClientRect();
-            return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
-        };
-        faunaModal.addEventListener("pointerdown", (event) => { backdropDown = event.target === faunaModal && outside(event); });
-        faunaModal.addEventListener("click", (event) => {
-            if (backdropDown && event.target === faunaModal && outside(event)) closeFaunaModal();
-            backdropDown = false;
-        });
-        faunaModal.addEventListener("keydown", (event) => {
-            if (event.key !== "Tab") return;
-            const nodes = [...faunaModal.querySelectorAll("button, a[href]")].filter((node) => node.getClientRects().length);
-            const first = nodes[0];
-            const last = nodes[nodes.length - 1];
-            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-        });
+
     }
 
     const storyModal = document.querySelector("#selva-historia-modal");
     if (storyModal) {
-        let openingCard;
-        let previousOverflow;
-        let restorePending = false;
-        const restoreStoryFocus = () => {
-            if (!restorePending || storyModal.open) return;
-            restorePending = false;
-            document.body.style.overflow = previousOverflow;
-            openingCard?.focus({ preventScroll: true });
-        };
-        const closeStory = () => { storyModal.close(); restoreStoryFocus(); };
+        window.ecoDialog.register(storyModal, { closeSelector: '.selva-historia-cerrar' });
         document.querySelectorAll("#sabias-que .selva-flip-card").forEach((card) => {
             const button = card.querySelector(".selva-flip-toggle");
             const content = card.querySelector(".selva-flip-back");
@@ -414,8 +428,6 @@ document.addEventListener("DOMContentLoaded", () => {
             button.querySelector(".selva-flip-frente-texto").append(cue);
             button.addEventListener("click", () => {
                 if (storyModal.open) return;
-                restoreStoryFocus();
-                openingCard = button;
                 storyModal.querySelector(".selva-historia-categoria").textContent = button.querySelector(".selva-flip-categoria").textContent;
                 storyModal.querySelector("#selva-historia-titulo").textContent = button.querySelector(".selva-flip-frente-titulo").textContent;
                 const visual = storyModal.querySelector(".selva-historia-visual");
@@ -428,35 +440,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Clonar mantiene texto, etiquetas, enlaces y todos los atributos de las fuentes.
                 const body = storyModal.querySelector(".selva-historia-cuerpo");
                 body.replaceChildren(...[...content.childNodes].map((node) => node.cloneNode(true)));
-                previousOverflow = document.body.style.overflow;
-                restorePending = true;
-                document.body.style.overflow = "hidden";
-                storyModal.showModal();
-                storyModal.scrollTop = 0;
-                storyModal.querySelector(".selva-historia-cerrar").focus({ preventScroll: true });
+                window.ecoDialog.open(storyModal, button);
             });
         });
-        storyModal.querySelector(".selva-historia-cerrar").addEventListener("click", closeStory);
-        storyModal.addEventListener("cancel", (event) => { event.preventDefault(); closeStory(); });
-        storyModal.addEventListener("close", restoreStoryFocus);
-        let backdropDown = false;
-        const outside = (event) => {
-            const rect = storyModal.getBoundingClientRect();
-            return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
-        };
-        storyModal.addEventListener("pointerdown", (event) => { backdropDown = event.target === storyModal && outside(event); });
-        storyModal.addEventListener("click", (event) => {
-            if (backdropDown && event.target === storyModal && outside(event)) closeStory();
-            backdropDown = false;
-        });
-        storyModal.addEventListener("keydown", (event) => {
-            if (event.key !== "Tab") return;
-            const focusable = [...storyModal.querySelectorAll("button, a[href]")].filter((node) => node.getClientRects().length);
-            const first = focusable[0];
-            const last = focusable[focusable.length - 1];
-            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
-            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
-        });
+
     }
 
     document.querySelectorAll(".selva-introduccion-accesos a").forEach(access => {
@@ -517,15 +504,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!section || !modal || typeof modal.showModal !== "function") return;
     const title = modal.querySelector("#conoce-modal-titulo");
     const content = modal.querySelector(".conoce-modal-contenido");
-    const close = modal.querySelector(".conoce-modal-cerrar");
-    let opener;
-    let previousOverflow;
-    let backdropPressed = false;
-    const outside = event => {
-        const rect = modal.getBoundingClientRect();
-        return event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom;
-    };
-    section.querySelectorAll(".conoce-provincia, .conoce-fuentes").forEach(details => {
+    window.ecoDialog.register(modal, { closeSelector: '.conoce-modal-cerrar' });
+    section.querySelectorAll(".conoce-fuentes").forEach(details => {
         const summary = details.querySelector("summary");
         summary.setAttribute("aria-haspopup", "dialog");
         summary.setAttribute("aria-controls", modal.id);
@@ -533,27 +513,11 @@ document.addEventListener("DOMContentLoaded", () => {
             if (event.ctrlKey || event.metaKey || event.altKey || event.shiftKey || event.button) return;
             if (document.querySelector("dialog[open]")) return;
             event.preventDefault();
-            opener = summary;
-            previousOverflow = document.body.style.overflow;
             title.textContent = details.dataset.conoceTitulo;
             content.replaceChildren(...[...details.querySelector(".conoce-detalle").childNodes].map(node => node.cloneNode(true)));
-            modal.dataset.conoceTipo = details.classList.contains("conoce-provincia") ? "provincia" : "fuentes";
-            document.body.style.overflow = "hidden";
-            modal.showModal();
-            modal.scrollTop = 0;
-            close.focus({ preventScroll: true });
+            modal.dataset.conoceTipo = 'fuentes';
+            window.ecoDialog.open(modal, summary);
         });
-    });
-    close.addEventListener("click", () => modal.close());
-    modal.addEventListener("close", () => {
-        document.body.style.overflow = previousOverflow;
-        opener?.focus({ preventScroll: true });
-        backdropPressed = false;
-    });
-    modal.addEventListener("pointerdown", event => { backdropPressed = event.target === modal && outside(event); });
-    modal.addEventListener("click", event => {
-        if (backdropPressed && event.target === modal && outside(event)) modal.close();
-        backdropPressed = false;
     });
     // Conserva el acceso directo a fuentes y fichas; los detalles son nativos sin JS.
     const reveal = hash => {
@@ -565,6 +529,23 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     reveal(location.hash);
     window.addEventListener("hashchange", () => reveal(location.hash));
+});
+
+/* navegacion.js */
+/* El menú común funciona también como desplegable nativo sin JavaScript. */
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.eco-global-menu').forEach(menu => {
+        const summary = menu.querySelector('summary');
+        menu.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && menu.open) {
+                event.preventDefault(); menu.open = false; summary.focus();
+            }
+        });
+        menu.addEventListener('click', event => {
+            if (event.target.closest('a[href]')) menu.open = false;
+        });
+        document.addEventListener('click', event => { if (!menu.contains(event.target)) menu.open = false; });
+    });
 });
 
 /* ecoselva.js */
@@ -591,18 +572,6 @@ document.addEventListener('DOMContentLoaded', () => {
         use.setAttribute('href', new URL('images/ecoselva-iconos.svg', ecoAssetsBase).href + '#' + name);
         svg.append(use); return svg;
     };
-    const focusable = dialog => [...dialog.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]):not([type="hidden"]), select:not([disabled]), textarea:not([disabled]), summary, [tabindex="0"]')]
-        .filter(element => element.getClientRects().length && !element.matches(':disabled') && getComputedStyle(element).visibility !== 'hidden' && !element.closest('[hidden]'));
-    const bindKeyboard = dialog => dialog.addEventListener('keydown', event => {
-        if (event.defaultPrevented || event.key !== 'Tab' || !dialog.open) return;
-        const controls = focusable(dialog);
-        if (!controls.length) return;
-        if (document.activeElement === (event.shiftKey ? controls[0] : controls.at(-1))) {
-            event.preventDefault(); controls[event.shiftKey ? controls.length - 1 : 0].focus();
-        }
-    });
-    document.querySelectorAll('dialog').forEach(bindKeyboard);
-    const states = new WeakMap();
     const createDialog = (id, className, title) => {
         const dialog = node('dialog', className); dialog.id = id;
         dialog.setAttribute('aria-labelledby', id + '-title');
@@ -610,35 +579,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const heading = node('h2', '', title); heading.id = id + '-title';
         const close = node('button', 'eco-overlay-close', '×'); close.type = 'button'; close.setAttribute('aria-label', 'Cerrar ventana');
         header.append(heading, close); dialog.append(header, node('div', 'eco-overlay-body')); document.body.append(dialog);
-        bindKeyboard(dialog);
-        const restore = () => {
-            const state = states.get(dialog);
-            if (!state) return;
-            states.delete(dialog);
-            document.body.style.overflow = state.body;
-            document.documentElement.style.overflow = state.document;
-            dialog.querySelector('iframe')?.remove();
-            if (state.origin?.isConnected) state.origin.focus({ preventScroll: true });
-        };
-        const dismiss = () => { dialog.close(); restore(); };
-        close.addEventListener('click', dismiss);
-        dialog.addEventListener('cancel', event => { event.preventDefault(); dismiss(); });
-        let outsideDown = false;
-        const outside = event => { const r = dialog.getBoundingClientRect(); return event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom; };
-        dialog.addEventListener('pointerdown', event => { outsideDown = event.target === dialog && outside(event); });
-        dialog.addEventListener('click', event => { if (outsideDown && event.target === dialog && outside(event)) dismiss(); outsideDown = false; });
-        dialog.addEventListener('close', () => {
-            // El evento nativo se encola: no debe restaurar una reapertura posterior.
-            if (!dialog.open) restore();
+        window.ecoDialog.register(dialog, {
+            closeSelector: '.eco-overlay-close',
+            onClose: () => dialog.querySelector('iframe')?.remove()
         });
         return dialog;
     };
-    const open = (dialog, origin) => {
-        if (dialog.open || typeof dialog.showModal !== 'function') return;
-        states.set(dialog, { origin, body: document.body.style.overflow, document: document.documentElement.style.overflow });
-        dialog.showModal(); document.body.style.overflow = 'hidden'; document.documentElement.style.overflow = 'hidden';
-        dialog.scrollTop = 0; dialog.querySelector('.eco-overlay-close').focus({ preventScroll: true });
-    };
+    const open = (dialog, origin) => window.ecoDialog.open(dialog, origin);
     const clone = source => {
         const copy = source.cloneNode(true); copy.removeAttribute('id');
         copy.querySelectorAll('[id]').forEach(element => element.removeAttribute('id'));

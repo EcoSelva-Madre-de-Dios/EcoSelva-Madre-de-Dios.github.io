@@ -15,6 +15,7 @@ from actualizar_ficha_castana import COLUMNS, check_generated
 import actualizar_biblioteca
 import actualizar_flora
 import actualizar_assets
+import actualizar_navegacion
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://ecoselva-madre-de-dios.github.io'
@@ -120,7 +121,7 @@ def published_files():
                     yield value
             references = list(collect(json.loads(path.read_text())))
         for reference in references:
-            base = ROOT if path.suffix == '.json' or path.name == 'eco-base.js' else path.parent
+            base = ROOT if path.suffix == '.json' or (path.suffix == '.js' and path.parent == ROOT / 'assets') else path.parent
             target = local_path(reference.strip(), base)
             if target is not None:
                 pending.append(target)
@@ -562,7 +563,9 @@ def verify():
             errors.append(f'{entry}: idioma o URL canónica incorrectos.')
         if not page.links.get('icon'):
             errors.append(f'{entry}: falta el favicon.')
-        if entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html', 'flora.html', 'territorio.html'):
+        if entry in PAGES:
+            if not page.metadata.get('description'):
+                errors.append(f'{entry}: falta la descripción de la página.')
             if page.metadata.get('og:url') != expected_url:
                 errors.append(f'{entry}: og:url debe coincidir con la URL canónica.')
             social_image = page.metadata.get('og:image', '')
@@ -583,13 +586,14 @@ def verify():
                 errors.append(f'{entry}: JSON inválido: {error}')
         if re.search(r'^\s*(?:<<<<<<<|=======|>>>>>>>)', html, re.M):
             errors.append(f'{entry}: conflicto de Git sin resolver.')
-    for entry in ('index.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html', 'flora.html', 'territorio.html'):
+    for entry in PAGES:
         html = (ROOT / entry).read_text()
         head = html.split('<head>', 1)[1].split('</head>', 1)[0]
         if html.count('gtag/js?') != 1 or "gtag('config', 'G-0KG7JC82NV');" not in head or 'GTM-' in head:
             errors.append(f'{entry}: Analytics debe tener una sola instalación con ID G-0KG7JC82NV dentro de head.')
     try:
         actualizar_assets.check_generated()
+        actualizar_navegacion.check_generated()
         registry = json.loads((ROOT / 'datos/fuentes.json').read_text())
         urls = [urlsplit(doc['url'])._replace(fragment='').geturl() for doc in registry['documentos']]
         if len(urls) != len(set(urls)):

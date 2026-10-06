@@ -23,20 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const modal = document.querySelector("#ficha-glosario-modal");
-    const closeButton = modal.querySelector(".ficha-glosario-cerrar");
-    let openingLink;
-    let restoreFocus = true;
-    let previousOverflow;
-    modal.addEventListener("close", () => {
-        document.documentElement.style.overflow = previousOverflow;
-        if (restoreFocus && openingLink?.isConnected) openingLink.focus({ preventScroll: true });
-        restoreFocus = true;
-    });
-    closeButton.addEventListener("click", () => modal.close());
-    modal.addEventListener("click", event => {
-        const bounds = modal.getBoundingClientRect();
-        if (event.target === modal && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) modal.close();
-    });
+    window.ecoDialog.register(modal, { closeSelector: '.ficha-glosario-cerrar' });
     document.querySelectorAll("[data-glosario]").forEach(link => {
         if (typeof modal.showModal !== "function") return;
         link.setAttribute("aria-haspopup", "dialog");
@@ -46,13 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const entry = targetForHash(link.hash);
             if (!entry) return;
             event.preventDefault();
-            openingLink = link;
             modal.querySelector("#ficha-glosario-titulo").textContent = entry.querySelector("dt").textContent;
             modal.querySelector("#ficha-glosario-definicion").replaceChildren(...[...entry.querySelector("dd").childNodes].map(node => node.cloneNode(true)));
-            previousOverflow = document.documentElement.style.overflow;
-            modal.showModal();
-            document.documentElement.style.overflow = "hidden";
-            closeButton.focus({ preventScroll: true });
+            window.ecoDialog.open(modal, link);
         });
     });
     document.addEventListener("click", event => {
@@ -60,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const link = event.target.closest('a[href^="#"]');
         const target = link && targetForHash(link.hash);
         if (!target) return;
-        if (modal.open) { restoreFocus = false; modal.close(); }
+        if (modal.open) window.ecoDialog.close(modal, { restoreFocus: false });
         reveal(target);
         requestAnimationFrame(() => focusTarget(target));
     });

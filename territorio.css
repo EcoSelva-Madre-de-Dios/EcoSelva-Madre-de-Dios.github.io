@@ -2,93 +2,93 @@
 #explora-madre-de-dios [data-territorio-modo="humedales"] { --tab-accent: #376451; }
 #explora-madre-de-dios .selva-territorio-ubicacion { opacity: 1; }
 #explora-madre-de-dios .selva-territorio-ubicacion :is(strong, span) { color: #526656; opacity: 1; }
-#explora-madre-de-dios .territorio-aula { margin-top: 48px; color: var(--eco-forest, #163d2b); }
+#explora-madre-de-dios .territorio-aula { margin-top: var(--space-6); color: var(--eco-forest, #163d2b); }
 #explora-madre-de-dios .territorio-aula p { font-size: var(--text-reading); line-height: 1.8; }
-#explora-madre-de-dios .territorio-aula h2 { font-family: "Manrope", sans-serif; font-size: clamp(24px, 2.5vw, 34px); line-height: 1.25; margin: 0 0 16px; letter-spacing: -.025em; }
-#explora-madre-de-dios .territorio-aula h3 { font-family: "Manrope", sans-serif; font-size: var(--text-subtitle); line-height: 1.4; margin: 0 0 12px; }
+#explora-madre-de-dios .territorio-aula h2 { font-family: "Manrope", sans-serif; font-size: clamp(24px, 2.5vw, 34px); line-height: 1.25; margin: 0 0 var(--space-3); letter-spacing: -.025em; }
+#explora-madre-de-dios .territorio-aula h3 { font-family: "Manrope", sans-serif; font-size: var(--text-subtitle); line-height: 1.4; margin: 0 0 var(--space-2); }
 #explora-madre-de-dios .territorio-aula a { color: #24656b; text-decoration: underline; text-underline-offset: 3px; }
 #explora-madre-de-dios .territorio-aula .eco-button { color: #fff; text-decoration: none; }
 #explora-madre-de-dios .territorio-apertura { max-width: 760px; }
-#explora-madre-de-dios .territorio-indice { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
-#explora-madre-de-dios .territorio-indice a { display: inline-flex; align-items: center; min-height: 44px; padding: 8px 14px; border: 1px solid #cfdbd1; border-radius: 24px; background: #fff; text-decoration: none; font-size: var(--text-note); font-weight: 600; }
-#explora-madre-de-dios .territorio-capitulo { padding-top: 48px; scroll-margin-top: 110px; }
-#explora-madre-de-dios .territorio-cabecera { display: flex; align-items: flex-start; gap: 16px; margin-bottom: 16px; }
-#explora-madre-de-dios .territorio-cabecera > .eco-icon { width: 36px; height: 36px; flex: 0 0 36px; margin-top: 8px; color: #286346; }
-#explora-madre-de-dios .territorio-aula .eco-eyebrow { margin: 0 0 8px; font-size: var(--text-credit); line-height: 1.5; color: #526656; }
+#explora-madre-de-dios .territorio-indice { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: var(--space-4); }
+#explora-madre-de-dios .territorio-indice a { display: inline-flex; align-items: center; min-height: 44px; padding: var(--space-1) 14px; border: 1px solid #cfdbd1; border-radius: 24px; background: #fff; text-decoration: none; font-size: var(--text-note); font-weight: 600; }
+#explora-madre-de-dios .territorio-capitulo { padding-top: var(--space-6); scroll-margin-top: 110px; }
+#explora-madre-de-dios .territorio-cabecera { display: flex; align-items: flex-start; gap: var(--space-3); margin-bottom: var(--space-3); }
+#explora-madre-de-dios .territorio-cabecera > .eco-icon { width: 36px; height: 36px; flex: 0 0 36px; margin-top: var(--space-1); color: #286346; }
+#explora-madre-de-dios .territorio-aula .eco-eyebrow { margin: 0 0 var(--space-1); font-size: var(--text-credit); line-height: 1.5; color: #526656; }
 #explora-madre-de-dios .territorio-capitulo > p { max-width: 68ch; margin: 0 0 20px; }
-#explora-madre-de-dios .territorio-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: 24px 0; align-items: start; }
+#explora-madre-de-dios .territorio-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin: var(--space-4) 0; align-items: start; }
 #explora-madre-de-dios .territorio-conceptos, #explora-madre-de-dios .territorio-servicios, #explora-madre-de-dios .territorio-rios-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-#explora-madre-de-dios .territorio-tarjeta { min-width: 0; border: 1px solid #d8e1d9; background: #fff; border-radius: 16px; padding: 24px; }
+#explora-madre-de-dios .territorio-tarjeta { min-width: 0; border: 1px solid #d8e1d9; background: #fff; border-radius: 16px; padding: var(--space-4); }
 #explora-madre-de-dios .territorio-tarjeta > p:last-child { margin-bottom: 0; }
 #explora-madre-de-dios details.territorio-tarjeta { padding: 0; }
-#explora-madre-de-dios .territorio-tarjeta summary { padding: 24px 48px 24px 24px; cursor: pointer; list-style: none; position: relative; min-height: 88px; }
+#explora-madre-de-dios .territorio-tarjeta summary { padding: var(--space-4) var(--space-6) var(--space-4) var(--space-4); cursor: pointer; list-style: none; position: relative; min-height: 88px; }
 #explora-madre-de-dios .territorio-tarjeta summary::-webkit-details-marker { display: none; }
 #explora-madre-de-dios .territorio-tarjeta summary::after { content: "+"; position: absolute; right: 20px; top: 24px; font-size: 24px; color: #24656b; }
 #explora-madre-de-dios .territorio-tarjeta[open] summary::after { content: "−"; }
-#explora-madre-de-dios .territorio-tarjeta summary strong { display: block; font-family: "Manrope", sans-serif; font-size: var(--text-subtitle); line-height: 1.4; margin-bottom: 8px; }
+#explora-madre-de-dios .territorio-tarjeta summary strong { display: block; font-family: "Manrope", sans-serif; font-size: var(--text-subtitle); line-height: 1.4; margin-bottom: var(--space-1); }
 #explora-madre-de-dios .territorio-tarjeta summary span { display: block; font-size: var(--text-note); line-height: 1.7; }
-#explora-madre-de-dios .territorio-tarjeta-cuerpo { border-top: 1px solid #e3e9e2; padding: 20px 24px 24px; }
+#explora-madre-de-dios .territorio-tarjeta-cuerpo { border-top: 1px solid #e3e9e2; padding: 20px var(--space-4) var(--space-4); }
 #explora-madre-de-dios .territorio-aula dl { margin: 0 0 20px; font-size: var(--text-note); line-height: 1.8; }
-#explora-madre-de-dios .territorio-aula dt { font-weight: 700; margin-top: 12px; }
+#explora-madre-de-dios .territorio-aula dt { font-weight: 700; margin-top: var(--space-2); }
 #explora-madre-de-dios .territorio-aula dd { margin: 4px 0 0; }
-#explora-madre-de-dios .territorio-aula .eco-button { margin: 6px 8px 6px 0; min-height: 44px; white-space: normal; text-align: left; line-height: 1.5; }
-#explora-madre-de-dios .territorio-referencia { display: block; font-size: 13px !important; line-height: 1.7; margin-top: 16px; }
-#explora-madre-de-dios .territorio-nota { padding: 20px 24px; border-left: 3px solid #4b7970; background: #eaf1ea; border-radius: 0 12px 12px 0; font-size: var(--text-note); line-height: 1.8; margin: 24px 0; }
-#explora-madre-de-dios .territorio-nota p { margin: 0 0 12px; }
+#explora-madre-de-dios .territorio-aula .eco-button { margin: 6px var(--space-1) 6px 0; min-height: 44px; white-space: normal; text-align: left; line-height: 1.5; }
+#explora-madre-de-dios .territorio-referencia { display: block; font-size: var(--text-credit) !important; line-height: 1.7; margin-top: var(--space-3); }
+#explora-madre-de-dios .territorio-nota { padding: 20px var(--space-4); border-left: 3px solid #4b7970; background: #eaf1ea; border-radius: 0 12px 12px 0; font-size: var(--text-note); line-height: 1.8; margin: var(--space-4) 0; }
+#explora-madre-de-dios .territorio-nota p { margin: 0 0 var(--space-2); }
 #explora-madre-de-dios .territorio-nota p:last-child { margin-bottom: 0; }
-#explora-madre-de-dios .territorio-destacado { display: grid; grid-template-columns: minmax(180px, .6fr) minmax(0, 1.4fr); gap: 32px; padding: 32px; margin-top: 28px; border-radius: 20px; background: #e8efe3; align-items: center; }
+#explora-madre-de-dios .territorio-destacado { display: grid; grid-template-columns: minmax(180px, .6fr) minmax(0, 1.4fr); gap: var(--space-5); padding: var(--space-5); margin-top: 28px; border-radius: 20px; background: #e8efe3; align-items: center; }
 #explora-madre-de-dios .territorio-destacado figure { margin: 0; }
 #explora-madre-de-dios .territorio-destacado img { display: block; width: 100%; height: auto; max-height: 350px; object-fit: contain; border-radius: 12px; }
-#explora-madre-de-dios .territorio-aula figcaption { color: #526656; font-size: 13px; line-height: 1.7; margin-top: 12px; }
+#explora-madre-de-dios .territorio-aula figcaption { color: #526656; font-size: var(--text-credit); line-height: 1.7; margin-top: var(--space-2); }
 #explora-madre-de-dios .territorio-secuencia { font-size: var(--text-note) !important; font-weight: 600; line-height: 1.8; color: #2e6547; }
 #explora-madre-de-dios .territorio-destacado--agua { background: #e3eeee; }
 #explora-madre-de-dios .territorio-palmera { color: #286346; max-width: 220px; justify-self: center; text-align: center; }
 #explora-madre-de-dios .territorio-palmera svg { display: block; width: 100%; }
 #explora-madre-de-dios .territorio-palmera span { font-size: var(--text-note); }
-#explora-madre-de-dios .territorio-diagrama { margin: 24px 0; padding: 24px; border: 1px solid #d3ded5; border-radius: 16px; background: #fff; }
+#explora-madre-de-dios .territorio-diagrama { margin: var(--space-4) 0; padding: var(--space-4); border: 1px solid #d3ded5; border-radius: 16px; background: #fff; }
 #explora-madre-de-dios .territorio-diagrama img { width: 100%; height: auto; display: block; }
-#explora-madre-de-dios .territorio-diagrama-claves { display: block; margin-top: 8px; }
+#explora-madre-de-dios .territorio-diagrama-claves { display: block; margin-top: var(--space-1); }
 #explora-madre-de-dios .selva-territorio-layout { scroll-margin-top: 110px; }
-#explora-madre-de-dios .territorio-red { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 12px; margin: 24px 0; position: relative; }
+#explora-madre-de-dios .territorio-red { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-2); margin: var(--space-4) 0; position: relative; }
 #explora-madre-de-dios .territorio-red article { padding: 20px 10px; text-align: center; border-radius: 12px; background: #e9efdf; border: 1px solid #cedbc8; position: relative; }
 #explora-madre-de-dios .territorio-red article::after { content: "↔"; position: absolute; right: -13px; top: 22px; color: #24656b; z-index: 1; }
 #explora-madre-de-dios .territorio-red article:last-child::after { display: none; }
 #explora-madre-de-dios .territorio-red > span { display: none; }
-#explora-madre-de-dios .territorio-red h5 { font-size: var(--text-reading); margin-top: 12px; }
-#explora-madre-de-dios .territorio-red p { font-size: 13px; line-height: 1.6; margin: 0; }
+#explora-madre-de-dios .territorio-red h5 { font-size: var(--text-reading); margin-top: var(--space-2); }
+#explora-madre-de-dios .territorio-red p { font-size: var(--text-credit); line-height: 1.6; margin: 0; }
 #explora-madre-de-dios .territorio-ecuacion { padding: 20px; border: 1px solid #cedbc8; border-radius: 12px; background: #e9efdf; font-weight: 700; text-align: center; }
-#explora-madre-de-dios .territorio-actividad figure { margin: 16px 0; }
+#explora-madre-de-dios .territorio-actividad figure { margin: var(--space-3) 0; }
 #explora-madre-de-dios .territorio-actividad img { width: 100%; height: auto; display: block; border-radius: 10px; }
-#explora-madre-de-dios .territorio-actividad label { display: block; font-weight: 600; font-size: var(--text-note); margin: 16px 0 8px; }
-#explora-madre-de-dios .territorio-actividad select { width: 100%; max-width: 100%; min-height: 44px; border: 1px solid #95aaa0; border-radius: 8px; padding: 8px; color: #163d2b; background: #fff; font: inherit; font-size: var(--text-note); }
-#explora-madre-de-dios .territorio-respuestas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
-#explora-madre-de-dios .territorio-respuestas button { min-height: 44px; padding: 10px 16px; border-radius: 8px; border: 1px solid #718d7b; color: #163d2b; background: #e9efdf; font-family: inherit; font-size: var(--text-note); font-weight: 600; cursor: pointer; }
-#explora-madre-de-dios .territorio-feedback:not(:empty) { padding: 12px; border-radius: 8px; background: #e8f0eb; font-size: var(--text-note); }
-#explora-madre-de-dios .territorio-fuentes-educativas { margin-top: 28px; background: #fff; padding: 20px 24px; border: 1px solid #d3ded5; border-radius: 12px; }
+#explora-madre-de-dios .territorio-actividad label { display: block; font-weight: 600; font-size: var(--text-note); margin: var(--space-3) 0 var(--space-1); }
+#explora-madre-de-dios .territorio-actividad select { width: 100%; max-width: 100%; min-height: 44px; border: 1px solid #95aaa0; border-radius: 8px; padding: var(--space-1); color: #163d2b; background: #fff; font: inherit; font-size: var(--text-note); }
+#explora-madre-de-dios .territorio-respuestas { display: flex; flex-wrap: wrap; gap: var(--space-1); margin-top: 20px; }
+#explora-madre-de-dios .territorio-respuestas button { min-height: 44px; padding: 10px var(--space-3); border-radius: 8px; border: 1px solid #718d7b; color: #163d2b; background: #e9efdf; font-family: inherit; font-size: var(--text-note); font-weight: 600; cursor: pointer; }
+#explora-madre-de-dios .territorio-feedback:not(:empty) { padding: var(--space-2); border-radius: 8px; background: #e8f0eb; font-size: var(--text-note); }
+#explora-madre-de-dios .territorio-fuentes-educativas { margin-top: 28px; background: #fff; padding: 20px var(--space-4); border: 1px solid #d3ded5; border-radius: 12px; }
 #explora-madre-de-dios .territorio-fuentes-educativas summary { min-height: 44px; cursor: pointer; font-size: 16px; font-weight: 700; }
 #explora-madre-de-dios .territorio-fuentes-educativas ol { padding-left: 22px; }
 #explora-madre-de-dios .territorio-fuentes-educativas li { margin-bottom: 20px; font-size: var(--text-note); line-height: 1.8; scroll-margin-top: 110px; }
-#explora-madre-de-dios .territorio-cierre { margin-top: 48px; border-radius: 20px; background: #173e2a; color: #fff; padding: 40px; }
+#explora-madre-de-dios .territorio-cierre { margin-top: var(--space-6); border-radius: 20px; background: #173e2a; color: #fff; padding: 40px; }
 #explora-madre-de-dios .territorio-cierre p, #explora-madre-de-dios .territorio-cierre h4, #explora-madre-de-dios .territorio-cierre .eco-eyebrow { color: #fff; }
 #explora-madre-de-dios .territorio-cierre > p { max-width: 760px; }
 #explora-madre-de-dios .territorio-cierre a { color: #e2ead1; }
-#explora-madre-de-dios .territorio-conecta { display: flex; flex-wrap: wrap; gap: 12px 24px; margin: 24px 0; }
+#explora-madre-de-dios .territorio-conecta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); margin: var(--space-4) 0; }
 #explora-madre-de-dios .territorio-conecta a { display: inline-flex; align-items: center; min-height: 44px; font-size: var(--text-note); }
 #explora-madre-de-dios .territorio-lema { font-weight: 700; font-size: var(--text-note) !important; }
 #explora-madre-de-dios .territorio-aula :is(button, a, summary, select):focus-visible, #explora-madre-de-dios .territorio-capas :is(input, summary):focus-visible { outline: 3px solid #24656b; outline-offset: 4px; }
 #explora-madre-de-dios .territorio-aula button:disabled { cursor: wait; opacity: .65; }
-#explora-madre-de-dios .territorio-capas { margin: 0; padding: 16px 20px; background: #f3f6ee; border: 0; border-top: 1px solid #dbe4d8; color: #163d2b; }
-#explora-madre-de-dios .territorio-capas legend { float: left; width: 100%; font-size: var(--text-note); font-weight: 700; margin-bottom: 8px; }
-#explora-madre-de-dios .territorio-capas-opciones { display: flex; flex-wrap: wrap; gap: 6px 16px; clear: both; }
-#explora-madre-de-dios .territorio-capas label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; font-size: var(--text-note); cursor: pointer; }
+#explora-madre-de-dios .territorio-capas { margin: 0; padding: var(--space-3) 20px; background: #f3f6ee; border: 0; border-top: 1px solid #dbe4d8; color: #163d2b; }
+#explora-madre-de-dios .territorio-capas legend { float: left; width: 100%; font-size: var(--text-note); font-weight: 700; margin-bottom: var(--space-1); }
+#explora-madre-de-dios .territorio-capas-opciones { display: flex; flex-wrap: wrap; gap: 6px var(--space-3); clear: both; }
+#explora-madre-de-dios .territorio-capas label { display: inline-flex; align-items: center; gap: var(--space-1); min-height: 44px; font-size: var(--text-note); cursor: pointer; }
 #explora-madre-de-dios .territorio-capas input { width: 18px; height: 18px; accent-color: #286346; }
-#explora-madre-de-dios .territorio-capas p, #explora-madre-de-dios .territorio-capas details { font-size: 13px; line-height: 1.7; margin: 8px 0 0; }
+#explora-madre-de-dios .territorio-capas p, #explora-madre-de-dios .territorio-capas details { font-size: var(--text-credit); line-height: 1.7; margin: var(--space-1) 0 0; }
 #explora-madre-de-dios .territorio-capas summary { cursor: pointer; min-height: 32px; }
 #explora-madre-de-dios .territorio-capas a { color: #24656b; text-decoration: underline; }
-#explora-madre-de-dios .territorio-ficha-aprender { margin-top: 20px; border-top: 1px solid #d8e1d9; padding-top: 16px; font-size: var(--text-note); line-height: 1.75; }
+#explora-madre-de-dios .territorio-ficha-aprender { margin-top: 20px; border-top: 1px solid #d8e1d9; padding-top: var(--space-3); font-size: var(--text-note); line-height: 1.75; }
 #explora-madre-de-dios .territorio-ficha-aprender summary { font-weight: 700; min-height: 44px; cursor: pointer; }
 #explora-madre-de-dios .territorio-ficha-aprender dl { display: block; font-size: var(--text-note); line-height: 1.75; margin: 0; }
-#explora-madre-de-dios .territorio-ficha-aprender dt { margin-top: 12px; font-weight: 700; }
+#explora-madre-de-dios .territorio-ficha-aprender dt { margin-top: var(--space-2); font-weight: 700; }
 #explora-madre-de-dios .territorio-ficha-aprender dd { margin: 4px 0 0; }
 #explora-madre-de-dios .territorio-ficha-aprender a { color: #24656b; text-decoration: underline; }
 @media (max-width: 1100px) {
@@ -96,17 +96,21 @@
     #explora-madre-de-dios .territorio-red article:nth-of-type(4)::after { display: none; }
 }
 @media (max-width: 767px) {
-    #explora-madre-de-dios .territorio-grid, #explora-madre-de-dios .territorio-conceptos, #explora-madre-de-dios .territorio-servicios, #explora-madre-de-dios .territorio-rios-grid { grid-template-columns: 1fr; gap: 16px; }
-    #explora-madre-de-dios .territorio-destacado { grid-template-columns: 1fr; gap: 24px; padding: 24px; }
+    #explora-madre-de-dios .territorio-grid, #explora-madre-de-dios .territorio-conceptos, #explora-madre-de-dios .territorio-servicios, #explora-madre-de-dios .territorio-rios-grid { grid-template-columns: 1fr; gap: var(--space-3); }
+    #explora-madre-de-dios .territorio-destacado { grid-template-columns: 1fr; gap: var(--space-4); padding: var(--space-4); }
     #explora-madre-de-dios .territorio-destacado figure { max-width: 280px; justify-self: center; }
     #explora-madre-de-dios .territorio-red { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     #explora-madre-de-dios .territorio-red article:nth-of-type(even)::after { display: none; }
-    #explora-madre-de-dios .territorio-cierre { padding: 24px; }
-    #explora-madre-de-dios .territorio-diagrama { padding: 12px; }
+    #explora-madre-de-dios .territorio-cierre { padding: var(--space-4); }
+    #explora-madre-de-dios .territorio-diagrama { padding: var(--space-2); }
     #explora-madre-de-dios .territorio-capitulo { padding-top: 36px; }
-    #explora-madre-de-dios .territorio-capas { padding: 12px 16px; }
+    #explora-madre-de-dios .territorio-capas { padding: var(--space-2) var(--space-3); }
 }
 @media (prefers-reduced-motion: no-preference) {
     #explora-madre-de-dios .territorio-indice a { transition: background-color .18s ease; }
     #explora-madre-de-dios .territorio-indice a:hover { background: #e9efdf; }
 }
+
+/* El panel es una zona de lectura e interacción. */
+.eco-site #explora-madre-de-dios :is(.selva-territorio-ficha p,.selva-territorio-ficha li,.selva-territorio-panel-intro,.selva-territorio-acceso,.selva-territorio-leyenda-item,.selva-territorio-datos-principales,.selva-territorio-datos-principales dt,.selva-territorio-registro summary){font-size:var(--text-note);line-height:1.7}
+.eco-site #explora-madre-de-dios :is(.selva-territorio-tipo-ficha,.selva-territorio-datos-principales dt,.selva-territorio-detalle-nota){color:var(--muted)}
