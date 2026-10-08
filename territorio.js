@@ -732,9 +732,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 answers.forEach(answer => answer.setAttribute("aria-pressed", String(answer === button)));
                 const value = button.dataset.territorioRespuesta;
                 quiz.querySelector(".territorio-feedback").textContent = value === "rio" ?
-                    "Correcto: el elemento central es un río, con un cauce sinuoso entre orillas. El bosque lo acompaña. La ilustración no permite identificar todos los humedales." :
-                    value === "bosque" ? "El bosque aparece en las orillas. Observa el elemento central por el que fluye el agua y prueba otra respuesta." :
-                    "El agua puede conectar humedales, pero aquí se representa un cauce con flujo. Observa el elemento central y prueba otra respuesta.";
+                    "Correcto: el agua de la parte inferior corresponde al río Tambopata; el bosque crece en la orilla. La fotografía no permite identificar todos los humedales del paisaje." :
+                    value === "bosque" ? "El bosque aparece en la orilla. Observa el agua de la parte inferior y prueba otra respuesta." :
+                    "Esta fotografía muestra el río Tambopata. La presencia de agua por sí sola no identifica un aguajal ni otro tipo de humedal. Observa la parte inferior y prueba otra respuesta.";
             });
         });
         const form = territorioAula.querySelector("[data-territorio-relaciona]");

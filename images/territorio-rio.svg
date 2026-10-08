@@ -1,14 +1,119 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" role="img" aria-labelledby="titulo descripcion">
-  <title id="titulo">Red de una cuenca y dinámica fluvial</title>
-  <desc id="descripcion">La cuenca contiene quebradas y afluentes que desembocan en el río principal. En la planicie aparecen meandros, una cocha separada y bosque ribereño. Las flechas indican el flujo del agua. Esquema educativo, sin escala.</desc>
-  <defs><marker id="flecha" markerWidth="6" markerHeight="6" refX="4" refY="3" orient="auto"><path d="M0 0L6 3L0 6Z" fill="#24656b"/></marker><g id="arbol"><path d="M0 0v35" stroke="#705034" stroke-width="8"/><path d="M0-32-28 8h56Z" fill="#427450"/></g></defs>
-  <rect width="1000" height="480" rx="22" fill="#f0f3e8"/>
-  <path d="M80 400Q20 280 80 135Q180 15 460 30Q790 10 950 170Q1000 330 915 435" fill="none" stroke="#8b9e84" stroke-width="4" stroke-dasharray="12 10"/>
-  <path d="M70 225 166 86 215 188 275 69 359 198" fill="#c9d6c4" stroke="#8b9e84" stroke-width="3"/>
-  <path d="M165 142Q150 230 232 280M275 115Q270 217 346 240M425 78Q450 161 454 256" fill="none" stroke="#62a4a9" stroke-width="10"/>
-  <path d="M78 310Q248 203 340 259Q440 315 510 217Q570 124 650 216Q726 326 815 257Q881 224 941 348" fill="none" stroke="#62a4a9" stroke-width="35" stroke-linecap="round"/>
-  <path d="M640 347Q588 301 584 366Q591 439 660 410Q683 389 670 375" fill="none" stroke="#62a4a9" stroke-width="22" stroke-linecap="round"/>
-  <path d="M211 275 266 263M460 269 496 239M749 291 792 279M905 298 927 325" fill="none" stroke="#24656b" stroke-width="4" marker-end="url(#flecha)"/>
-  <g><use href="#arbol" x="351" y="373"/><use href="#arbol" x="407" y="347"/><use href="#arbol" x="780" y="178"/><use href="#arbol" x="830" y="151"/><use href="#arbol" x="887" y="179"/></g>
-  <g fill="#163d2b" font-family="sans-serif" font-size="52" font-weight="700"><text x="60" y="75">1</text><text x="386" y="141">2</text><text x="186" y="366">3</text><text x="580" y="111">4</text><text x="693" y="421">5</text><text x="876" y="118">6</text></g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="560" viewBox="0 0 1000 560" role="img" aria-labelledby="titulo descripcion">
+<title id="titulo">De la cuenca al río amazónico</title><desc id="descripcion">Vista oblicua conceptual: laderas y quebradas alimentan un río que forma meandros en una planicie boscosa. Una cocha de herradura queda separada del cauce. Las flechas siguen el agua hacia la salida de la cuenca. Ilustración de EcoSelva sin escala ni ubicación real.</desc>
+<defs>
+<linearGradient id="suelo" x2=".6" y2="1"><stop stop-color="#eff0de"/><stop offset="1" stop-color="#d4dfbb"/></linearGradient>
+<linearGradient id="agua" x2="1" y2="1"><stop stop-color="#80aeb0"/><stop offset="1" stop-color="#287c83"/></linearGradient>
+<linearGradient id="ladera" x2=".8" y2="1"><stop stop-color="#8c9b72"/><stop offset="1" stop-color="#c2cda6"/></linearGradient>
+<g id="arbol"><ellipse cx="0" cy="7" rx="14" ry="6" fill="#163d2b" opacity=".12"/><path d="M0 7V-12" stroke="#82502c" stroke-width="4"/><path d="M-12-8Q-20-21-9-29Q-9-43 2-40Q17-43 16-29Q28-19 15-9Q4-1-12-8" fill="#3d7a4d"/><path d="M-9-29Q-6-41 3-36Q11-38 12-29Q7-22-9-29" fill="#8aab67"/><path d="M-12-8Q3-14 15-9Q4-1-12-8" fill="#163d2b" opacity=".3"/></g>
+<clipPath id="escena"><rect width="1000" height="560" rx="24"/></clipPath>
+<marker id="flecha" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 7 4 0 8 2 4Z" fill="#fff"/></marker>
+</defs>
+<g clip-path="url(#escena)"><rect width="1000" height="560" fill="url(#suelo)"/>
+<path d="M12 118Q180 28 357 57T705 86Q880 135 952 302Q1000 444 947 513Q815 568 610 536Q438 554 245 453Q86 377 38 264Z" fill="#e4ead0"/>
+<path d="M30 285 112 99 164 173 227 50 324 177 362 86 452 232 308 263 172 290Z" fill="url(#ladera)"/>
+<path d="M30 285 112 99 117 199 96 266ZM164 173 227 50 218 153 242 224ZM324 177 362 86 363 197 390 242Z" fill="#6b815f" opacity=".65"/>
+<path d="M112 99 128 155 164 173 145 139ZM227 50 249 119 283 152 261 109ZM362 86 387 128 404 175 388 140Z" fill="#d7dbbe"/>
+<g fill="none" stroke="#3d7a4d" opacity=".15" stroke-width="2"><path d="M440 89Q676 89 875 225M414 111Q654 123 892 279M125 362Q216 425 367 459M119 388Q207 452 321 469M763 137Q846 177 888 242"/></g>
+<use href="#arbol" transform="translate(658 92) scale(0.76)"/>
+<use href="#arbol" transform="translate(640 93) scale(0.67)"/>
+<use href="#arbol" transform="translate(557 97) scale(0.82)"/>
+<use href="#arbol" transform="translate(648 98) scale(0.97)"/>
+<use href="#arbol" transform="translate(623 99) scale(0.66)"/>
+<use href="#arbol" transform="translate(531 104) scale(0.75)"/>
+<use href="#arbol" transform="translate(476 112) scale(1.08)"/>
+<use href="#arbol" transform="translate(515 114) scale(0.89)"/>
+<use href="#arbol" transform="translate(678 114) scale(1.06)"/>
+<use href="#arbol" transform="translate(530 116) scale(0.75)"/>
+<use href="#arbol" transform="translate(646 116) scale(0.73)"/>
+<use href="#arbol" transform="translate(557 119) scale(1.12)"/>
+<use href="#arbol" transform="translate(557 120) scale(0.86)"/>
+<use href="#arbol" transform="translate(468 125) scale(0.84)"/>
+<use href="#arbol" transform="translate(635 126) scale(1.05)"/>
+<use href="#arbol" transform="translate(655 128) scale(0.70)"/>
+<use href="#arbol" transform="translate(680 131) scale(0.92)"/>
+<use href="#arbol" transform="translate(673 131) scale(0.73)"/>
+<use href="#arbol" transform="translate(491 133) scale(0.69)"/>
+<use href="#arbol" transform="translate(516 142) scale(0.93)"/>
+<use href="#arbol" transform="translate(466 156) scale(0.74)"/>
+<use href="#arbol" transform="translate(548 162) scale(0.77)"/>
+<use href="#arbol" transform="translate(535 165) scale(0.94)"/>
+<use href="#arbol" transform="translate(615 166) scale(0.73)"/>
+<use href="#arbol" transform="translate(639 172) scale(0.95)"/>
+<use href="#arbol" transform="translate(623 173) scale(0.91)"/>
+<use href="#arbol" transform="translate(626 174) scale(0.91)"/>
+<use href="#arbol" transform="translate(471 178) scale(0.87)"/>
+<use href="#arbol" transform="translate(856 204) scale(1.10)"/>
+<use href="#arbol" transform="translate(875 204) scale(0.93)"/>
+<use href="#arbol" transform="translate(881 205) scale(0.97)"/>
+<use href="#arbol" transform="translate(865 206) scale(0.70)"/>
+<use href="#arbol" transform="translate(892 212) scale(0.83)"/>
+<use href="#arbol" transform="translate(869 217) scale(1.06)"/>
+<use href="#arbol" transform="translate(772 220) scale(0.96)"/>
+<use href="#arbol" transform="translate(857 222) scale(0.77)"/>
+<use href="#arbol" transform="translate(790 223) scale(0.83)"/>
+<use href="#arbol" transform="translate(880 225) scale(0.77)"/>
+<use href="#arbol" transform="translate(768 241) scale(0.85)"/>
+<use href="#arbol" transform="translate(832 243) scale(0.76)"/>
+<use href="#arbol" transform="translate(867 254) scale(1.07)"/>
+<use href="#arbol" transform="translate(892 263) scale(0.90)"/>
+<use href="#arbol" transform="translate(807 268) scale(1.01)"/>
+<use href="#arbol" transform="translate(775 269) scale(0.88)"/>
+<use href="#arbol" transform="translate(781 273) scale(1.10)"/>
+<use href="#arbol" transform="translate(801 276) scale(1.10)"/>
+<use href="#arbol" transform="translate(816 285) scale(0.89)"/>
+<use href="#arbol" transform="translate(769 291) scale(1.07)"/>
+<use href="#arbol" transform="translate(761 297) scale(0.88)"/>
+<use href="#arbol" transform="translate(803 299) scale(0.91)"/>
+<use href="#arbol" transform="translate(807 299) scale(0.92)"/>
+<use href="#arbol" transform="translate(757 301) scale(0.90)"/>
+<use href="#arbol" transform="translate(808 302) scale(0.95)"/>
+<use href="#arbol" transform="translate(780 305) scale(0.97)"/>
+<use href="#arbol" transform="translate(113 319) scale(1.05)"/>
+<use href="#arbol" transform="translate(272 329) scale(0.99)"/>
+<use href="#arbol" transform="translate(159 331) scale(0.68)"/>
+<use href="#arbol" transform="translate(246 331) scale(0.65)"/>
+<use href="#arbol" transform="translate(206 339) scale(0.85)"/>
+<use href="#arbol" transform="translate(296 347) scale(1.03)"/>
+<use href="#arbol" transform="translate(267 348) scale(0.75)"/>
+<use href="#arbol" transform="translate(114 349) scale(0.76)"/>
+<use href="#arbol" transform="translate(150 351) scale(1.00)"/>
+<use href="#arbol" transform="translate(242 353) scale(0.87)"/>
+<use href="#arbol" transform="translate(101 354) scale(0.91)"/>
+<use href="#arbol" transform="translate(319 355) scale(0.85)"/>
+<use href="#arbol" transform="translate(277 357) scale(0.68)"/>
+<use href="#arbol" transform="translate(263 358) scale(0.70)"/>
+<use href="#arbol" transform="translate(198 359) scale(0.96)"/>
+<use href="#arbol" transform="translate(215 363) scale(0.68)"/>
+<use href="#arbol" transform="translate(199 363) scale(0.81)"/>
+<use href="#arbol" transform="translate(369 385) scale(1.11)"/>
+<use href="#arbol" transform="translate(370 396) scale(0.67)"/>
+<use href="#arbol" transform="translate(330 405) scale(0.84)"/>
+<use href="#arbol" transform="translate(307 405) scale(0.83)"/>
+<use href="#arbol" transform="translate(361 411) scale(1.06)"/>
+<use href="#arbol" transform="translate(313 415) scale(0.74)"/>
+<use href="#arbol" transform="translate(349 417) scale(1.09)"/>
+<use href="#arbol" transform="translate(323 419) scale(0.87)"/>
+<use href="#arbol" transform="translate(358 420) scale(0.85)"/>
+<use href="#arbol" transform="translate(309 440) scale(1.03)"/>
+<use href="#arbol" transform="translate(368 441) scale(0.72)"/>
+<use href="#arbol" transform="translate(371 446) scale(0.72)"/>
+<use href="#arbol" transform="translate(930 359) scale(1.00)"/>
+<use href="#arbol" transform="translate(806 359) scale(0.92)"/>
+<use href="#arbol" transform="translate(839 360) scale(0.93)"/>
+<use href="#arbol" transform="translate(817 360) scale(0.90)"/>
+<use href="#arbol" transform="translate(853 372) scale(0.84)"/>
+<use href="#arbol" transform="translate(921 372) scale(0.71)"/>
+<use href="#arbol" transform="translate(925 376) scale(1.09)"/>
+<use href="#arbol" transform="translate(812 382) scale(0.96)"/>
+<use href="#arbol" transform="translate(868 385) scale(0.80)"/>
+<use href="#arbol" transform="translate(806 388) scale(0.69)"/>
+<use href="#arbol" transform="translate(855 393) scale(0.93)"/>
+<use href="#arbol" transform="translate(844 398) scale(0.99)"/>
+<use href="#arbol" transform="translate(920 410) scale(0.90)"/>
+<use href="#arbol" transform="translate(881 412) scale(0.68)"/>
+<g fill="none" stroke-linecap="round"><path d="M121 173Q116 218 178 226Q201 230 233 239M242 135Q267 192 318 199Q360 205 368 263M385 189Q423 207 433 258M652 217Q644 255 657 325" stroke="#c7c79f" stroke-width="14"/><path d="M121 173Q116 218 178 226Q201 230 233 239M242 135Q267 192 318 199Q360 205 368 263M385 189Q423 207 433 258M652 217Q644 255 657 325" stroke="#5b9291" stroke-width="9"/>
+<path d="M210 197C238 227 239 260 303 267C369 272 455 241 484 290C510 333 437 345 469 392C502 440 586 406 601 362C620 303 686 324 706 374C721 412 695 450 736 472C787 500 849 456 950 503" stroke="#cfb45c" stroke-opacity=".55" stroke-width="57"/><path d="M210 197C238 227 239 260 303 267C369 272 455 241 484 290C510 333 437 345 469 392C502 440 586 406 601 362C620 303 686 324 706 374C721 412 695 450 736 472C787 500 849 456 950 503" stroke="url(#agua)" stroke-width="41"/><path d="M541 446C546 471 585 492 621 477C654 463 668 416 643 400" stroke="#c1c8a7" stroke-width="28"/><path d="M541 446C546 471 585 492 621 477C654 463 668 416 643 400" stroke="#287c83" stroke-width="19"/>
+<path d="M276 264Q298 276 326 268M471 364Q464 380 479 395M712 438Q715 460 732 467M841 473 873 481" stroke="#fff" stroke-width="3.5" marker-end="url(#flecha)"/>
+<path d="M131 194Q143 221 175 224M266 171Q280 194 307 197" stroke="#fff" stroke-width="2.5" marker-end="url(#flecha)"/>
+<path d="M19 115Q166 17 367 33T743 76Q931 148 970 306Q998 449 947 518Q820 549 600 530Q416 552 210 460Q49 378 19 264Z" stroke="#526b4d" stroke-width="3" stroke-dasharray="11 10"/>
+</g></g></svg>

@@ -100,3 +100,31 @@
 .eco-site .eco-territorio-photo figcaption a{text-decoration:underline;text-underline-offset:3px}
 /* Sobre EcoSelva: fotografía más baja en escritorio y móvil. */
 .eco-site #quienes-somos .selva-sobre-imagen img{height:clamp(144px,16vw,224px);min-height:0;max-height:224px;object-fit:cover;object-position:50% 50%}
+
+/* Imágenes educativas: localizador legible también en celular. */
+.eco-site .conoce-ubicacion-grid{grid-template-columns:minmax(280px,.8fr) minmax(0,1.6fr)}
+@media(max-width:767px){.eco-site .conoce-ubicacion-grid{grid-template-columns:minmax(0,1fr)}}
+.eco-site .conoce-localizador{width:100%;max-width:360px;margin:0 auto}
+.eco-site .conoce-localizador img{object-fit:contain;border-radius:18px}
+
+/* Los números del esquema mantienen su tamaño de lectura al reducir la imagen. */
+.eco-site #explora-madre-de-dios .territorio-diagrama{max-width:1064px;margin-inline:auto}
+.territorio-rio-escena{position:relative}
+.eco-site #explora-madre-de-dios .territorio-rio-escena img{aspect-ratio:1000/560;object-fit:contain}
+.territorio-diagrama-puntos{list-style:none;margin:0;padding:0}
+.territorio-diagrama-puntos li{position:absolute;left:var(--x);top:var(--y);transform:translate(-50%,-50%);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--forest);color:var(--white);font-family:var(--font-body);font-size:var(--text-note);font-weight:700;line-height:1;box-shadow:0 0 0 2px var(--white);list-style:none}
+
+/* Aguaje: fotografía con contexto geográfico y crédito. */
+.eco-site #territorio-aguajales .territorio-foto-aguajal{max-width:none;width:100%;align-self:start}
+.eco-site #territorio-aguajales .territorio-foto-aguajal img{aspect-ratio:4/5;width:100%;height:auto;max-height:none;object-fit:cover;object-position:76% 50%}
+.eco-site #explora-madre-de-dios .territorio-foto-aguajal figcaption a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:767px){.eco-site #territorio-aguajales .territorio-foto-aguajal img{aspect-ratio:4/3;object-position:65% 65%}}
+
+/* Una imagen de campo presenta las actividades sin desplazar sus controles. */
+.eco-site #explora-madre-de-dios .territorio-explora-banner{margin:0 0 var(--space-4)}
+.eco-site #explora-madre-de-dios .territorio-explora-banner img{display:block;width:100%;height:auto;aspect-ratio:3/1;object-fit:cover;border-radius:var(--radius-lg)}
+@media(max-width:767px){.eco-site #explora-madre-de-dios .territorio-explora-banner img{aspect-ratio:3/2;object-position:65% 50%}}
+
+/* Observación: conservar el agua y la orilla dentro del encuadre de la fotografía. */
+.eco-site #explora-madre-de-dios .territorio-foto-observa img{aspect-ratio:4/3;object-fit:cover;object-position:50% 80%}
+.eco-site #explora-madre-de-dios .territorio-foto-observa figcaption a{text-decoration:underline;text-underline-offset:3px}
