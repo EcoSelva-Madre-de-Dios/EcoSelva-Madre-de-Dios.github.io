@@ -34,6 +34,7 @@ jobs:
           node --check historia.js
           node --check areas-protegidas.js
           node --check ecoselva.js
+          node --check cartografia.js
           node --check flora.js
           node --check territorio.js
           node --check assets/eco-base.js

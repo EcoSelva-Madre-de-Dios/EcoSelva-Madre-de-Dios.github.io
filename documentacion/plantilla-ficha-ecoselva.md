@@ -60,3 +60,7 @@ La página incluye el JSON para consulta y el CSV para descarga. El generador, e
 No publicar una nueva ficha sin fotografía con licencia, introducción, Lo esencial completo, al menos dos módulos de Para entender, fuentes comprobadas, fecha real de revisión y metodología/limitaciones cuando corresponda. No mostrar secciones vacías, “Próximamente”, descargas inexistentes ni enlaces a fichas vacías.
 
 Antes de replicar, evaluar con lectores: comprensión rápida para público general, aprendizaje de procesos para estudiantes y trazabilidad para profesionales. Comprobar móvil, teclado, glosario, anclas, lectura sin JavaScript, SEO propio y actualización de datos sin reescribir la página. Las comprobaciones técnicas no sustituyen esta evaluación humana. En esta fase solo existe el piloto de castaña.
+
+## Presentación refinada
+
+Mantener cabecera común, breadcrumb, hero amplio, metadatos, nivel esencial, explicación, datos/evidencia, fuentes y última revisión. Usar `--layout-wide` para evidencia/tablas y `--reading-max` para texto; no extender párrafos a todo el ancho. Una microidentidad editorial puede tener una microilustración decorativa (64–120 px, alt vacío), sin sustituir la fotografía documentada ni el esquema científico. La castaña muestra el objeto completo sobre un marco editorial; sus créditos y la reconstrucción declarada permanecen visibles. Las ventanas reutilizan `ecoDialog`: editorial 40/60, drawer técnico y bottom sheet móvil.

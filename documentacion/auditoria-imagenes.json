@@ -1,0 +1,1611 @@
+[
+  {
+    "archivo": "images/agua-madre-de-dios.jpg",
+    "tema": "Agua — ríos, cochas y lagos de herradura",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": "Archivo proporcionado por el usuario; autor, ubicación y fuente originales no indicados.",
+    "licencia": "No indicada; uso solicitado por el usuario en EcoSelva.",
+    "url": "https://visitaareasnaturales.sernanp.gob.pe/anps/reserva-nacional-tambopata/",
+    "licencia_url": null,
+    "dimensiones": [
+      1200,
+      675
+    ],
+    "ratio": 1.7778,
+    "bytes": 265848,
+    "sha256": "dfbf6b01995d662806ddde4781f7fdc9ce10ae972b707029c78b707e42a66e05",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "Vista satelital de un río amazónico sinuoso entre bosque y zonas intervenidas.",
+        "credito_contexto": "Agua Hay lagos que alguna vez fueron río Lagos de herradura Los lagos de herradura de Tambopata se originan cuando el río cambia de cauce y aísla un meandro. En estos antiguos brazos viven peces, aves, reptiles y mamíferos. Un antiguo tramo de río puede convertirse en una cocha. Agua Ríos Cochas Fuente: SERNANP",
+        "urls_contexto": [
+          "https://visitaareasnaturales.sernanp.gob.pe/anps/reserva-nacional-tambopata/"
+        ]
+      }
+    ],
+    "problemas": [
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/aguaje.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      374,
+      500
+    ],
+    "ratio": 0.748,
+    "bytes": 346572,
+    "sha256": "d74a14e3946065f4a5fb74657ef81022f88c51a3455cb1fa1aa45bb09d5a2fea",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar.",
+      "Resolución limitada: no ampliar como imagen principal."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/bg-hero.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      2560,
+      1439
+    ],
+    "ratio": 1.779,
+    "bytes": 512844,
+    "sha256": "5ceea501a184985369d957759e1f47210039fca9a41bcd2b94292a7bc052ecad",
+    "usos": [
+      {
+        "pagina": "style.css",
+        "alt": "Fondo decorativo",
+        "credito_contexto": "",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "style.css",
+        "alt": "Fondo decorativo",
+        "credito_contexto": "",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": [
+      "imagenesEco/bg-hero.jpg"
+    ]
+  },
+  {
+    "archivo": "images/bg.png",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      4000,
+      2248
+    ],
+    "ratio": 1.7794,
+    "bytes": 7638829,
+    "sha256": "1e93465a768fcc4e03014c9c137444e63bbe02b6d2a26d81554d85760d20185c",
+    "usos": [
+      {
+        "pagina": "style.css",
+        "alt": "Fondo decorativo",
+        "credito_contexto": "",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": [
+      "imagenesEco/bg.png"
+    ]
+  },
+  {
+    "archivo": "images/capirona.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      377,
+      500
+    ],
+    "ratio": 0.754,
+    "bytes": 278651,
+    "sha256": "3be56e85ea06ff30ef005f8a4eafd3271525f47b7492e8d18ce081775d14b036",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar.",
+      "Resolución limitada: no ampliar como imagen principal."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/castana-commons-480.jpg",
+    "tema": "Flora — Bertholletia excelsa",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "P. S. Sena; edición atribuida a RoRo en Wikimedia Commons",
+    "fuente": "Wikimedia Commons",
+    "licencia": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_fruit_and_seeds.jpg",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "dimensiones": [
+      480,
+      553
+    ],
+    "ratio": 0.868,
+    "bytes": 56072,
+    "sha256": "8c1f657cea5257e674352833838bb1aee598b4b2c8e3a89bdfe5cb996e27339b",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Resolución limitada: no ampliar como imagen principal."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/castana-commons-745.jpg",
+    "tema": "Flora — Bertholletia excelsa",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "P. S. Sena; edición atribuida a RoRo en Wikimedia Commons",
+    "fuente": "Wikimedia Commons",
+    "licencia": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_fruit_and_seeds.jpg",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "dimensiones": [
+      745,
+      858
+    ],
+    "ratio": 0.8683,
+    "bytes": 126406,
+    "sha256": "b24e0c3d91b4b6e073566d8faf9ffec5a304cf575de4c3a8f0d42290bca0acb8",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "Fruto abierto y semillas de castaña amazónica (Bertholletia excelsa); parte del fruto está reconstruida en la imagen.",
+        "credito_contexto": "Flora Un bosque que también alimenta Fotografía: P. S. Sena (edición: RoRo) — Wikimedia Commons · CC BY-SA 4.0 · optimizada por EcoSelva. La castaña amazónica Bertholletia excelsa La castaña amazónica ( Bertholletia excelsa ) caracteriza los bosques de Madre de Dios. En Tambopata, los castañales están protegidos y su aprovechamiento sigue un manejo orientado al uso sostenible. Un recurso del bosque que requiere un manejo responsable. Flora Bosque Castaña Fuentes: Reserva Nacional Tambopata Plan de Manejo (2025) Fotografía: P. S. Sena · edición: RoRo — Wikimedia Commons CC BY-SA 4.0 Del bosque al producto →",
+        "urls_contexto": [
+          "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata",
+          "https://www.gob.pe/institucion/sernanp/normas-legales/6374223-006-2025-sernanp-dganp",
+          "https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_fruit_and_seeds.jpg",
+          "https://creativecommons.org/licenses/by-sa/4.0/"
+        ]
+      },
+      {
+        "pagina": "index.html",
+        "alt": "Fruto abierto y semillas de castaña; parte del fruto está reconstruida en la imagen.",
+        "credito_contexto": "Flora · ficha educativa Castaña amazónica Lo esencial, los procesos del bosque y los datos que puedes consultar. Explorar la ficha → P. S. Sena · edición RoRo · Wikimedia Commons · CC BY-SA 4.0 ↗",
+        "urls_contexto": [
+          "https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_fruit_and_seeds.jpg"
+        ]
+      },
+      {
+        "pagina": "territorio.html",
+        "alt": "Fruto abierto y semillas de castaña amazónica; parte del fruto está reconstruida en la imagen.",
+        "credito_contexto": "P. S. Sena · edición RoRo · Wikimedia Commons · CC BY-SA 4.0 ↗ . Optimizada por EcoSelva.",
+        "urls_contexto": [
+          "https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_fruit_and_seeds.jpg"
+        ]
+      },
+      {
+        "pagina": "fichas/castana.html",
+        "alt": "Fruto abierto y semillas de castaña amazónica (Bertholletia excelsa); parte del fruto está reconstruida en la imagen.",
+        "credito_contexto": "P. S. Sena · edición: RoRo. Wikimedia Commons · original · CC BY-SA 4.0 . Versión comprimida por EcoSelva; parte del fruto está reconstruida.",
+        "urls_contexto": [
+          "https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_fruit_and_seeds.jpg",
+          "https://creativecommons.org/licenses/by-sa/4.0/"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/castana.jpg",
+    "tema": "Conservación",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada",
+    "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata",
+    "licencia_url": null,
+    "dimensiones": [
+      768,
+      1152
+    ],
+    "ratio": 0.6667,
+    "bytes": 259850,
+    "sha256": "097985b71345614ce2c8bb6c5161899e69f93ae88325f1f95063065b65060d3a",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "Árbol alto junto a un camino de tierra.",
+        "credito_contexto": "Conservación Conservar no siempre significa dejar de usar Conservación y uso sostenible En Tambopata, la protección del bosque se combina con el manejo sostenible de la castaña y el turismo de naturaleza. Las personas que viven y trabajan allí pueden contribuir a su conservación. El cuidado del bosque puede integrarse a las actividades de sus habitantes. Conservación Uso sostenible Territorio Fuente: SERNANP",
+        "urls_contexto": [
+          "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata"
+        ]
+      }
+    ],
+    "problemas": [
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/cedrela-odorata.jpg",
+    "tema": "Flora — Cedrela odorata",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Reinaldo Aguilar, según el crédito ya presente en la ficha de cedro",
+    "fuente": "Perfil de Flickr; no se cuenta con la URL de la fotografía individual",
+    "licencia": "No verificada para esta fotografía individual",
+    "url": "https://www.flickr.com/people/plantaspinunsulaosa/",
+    "licencia_url": null,
+    "dimensiones": [
+      960,
+      720
+    ],
+    "ratio": 1.3333,
+    "bytes": 727193,
+    "sha256": "2e132b95cdaa5c5e0113e992eee3bde04ed266649c24264834bfdfcbda38471d",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/conservacion/collpa.webp",
+    "tema": "Reserva Nacional Tambopata",
+    "ubicacion": "Collpa Colorado, Reserva Nacional Tambopata, según descripción del autor",
+    "autor": "Olahgy",
+    "fuente": "Wikimedia Commons",
+    "licencia": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Colorado_Clay_Lick.jpg",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "dimensiones": [
+      1000,
+      563
+    ],
+    "ratio": 1.7762,
+    "bytes": 69428,
+    "sha256": "008c8c0d8bfffa953596ea945a7dcab61f8ee6e69128cc14c9dbb239fac3cb24",
+    "usos": [
+      {
+        "pagina": "areas-protegidas.html",
+        "alt": "Bosque sobre una barranca de la Collpa Colorado y un río con bancos de arena en la Reserva Nacional Tambopata.",
+        "credito_contexto": "Reserva Nacional Tambopata · Collpa Colorado Olahgy · 15/11/2015 · CC BY-SA 4.0 · Procedencia ↗ Este mapa utiliza siete ríos de su base hidrográfica. El visor de Territorio conserva su propia selección de seis trazados.",
+        "urls_contexto": [
+          "https://creativecommons.org/licenses/by-sa/4.0/"
+        ]
+      },
+      {
+        "pagina": "areas-protegidas.html",
+        "alt": "Bosque sobre una barranca junto a un río con bancos de arena en la Reserva Nacional Tambopata.",
+        "credito_contexto": "Reserva Nacional Tambopata · Collpa Colorado Olahgy · 15/11/2015 · CC BY-SA 4.0 · Procedencia ↗",
+        "urls_contexto": [
+          "https://creativecommons.org/licenses/by-sa/4.0/"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/conservacion/manu.webp",
+    "tema": "Parque Nacional del Manu",
+    "ubicacion": "Río Manu, Parque Nacional del Manu, según descripción del autor",
+    "autor": "Erfil",
+    "fuente": "Wikimedia Commons",
+    "licencia": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Manu_River_2012-1.jpg",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "dimensiones": [
+      1280,
+      960
+    ],
+    "ratio": 1.3333,
+    "bytes": 58454,
+    "sha256": "85d8f50e4f43527aac2264919df8ef1992a53db02da2224af563c9bb34c8edcd",
+    "usos": [
+      {
+        "pagina": "areas-protegidas.html",
+        "alt": "Río de agua marrón, bancos de arena y bosque bajo un cielo nublado en el Parque Nacional del Manu.",
+        "credito_contexto": "Parque Nacional del Manu · río Manu Erfil · 16/07/2012 · CC BY-SA 4.0 · Procedencia ↗",
+        "urls_contexto": [
+          "https://creativecommons.org/licenses/by-sa/4.0/"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/documentos/doc-anuario-2021.webp",
+    "tema": "Extracto de documento institucional",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/943/1/SERFOR%202022%20Anuario%202021.pdf#page=82",
+    "licencia_url": null,
+    "dimensiones": [
+      420,
+      594
+    ],
+    "ratio": 0.7071,
+    "bytes": 47772,
+    "sha256": "a50ef5d1f9c6014a9e0ee00146ddfdc33c667abc32a72fa250f8ca521965ed18",
+    "usos": [
+      {
+        "pagina": "biblioteca.html",
+        "alt": "Primera página de Anuario Forestal y de Fauna Silvestre 2021",
+        "credito_contexto": "PDF Informe oficial · 2022 Anuario Forestal y de Fauna Silvestre 2021 SERFOR Perú · tablas de Madre de Dios 140 páginas 5,2 MB Previsualizar ↗ PDF / descarga ↗ Cómo lo usamos en EcoSelva →",
+        "urls_contexto": [
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/943/1/SERFOR%202022%20Anuario%202021.pdf#page=82"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/documentos/doc-anuario-2022.webp",
+    "tema": "Extracto de documento institucional",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": "https://repositorio.serfor.gob.pe/bitstream/SERFOR/948/1/SERFOR%202023%20Anuario%20FFS%202022.pdf#page=82",
+    "licencia_url": null,
+    "dimensiones": [
+      420,
+      595
+    ],
+    "ratio": 0.7059,
+    "bytes": 3872,
+    "sha256": "8635461da55ca7e73a43af2d610ae190d2e7f4e3f5f0defd8b4e1a7b9f839607",
+    "usos": [
+      {
+        "pagina": "biblioteca.html",
+        "alt": "Primera página de Anuario Forestal y de Fauna Silvestre 2022",
+        "credito_contexto": "PDF Informe oficial · 2023 Anuario Forestal y de Fauna Silvestre 2022 SERFOR Perú · tablas de Madre de Dios 123 páginas 3,5 MB Previsualizar ↗ PDF / descarga ↗ Cómo lo usamos en EcoSelva →",
+        "urls_contexto": [
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/948/1/SERFOR%202023%20Anuario%20FFS%202022.pdf#page=82"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/documentos/doc-osinfor.webp",
+    "tema": "Extracto de documento institucional",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": "https://cdn.www.gob.pe/uploads/document/file/6423105/5623340-analisis-del-aprovechamiento-de-madera-en-concesiones-para-castana-en-madre-de-dios.pdf?v=1720476638",
+    "licencia_url": null,
+    "dimensiones": [
+      420,
+      594
+    ],
+    "ratio": 0.7071,
+    "bytes": 42022,
+    "sha256": "5f01c8c3a2bebf5119f9647ed616a17845f53ec1c45f6c3a0aef4cc6f8c2cfcf",
+    "usos": [
+      {
+        "pagina": "biblioteca.html",
+        "alt": "Primera página de Análisis del aprovechamiento de madera en concesiones para castaña en Madre de Dios",
+        "credito_contexto": "PDF Documento técnico · 2024 Análisis del aprovechamiento de madera en concesiones para castaña en Madre de Dios OSINFOR Madre de Dios 20 páginas 16,3 MB Previsualizar ↗ PDF / descarga ↗ Cómo lo usamos en EcoSelva →",
+        "urls_contexto": [
+          "https://cdn.www.gob.pe/uploads/document/file/6423105/5623340-analisis-del-aprovechamiento-de-madera-en-concesiones-para-castana-en-madre-de-dios.pdf?v=1720476638"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/documentos/ley-1782.webp",
+    "tema": "Extracto de documento institucional",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": "https://leyes.congreso.gob.pe/Documentos/Leyes/01782.pdf",
+    "licencia_url": null,
+    "dimensiones": [
+      420,
+      550
+    ],
+    "ratio": 0.7636,
+    "bytes": 54820,
+    "sha256": "b88ab67b38a720553d8067afadd380706bb5a3dc838af0a2259d07264332e8bf",
+    "usos": [
+      {
+        "pagina": "biblioteca.html",
+        "alt": "Primera página de Ley N.º 1782 · creación del departamento de Madre de Dios",
+        "credito_contexto": "PDF Norma legal · 1912 Ley N.º 1782 · creación del departamento de Madre de Dios Congreso de la República Madre de Dios 3 páginas 0,3 MB Previsualizar ↗ PDF / descarga ↗ Cómo lo usamos en EcoSelva →",
+        "urls_contexto": [
+          "https://leyes.congreso.gob.pe/Documentos/Leyes/01782.pdf"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/documentos/ley.webp",
+    "tema": "Extracto de documento institucional",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": "https://leyes.congreso.gob.pe/Documentos/Leyes/26834.pdf",
+    "licencia_url": null,
+    "dimensiones": [
+      420,
+      669
+    ],
+    "ratio": 0.6278,
+    "bytes": 76466,
+    "sha256": "449c1937ad8d891749a88f5c9332b2c2eca9b1ac8f7f1f0de61f459338eecd56",
+    "usos": [
+      {
+        "pagina": "biblioteca.html",
+        "alt": "Primera página de Ley N.º 26834 · Ley de Áreas Naturales Protegidas",
+        "credito_contexto": "PDF Norma legal · 1997 Ley N.º 26834 · Ley de Áreas Naturales Protegidas Congreso de la República Perú 5 páginas 2,0 MB Previsualizar ↗ PDF / descarga ↗ Cómo lo usamos en EcoSelva →",
+        "urls_contexto": [
+          "https://leyes.congreso.gob.pe/Documentos/Leyes/26834.pdf"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/documentos/mapa-2022.webp",
+    "tema": "Extracto de documento institucional",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": "https://geoportal.sernanp.gob.pe/wp-content/uploads/2021/03/ANP-Dpto-Madre-de-Dios-2.pdf",
+    "licencia_url": null,
+    "dimensiones": [
+      420,
+      298
+    ],
+    "ratio": 1.4094,
+    "bytes": 16910,
+    "sha256": "25771a568eb03d6f26bd8bc4b190118ab957ecbbf5afae0fdc1ed55789ad22a4",
+    "usos": [
+      {
+        "pagina": "biblioteca.html",
+        "alt": "Primera página de Mapa de ANP de administración nacional · Madre de Dios",
+        "credito_contexto": "PDF Documento oficial · 2022 Mapa de ANP de administración nacional · Madre de Dios SERNANP Madre de Dios 1 página 1,3 MB Previsualizar ↗ PDF / descarga ↗ Cómo lo usamos en EcoSelva →",
+        "urls_contexto": [
+          "https://geoportal.sernanp.gob.pe/wp-content/uploads/2021/03/ANP-Dpto-Madre-de-Dios-2.pdf"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/documentos/mapa-2025.webp",
+    "tema": "Extracto de documento institucional",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": "https://geoportal.sernanp.gob.pe/wp-content/uploads/2023/01/Mapa-Departamental-de-Madre-de-Dios-ANP-y-ACP.pdf",
+    "licencia_url": null,
+    "dimensiones": [
+      420,
+      297
+    ],
+    "ratio": 1.4141,
+    "bytes": 15260,
+    "sha256": "930e7fd79fadbfa57c31ba648da38d69c2f34e293ab82cc3e53c83f35c46fbaa",
+    "usos": [
+      {
+        "pagina": "biblioteca.html",
+        "alt": "Primera página de Mapa departamental de ANP nacionales y ACP",
+        "credito_contexto": "PDF Documento oficial · 2025 Mapa departamental de ANP nacionales y ACP SERNANP Madre de Dios 1 página 1,0 MB Previsualizar ↗ PDF / descarga ↗ Cómo lo usamos en EcoSelva →",
+        "urls_contexto": [
+          "https://geoportal.sernanp.gob.pe/wp-content/uploads/2023/01/Mapa-Departamental-de-Madre-de-Dios-ANP-y-ACP.pdf"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/ecosistema-ecoselva.jpg",
+    "tema": "Ecosistemas",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": "Archivo proporcionado por el usuario; autor y fuente originales no indicados.",
+    "licencia": "No indicada; uso solicitado por el usuario en EcoSelva.",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      1024,
+      768
+    ],
+    "ratio": 1.3333,
+    "bytes": 338027,
+    "sha256": "9c00afccc43d884a8b0cddf5f143a79650e573233ee01e4aa0a67d197003a12e",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/fauna-caiman.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "Reserva de Desarrollo Sostenible Uacari, Brasil; fotografía ilustrativa de la especie",
+    "autor": "Whaldener Endo",
+    "fuente": "https://commons.wikimedia.org/wiki/File:Melanosuchus_niger_RDS_Uacari.jpg",
+    "licencia": "CC BY-SA 4.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Melanosuchus_niger_RDS_Uacari.jpg",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "dimensiones": [
+      960,
+      622
+    ],
+    "ratio": 1.5434,
+    "bytes": 164341,
+    "sha256": "a2dc29b8fecc92a48a925556fff78d4cabced723d7a958d50076977dd8b8fa59",
+    "usos": [
+      {
+        "pagina": "Ventana Fauna / reptiles",
+        "alt": "Reserva de Desarrollo Sostenible Uacari, Brasil; fotografía ilustrativa de la especie",
+        "credito_contexto": "Whaldener Endo · CC BY-SA 4.0",
+        "urls_contexto": [
+          "https://commons.wikimedia.org/wiki/File:Melanosuchus_niger_RDS_Uacari.jpg",
+          "https://creativecommons.org/licenses/by-sa/4.0/"
+        ]
+      }
+    ],
+    "problemas": [
+      "Ilustra la especie fuera de Madre de Dios; su procedencia debe seguir explícita."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/fauna-guacamayo.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "Puntarenas, Costa Rica; fotografía ilustrativa de la especie",
+    "autor": "chuck624",
+    "fuente": "https://commons.wikimedia.org/wiki/File:Ara_macao_-Puntarenas_Province,_Costa_Rica-8.jpg",
+    "licencia": "CC BY-SA 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Ara_macao_-Puntarenas_Province,_Costa_Rica-8.jpg",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "dimensiones": [
+      960,
+      1021
+    ],
+    "ratio": 0.9403,
+    "bytes": 193414,
+    "sha256": "fbb8ad770640d1c7bd089402ad308ad3e60b598cf1b4ce534f39d159a05c681e",
+    "usos": [
+      {
+        "pagina": "Ventana Fauna / aves",
+        "alt": "Puntarenas, Costa Rica; fotografía ilustrativa de la especie",
+        "credito_contexto": "chuck624 · CC BY-SA 2.0",
+        "urls_contexto": [
+          "https://commons.wikimedia.org/wiki/File:Ara_macao_-Puntarenas_Province,_Costa_Rica-8.jpg",
+          "https://creativecommons.org/licenses/by-sa/2.0/"
+        ]
+      }
+    ],
+    "problemas": [
+      "Ilustra la especie fuera de Madre de Dios; su procedencia debe seguir explícita."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/fauna-rana.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "Ubicación de la fotografía no indicada; imagen ilustrativa de la especie",
+    "autor": "Hugo Claessen",
+    "fuente": "https://commons.wikimedia.org/wiki/File:Ameerega_trivittata02.jpg",
+    "licencia": "CC BY-SA 2.5",
+    "url": "https://commons.wikimedia.org/wiki/File:Ameerega_trivittata02.jpg",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "dimensiones": [
+      321,
+      324
+    ],
+    "ratio": 0.9907,
+    "bytes": 10820,
+    "sha256": "ffb519425099b9769f65c03e0c0b64f9c4761f37182d3936aeaa46d5230fbb1d",
+    "usos": [
+      {
+        "pagina": "Ventana Fauna / anfibios",
+        "alt": "Ubicación de la fotografía no indicada; imagen ilustrativa de la especie",
+        "credito_contexto": "Hugo Claessen · CC BY-SA 2.5",
+        "urls_contexto": [
+          "https://commons.wikimedia.org/wiki/File:Ameerega_trivittata02.jpg",
+          "https://creativecommons.org/licenses/by-sa/2.5/"
+        ]
+      }
+    ],
+    "problemas": [
+      "Resolución limitada: no ampliar como imagen principal."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/historia/ley-1782-pagina-1.webp",
+    "tema": "Extracto de documento institucional",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": "https://leyes.congreso.gob.pe/Documentos/Leyes/01782.pdf#page=1",
+    "licencia_url": null,
+    "dimensiones": [
+      992,
+      1298
+    ],
+    "ratio": 0.7643,
+    "bytes": 237320,
+    "sha256": "091fc7e136c577563f9f21efbd8929a32b01bcc53b97004cc82835bf7a72f6c9",
+    "usos": [
+      {
+        "pagina": "historia.html",
+        "alt": "Primera página digitalizada de la Ley 1782, con el artículo que crea el departamento y designa Puerto Maldonado como capital.",
+        "credito_contexto": "Un documento de 1912 Primera página de la Ley N.º 1782. Archivo de leyes del Congreso. Reproducción del texto legal; los límites históricos de esta página no representan el mapa vigente. Procedencia y derechos ↗",
+        "urls_contexto": [
+          "https://leyes.congreso.gob.pe/Documentos/Leyes/01782.pdf#page=1"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/investigaciones-poster.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      1920,
+      1080
+    ],
+    "ratio": 1.7778,
+    "bytes": 366221,
+    "sha256": "d4a78c1f51e7b4fe843f5aabbd1f8102c7a5f6a554dafcf9bf777327df86e312",
+    "usos": [
+      {
+        "pagina": "style.css",
+        "alt": "Fondo decorativo",
+        "credito_contexto": "",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": [
+      "imagenesEco/investigaciones-poster.jpg"
+    ]
+  },
+  {
+    "archivo": "images/jaguar-madre-de-dios.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "Río Los Amigos, Madre de Dios, Perú",
+    "autor": "Geoff Gallice",
+    "fuente": "https://commons.wikimedia.org/wiki/File:Jaguar_Madre_de_Dios_Peru.jpg",
+    "licencia": "CC BY 2.0",
+    "url": "https://commons.wikimedia.org/wiki/File:Jaguar_Madre_de_Dios_Peru.jpg",
+    "licencia_url": "https://creativecommons.org/licenses/by/2.0/",
+    "dimensiones": [
+      900,
+      600
+    ],
+    "ratio": 1.5,
+    "bytes": 181185,
+    "sha256": "a3c6b98d8bea6e1708349e7a7577370979ac195bae7a62f198d619a9dea3dc9d",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "Jaguar (Panthera onca) en el río Los Amigos, Madre de Dios, Perú.",
+        "credito_contexto": "Fauna El jaguar aún recorre estos bosques Fotografía: Geoff Gallice — Wikimedia Commons · CC BY 2.0 Jaguar Panthera onca El jaguar ( Panthera onca ) está registrado en la Reserva Nacional Tambopata, donde comparte hábitat con otros felinos, primates y sachavacas. La fauna silvestre necesita espacio: proteger áreas extensas ayuda a mantener su hábitat. Fauna Mamíferos Jaguar Fuente: SERNANP Fotografía: Geoff Gallice — Wikimedia Commons Original en Flickr CC BY 2.0",
+        "urls_contexto": [
+          "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata",
+          "https://commons.wikimedia.org/wiki/File:Jaguar_Madre_de_Dios_Peru.jpg",
+          "https://www.flickr.com/photos/dejeuxx/8906455071/",
+          "https://creativecommons.org/licenses/by/2.0/"
+        ]
+      },
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "Ventana Fauna / mamiferos",
+        "alt": "Río Los Amigos, Madre de Dios, Perú",
+        "credito_contexto": "Geoff Gallice · CC BY 2.0",
+        "urls_contexto": [
+          "https://commons.wikimedia.org/wiki/File:Jaguar_Madre_de_Dios_Peru.jpg",
+          "https://creativecommons.org/licenses/by/2.0/"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/logo-ecoselva-educacion.png",
+    "tema": "Interfaz / marca",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      768,
+      768
+    ],
+    "ratio": 1.0,
+    "bytes": 451651,
+    "sha256": "41e43dc943a0f9c556665abdebb185d14995a467182752bdb21a173e112036eb",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "EcoSelva Madre de Dios - Educar para Preservar",
+        "credito_contexto": "",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "index.html",
+        "alt": "EcoSelva Madre de Dios · Educar para Preservar",
+        "credito_contexto": "",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "flora.html",
+        "alt": "",
+        "credito_contexto": "EcoSelva Madre de Dios",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "territorio.html",
+        "alt": "",
+        "credito_contexto": "EcoSelva Madre de Dios",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "historia.html",
+        "alt": "",
+        "credito_contexto": "EcoSelva Madre de Dios",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "areas-protegidas.html",
+        "alt": "",
+        "credito_contexto": "EcoSelva Madre de Dios",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "biblioteca.html",
+        "alt": "",
+        "credito_contexto": "EcoSelva Madre de Dios",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "fuentes-metodologia.html",
+        "alt": "",
+        "credito_contexto": "EcoSelva Madre de Dios",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "fichas/castana.html",
+        "alt": "",
+        "credito_contexto": "EcoSelva Madre de Dios",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": [
+      "imagenesEco/logo-ecoselva-educacion.png"
+    ]
+  },
+  {
+    "archivo": "images/menu.png",
+    "tema": "Interfaz / marca",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      70,
+      60
+    ],
+    "ratio": 1.1667,
+    "bytes": 206,
+    "sha256": "1995716220fde8436d3ffe4e89ff5c4b542457746c5ea09e200ebb09887cefe9",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/microilustraciones/agua-v1.webp",
+    "tema": "Microilustración editorial generada",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Generada con image_gen para EcoSelva",
+    "fuente": null,
+    "licencia": "Recurso generado; no atribuir Creative Commons",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "ratio": 1.0,
+    "bytes": 36592,
+    "sha256": "26168071e1fa1994b0b4649a78032cbeec5b80c967a33101e19e890beba46649",
+    "usos": [
+      {
+        "pagina": "territorio.html",
+        "alt": "",
+        "credito_contexto": "El agua dibuja el territorio",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/microilustraciones/biodiversidad-v1.webp",
+    "tema": "Microilustración editorial generada",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Generada con image_gen para EcoSelva",
+    "fuente": null,
+    "licencia": "Recurso generado; no atribuir Creative Commons",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "ratio": 1.0,
+    "bytes": 22794,
+    "sha256": "457289b4d37379b1ef279e8f18180730dcced2808c607a8fccb98f6112af19ec",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "Biodiversidad → Especies y relaciones",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "Biodiversidad",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/microilustraciones/bosques-v1.webp",
+    "tema": "Microilustración editorial generada",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Generada con image_gen para EcoSelva",
+    "fuente": null,
+    "licencia": "Recurso generado; no atribuir Creative Commons",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "ratio": 1.0,
+    "bytes": 49750,
+    "sha256": "5ebddca24029b58960f7832cad148576d54610816a4c1252ae8aca6f962c22c2",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "Catálogo · 2022 Maderables 486 Especies consignadas para Madre de Dios; no es un conteo de árboles ni de volumen extraído. Fuente y alcance →",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "flora.html",
+        "alt": "",
+        "credito_contexto": "Flora de Madre de Dios",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/microilustraciones/castana-v1.webp",
+    "tema": "Microilustración editorial generada",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Generada con image_gen para EcoSelva",
+    "fuente": null,
+    "licencia": "Recurso generado; no atribuir Creative Commons",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "ratio": 1.0,
+    "bytes": 27376,
+    "sha256": "a3ec995f205eadb09d19b3176b273c788b7c6450c02d3d8158d5337d80db5a6c",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "SERFOR · 2019 No maderables 69 Especies documentadas al elaborar la guía regional; no equivale a 69 productos ni a toda la flora. Fuente y metodología →",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "fichas/castana.html",
+        "alt": "",
+        "credito_contexto": "P. S. Sena · edición: RoRo. Wikimedia Commons · original · CC BY-SA 4.0 . Versión comprimida por EcoSelva; parte del fruto está reconstruida. Bosque · fruto · personas Castaña amazónica Bertholletia excelsa Ámbito Madre de Dios Tipo de ficha Flora Última revisión 4 de octubre de 2026 Una semilla que conecta el bosque de Madre de Dios con el trabajo de sus recolectores. OSINFOR · 2024 01 · Lo esencial En 20 segundos Dato destacado 10,2 millones de kg Castaña con cáscara registrada · Madre de Dios · 2023 SERFOR · dato preliminar, redondeado. Ver cifra exacta y fuente Dónde La castaña forma parte de los productos del bosque documentados para Madre de Dios. SERFOR · 2019 Personas Recolectores y concesionarios participan en la cosecha de sus semillas. Thomas y colaboradores · 2017 Por qué importa Su cadena de valor une el aprovechamiento de una semilla con la gestión del bosque que la produce. OSINFOR · 2024 Entender cómo funciona ↓ Consultar datos y evidencia ↘ 02 · Para entender Para entender Del árbol a la cosecha: procesos naturales, trabajo y cuidado del territorio. El árbol y su ciclo La castaña es un árbol de la familia Lecythidaceae. Su fruto tiene una cubierta leñosa y contiene semillas de forma triangular que se aprovechan como alimento: un producto forestal no maderable ⓘ . SERFOR · guía de 2019 · ficha de castaña Ilustración original de EcoSelva. Síntesis de SERFOR (2019",
+        "urls_contexto": [
+          "https://commons.wikimedia.org/wiki/File:Bertholletia_excelsa_fruit_and_seeds.jpg",
+          "https://creativecommons.org/licenses/by-sa/4.0/",
+          "https://repositorio.serfor.gob.pe/handle/SERFOR/943",
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/943/1/SERFOR%202022%20Anuario%202021.pdf#page=82",
+          "https://repositorio.serfor.gob.pe/handle/SERFOR/948",
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/948/1/SERFOR%202023%20Anuario%20FFS%202022.pdf#page=82",
+          "https://repositorio.serfor.gob.pe/handle/SERFOR/969",
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/969/1/SERFOR%202024%20-%20Anuario%202023.pdf#page=125",
+          "https://repositorio.serfor.gob.pe/handle/SERFOR/943",
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/943/1/SERFOR%202022%20Anuario%202021.pdf#page=83",
+          "https://repositorio.serfor.gob.pe/handle/SERFOR/969",
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/969/1/SERFOR%202024%20-%20Anuario%202023.pdf#page=125",
+          "https://repositorio.serfor.gob.pe/handle/SERFOR/943",
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/943/1/SERFOR%202022%20Anuario%202021.pdf#page=82",
+          "https://repositorio.serfor.gob.pe/handle/SERFOR/948",
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/948/1/SERFOR%202023%20Anuario%20FFS%202022.pdf#page=82",
+          "https://repositorio.serfor.gob.pe/handle/SERFOR/969",
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/969/1/SERFOR%202024%20-%20Anuario%202023.pdf#page=125",
+          "https://repositorio.serfor.gob.pe/handle/SERFOR/854",
+          "https://repositorio.serfor.gob.pe/bitstream/SERFOR/854/1/SERFOR%202019%20GUIA%20DE%20PFNM-EMDD.pdf#page=93",
+          "https://www.gob.pe/institucion/osinfor/informes-publicaciones/5623340-analisis-del-aprovechamiento-de-madera-en-concesiones-para-castana-en-madre-de-dios",
+          "https://cdn.www.gob.pe/uploads/document/file/6423105/5623340-analisis-del-aprovechamiento-de-madera-en-concesiones-para-castana-en-madre-de-dios.pdf?v=1720476638",
+          "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0135464",
+          "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0183743",
+          "https://www.scielo.br/j/ne/a/rywczQR65W8mX3ckPQY6zHK/",
+          "https://ueaeprints.uea.ac.uk/id/eprint/20304/",
+          "https://ecoselva-madre-de-dios.github.io/fichas/castana.html"
+        ]
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/microilustraciones/ciencia-v1.webp",
+    "tema": "Microilustración editorial generada",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Generada con image_gen para EcoSelva",
+    "fuente": null,
+    "licencia": "Recurso generado; no atribuir Creative Commons",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "ratio": 1.0,
+    "bytes": 20904,
+    "sha256": "192975520df71a0b6af53fd141b4ae1bb59ed45d692ab31cae859f47109f47e8",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "Ciencia → Evidencia y fuentes",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/microilustraciones/clima-v1.webp",
+    "tema": "Microilustración editorial generada",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Generada con image_gen para EcoSelva",
+    "fuente": null,
+    "licencia": "Recurso generado; no atribuir Creative Commons",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "ratio": 1.0,
+    "bytes": 31426,
+    "sha256": "25f18f1a4671bae7ce9b6a02c6c25d32eff2041a812060d29e9d0f579ada4a0a",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "03 Observar para recuperar El trabajo de campo, los datos geográficos y las imágenes satelitales ayudan a comprender los cambios. Sus índices necesitan contexto y validación. Cómo se estudia el territorio Lectura disponible · fuentes y alcance",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/microilustraciones/conservacion-v1.webp",
+    "tema": "Microilustración editorial generada",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Generada con image_gen para EcoSelva",
+    "fuente": null,
+    "licencia": "Recurso generado; no atribuir Creative Commons",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "ratio": 1.0,
+    "bytes": 41776,
+    "sha256": "1eee6216c288174bf0b33557a6a8156a9f41c0e97119fb31e4376489baa496dd",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "Ambiente → Cambios y conservación",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "04 Conservación y gestión Conoce las seis áreas naturales protegidas nacionales presentes en Madre de Dios, sus categorías y formas de gestión. Explorar las áreas protegidas → Lectura disponible · fuentes y alcance",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/microilustraciones/residuos-v1.webp",
+    "tema": "Microilustración editorial generada",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Generada con image_gen para EcoSelva",
+    "fuente": null,
+    "licencia": "Recurso generado; no atribuir Creative Commons",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "ratio": 1.0,
+    "bytes": 35382,
+    "sha256": "3b90c4fb8f9735d6af233e24da5339d8ed364c0402075d945247edf970b086e8",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "02 Agua y contaminación La minería y otras presiones pueden afectar el agua. El contexto de CINCIA permite distinguir lo documentado de lo que este visor no mide. Consultar evidencia y alcance Lectura disponible · fuentes y alcance",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/microilustraciones/territorio-v1.webp",
+    "tema": "Microilustración editorial generada",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Generada con image_gen para EcoSelva",
+    "fuente": null,
+    "licencia": "Recurso generado; no atribuir Creative Commons",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "ratio": 1.0,
+    "bytes": 39838,
+    "sha256": "cd05b18d814f75592aef0bed0e82686e3ce6c56dbe23ee794bc1b899cf1d6a56",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "Territorio → Paisajes y capas",
+        "urls_contexto": []
+      },
+      {
+        "pagina": "territorio.html",
+        "alt": "",
+        "credito_contexto": "Explora el territorio",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/microilustraciones/transformacion-v1.webp",
+    "tema": "Microilustración editorial generada",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "Generada con image_gen para EcoSelva",
+    "fuente": null,
+    "licencia": "Recurso generado; no atribuir Creative Commons",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "ratio": 1.0,
+    "bytes": 41364,
+    "sha256": "0aee30834321b9f42b077326ee5e9c6a8c7d3f8139d2b0d1605adf3eb5064afc",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "",
+        "credito_contexto": "01 Transformaciones del bosque La pérdida y degradación de cobertura cambian el paisaje. Conoce cómo se estudian esos cambios, los incendios y sus límites de interpretación. Comprender los cambios Lectura disponible · fuentes y alcance",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/pampa-ecoselva.jpg",
+    "tema": "Desafíos ambientales — La Pampa",
+    "ubicacion": "La Pampa; localidad indicada por el usuario",
+    "autor": "EcoSelva Madre de Dios",
+    "fuente": "Archivo propio de EcoSelva Madre de Dios, proporcionado por el usuario.",
+    "licencia": "Propiedad de EcoSelva Madre de Dios; no se indicó una licencia abierta.",
+    "url": "https://repositorio.iiap.gob.pe/items/e76fd5b6-b0cc-4ce7-be27-87bfee5c8620",
+    "licencia_url": null,
+    "dimensiones": [
+      1003,
+      768
+    ],
+    "ratio": 1.306,
+    "bytes": 236657,
+    "sha256": "83f0ca3e600ede6818751ca443abf25245db6d4d991d4043913786d878e77f71",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "Imagen satelital de La Pampa y su entorno amazónico, con bosque, áreas intervenidas y cursos de agua.",
+        "credito_contexto": "Ambiente El territorio también guarda las huellas de nuestras actividades Imagen propia: EcoSelva Madre de Dios. Presiones ambientales La deforestación y la contaminación afectan la diversidad biológica de Madre de Dios. Los diagnósticos ambientales analizan distintas actividades humanas, entre ellas la minería aurífera. Las huellas de nuestras actividades ayudan a reconocer las presiones sobre el territorio. Ambiente Territorio Presiones ambientales Fuente histórica: IIAP",
+        "urls_contexto": [
+          "https://repositorio.iiap.gob.pe/items/e76fd5b6-b0cc-4ce7-be27-87bfee5c8620"
+        ]
+      }
+    ],
+    "problemas": [
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/rn-tambopata.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata",
+    "licencia_url": null,
+    "dimensiones": [
+      1920,
+      1080
+    ],
+    "ratio": 1.7778,
+    "bytes": 344347,
+    "sha256": "c09e58df5d843087ecd28f6a3106b8b8b264b5c5a7e9a39497bcda53e2e2671f",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "Lago rodeado de bosque y palmeras, con cielo azul y nubes reflejadas en el agua.",
+        "credito_contexto": "Ecosistemas La Amazonía no es un solo bosque Ecosistemas de Tambopata La Reserva Nacional Tambopata reúne aguajales, pacales, castañales, bosques de terraza y ribereños, collpas y cochas. Este mosaico de ambientes alberga su biodiversidad. Cada ambiente aporta una pieza al paisaje amazónico. Ecosistemas Paisaje Amazonía Fuente: SERNANP",
+        "urls_contexto": [
+          "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1793047-reserva-nacional-tambopata"
+        ]
+      }
+    ],
+    "problemas": [
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/sangre-de-grado.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      375,
+      500
+    ],
+    "ratio": 0.75,
+    "bytes": 109813,
+    "sha256": "5eb355d60146f64facd8a2bb5c5d5114aef0b1b7fd70c3ed7def99a454c24d29",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar.",
+      "Resolución limitada: no ampliar como imagen principal."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/shihuahuaco.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      376,
+      500
+    ],
+    "ratio": 0.752,
+    "bytes": 93771,
+    "sha256": "733ba3aff742c2574f65c7b75e9132df8fb903358f7fd93f7fee449b2b69259c",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar.",
+      "Resolución limitada: no ampliar como imagen principal."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "images/sobre-ecoselva.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      917,
+      768
+    ],
+    "ratio": 1.194,
+    "bytes": 251708,
+    "sha256": "7b5be06257a4978ce27654b7412d08a6882c4c459735dc533ee1244d30b93283",
+    "usos": [
+      {
+        "pagina": "index.html",
+        "alt": "Camino entre árboles al atardecer.",
+        "credito_contexto": "",
+        "urls_contexto": []
+      }
+    ],
+    "problemas": [
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": [
+      "imagenesEco/sobre-ecoselva.jpg"
+    ]
+  },
+  {
+    "archivo": "imagenesEco/bg-hero.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      2560,
+      1439
+    ],
+    "ratio": 1.779,
+    "bytes": 512844,
+    "sha256": "5ceea501a184985369d957759e1f47210039fca9a41bcd2b94292a7bc052ecad",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": [
+      "images/bg-hero.jpg"
+    ]
+  },
+  {
+    "archivo": "imagenesEco/bg.png",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      4000,
+      2248
+    ],
+    "ratio": 1.7794,
+    "bytes": 7638829,
+    "sha256": "1e93465a768fcc4e03014c9c137444e63bbe02b6d2a26d81554d85760d20185c",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": [
+      "images/bg.png"
+    ]
+  },
+  {
+    "archivo": "imagenesEco/investigaciones-poster.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      1920,
+      1080
+    ],
+    "ratio": 1.7778,
+    "bytes": 366221,
+    "sha256": "d4a78c1f51e7b4fe843f5aabbd1f8102c7a5f6a554dafcf9bf777327df86e312",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": [
+      "images/investigaciones-poster.jpg"
+    ]
+  },
+  {
+    "archivo": "imagenesEco/logo-ecoselva-educacion.png",
+    "tema": "Interfaz / marca",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      768,
+      768
+    ],
+    "ratio": 1.0,
+    "bytes": 451651,
+    "sha256": "41e43dc943a0f9c556665abdebb185d14995a467182752bdb21a173e112036eb",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica."
+    ],
+    "duplicados_exactos": [
+      "images/logo-ecoselva-educacion.png"
+    ]
+  },
+  {
+    "archivo": "imagenesEco/originales/aportes-ecoselva/Aguaa.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      1365,
+      768
+    ],
+    "ratio": 1.7773,
+    "bytes": 500502,
+    "sha256": "73aea51974dc975397fcac9765e83c66be7c880e3f6711023e44c80a8679e623",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "imagenesEco/originales/aportes-ecoselva/Ecosistema.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      1024,
+      768
+    ],
+    "ratio": 1.3333,
+    "bytes": 398008,
+    "sha256": "6d638398340b92628bc85039e222700b49fc44e8d974ea93354e18c3a0a2a1fd",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "imagenesEco/originales/aportes-ecoselva/La pampa_RGB.png",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      1003,
+      768
+    ],
+    "ratio": 1.306,
+    "bytes": 1920742,
+    "sha256": "bf8a566c75722dc47e4ca5cbf82849c84533f27ae3b65cb927c068310e9f083f",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "imagenesEco/originales/commons/Bertholletia_excelsa_fruit_and_seeds.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      745,
+      858
+    ],
+    "ratio": 0.8683,
+    "bytes": 813413,
+    "sha256": "c81f2379949af62adda67161a2d79a4f95e7a41ed06db98520274e18385c923c",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "imagenesEco/originales/commons/Jaguar Madre de Dios Peru.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      900,
+      600
+    ],
+    "ratio": 1.5,
+    "bytes": 325995,
+    "sha256": "ef9a7fee42dca2b65413474fd54d130cb032b1d962463eaf4b2aabe3a96a1498",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": []
+  },
+  {
+    "archivo": "imagenesEco/sobre-ecoselva.jpg",
+    "tema": "Fotografía / captura; revisar registro",
+    "ubicacion": "No documentada; no inferir del nombre",
+    "autor": "No documentado en registro; ver contexto",
+    "fuente": null,
+    "licencia": "No documentada en registro; ver contexto",
+    "url": null,
+    "licencia_url": null,
+    "dimensiones": [
+      917,
+      768
+    ],
+    "ratio": 1.194,
+    "bytes": 251708,
+    "sha256": "7b5be06257a4978ce27654b7412d08a6882c4c459735dc533ee1244d30b93283",
+    "usos": [],
+    "problemas": [
+      "Sin uso directo en HTML/CSS auditados; puede ser original archivado o portada dinámica.",
+      "Autor no documentado en registro estructurado; revisar crédito contextual.",
+      "Licencia sin verificar o sin documentar."
+    ],
+    "duplicados_exactos": [
+      "images/sobre-ecoselva.jpg"
+    ]
+  }
+]

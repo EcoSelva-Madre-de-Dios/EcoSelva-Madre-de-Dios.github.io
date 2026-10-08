@@ -2,7 +2,17 @@
   <title id="titulo">Del árbol a la dispersión de la castaña</title>
   <desc id="descripcion">Secuencia educativa de árbol, flor, fruto, semillas y dispersión por roedores. No expresa duración, frecuencia ni probabilidad de germinación.</desc>
   <defs><marker id="flecha" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto"><path d="m1 1 7 4-7 4" fill="none" stroke="#58704c" stroke-width="2"/></marker></defs>
-  <rect x="1" y="1" width="438" height="658" rx="20" fill="#eeeee1"/>
+  <rect x="1" y="1" width="438" height="658" rx="20" fill="#f3f0e6"/>
+  <g fill="#fff" stroke="#d3dbd1" stroke-width="1">
+    <rect x="20" y="10" width="400" height="110" rx="12"/>
+    <rect x="20" y="139" width="400" height="110" rx="12"/>
+    <rect x="20" y="269" width="400" height="110" rx="12"/>
+    <rect x="20" y="399" width="400" height="110" rx="12"/>
+    <rect x="20" y="529" width="400" height="110" rx="12"/>
+  </g>
+  <g font-family="Inter,Arial,sans-serif" font-size="13" fill="#59635d">
+    <text x="170" y="45">01</text><text x="170" y="174">02</text><text x="170" y="304">03</text><text x="170" y="432">04</text><text x="170" y="558">05</text>
+  </g>
   <g stroke="#58704c" stroke-width="2" fill="none" marker-end="url(#flecha)"><path d="M98 112v32"/><path d="M98 238v32"/><path d="M98 364v32"/><path d="M98 490v32"/></g>
   <g stroke-linecap="round" stroke-linejoin="round">
     <path d="M98 107V58m0 30-21-16m21 5 21-18" fill="none" stroke="#805b36" stroke-width="8"/>
@@ -12,5 +22,5 @@
     <g transform="translate(65 411)" fill="#8a6742" stroke="#674b30" stroke-width="2"><path d="m5 8 24 6-16 40Q-2 32 5 8Z"/><path d="m46 7 26 9-13 35Q40 30 46 7Z"/><path d="m21 52 28 6-15 29Q16 77 21 52Z"/></g>
     <g transform="translate(51 544)" fill="#997955" stroke="#694d33" stroke-width="2"><ellipse cx="42" cy="26" rx="32" ry="22"/><ellipse cx="72" cy="18" rx="19" ry="15"/><ellipse cx="69" cy="3" rx="6" ry="9"/><circle cx="80" cy="15" r="2" fill="#234333"/><path d="M20 42v12m38-9v9m-47-34Q1 13 4 5" fill="none"/><path d="m91 28 10 7-10 17Z"/><path d="M-6 63h110" stroke="#58704c"/><path d="m54 68 12 6-5 10Z"/></g>
   </g>
-  <g font-family="sans-serif" font-size="26" font-weight="600" fill="#234333"><text x="170" y="70">Árbol</text><text x="170" y="199">Flor</text><text x="170" y="329">Fruto</text><text x="170" y="457">Semillas</text><text x="170" y="583">Dispersión</text></g>
+  <g font-family="Manrope,Arial,sans-serif" font-size="24" font-weight="600" fill="#234333"><text x="170" y="70">Árbol</text><text x="170" y="199">Flor</text><text x="170" y="329">Fruto</text><text x="170" y="457">Semillas</text><text x="170" y="583">Dispersión</text></g>
 </svg>

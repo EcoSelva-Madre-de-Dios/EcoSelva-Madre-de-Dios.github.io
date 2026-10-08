@@ -145,6 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 controls.querySelector('[data-eco-zoom=out]').disabled = zoom === 1;
                 controls.querySelector('[data-eco-zoom=in]').disabled = zoom === 4;
                 container.classList.toggle('eco-map-zoomed', zoom > 1);
+                container.dispatchEvent(new CustomEvent('eco:mapview', { detail: { svg, zoom } }));
             };
             for (const [action, label, text] of [['in', 'Acercar mapa', '+'], ['out', 'Alejar mapa', '−'], ['reset', 'Restablecer vista', '↺']]) {
                 const button = node('button', '', text); button.type = 'button'; button.dataset.ecoZoom = action; button.setAttribute('aria-label', label);
@@ -164,8 +165,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!drag || event.pointerId !== drag.pointer) return;
                 const dx = event.clientX - drag.startX, dy = event.clientY - drag.startY;
                 if (!drag.moved && Math.hypot(dx, dy) < 6) return;
-                drag.moved = true; svg.setPointerCapture(event.pointerId); const rect = svg.getBoundingClientRect();
-                centerX = drag.centerX - dx / rect.width * width / zoom; centerY = drag.centerY - dy / rect.height * height / zoom; update();
+                drag.moved = true; svg.setPointerCapture(event.pointerId); const matrix = svg.getScreenCTM();
+                centerX = drag.centerX - dx / matrix.a; centerY = drag.centerY - dy / matrix.a; update();
             });
             svg.addEventListener('click', event => { if (drag?.moved) { event.preventDefault(); event.stopImmediatePropagation(); } drag = null; }, true);
             svg.addEventListener('pointercancel', () => { drag = null; }); update();

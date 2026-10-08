@@ -2,7 +2,7 @@
 /* Variables compartidas de EcoSelva. */
 :root {
   --layout-max:1440px; --layout-wide:1320px; --layout-content:1180px;
-  --reading-max:68ch; --reading-narrow:640px; --page-gutter:clamp(20px,4vw,72px);
+  --reading-max:68ch; --reading-narrow:640px; --page-gutter:clamp(22px,5vw,96px);
   --space-1:8px; --space-2:12px; --space-3:16px; --space-4:24px; --space-5:32px;
   --space-6:48px; --space-7:64px; --space-8:88px; --space-9:120px;
   --radius-sm:6px; --radius-md:10px; --radius-lg:16px; --radius-xl:24px;

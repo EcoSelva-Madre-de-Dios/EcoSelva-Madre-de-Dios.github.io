@@ -1,0 +1,1760 @@
+{
+  "metodo": "Puntos interiores calculados sobre copias proyectadas a EPSG:32719. Las copias SVG contienen exactamente los grupos existentes, sin modificar coordenadas.",
+  "crs_visualizacion": "EPSG:32719",
+  "metros_por_unidad_svg": 907.1880272811538,
+  "fuentes_sha256": {
+    "datos/territorio/limite.geojson": "1f1fe81a52358912d400f45984ac46d6d60752afbf959036d11de07ddcef4b0c",
+    "datos/territorio/distritos.geojson": "c70433638a268cf44bfdf36d4162c819e4eaf8fc72604e5eb2cf5c540160db30",
+    "datos/conservacion/anp.geojson": "5f44b3395ec32d140f03aa15efafb1f5f563011bc3a1491cf1be3cbbf255cb54",
+    "datos/territorio/masas-agua.geojson": "94670d0d39b5c5a7765c191dae7362bf78758e3f65c3668fce4b88a7aedf40be",
+    "datos/territorio/cobertura-vegetal.geojson": "985f6cc8d498c0c5233b395c98b910ec565c972c98e7c214c05b95a51b5caebc",
+    "datos/territorio/capas-adicionales.svg": "24ef304ab5aea09489d3151f6287d64cb9858ae84ba721716f3cad607b7a0d23",
+    "datos/territorio/mapa.svg": "33cb546984c299170d71b3e2772a45c0d80bb2df779e6a5836acb7e32e55cad7"
+  },
+  "etiquetas": [
+    {
+      "capa": "distritos",
+      "nombre": "Tahuamanu",
+      "id": null,
+      "x": 369.399,
+      "y": 250.06,
+      "categoria": null
+    },
+    {
+      "capa": "distritos",
+      "nombre": "Iñapari",
+      "id": null,
+      "x": 252.809,
+      "y": 133.62,
+      "categoria": null
+    },
+    {
+      "capa": "distritos",
+      "nombre": "Laberinto",
+      "id": null,
+      "x": 346.902,
+      "y": 342.64,
+      "categoria": null
+    },
+    {
+      "capa": "distritos",
+      "nombre": "Fitzcarrald",
+      "id": null,
+      "x": 254.059,
+      "y": 297.539,
+      "categoria": null
+    },
+    {
+      "capa": "distritos",
+      "nombre": "Manu",
+      "id": null,
+      "x": 183.172,
+      "y": 342.837,
+      "categoria": null
+    },
+    {
+      "capa": "distritos",
+      "nombre": "Madre de Dios",
+      "id": null,
+      "x": 288.92,
+      "y": 375.761,
+      "categoria": null
+    },
+    {
+      "capa": "distritos",
+      "nombre": "Huepetuhe",
+      "id": null,
+      "x": 283.727,
+      "y": 417.135,
+      "categoria": null
+    },
+    {
+      "capa": "distritos",
+      "nombre": "Inambari",
+      "id": null,
+      "x": 372.859,
+      "y": 415.136,
+      "categoria": null
+    },
+    {
+      "capa": "distritos",
+      "nombre": "Tambopata",
+      "id": null,
+      "x": 385.985,
+      "y": 318.659,
+      "categoria": null
+    },
+    {
+      "capa": "distritos",
+      "nombre": "Las Piedras",
+      "id": null,
+      "x": 430.792,
+      "y": 297.597,
+      "categoria": null
+    },
+    {
+      "capa": "distritos",
+      "nombre": "Iberia",
+      "id": null,
+      "x": 398.79,
+      "y": 222.18,
+      "categoria": null
+    },
+    {
+      "capa": "anp",
+      "nombre": "Parque Nacional del Manu",
+      "id": "manu",
+      "x": 167.189,
+      "y": 303.205,
+      "categoria": "Parque Nacional"
+    },
+    {
+      "capa": "anp",
+      "nombre": "Parque Nacional Bahuaja-Sonene",
+      "id": "bahuaja",
+      "x": 480.458,
+      "y": 420.076,
+      "categoria": "Parque Nacional"
+    },
+    {
+      "capa": "anp",
+      "nombre": "Parque Nacional Alto Purús",
+      "id": "alto-purus",
+      "x": 249.905,
+      "y": 154.967,
+      "categoria": "Parque Nacional"
+    },
+    {
+      "capa": "anp",
+      "nombre": "Reserva Nacional Tambopata",
+      "id": "tambopata",
+      "x": 461.611,
+      "y": 396.917,
+      "categoria": "Reserva Nacional"
+    },
+    {
+      "capa": "anp",
+      "nombre": "Reserva Comunal Amarakaeri",
+      "id": "amarakaeri",
+      "x": 232.946,
+      "y": 391.767,
+      "categoria": "Reserva Comunal"
+    },
+    {
+      "capa": "anp",
+      "nombre": "Reserva Comunal Purús",
+      "id": "purus",
+      "x": 285.746,
+      "y": 48.441,
+      "categoria": "Reserva Comunal"
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2101",
+      "x": 233.858,
+      "y": 309.789,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2102",
+      "x": 226.986,
+      "y": 306.902,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2103",
+      "x": 228.629,
+      "y": 307.536,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2104",
+      "x": 221.147,
+      "y": 301.255,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2105",
+      "x": 217.699,
+      "y": 295.414,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2106",
+      "x": 206.104,
+      "y": 290.063,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2107",
+      "x": 203.267,
+      "y": 288.177,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2108",
+      "x": 194.759,
+      "y": 281.923,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2109",
+      "x": 189.327,
+      "y": 279.429,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2110",
+      "x": 189.225,
+      "y": 278.714,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2111",
+      "x": 187.309,
+      "y": 277.68,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2112",
+      "x": 161.916,
+      "y": 258.859,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2113",
+      "x": 147.148,
+      "y": 254.386,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2114",
+      "x": 142.975,
+      "y": 253.103,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2115",
+      "x": 114.828,
+      "y": 248.801,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2116",
+      "x": 131.098,
+      "y": 257.305,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2117",
+      "x": 188.59,
+      "y": 189.509,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2119",
+      "x": 273.95,
+      "y": 219.198,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2120",
+      "x": 271.555,
+      "y": 220.3,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2121",
+      "x": 245.553,
+      "y": 316.963,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2122",
+      "x": 243.042,
+      "y": 316.261,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2123",
+      "x": 239.5,
+      "y": 315.849,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2124",
+      "x": 304.4,
+      "y": 308.836,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2125",
+      "x": 303.094,
+      "y": 308.989,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2126",
+      "x": 275.937,
+      "y": 294.12,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2127",
+      "x": 455.112,
+      "y": 408.447,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2128",
+      "x": 498.304,
+      "y": 409.12,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2129",
+      "x": 498.59,
+      "y": 407.558,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2130",
+      "x": 498.951,
+      "y": 403.365,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2131",
+      "x": 499.08,
+      "y": 401.771,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2132",
+      "x": 501.945,
+      "y": 397.565,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2133",
+      "x": 504.498,
+      "y": 392.72,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2134",
+      "x": 515.509,
+      "y": 379.084,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2135",
+      "x": 517.515,
+      "y": 377.333,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2137",
+      "x": 307.314,
+      "y": 376.927,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2138",
+      "x": 307.647,
+      "y": 376.675,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2139",
+      "x": 319.074,
+      "y": 371.264,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2140",
+      "x": 329.723,
+      "y": 371.125,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2141",
+      "x": 334.235,
+      "y": 371.365,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2142",
+      "x": 318.735,
+      "y": 370.928,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2143",
+      "x": 340.865,
+      "y": 369.541,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "MALVINAS",
+      "id": "agua-2144",
+      "x": 347.496,
+      "y": 369.279,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2145",
+      "x": 353.36,
+      "y": 369.499,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "PAÑACOCHA",
+      "id": "agua-2146",
+      "x": 351.911,
+      "y": 369.775,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2147",
+      "x": 341.281,
+      "y": 368.421,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2148",
+      "x": 357.545,
+      "y": 368.549,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2149",
+      "x": 323.253,
+      "y": 368.167,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2150",
+      "x": 357.442,
+      "y": 367.607,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2151",
+      "x": 355.407,
+      "y": 368.242,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2152",
+      "x": 327.56,
+      "y": 367.853,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2153",
+      "x": 317.555,
+      "y": 365.292,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2154",
+      "x": 354.604,
+      "y": 365.353,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2155",
+      "x": 310.436,
+      "y": 365.569,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2156",
+      "x": 283.636,
+      "y": 351.384,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2157",
+      "x": 278.372,
+      "y": 346.828,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2158",
+      "x": 277.015,
+      "y": 344.576,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2159",
+      "x": 276.306,
+      "y": 341.806,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2160",
+      "x": 266.617,
+      "y": 327.703,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2161",
+      "x": 228.428,
+      "y": 322.647,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2162",
+      "x": 285.312,
+      "y": 352.156,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2163",
+      "x": 314.708,
+      "y": 362.427,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "PALOMITAYO",
+      "id": "agua-2164",
+      "x": 309.125,
+      "y": 362.287,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2165",
+      "x": 315.49,
+      "y": 361.987,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2166",
+      "x": 320.853,
+      "y": 421.264,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2167",
+      "x": 354.684,
+      "y": 361.617,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2168",
+      "x": 349.072,
+      "y": 356.606,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2169",
+      "x": 331.694,
+      "y": 334.43,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2170",
+      "x": 334.667,
+      "y": 342.259,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2171",
+      "x": 325.213,
+      "y": 323.086,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2172",
+      "x": 323.399,
+      "y": 319.841,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2173",
+      "x": 315.915,
+      "y": 314.175,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2174",
+      "x": 307.374,
+      "y": 311.087,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "CUTIPA",
+      "id": "agua-2175",
+      "x": 334.17,
+      "y": 345.492,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2176",
+      "x": 390.25,
+      "y": 417.048,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2177",
+      "x": 400.344,
+      "y": 412.722,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2178",
+      "x": 402.602,
+      "y": 410.111,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2179",
+      "x": 408.666,
+      "y": 406.765,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2180",
+      "x": 440.942,
+      "y": 403.713,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2181",
+      "x": 448.375,
+      "y": 399.765,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2182",
+      "x": 452.718,
+      "y": 394.033,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2183",
+      "x": 442.018,
+      "y": 390.168,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "INAMBARILLO",
+      "id": "agua-2184",
+      "x": 387.885,
+      "y": 381.787,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2185",
+      "x": 399.902,
+      "y": 377.068,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2186",
+      "x": 400.866,
+      "y": 376.972,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "VUELTA GRANDE",
+      "id": "agua-2187",
+      "x": 375.388,
+      "y": 375.673,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2188",
+      "x": 424.918,
+      "y": 375.337,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2189",
+      "x": 420.198,
+      "y": 374.217,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2190",
+      "x": 419.932,
+      "y": 373.782,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "PATOCOCHA",
+      "id": "agua-2191",
+      "x": 369.025,
+      "y": 373.47,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2192",
+      "x": 357.78,
+      "y": 371.552,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2193",
+      "x": 358.319,
+      "y": 370.778,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "CARACOL",
+      "id": "agua-2194",
+      "x": 361.633,
+      "y": 372.852,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2195",
+      "x": 423.901,
+      "y": 370.567,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2196",
+      "x": 420.265,
+      "y": 369.606,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2197",
+      "x": 423.35,
+      "y": 369.789,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2198",
+      "x": 418.474,
+      "y": 370.07,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "HUITOTO",
+      "id": "agua-2199",
+      "x": 366.39,
+      "y": 371.051,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2200",
+      "x": 478.467,
+      "y": 367.926,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2201",
+      "x": 444.367,
+      "y": 366.348,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2202",
+      "x": 445.194,
+      "y": 366.074,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2203",
+      "x": 413.601,
+      "y": 383.242,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2204",
+      "x": 384.163,
+      "y": 379.387,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2205",
+      "x": 449.93,
+      "y": 399.565,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2206",
+      "x": 457.514,
+      "y": 409.514,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2207",
+      "x": 419.003,
+      "y": 375.142,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2208",
+      "x": 378.861,
+      "y": 377.839,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2209",
+      "x": 411.951,
+      "y": 409.795,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2210",
+      "x": 418.268,
+      "y": 410.38,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2211",
+      "x": 421.434,
+      "y": 343.759,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2213",
+      "x": 239.248,
+      "y": 204.751,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2214",
+      "x": 263.857,
+      "y": 213.906,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2215",
+      "x": 281.634,
+      "y": 230.542,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2216",
+      "x": 298.631,
+      "y": 241.061,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2217",
+      "x": 303.674,
+      "y": 242.89,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2218",
+      "x": 307.938,
+      "y": 247.467,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2219",
+      "x": 324.079,
+      "y": 263.252,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2220",
+      "x": 338.952,
+      "y": 280.448,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2221",
+      "x": 368.251,
+      "y": 300.894,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2223",
+      "x": 371.595,
+      "y": 301.843,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2226",
+      "x": 382.043,
+      "y": 303.206,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2227",
+      "x": 306.942,
+      "y": 242.846,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2228",
+      "x": 437.124,
+      "y": 399.51,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2229",
+      "x": 166.992,
+      "y": 288.478,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2230",
+      "x": 140.064,
+      "y": 254.782,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2231",
+      "x": 125.74,
+      "y": 249.271,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2233",
+      "x": 160.267,
+      "y": 253.118,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2234",
+      "x": 160.365,
+      "y": 253.358,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2235",
+      "x": 186.662,
+      "y": 274.596,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2236",
+      "x": 248.664,
+      "y": 323.542,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2237",
+      "x": 212.727,
+      "y": 293.68,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2238",
+      "x": 210.783,
+      "y": 331.173,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2239",
+      "x": 353.221,
+      "y": 360.592,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2240",
+      "x": 355.296,
+      "y": 363.385,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2241",
+      "x": 348.383,
+      "y": 355.32,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2242",
+      "x": 351.11,
+      "y": 357.536,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2244",
+      "x": 240.072,
+      "y": 318.826,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2245",
+      "x": 188.064,
+      "y": 328.093,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2246",
+      "x": 167.223,
+      "y": 260.161,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2247",
+      "x": 456.067,
+      "y": 413.163,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2248",
+      "x": 458.285,
+      "y": 414.814,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2250",
+      "x": 458.734,
+      "y": 421.562,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2251",
+      "x": 458.467,
+      "y": 423.899,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2252",
+      "x": 458.41,
+      "y": 424.659,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2253",
+      "x": 457.224,
+      "y": 425.723,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2254",
+      "x": 458.352,
+      "y": 433.066,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2255",
+      "x": 387.82,
+      "y": 328.819,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2256",
+      "x": 251.778,
+      "y": 286.354,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2257",
+      "x": 219.499,
+      "y": 334.166,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2258",
+      "x": 271.306,
+      "y": 218.319,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2259",
+      "x": 270.116,
+      "y": 216.66,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2260",
+      "x": 116.815,
+      "y": 248.412,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2261",
+      "x": 273.248,
+      "y": 218.637,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2262",
+      "x": 303.778,
+      "y": 308.593,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2267",
+      "x": 502.565,
+      "y": 395.502,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2268",
+      "x": 325.017,
+      "y": 323.074,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2271",
+      "x": 378.873,
+      "y": 420.398,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2272",
+      "x": 354.074,
+      "y": 371.595,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2273",
+      "x": 303.983,
+      "y": 241.094,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2274",
+      "x": 305.149,
+      "y": 242.204,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2275",
+      "x": 302.522,
+      "y": 241.818,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2276",
+      "x": 300.248,
+      "y": 240.007,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2277",
+      "x": 369.782,
+      "y": 298.383,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2278",
+      "x": 232.493,
+      "y": 312.848,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "VALENCIA",
+      "id": "agua-2279",
+      "x": 505.669,
+      "y": 348.646,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "RENAN",
+      "id": "agua-2280",
+      "x": 347.529,
+      "y": 354.889,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": "COCHA UNO",
+      "id": "agua-2281",
+      "x": 315.74,
+      "y": 367.748,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2282",
+      "x": 444.298,
+      "y": 322.461,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2283",
+      "x": 404.05,
+      "y": 300.451,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2284",
+      "x": 345.248,
+      "y": 280.744,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2285",
+      "x": 316.228,
+      "y": 255.222,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2286",
+      "x": 432.593,
+      "y": 226.282,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2287",
+      "x": 350.603,
+      "y": 211.137,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2288",
+      "x": 344.399,
+      "y": 210.35,
+      "categoria": null
+    },
+    {
+      "capa": "humedales",
+      "nombre": null,
+      "id": "agua-2290",
+      "x": 283.118,
+      "y": 397.366,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Areas de no bosque amazónico",
+      "id": "cobertura-ano-ba",
+      "x": 424.16,
+      "y": 382.899,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de colina alta",
+      "id": "cobertura-bca",
+      "x": 356.617,
+      "y": 440.617,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de colina alta con paca",
+      "id": "cobertura-bca-pa",
+      "x": 332.239,
+      "y": 244.226,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de colina baja",
+      "id": "cobertura-bcb",
+      "x": 290.974,
+      "y": 293.978,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de colina baja con castaña",
+      "id": "cobertura-bcb-cas",
+      "x": 412.795,
+      "y": 324.176,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de colina baja con paca",
+      "id": "cobertura-bcb-pa",
+      "x": 257.266,
+      "y": 144.246,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de colina baja con shiringa",
+      "id": "cobertura-bcb-shi",
+      "x": 427.521,
+      "y": 235.711,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de llanura meándrica",
+      "id": "cobertura-bllm",
+      "x": 492.514,
+      "y": 357.249,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de montaña",
+      "id": "cobertura-bm",
+      "x": 270.739,
+      "y": 417.523,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de montaña altimontano",
+      "id": "cobertura-bm-al",
+      "x": 124.702,
+      "y": 363.47,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de montaña basimontano",
+      "id": "cobertura-bm-ba",
+      "x": 160.561,
+      "y": 347.959,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de montaña basimontano con paca",
+      "id": "cobertura-bm-ba-pa",
+      "x": 225.569,
+      "y": 420.094,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de montaña con paca",
+      "id": "cobertura-bm-pa",
+      "x": 299.157,
+      "y": 430.489,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de montaña montano",
+      "id": "cobertura-bm-mo",
+      "x": 132.426,
+      "y": 355.069,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de terraza alta",
+      "id": "cobertura-bta",
+      "x": 474.599,
+      "y": 325.842,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de terraza alta con castaña",
+      "id": "cobertura-bta-cas",
+      "x": 397.29,
+      "y": 354.064,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de terraza alta con paca",
+      "id": "cobertura-bta-pa",
+      "x": 409.232,
+      "y": 282.358,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de terraza baja",
+      "id": "cobertura-btb",
+      "x": 442.699,
+      "y": 423.251,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de terraza baja con castaña",
+      "id": "cobertura-btb-cas",
+      "x": 485.356,
+      "y": 414.482,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque de terraza baja con paca",
+      "id": "cobertura-btb-pa",
+      "x": 372.778,
+      "y": 415.574,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Bosque inundable de palmeras",
+      "id": "cobertura-bi-pal",
+      "x": 459.519,
+      "y": 403.912,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Lagunas, lagos y cochas",
+      "id": "cobertura-l-co",
+      "x": 505.694,
+      "y": 348.693,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Pacal",
+      "id": "cobertura-pac",
+      "x": 218.099,
+      "y": 156.703,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Pajonal andino",
+      "id": "cobertura-pj",
+      "x": 128.749,
+      "y": 379.064,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Río",
+      "id": "cobertura-r",
+      "x": 321.051,
+      "y": 318.235,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Sabana hidrofítica con palmeras",
+      "id": "cobertura-sahi-pal",
+      "x": 493.135,
+      "y": 409.631,
+      "categoria": null
+    },
+    {
+      "capa": "bosques",
+      "nombre": "Vegetación de isla",
+      "id": "cobertura-is",
+      "x": 415.925,
+      "y": 377.056,
+      "categoria": null
+    }
+  ]
+}

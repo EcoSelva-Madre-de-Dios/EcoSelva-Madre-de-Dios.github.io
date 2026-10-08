@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let selected = null;
   let category = 'todos';
   let svg = null;
+  let refreshAtlas = () => {};
   const cleanClone = element => {
     const clone = element.cloneNode(true);
     clone.removeAttribute('id');
@@ -61,6 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (link.dataset.anpSeleccionar === selected) link.setAttribute('aria-current', 'true');
       else link.removeAttribute('aria-current');
     });
+    document.querySelectorAll('.anp-leyenda [data-anp-leyenda]').forEach(item => {
+      item.hidden = category !== 'todos' && item.dataset.anpLeyenda !== category;
+    });
+    refreshAtlas();
   }
   function select(id, origin) {
     const area = areas.get(id);
@@ -124,8 +129,82 @@ document.addEventListener('DOMContentLoaded', () => {
         zone.setAttribute('tabindex', '0');
       });
       map.replaceChildren(svg);
+      setupAtlas();
       renderMapState();
     } catch { /* The static map and HTML fiches remain available. */ }
+  }
+  function setupAtlas() {
+    const ns = svg.namespaceURI;
+    const originalOrientation = [...svg.children].at(-1);
+    const originalScale = originalOrientation.querySelector('path[d*="h"]')?.getAttribute('d').match(/h([\d.]+)/);
+    if (!originalScale) return;
+    // La barra archivada fue generada en UTM 19S: 100 km / longitud SVG.
+    // Su redondeo a 0,1 unidades se conserva como aproximación documentada.
+    const metresPerUnit = 100000 / Number(originalScale[1]);
+    originalOrientation.style.display = 'none';
+    const boundary = svg.querySelector(':scope > path');
+    boundary.style.fill = '#eef1e7';
+    const outline = boundary.cloneNode(); outline.classList.add('eco-atlas-boundary');
+    outline.removeAttribute('style');
+    outline.removeAttribute('fill'); outline.removeAttribute('stroke'); outline.removeAttribute('stroke-width');
+    svg.append(outline);
+    svg.querySelectorAll(':scope > path[stroke-dasharray]').forEach(path => {
+      path.style.stroke = '#8a6147'; path.style.strokeDasharray = 'none';
+      path.style.strokeWidth = '1.2'; path.setAttribute('vector-effect', 'non-scaling-stroke');
+    });
+    svg.querySelectorAll(':scope > path[opacity]').forEach(path => {
+      path.style.stroke = '#287c83'; path.style.strokeWidth = '1.5';
+      path.setAttribute('vector-effect', 'non-scaling-stroke');
+    });
+    const context = document.createElement('div'); context.className = 'eco-atlas-context';
+    context.innerHTML = '<strong>Madre de Dios</strong><span>Perú · vista regional</span>';
+    const scale = document.createElement('div'); scale.className = 'eco-atlas-scale';
+    scale.setAttribute('aria-label', 'Escala gráfica aproximada, en UTM 19S');
+    scale.innerHTML = '<div><span>0</span><span class="eco-atlas-scale-value">100 km</span></div><i></i>';
+    const compass = document.createElement('div'); compass.className = 'eco-atlas-compass';
+    compass.setAttribute('aria-label', 'Norte arriba'); compass.innerHTML = '<strong>N</strong><i></i>';
+    const tooltip = document.createElement('div'); tooltip.className = 'eco-atlas-tooltip'; tooltip.hidden = true;
+    map.append(context, scale, compass, tooltip);
+    const provinces = [...svg.querySelectorAll('.anp-provincia')].map(text => ({text, anchor:{x:Number(text.getAttribute('x')),y:Number(text.getAttribute('y'))}, priority:80, size:12}));
+    const badges = [...svg.querySelectorAll('[data-anp]')].map(zone => {
+      const text = zone.querySelector('.anp-numero'), circle = zone.querySelector('.anp-numero-fondo');
+      return {zone, text, circle, anchor:{x:Number(text.getAttribute('x')),y:Number(text.getAttribute('y'))}};
+    });
+    const selectedName = document.createElementNS(ns, 'text'); svg.append(selectedName);
+    let zoom = 1;
+    refreshAtlas = () => {
+      if (!svg.getScreenCTM()?.a) return;
+      const ratio = 1 / svg.getScreenCTM().a;
+      const candidates = [...provinces];
+      badges.forEach(item => {
+        const chosen = item.zone.dataset.anp === selected;
+        candidates.push({...item, priority:chosen ? 100 : 60, size:13, visible:item.zone.style.display !== 'none', offsets:[[0,0]]});
+        item.circle.setAttribute('r', 10 * ratio);
+        item.circle.style.strokeWidth = 1.2 * ratio + 'px';
+      });
+      const chosen = badges.find(item => item.zone.dataset.anp === selected);
+      selectedName.textContent = chosen ? areas.get(selected).nombre : '';
+      candidates.push({text:selectedName, anchor:chosen?.anchor || {x:0,y:0}, priority:95, size:12,
+        visible:Boolean(chosen && zoom > 1.25), offsets:[[0,-22],[0,26],[0,-40]]});
+      window.ecoAtlas.labels(svg, candidates, [context, scale, compass, ...map.querySelectorAll('.eco-map-tools')]);
+      badges.forEach(item => { item.circle.style.display = item.text.style.display; });
+      window.ecoAtlas.scale(svg, scale, metresPerUnit);
+    };
+    map.addEventListener('eco:mapview', event => { zoom = event.detail.zoom; tooltip.hidden = true; refreshAtlas(); });
+    new ResizeObserver(refreshAtlas).observe(map);
+    badges.forEach(({zone}) => {
+      const show = event => {
+        const area = areas.get(zone.dataset.anp);
+        tooltip.textContent = area.nombre + ' · ' + area.categoria; tooltip.hidden = false;
+        const rect = map.getBoundingClientRect(), target = zone.querySelector('.anp-numero').getBoundingClientRect();
+        const x = event.clientX || target.left, y = event.clientY || target.top;
+        tooltip.style.left = Math.max(12, Math.min(rect.width - tooltip.offsetWidth - 12, x - rect.left + 10)) + 'px';
+        tooltip.style.top = Math.max(12, Math.min(rect.height - tooltip.offsetHeight - 12, y - rect.top + 10)) + 'px';
+      };
+      zone.addEventListener('pointerenter', show); zone.addEventListener('focus', show);
+      zone.addEventListener('pointerleave', () => {tooltip.hidden = true;});
+      zone.addEventListener('blur', () => {tooltip.hidden = true;});
+    });
   }
   if ('IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {

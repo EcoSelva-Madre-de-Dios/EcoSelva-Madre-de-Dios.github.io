@@ -90,7 +90,34 @@ def local_path(reference, parent):
     return candidate
 
 
+def verify_atlas_presentation():
+    model = json.loads((ROOT / 'datos/presentacion/etiquetas.json').read_text())
+    from hashlib import sha256
+    for name, digest in model['fuentes_sha256'].items():
+        if sha256((ROOT / name).read_bytes()).hexdigest() != digest:
+            raise ValueError('Fuente de presentación modificada: ' + name)
+    source = ET.parse(ROOT / 'datos/territorio/mapa.svg').getroot()
+    base = ET.parse(ROOT / 'datos/presentacion/mapa-base.svg').getroot()
+    forest = ET.parse(ROOT / 'datos/presentacion/bosques.svg').getroot()
+    group = next(el for el in source.iter() if el.get('id') == 'territorio-bosques-capa')
+    forest_paths = [el.attrib for el in group.iter() if el.tag.endswith('path')]
+    if forest_paths != [el.attrib for el in forest.iter() if el.tag.endswith('path')]:
+        raise ValueError('La copia de cobertura no conserva sus coordenadas y atributos.')
+    for parent in group.iter():
+        for child in list(parent):
+            if child.tag.endswith('path'): parent.remove(child)
+    if [el.attrib for el in source.iter() if el.tag.endswith('path')] != [el.attrib for el in base.iter() if el.tag.endswith('path')]:
+        raise ValueError('La base ligera ha alterado geometrías.')
+    original = ET.parse(ROOT / 'datos/territorio/capas-adicionales.svg').getroot()
+    for kind in ['anp', 'distritos']:
+        layer = next(el for el in original if el.get('data-territorio-overlay') == kind)
+        copy = ET.parse(ROOT / ('datos/presentacion/' + kind + '.svg')).getroot()
+        if [el.attrib for el in layer.iter() if el.tag.endswith('path')] != [el.attrib for el in copy.iter() if el.tag.endswith('path')]:
+            raise ValueError('Coordenadas de capa adicional modificadas: ' + kind)
+
+
 def published_files():
+    verify_atlas_presentation()
     pending = [ROOT / entry for entry in ENTRYPOINTS]
     found = set()
     while pending:
@@ -428,7 +455,7 @@ def verify_territorio_educativo():
                'territorio-actividades', 'territorio-metodologia')
     if any(page.parents.get(id) != ('explora-madre-de-dios',) for id in modules):
         raise ValueError('Territorio: capítulos fuera de su página de lectura.')
-    if page.map_hosts != [('datos/territorio/mapa.svg', ('explora-madre-de-dios',))]:
+    if page.map_hosts != [('datos/presentacion/mapa-base.svg', ('explora-madre-de-dios',))]:
         raise ValueError('Territorio: debe existir un único visor del mapa original.')
     model = json.loads((ROOT / 'datos/territorio/lectura.json').read_text())
     date.fromisoformat(model['revision'])

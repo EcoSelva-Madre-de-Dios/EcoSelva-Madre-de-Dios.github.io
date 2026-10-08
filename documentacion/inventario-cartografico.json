@@ -1,0 +1,477 @@
+[
+  {
+    "archivo": "datos/conservacion/anp.geojson",
+    "sha256": "5f44b3395ec32d140f03aa15efafb1f5f563011bc3a1491cf1be3cbbf255cb54",
+    "elementos": 6,
+    "geometrias": {
+      "Polygon": 5,
+      "MultiPolygon": 1
+    },
+    "crs": "EPSG:4326",
+    "unidades": [
+      "degree",
+      "degree"
+    ],
+    "extension": [
+      -72.417168,
+      -13.397897,
+      -68.712295,
+      -9.906202
+    ],
+    "campos": {
+      "id": [
+        "str"
+      ],
+      "codigo": [
+        "str"
+      ],
+      "nombre": [
+        "str"
+      ],
+      "categoria": [
+        "str"
+      ],
+      "departamentos": [
+        "list"
+      ],
+      "total_ha": [
+        "float"
+      ],
+      "mdd_ha": [
+        "float"
+      ]
+    },
+    "nulos": {},
+    "vacias": [],
+    "invalidas": [],
+    "multipartes": 1,
+    "duplicados_geometricos": {},
+    "archivos_complementarios": null,
+    "procedencia": {
+      "fuente": "SERNANP",
+      "fecha": "No expuesta por el servicio",
+      "consulta": "2026-10-05",
+      "crs_origen": "EPSG:4326",
+      "escala": null,
+      "metadatos": "datos/conservacion/metadatos.json",
+      "crs_web": "EPSG:4326 según metadatos existentes; lon/lat GeoJSON"
+    },
+    "problemas": [
+      "Escala de origen no documentada."
+    ]
+  },
+  {
+    "archivo": "datos/territorio/cobertura-vegetal.geojson",
+    "sha256": "985f6cc8d498c0c5233b395c98b910ec565c972c98e7c214c05b95a51b5caebc",
+    "elementos": 27,
+    "geometrias": {
+      "MultiPolygon": 27
+    },
+    "crs": "EPSG:4326",
+    "unidades": [
+      "degree",
+      "degree"
+    ],
+    "extension": [
+      -72.408369762171,
+      -13.397816528507612,
+      -68.65227910545926,
+      -9.86715624626472
+    ],
+    "campos": {
+      "codigo_original": [
+        "str"
+      ],
+      "categoria_original": [
+        "str"
+      ],
+      "categoria_ecoselva": [
+        "str"
+      ],
+      "fuente": [
+        "str"
+      ],
+      "fecha": [
+        "int"
+      ],
+      "escala": [
+        "str"
+      ],
+      "clasificacion_campo": [
+        "str"
+      ],
+      "codigo_campo": [
+        "str"
+      ],
+      "procesamiento": [
+        "str"
+      ],
+      "id": [
+        "str"
+      ],
+      "color": [
+        "str"
+      ],
+      "icon": [
+        "str"
+      ],
+      "fid_originales": [
+        "list"
+      ]
+    },
+    "nulos": {},
+    "vacias": [],
+    "invalidas": [
+      {
+        "indice": 0,
+        "problema": "Self-intersection[-69.6118927061616 -11.5275670609649]"
+      },
+      {
+        "indice": 1,
+        "problema": "Self-intersection[-71.3257231662825 -12.4537966170374]"
+      },
+      {
+        "indice": 5,
+        "problema": "Self-intersection[-69.8871622383425 -11.6703640430558]"
+      },
+      {
+        "indice": 6,
+        "problema": "Self-intersection[-69.3222258872307 -11.5459386595149]"
+      },
+      {
+        "indice": 7,
+        "problema": "Self-intersection[-69.1287321948169 -12.543116625375]"
+      },
+      {
+        "indice": 14,
+        "problema": "Self-intersection[-69.147681887586 -12.3580857915964]"
+      },
+      {
+        "indice": 17,
+        "problema": "Self-intersection[-69.4372602188694 -11.6775710679078]"
+      },
+      {
+        "indice": 24,
+        "problema": "Self-intersection[-69.4070821465501 -11.6791439934247]"
+      }
+    ],
+    "multipartes": 27,
+    "duplicados_geometricos": {},
+    "archivos_complementarios": null,
+    "procedencia": {
+      "fuente": "Ministerio del Ambiente (MINAM)",
+      "fecha": "Mapa Nacional de Cobertura Vegetal (2015)",
+      "fecha_observacion": null,
+      "crs_origen": "EPSG:32718",
+      "escala": "1:100 000 según memoria descriptiva; escala del shapefile no indicada en XML",
+      "metadatos": "datos/territorio/cobertura-metadatos.json",
+      "limitaciones": [
+        "CobVeg2013 es el nombre original del campo; 2015 corresponde a la publicación y no a una fecha uniforme de observación. No representa el estado de 2026.",
+        "Se conservan las 27 clases que intersectan el departamento, incluidas las no forestales y clases de agua propias de esta cobertura de 2015; no sustituyen las capas de Ríos ni Humedales."
+      ],
+      "crs_web": "EPSG:4326 según metadatos existentes; lon/lat GeoJSON"
+    },
+    "problemas": [
+      "Geometrías inválidas detectadas en la copia inspeccionada; no se repararon."
+    ]
+  },
+  {
+    "archivo": "datos/territorio/distritos.geojson",
+    "sha256": "c70433638a268cf44bfdf36d4162c819e4eaf8fc72604e5eb2cf5c540160db30",
+    "elementos": 11,
+    "geometrias": {
+      "Polygon": 11
+    },
+    "crs": "EPSG:4326",
+    "unidades": [
+      "degree",
+      "degree"
+    ],
+    "extension": [
+      -72.408309,
+      -13.397817,
+      -68.652015,
+      -9.867156
+    ],
+    "campos": {
+      "distrito_": [
+        "str"
+      ],
+      "provincia": [
+        "str"
+      ],
+      "region": [
+        "str"
+      ],
+      "situac_lim": [
+        "str"
+      ],
+      "validado": [
+        "str"
+      ]
+    },
+    "nulos": {},
+    "vacias": [],
+    "invalidas": [],
+    "multipartes": 0,
+    "duplicados_geometricos": {},
+    "archivos_complementarios": null,
+    "procedencia": {
+      "fuente": "Geodatabase aportada; generador no documentado en estas capas",
+      "fecha": null,
+      "escala": null,
+      "crs_origen": "EPSG:32719",
+      "metadatos": "datos/territorio/metadatos.json",
+      "limitaciones": [
+        "No se usa Bosques_de_Producción_Permanente como cobertura forestal.",
+        "MasaAgua no equivale a una cobertura exhaustiva de humedales.",
+        "Las fechas de RioPrin no se atribuyen a los trazados de RIos_Principales o Hidrografia_mdd.",
+        "Contorno educativo referencial; atributos distritales conservan situaciones de límite definidas e indefinidas."
+      ],
+      "nota_fecha": "2021-10-07 procede del nombre del archivo, no fecha de observación.",
+      "crs_web": "EPSG:4326 según metadatos existentes; lon/lat GeoJSON"
+    },
+    "problemas": [
+      "Fecha de observación/versión no documentada.",
+      "Escala de origen no documentada."
+    ]
+  },
+  {
+    "archivo": "datos/territorio/limite.geojson",
+    "sha256": "1f1fe81a52358912d400f45984ac46d6d60752afbf959036d11de07ddcef4b0c",
+    "elementos": 1,
+    "geometrias": {
+      "Polygon": 1
+    },
+    "crs": "EPSG:4326",
+    "unidades": [
+      "degree",
+      "degree"
+    ],
+    "extension": [
+      -72.40837,
+      -13.397817,
+      -68.651489,
+      -9.867156
+    ],
+    "campos": {
+      "capa": [
+        "str"
+      ],
+      "distritos": [
+        "int"
+      ]
+    },
+    "nulos": {},
+    "vacias": [],
+    "invalidas": [],
+    "multipartes": 0,
+    "duplicados_geometricos": {},
+    "archivos_complementarios": null,
+    "procedencia": {
+      "fuente": "Geodatabase aportada; generador no documentado en estas capas",
+      "fecha": null,
+      "escala": null,
+      "crs_origen": "EPSG:32719",
+      "metadatos": "datos/territorio/metadatos.json",
+      "limitaciones": [
+        "No se usa Bosques_de_Producción_Permanente como cobertura forestal.",
+        "MasaAgua no equivale a una cobertura exhaustiva de humedales.",
+        "Las fechas de RioPrin no se atribuyen a los trazados de RIos_Principales o Hidrografia_mdd.",
+        "Contorno educativo referencial; atributos distritales conservan situaciones de límite definidas e indefinidas."
+      ],
+      "nota_fecha": "2021-10-07 procede del nombre del archivo, no fecha de observación.",
+      "crs_web": "EPSG:4326 según metadatos existentes; lon/lat GeoJSON"
+    },
+    "problemas": [
+      "Fecha de observación/versión no documentada.",
+      "Escala de origen no documentada."
+    ]
+  },
+  {
+    "archivo": "datos/territorio/masas-agua.geojson",
+    "sha256": "94670d0d39b5c5a7765c191dae7362bf78758e3f65c3668fce4b88a7aedf40be",
+    "elementos": 174,
+    "geometrias": {
+      "Polygon": 167,
+      "MultiPolygon": 7
+    },
+    "crs": "EPSG:4326",
+    "unidades": [
+      "degree",
+      "degree"
+    ],
+    "extension": [
+      -72.073751,
+      -13.139814,
+      -68.718428,
+      -11.125435
+    ],
+    "campos": {
+      "id": [
+        "str"
+      ],
+      "nombre": [
+        "NoneType",
+        "str"
+      ],
+      "tipo": [
+        "str"
+      ],
+      "FUENTE": [
+        "str"
+      ],
+      "FECREG": [
+        "str"
+      ],
+      "TIPMAG": [
+        "int"
+      ],
+      "NOMMAG": [
+        "NoneType",
+        "str"
+      ]
+    },
+    "nulos": {
+      "nombre": 162,
+      "NOMMAG": 162
+    },
+    "vacias": [],
+    "invalidas": [],
+    "multipartes": 7,
+    "duplicados_geometricos": {},
+    "archivos_complementarios": null,
+    "procedencia": {
+      "fuente": "Gobierno Regional Madre de Dios",
+      "fecha": "2020-01-27",
+      "crs_origen": "EPSG:32719",
+      "escala": null,
+      "metadatos": "datos/territorio/metadatos.json",
+      "limitaciones": [
+        "MasaAgua no es un inventario exhaustivo de humedales."
+      ],
+      "crs_web": "EPSG:4326 según metadatos existentes; lon/lat GeoJSON"
+    },
+    "problemas": [
+      "Escala de origen no documentada."
+    ]
+  },
+  {
+    "archivo": "datos/territorio/provincias.geojson",
+    "sha256": "b08320925fefa6614c04d516838a3baecf17c52e4b9da35bcc0336cc7148d8e5",
+    "elementos": 3,
+    "geometrias": {
+      "Polygon": 3
+    },
+    "crs": "EPSG:4326",
+    "unidades": [
+      "degree",
+      "degree"
+    ],
+    "extension": [
+      -72.40830893933074,
+      -13.397816528507612,
+      -68.65148884484084,
+      -9.867156232123332
+    ],
+    "campos": {
+      "provincia": [
+        "str"
+      ],
+      "distritos_fid": [
+        "list"
+      ],
+      "etiqueta_punto_utm": [
+        "list"
+      ]
+    },
+    "nulos": {},
+    "vacias": [],
+    "invalidas": [],
+    "multipartes": 0,
+    "duplicados_geometricos": {},
+    "archivos_complementarios": null,
+    "procedencia": {
+      "fuente": "Geodatabase aportada; generador no documentado en estas capas",
+      "fecha": null,
+      "escala": null,
+      "crs_origen": "EPSG:32719",
+      "metadatos": "datos/territorio/metadatos.json",
+      "limitaciones": [
+        "No se usa Bosques_de_Producción_Permanente como cobertura forestal.",
+        "MasaAgua no equivale a una cobertura exhaustiva de humedales.",
+        "Las fechas de RioPrin no se atribuyen a los trazados de RIos_Principales o Hidrografia_mdd.",
+        "Contorno educativo referencial; atributos distritales conservan situaciones de límite definidas e indefinidas."
+      ],
+      "nota_fecha": "2021-10-07 procede del nombre del archivo, no fecha de observación.",
+      "crs_web": "EPSG:4326 según metadatos existentes; lon/lat GeoJSON"
+    },
+    "problemas": [
+      "Fecha de observación/versión no documentada.",
+      "Escala de origen no documentada."
+    ]
+  },
+  {
+    "archivo": "datos/territorio/rios.geojson",
+    "sha256": "e3d3bc12a868f339955810717a0a1348e510e69ede4feca2ffdd5880dbfc3350",
+    "elementos": 6,
+    "geometrias": {
+      "MultiLineString": 6
+    },
+    "crs": "EPSG:4326",
+    "unidades": [
+      "degree",
+      "degree"
+    ],
+    "extension": [
+      -72.226114,
+      -13.344398,
+      -68.652831,
+      -11.033356
+    ],
+    "campos": {
+      "id": [
+        "str"
+      ],
+      "nombre": [
+        "str"
+      ],
+      "capas_trazado": [
+        "list"
+      ],
+      "fecha_trazado": [
+        "NoneType"
+      ],
+      "metadatos_RioPrin": [
+        "list"
+      ]
+    },
+    "nulos": {
+      "fecha_trazado": 6
+    },
+    "vacias": [],
+    "invalidas": [],
+    "multipartes": 6,
+    "duplicados_geometricos": {},
+    "archivos_complementarios": null,
+    "procedencia": {
+      "fuente": "Geodatabase aportada; generador no documentado en estas capas",
+      "fecha": null,
+      "escala": null,
+      "crs_origen": "EPSG:32719",
+      "metadatos": "datos/territorio/metadatos.json",
+      "limitaciones": [
+        "No se usa Bosques_de_Producción_Permanente como cobertura forestal.",
+        "MasaAgua no equivale a una cobertura exhaustiva de humedales.",
+        "Las fechas de RioPrin no se atribuyen a los trazados de RIos_Principales o Hidrografia_mdd.",
+        "Contorno educativo referencial; atributos distritales conservan situaciones de límite definidas e indefinidas."
+      ],
+      "nota_fecha": "2021-10-07 procede del nombre del archivo, no fecha de observación.",
+      "crs_web": "EPSG:4326 según metadatos existentes; lon/lat GeoJSON"
+    },
+    "problemas": [
+      "Fecha de observación/versión no documentada.",
+      "Escala de origen no documentada."
+    ]
+  }
+]

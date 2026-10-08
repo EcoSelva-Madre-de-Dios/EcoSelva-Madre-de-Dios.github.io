@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (territory) {
         let exploreTopic = null, pendingTopic = null;
         let requestedMode = null;
-        let topics, forestData, forestDescriptions, lectura;
+        let topics, forestData, forestDescriptions, lectura, atlasPresentation;
         let origin = null;
         const returnOrigin = territory.querySelector(".territorio-retorno");
         returnOrigin.addEventListener("click", () => {
@@ -68,67 +68,83 @@ document.addEventListener("DOMContentLoaded", () => {
         let lastDragAt = 0;
         const labelLayer = svg.querySelector(".selva-territorio-etiquetas");
         const scaleElement = territory.querySelector(".selva-territorio-escala");
-        const metresPerSvgUnit = (8908847.9839 - 8518757.21) / 430;
+        const metresPerSvgUnit = atlasPresentation.metros_por_unidad_svg;
+        const provinceToggle = territory.querySelector("#territorio-provincias");
+        svg.querySelector('.selva-territorio-colindantes').setAttribute('aria-hidden', 'true');
+        const provinceLabels = [...svg.querySelectorAll(".selva-territorio-provincias-nombres text")].map(text => ({
+            text, anchor: { x: Number(text.getAttribute("x")), y: Number(text.getAttribute("y")) }, priority: 80, size: 12
+        }));
+        const contextLabels = [...svg.querySelectorAll(".selva-territorio-colindantes text")].map(text => ({
+            text, anchor: { x: Number(text.getAttribute("x")), y: Number(text.getAttribute("y")) }, priority: 5, size: 10
+        }));
+        const pointLabels = new Map(atlasPresentation.etiquetas.filter(item => item.id).map(item => [item.id, item]));
+        const overlayLabels = [];
         const labelSettings = {
-            madre: [.53, 18, -19], tambopata: [.5, 14, 22], inambari: [.72, -85, 22],
-            piedras: [.48, 18, -22], manu: [.52, -62, -20], heath: [.45, -86, -15]
+            madre: [.53, 18, -19], tambopata: [.5, 14, 22], inambari: [.72, -35, 22],
+            piedras: [.48, 18, -22], manu: [.52, -32, -20], heath: [.45, -30, -15]
         };
-        initialWater.filter(key => topics[key].registeredName).sort((a, b) => {
-            const first = svg.querySelector(`[data-mapa-feature="${a}"]`).getBBox();
-            const second = svg.querySelector(`[data-mapa-feature="${b}"]`).getBBox();
-            return second.width * second.height - first.width * first.height;
-        }).slice(0, 3).forEach(key => { labelSettings[key] = [.25, 16, -24]; });
         const mapLabels = Object.entries(labelSettings).map(([key, settings]) => {
-            const visual = svg.querySelector(`[data-mapa-feature="${key}"] .selva-territorio-rio-linea, [data-mapa-feature="${key}"] .selva-territorio-agua-forma`);
+            const visual = svg.querySelector(`[data-mapa-feature="${key}"] .selva-territorio-rio-linea`);
             const path = visual.localName === "use" ? svg.querySelector(visual.getAttribute("href")) : visual;
             const group = document.createElementNS(svg.namespaceURI, "g");
-            group.dataset.mapLabel = key; group.setAttribute("role", "button");
-            group.setAttribute("aria-label", "Explorar " + topics[key].name); group.setAttribute("tabindex", "-1");
-            const leader = document.createElementNS(svg.namespaceURI, "path");
-            const background = document.createElementNS(svg.namespaceURI, "rect");
             const text = document.createElementNS(svg.namespaceURI, "text");
+            group.dataset.mapLabel = key;
             text.textContent = topics[key].name.replace("Río ", "");
-            group.append(leader, background, text); labelLayer.append(group);
-            group.addEventListener("click", () => { if (enabledLayers.has(topics[key].mode)) select(key); });
-            group.addEventListener("pointerenter", () => { if (enabledLayers.has(topics[key].mode)) highlight(key); });
-            group.addEventListener("pointerleave", () => highlight(null));
-            return { key, path, group, leader, background, text, settings };
+            group.append(text); labelLayer.append(group);
+            return { key, path, group, text, settings };
         });
+        const selectedLabel = document.createElementNS(svg.namespaceURI, "text");
+        labelLayer.append(selectedLabel);
+        // Copia visual del contorno: exactamente las mismas coordenadas.
+        const outline = svg.querySelector(".selva-territorio-limite").cloneNode(true);
+        outline.removeAttribute("class"); outline.classList.add("eco-atlas-boundary"); outline.setAttribute("aria-hidden", "true");
+        svg.insertBefore(outline, labelLayer);
+        const provinceLines = svg.querySelector(".selva-territorio-provincias-limites");
+        const hydroScene = svg.querySelector('[data-territorio-scene="rios"]');
+        hydroScene.parentElement.insertBefore(provinceLines, hydroScene);
         const updateMapLabels = () => {
-            labelLayer.style.display = enabledLayers.has("rios") || enabledLayers.has("humedales") ? "" : "none";
-            labelLayer.setAttribute("aria-hidden", String(!enabledLayers.has("rios") && !enabledLayers.has("humedales")));
-            const ratio = 1 / (svg.getScreenCTM()?.a || 1);
-            const occupied = [];
-            mapLabels.forEach(({ key, path, group, leader, background, text, settings }) => {
-                const visible = enabledLayers.has(topics[key].mode) && features.some(feature => feature.dataset.mapaFeature === key && feature.getAttribute("aria-hidden") !== "true") && (view[2] >= 540 || key === selectedKey);
-                group.style.display = visible ? "" : "none";
-                group.style.pointerEvents = visible ? "" : "none";
-                group.setAttribute("aria-hidden", String(!visible));
-                if (visible) group.setAttribute("role", "button"); else group.removeAttribute("role");
-                group.classList.toggle("is-selected", key === selectedKey);
-                if (group.style.display === "none") return;
+            labelLayer.style.display = "";
+            const ratio = 1 / (svg.getScreenCTM()?.a || 1), zoom = 600 / view[2];
+            const candidates = provinceLabels.map(item => ({ ...item, visible: provinceToggle.checked }));
+            candidates.push(...contextLabels.map(item => ({ ...item, visible: zoom < 1.5 })));
+            mapLabels.forEach(({ key, path, group, text, settings }) => {
                 const point = path.getPointAtLength(path.getTotalLength() * settings[0]);
-                text.setAttribute("font-size", 12 * ratio);
-                const width = (text.textContent.length * 6.9 + 16) * ratio, height = 24 * ratio;
-                let x = Math.max(view[0] + 10 * ratio, Math.min(view[0] + view[2] - width - 10 * ratio, point.x + settings[1] * ratio));
-                let y = Math.max(view[1] + 12 * ratio, Math.min(view[1] + view[3] - height - 12 * ratio, point.y + settings[2] * ratio));
-                for (let i = 0; i < 4 && occupied.some(box => x < box.x + box.w && x + width > box.x && y < box.y + box.h && y + height > box.y); i++) y = Math.min(view[1] + view[3] - height, y + height + 5 * ratio);
-                occupied.push({ x, y, w: width, h: height });
-                text.setAttribute("x", x + 8 * ratio); text.setAttribute("y", y + 15 * ratio);
-                background.setAttribute("x", x); background.setAttribute("y", y);
-                background.setAttribute("width", width); background.setAttribute("height", height);
-                background.setAttribute("rx", 4 * ratio);
-                leader.setAttribute("d", `M${point.x},${point.y}L${Math.max(x, Math.min(x + width, point.x))},${y + height / 2}`);
+                candidates.push({ text, group, anchor: {x:point.x, y:point.y},
+                    offsets: [[settings[1], settings[2]], [0,-14], [0,14]],
+                    priority: key === selectedKey ? 100 : 70, size: key === selectedKey ? 13 : 11,
+                    visible: enabledLayers.has("rios") });
             });
+            const selectedPoint = pointLabels.get(selectedKey);
+            selectedLabel.textContent = selectedKey && topics[selectedKey] ? topics[selectedKey].name : "";
+            candidates.push({text:selectedLabel, anchor:selectedPoint || {x:0,y:0}, priority:100, size:13,
+                visible:Boolean(selectedPoint && selectedKey && enabledLayers.has(topics[selectedKey].mode))});
+            candidates.push(...overlayLabels.map(item => ({...item,
+                visible: overlayInputs.some(input => input.checked && input.dataset.territorioOverlayToggle === item.layer) && zoom >= (item.layer === "anp" ? 1.4 : 1.7),
+                size:item.layer === "anp" ? 10.5 : 10, priority:item.layer === "anp" ? 50 : 30 })));
+            window.ecoAtlas.labels(svg, candidates, [...canvas.querySelectorAll('.selva-territorio-ubicacion,.selva-territorio-brujula,.selva-territorio-controles,.selva-territorio-escala')]);
         };
-        const provinceToggle = territory.querySelector("#territorio-provincias");
         provinceToggle.addEventListener("change", () => {
             svg.querySelectorAll(".selva-territorio-provincias-limites, .selva-territorio-provincias-nombres").forEach(layer => {
                 layer.style.display = provinceToggle.checked ? "" : "none";
             });
+            updateMapLabels(); updateLegend();
         });
         const forestColors = { tierra: "#24563A", inundable: "#3E7763", aguajal: "#768B49", secundario: "#7EAB70" };
         Object.assign(forestColors, Object.fromEntries(forestData.categories.map(category => [category.id, category.color])));
+        // Paleta de presentación; códigos, clases y atributos MINAM sin cambios.
+        const displayPalette = {
+            "Ano-ba":"#c4b396", "Bca":"#234c3b", "Bca-pa":"#667b39",
+            "Bcb":"#499367", "Bcb-cas":"#9c8057", "Bcb-pa":"#8eb363",
+            "Bcb-Shi":"#256665", "Bllm":"#659e95", "Bm":"#294d52",
+            "Bm-al":"#abc0b6", "Bm-ba":"#44756a", "Bm-ba-pa":"#b3be75",
+            "Bm-pa":"#496526", "Bm-mo":"#76845f", "Bta":"#71a48f",
+            "Bta-cas":"#baa06c", "Bta-pa":"#a6cb8f", "Btb":"#318f99",
+            "Btb-cas":"#d3c68a", "Btb-pa":"#7cbdb0", "Bi-pal":"#87944b",
+            "L/Co":"#78b8c2", "Pac":"#b6a250", "Pj":"#d5c493",
+            "R":"#408899", "Sahi-pal":"#c7d6a0", "Is":"#9cafa3"
+        };
+        forestData.categories.forEach(category => { forestColors[category.id] = displayPalette[category.codigo_original] || category.color; });
+
         const forestPolygons = () => [...svg.querySelectorAll("#territorio-bosques-capa [data-forest-category], #territorio-bosques-capa [data-bosque-tipo]")];
         const filterForest = key => {
             forestPolygons().forEach(polygon => {
@@ -142,13 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const updateScale = () => {
             scaleElement.hidden = activeMode === "bosques" && !forestData.categories.length;
             const matrix = svg.getScreenCTM(); if (!matrix) return;
-            svg.querySelectorAll(".selva-territorio-provincias-nombres text").forEach(text => text.setAttribute("font-size", 12 / matrix.a));
-            svg.querySelectorAll(".selva-territorio-colindantes text").forEach(text => text.setAttribute("font-size", 12 / matrix.a));
-            let km = 100;
-            if (100000 / metresPerSvgUnit * matrix.a > 150) km = 50;
-            if (km * 1000 / metresPerSvgUnit * matrix.a < 50) km = 150;
-            scaleElement.querySelector("i").style.width = (km * 1000 / metresPerSvgUnit * matrix.a) + "px";
-            scaleElement.querySelector(".selva-territorio-escala-valor").textContent = km + " km";
+            window.ecoAtlas.scale(svg, scaleElement, metresPerSvgUnit);
             territory.classList.toggle("is-zoomed", view[2] < 599);
         };
         let explored = false;
@@ -177,16 +187,41 @@ document.addEventListener("DOMContentLoaded", () => {
         const overlayInputs = [...territory.querySelectorAll("[data-territorio-overlay-toggle]")];
         const layerStatus = territory.querySelector("[data-territorio-capas-status]");
         const enabledLayers = new Set();
-        let overlayPromise = null, overlayReady = false, overlayError = "";
+        let forestPromise = null, forestReady = false, forestError = "";
+        const loadForest = () => {
+            if (forestReady) return Promise.resolve();
+            if (forestPromise) return forestPromise;
+            forestError = "";
+            forestPromise = (async () => {
+                const response = await fetch(window.ecoResourceURL("datos/presentacion/bosques.svg"));
+                if (!response.ok) throw new Error("Cobertura: HTTP " + response.status);
+                const doc = new DOMParser().parseFromString(await response.text(), "image/svg+xml");
+                const incoming = [...doc.querySelectorAll('[data-mapa-feature]')];
+                if (doc.querySelector('parsererror') || incoming.length !== forestData.categories.length) throw new Error("Cobertura incompleta");
+                incoming.forEach(group => {
+                    const target = features.find(feature => feature.dataset.mapaFeature === group.dataset.mapaFeature);
+                    if (!target) throw new Error("Categoría ausente");
+                    [...group.children].filter(child => child.localName === 'path').forEach(path => target.append(document.importNode(path, true)));
+                });
+                forestReady = true; filterForest(selectedKey && topics[selectedKey].mode === "bosques" ? selectedKey : null);
+            })().catch(() => { forestError = "No se pudo cargar la cobertura. Desactiva y activa Bosques para volver a intentar."; })
+                .finally(() => { forestPromise = null; updateLayerStatus(); });
+            updateLayerStatus(); return forestPromise;
+        };
+        const overlayPromises = new Map(), readyOverlays = new Set();
+        const overlayFiles = { anp: "datos/presentacion/anp.svg", distritos: "datos/presentacion/distritos.svg" };
+        let overlayError = "";
         const updateLayerStatus = () => {
             const names = [...layerInputs.filter(input => input.checked).map(input => input.parentElement.textContent.trim()),
                 ...(provinceToggle.checked ? ["Provincias"] : []),
-                ...overlayInputs.filter(input => input.checked && overlayReady).map(input => input.parentElement.textContent.trim())];
+                ...overlayInputs.filter(input => input.checked && readyOverlays.has(input.dataset.territorioOverlayToggle)).map(input => input.parentElement.textContent.trim())];
             layerStatus.textContent = (names.length ? "Capas visibles: " + names.join(" · ") + "." : "No hay capas activadas; se conserva el contorno de referencia.") +
-                (overlayError ? " " + overlayError : overlayPromise && !overlayReady ? " Cargando contornos adicionales…" : "") +
+                (overlayError ? " " + overlayError : overlayPromises.size ? " Cargando contornos adicionales…" : "") +
+                (forestError ? " " + forestError : forestPromise ? " Cargando cobertura MINAM 2015…" : "") +
                 " Las fechas y límites de uso se explican en Datos y metodología.";
         };
         const updateScenes = () => {
+            if (enabledLayers.has("bosques")) loadForest();
             scenes.forEach(scene => {
                 const visible = enabledLayers.has(scene.dataset.territorioScene);
                 scene.style.display = visible ? "" : "none";
@@ -200,36 +235,41 @@ document.addEventListener("DOMContentLoaded", () => {
             }));
             updateLayerStatus();
         };
-        const loadOverlays = () => {
-            if (overlayReady) return Promise.resolve();
-            if (overlayPromise) return overlayPromise;
+        const loadOverlays = name => {
+            if (readyOverlays.has(name)) return Promise.resolve();
+            if (overlayPromises.has(name)) return overlayPromises.get(name);
             overlayError = "";
-            overlayPromise = (async () => {
-                const response = await fetch(window.ecoResourceURL("datos/territorio/capas-adicionales.svg"));
+            const promise = (async () => {
+                const response = await fetch(window.ecoResourceURL(overlayFiles[name]));
                 if (!response.ok) throw new Error("HTTP " + response.status);
                 const doc = new DOMParser().parseFromString(await response.text(), "image/svg+xml");
-                if (doc.querySelector("parsererror") || doc.documentElement.localName !== "svg") throw new Error("SVG inválido");
-                for (const name of ["anp", "distritos"]) {
-                    const original = doc.querySelector('[data-territorio-overlay="' + name + '"]');
-                    if (!original) throw new Error("Capa ausente: " + name);
-                }
-                for (const name of ["anp", "distritos"]) {
-                    const group = document.importNode(doc.querySelector('[data-territorio-overlay="' + name + '"]'), true);
-                    group.setAttribute("clip-path", "url(#territorio-limite-clip)");
-                    svg.insertBefore(group, labelLayer);
-                }
-                overlayReady = true;
+                const original = doc.querySelector('[data-territorio-overlay="' + name + '"]');
+                if (doc.querySelector("parsererror") || !original) throw new Error("Capa inválida: " + name);
+                const group = document.importNode(original, true);
+                group.setAttribute("clip-path", "url(#territorio-limite-clip)");
+                hydroScene.parentElement.insertBefore(group, name === "anp" ? provinceLines : hydroScene);
+                const records = atlasPresentation.etiquetas.filter(item => item.capa === name);
+                if (name === "anp") [...group.children].forEach((path, i) => {
+                    path.style.strokeDasharray = records[i].categoria === "Parque Nacional" ? "none" : records[i].categoria === "Reserva Nacional" ? "8 3" : "3 3";
+                });
+                records.forEach(record => {
+                    const text = document.createElementNS(svg.namespaceURI, "text");
+                    text.textContent = record.nombre; labelLayer.append(text);
+                    overlayLabels.push({text, anchor:record, layer:name});
+                });
+                readyOverlays.add(name);
             })().catch(error => {
-                console.error("No se pudieron cargar los contornos adicionales:", error);
-                overlayInputs.forEach(input => { input.checked = false; });
-                overlayError = "No se pudieron cargar los contornos adicionales. Activa una casilla para volver a intentar.";
-            }).finally(() => { overlayPromise = null; updateScenes(); updateLegend(); });
-            updateLayerStatus();
-            return overlayPromise;
+                console.error("No se pudo cargar la capa:", error);
+                const input = overlayInputs.find(item => item.dataset.territorioOverlayToggle === name);
+                input.checked = false;
+                overlayError = "No se pudo cargar " + name + ". Activa su casilla para volver a intentar.";
+            }).finally(() => { overlayPromises.delete(name); updateScenes(); updateLegend(); updateMapLabels(); });
+            overlayPromises.set(name, promise); updateLayerStatus();
+            return promise;
         };
         overlayInputs.forEach(input => input.addEventListener("change", () => {
-            if (input.checked) loadOverlays();
-            updateScenes(); updateLegend();
+            if (input.checked) loadOverlays(input.dataset.territorioOverlayToggle);
+            updateScenes(); updateLegend(); updateMapLabels();
         }));
         layerInputs.forEach(input => input.addEventListener("change", () => {
             const mode = input.dataset.territorioCapa;
@@ -282,42 +322,32 @@ document.addEventListener("DOMContentLoaded", () => {
             target.append(more);
         };
 
-        const appendLayerLegend = () => {
-            const items = [];
-            if (enabledLayers.has("rios") && activeMode !== "rios") items.push(["rio", "Ríos · cursos mostrados"]);
-            if (enabledLayers.has("humedales") && activeMode !== "humedales") items.push(["laguna", "Lagunas · MasaAgua"], ["pantano", "Pantanos · MasaAgua"]);
-            items.forEach(([kind, text]) => {
-                const item = node("span", "selva-territorio-leyenda-item");
-                item.append(node("i", "selva-territorio-muestra selva-territorio-muestra--" + kind), node("span", "", text)); legend.append(item);
-            });
-            if (enabledLayers.has("bosques") && activeMode !== "bosques") legend.append(node("small", "", "Cobertura vegetal · categorías MINAM, 2015; colores EcoSelva."));
-            overlayInputs.filter(input => input.checked && overlayReady).forEach(input => {
-                legend.append(node("small", "", input.dataset.territorioOverlayToggle === "anp" ? "ANP · contornos verdes discontinuos" : "Distritos · contornos marrones discontinuos"));
-            });
-        };
         const updateLegend = () => {
-            if (!enabledLayers.has(activeMode)) {
-                legend.replaceChildren(node("span", "", "La capa principal está desactivada. Consulta las capas visibles en las casillas del mapa.")); appendLayerLegend(); return;
-            }
-            if (activeMode === "bosques") {
-                legend.replaceChildren(...modes.bosques.keys.map(key => {
+            legend.replaceChildren();
+            const heading = title => legend.append(node("strong", "eco-atlas-legend-heading", title));
+            const sample = (kind, title) => {
+                const item = node("span", "selva-territorio-leyenda-item");
+                item.append(node("i", "selva-territorio-muestra selva-territorio-muestra--" + kind), node("span", "", title)); legend.append(item);
+            };
+            if (enabledLayers.has("bosques")) {
+                heading("Cobertura · MINAM, 2015");
+                modes.bosques.keys.forEach(key => {
                     const item = node("span", "selva-territorio-leyenda-item");
                     const swatch = node("i", "selva-territorio-color"); swatch.style.backgroundColor = forestColors[key];
-                    item.classList.toggle("is-muted", !!selectedKey && key !== selectedKey);
-                    item.setAttribute("aria-current", selectedKey === key ? "true" : "false");
-                    item.append(swatch, icon(topics[key].icon || key), node("span", "", key === "tierra" ? "Tierra firme" : topics[key].name)); return item;
-                }), node("small", "selva-territorio-leyenda-aviso", forestData.categories.length ? "Categorías originales · MINAM, 2015. Colores de visualización EcoSelva; incluye coberturas no forestales." : "Colores educativos. La distribución espacial detallada está en preparación."));
-                appendLayerLegend(); return;
+                    item.append(swatch, node("span", "", topics[key].name)); legend.append(item);
+                });
+                legend.append(node("small", "selva-territorio-leyenda-aviso", "Categorías originales; colores de visualización EcoSelva. Incluye coberturas no forestales."));
             }
-            const items = activeMode === "bosques" ? modes.bosques.keys.map(key => [key, topics[key].name.replace("Bosque de ", "").replace("Bosque ", "")]) :
-                activeMode === "rios" ? (selectedKey ? [["seleccionado", "Río seleccionado"], ["rio", "Otros cursos mostrados"]] : [["rio", "Cursos mostrados"]]) :
-                [["laguna", "Laguna"], ["pantano", "Pantano"]];
-            legend.replaceChildren(...items.map(([kind, text]) => {
-                const item = node("span", "selva-territorio-leyenda-item");
-                item.append(node("i", "selva-territorio-muestra selva-territorio-muestra--" + kind), node("span", "", text)); return item;
-            }));
-            if (activeMode === "bosques") legend.append(node("small", "", "Representación educativa"));
-            appendLayerLegend();
+            if (provinceToggle.checked) {heading("Provincias"); const item = node("span", "", "Límite provincial"); item.prepend(node("i", "eco-atlas-swatch")); legend.append(item);}
+            if (enabledLayers.has("rios")) {heading("Ríos"); sample("rio", "Cursos representados"); if (selectedKey && topics[selectedKey].mode === "rios") sample("seleccionado", "Río seleccionado");}
+            if (enabledLayers.has("humedales")) {heading("Masas de agua");sample("laguna", "Laguna");sample("pantano", "Pantano");}
+            overlayInputs.filter(input => input.checked && readyOverlays.has(input.dataset.territorioOverlayToggle)).forEach(input => {
+                const name = input.dataset.territorioOverlayToggle;
+                heading(name === "anp" ? "Áreas naturales protegidas" : "Distritos");
+                const item = node("span", "", name === "anp" ? "PN: sólido · RN: rayas · RC: puntos" : "Contorno distrital de referencia");
+                item.prepend(node("i", "eco-atlas-swatch eco-atlas-swatch--" + name));legend.append(item);
+            });
+            if (!legend.childElementCount) legend.append(node("span", "", "Contorno departamental de referencia; capas temáticas desactivadas."));
         };
         const setView = (next, animate = true) => {
             cancelAnimationFrame(zoomFrame);
@@ -613,7 +643,7 @@ document.addEventListener("DOMContentLoaded", () => {
         requestedLayers.forEach(mode => enabledLayers.add(mode));
         updateScenes(); updateFeatures(); updateMapLabels(); updateLegend();
         provinceToggle.dispatchEvent(new Event('change'));
-        if (overlayInputs.some(input => input.checked)) loadOverlays();
+        overlayInputs.filter(input => input.checked).forEach(input => loadOverlays(input.dataset.territorioOverlayToggle));
         };
 
         const host = territory.querySelector("[data-territorio-map-src]");
@@ -639,10 +669,10 @@ document.addEventListener("DOMContentLoaded", () => {
             if (retry) retry.hidden = true;
             let loadedSvg;
             try {
-                const dataFiles = ["datos/territorio/registros-visor.json", "datos/territorio/cobertura-fichas.json", "datos/territorio/descripciones.json", "datos/territorio/lectura.json"];
+                const dataFiles = ["datos/territorio/registros-visor.json", "datos/territorio/cobertura-fichas.json", "datos/territorio/descripciones.json", "datos/territorio/lectura.json", "datos/presentacion/etiquetas.json"];
                 const [response, ...dataResponses] = await Promise.all([fetch(window.ecoResourceURL(host.dataset.territorioMapSrc)), ...dataFiles.map(path => fetch(window.ecoResourceURL(path)))]);
                 if (dataResponses.some(item => !item.ok)) throw new Error("No se pudieron cargar los registros del mapa.");
-                [topics, forestData, forestDescriptions, lectura] = await Promise.all(dataResponses.map(item => item.json()));
+                [topics, forestData, forestDescriptions, lectura, atlasPresentation] = await Promise.all(dataResponses.map(item => item.json()));
                 if (!response.ok) throw new Error(`Mapa: HTTP ${response.status}`);
                 const document = new DOMParser().parseFromString(await response.text(), "image/svg+xml");
                 if (document.querySelector("parsererror") || document.documentElement.localName !== "svg") throw new Error("El mapa no es un SVG válido.");

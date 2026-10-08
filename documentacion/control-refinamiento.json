@@ -1,0 +1,102 @@
+{
+  "resoluciones_verificadas": [
+    {
+      "width": 1366,
+      "height": 768,
+      "pages": 8,
+      "territoryLabels": 8,
+      "initialScaleKm": 100
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "pages": 8,
+      "territoryLabels": 8,
+      "initialScaleKm": 100
+    },
+    {
+      "width": 1536,
+      "height": 864,
+      "pages": 8,
+      "territoryLabels": 8,
+      "initialScaleKm": 100
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "pages": 8,
+      "territoryLabels": 8,
+      "initialScaleKm": 50
+    },
+    {
+      "width": 2560,
+      "height": 1440,
+      "pages": 8,
+      "territoryLabels": 8,
+      "initialScaleKm": 50
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "pages": 8,
+      "territoryLabels": 8,
+      "initialScaleKm": 100
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "pages": 8,
+      "territoryLabels": 8,
+      "initialScaleKm": 150
+    },
+    {
+      "width": 412,
+      "height": 915,
+      "pages": 8,
+      "territoryLabels": 8,
+      "initialScaleKm": 150
+    }
+  ],
+  "sha256_datos_originales": {
+    "datos/biblioteca/documentos.json": "96464168d5a1346f83941b5469b32f8451b136027f234ef73d43d862a48faea8",
+    "datos/conservacion/anp.geojson": "5f44b3395ec32d140f03aa15efafb1f5f563011bc3a1491cf1be3cbbf255cb54",
+    "datos/conservacion/areas.json": "4658dfcac872b5dd35ed0611e409cb220087a1df8d7160c28be1406bd35a3ff8",
+    "datos/conservacion/mapa.svg": "7df2a8656ee547320c38695c078627d2c43ba57b0511a3e12ceb0e7219ea101d",
+    "datos/conservacion/metadatos.json": "8e850c3c952677646fd5c3cbf514f7755bc6f81e98f173a16620686d4568b25f",
+    "datos/fauna/fichas.json": "fbd74ea9e5c92ac18424e4261fb056c41717e86a3f6ca84297c411a2b315b126",
+    "datos/fichas/castana-indicadores.csv": "56a76b5b3266a080f34cf404f048837f0b145081a6456aece4bde9d4232017dc",
+    "datos/fichas/castana.json": "654760546aa3b02630d7cd309c95b4dfa4d618dd80c92e2fdcd18937054e83af",
+    "datos/flora/lectura.json": "9f643a9ebbc898b497fb043f57afe6616f8c1acbf9224ae15e160803875265b4",
+    "datos/fuentes.json": "e288cada45553192a98c740ad7f4a392f8da6f732cec8a7f9b2d46fe9420cac4",
+    "datos/territorio/CobVeg_180615.shp.xml": "31ee64c8c9d8a9efd396d4fcb9aae6e5cbc7b2ab0ac433bb1e623ceb312dbde9",
+    "datos/territorio/bosques-capa-config.json": "725fdad9879fcb3d267319041312315c92d3b2b903b1566219d4442cfcc1c753",
+    "datos/territorio/capas-adicionales-metadatos.json": "a1765ccc84cdff005a4897ec002ebe5e99bac1df192cf30a360da1866284f84b",
+    "datos/territorio/capas-adicionales.svg": "24ef304ab5aea09489d3151f6287d64cb9858ae84ba721716f3cad607b7a0d23",
+    "datos/territorio/cobertura-bosques.svg": "6ec33719541fe84b9668f43a84f17c5edfbed1e8142dc14c33597b44217ad1c8",
+    "datos/territorio/cobertura-categorias.json": "6bc2efc55f8019eb4fab55ebac151793378edf76d6a3b17839f386ea6a372f94",
+    "datos/territorio/cobertura-descripciones.json": "38a01eb05832288f9828c428b145fadd0a0593b05e946cfd67d712f80cac93f8",
+    "datos/territorio/cobertura-fichas.json": "20ce8a8e479b6b1b0e5748058b3072ddc8311843bb90993a56caa24dc51811bb",
+    "datos/territorio/cobertura-metadatos.json": "d8011d531a7b30d29ba56edf22b1187641823a0c22136b84ba12b7704bf31715",
+    "datos/territorio/cobertura-trazabilidad.json": "9cb7b53c0aa903590f0408752dbe85b1b8ba2d8854342772e142003b29390aaf",
+    "datos/territorio/cobertura-vegetal.geojson": "985f6cc8d498c0c5233b395c98b910ec565c972c98e7c214c05b95a51b5caebc",
+    "datos/territorio/descripciones.json": "e1e6eb12c66cf79cfa6bee5ea19948d542464c420d28d858cab50acd3796a6f1",
+    "datos/territorio/distritos.geojson": "c70433638a268cf44bfdf36d4162c819e4eaf8fc72604e5eb2cf5c540160db30",
+    "datos/territorio/fichas-escenas.json": "aae8fd8ad255dc216ab0926abe45bf5368ba2ae059adea6d04b46068e01343fa",
+    "datos/territorio/fichas.json": "5383d55a5c7c97d8c483eaf155f9473220a99811d053d4028ba9fec1146cd332",
+    "datos/territorio/lectura.json": "25c53b7b44c3da69f804c2f6ffcb6210b4a39d9d26206eb83295f4051f0f0145",
+    "datos/territorio/limite.geojson": "1f1fe81a52358912d400f45984ac46d6d60752afbf959036d11de07ddcef4b0c",
+    "datos/territorio/mapa.svg": "33cb546984c299170d71b3e2772a45c0d80bb2df779e6a5836acb7e32e55cad7",
+    "datos/territorio/masas-agua.geojson": "94670d0d39b5c5a7765c191dae7362bf78758e3f65c3668fce4b88a7aedf40be",
+    "datos/territorio/metadatos.json": "66b6e0d4f7691ab64ab4553ea708137815334b37e022965131f14820c3e87d05",
+    "datos/territorio/presentacion-escenas.json": "75ff7a829550f8ae9e326a32946f4ffe27ff3314b05aec98cffea8e07e7ec05f",
+    "datos/territorio/presentacion-profesional.json": "54e802a26ab22df5a0b908187e73bdade1aa0900e4b162683a4cbff6b86c6808",
+    "datos/territorio/provincias-metadatos.json": "e03a0aeaca9e8adac19994e4581dff042404d8d73c5a39f2228c950a32b80ed5",
+    "datos/territorio/provincias.geojson": "b08320925fefa6614c04d516838a3baecf17c52e4b9da35bcc0336cc7148d8e5",
+    "datos/territorio/referencia-contextual.json": "69eabf9d751b506a9c928ed056e39622f8b590802aaa9e61baf38462d9c2eb36",
+    "datos/territorio/registros-visor.json": "3e8f12f698a5dbb674c2cd27a8d273b4148627e26e942fffc277d0d55cf8da5e",
+    "datos/territorio/rios.geojson": "e3d3bc12a868f339955810717a0a1348e510e69ede4feca2ffdd5880dbfc3350"
+  },
+  "base_anterior_bytes": 2655544,
+  "base_inicial_bytes": 601471,
+  "microilustraciones_bytes": 347202
+}

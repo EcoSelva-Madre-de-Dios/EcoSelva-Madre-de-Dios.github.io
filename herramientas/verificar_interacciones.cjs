@@ -104,6 +104,7 @@ async function accessible(page, selector) {
         await page.locator('[data-territorio-overlay="distritos"]').waitFor();
         assert.equal(await page.locator('[data-territorio-overlay="distritos"]>path').count(), 11);
         await page.locator('[data-territorio-overlay-toggle="anp"]').check();
+        await page.locator('[data-territorio-overlay="anp"]').waitFor();
         assert.equal(await page.locator('[data-territorio-overlay="anp"]>path').count(), 6);
         const origin = page.locator('[data-territorio-explorar]').first();
         await origin.locator('xpath=ancestor::details[1]').locator('summary').click();
@@ -156,7 +157,7 @@ async function accessible(page, selector) {
     const pendingPage = await delayed.newPage();
     let releaseMap;
     const gate = new Promise(resolve => { releaseMap = resolve; });
-    await pendingPage.route('**/datos/territorio/mapa.svg*', async route => { await gate; await route.continue(); });
+    await pendingPage.route('**/datos/presentacion/mapa-base.svg*', async route => { await gate; await route.continue(); });
     await pendingPage.goto(new URL('territorio.html', base).href);
     await pendingPage.locator('[data-territorio-capa="humedales"]').check();
     await pendingPage.locator('[data-territorio-capa="bosques"]').check();
@@ -167,8 +168,8 @@ async function accessible(page, selector) {
     assert(await pendingPage.locator('[data-territorio-capa="humedales"]').isChecked());
     assert(await pendingPage.locator('[data-territorio-capa="bosques"]').isChecked());
     assert.equal(await pendingPage.locator('[data-territorio-capa="rios"]').isChecked(), false);
-    await pendingPage.unroute('**/datos/territorio/mapa.svg*');
-    await pendingPage.route('**/datos/territorio/mapa.svg*', route => route.abort());
+    await pendingPage.unroute('**/datos/presentacion/mapa-base.svg*');
+    await pendingPage.route('**/datos/presentacion/mapa-base.svg*', route => route.abort());
     await pendingPage.goto(new URL('territorio.html', base).href);
     await pendingPage.locator('[data-territorio-map-src] button').waitFor({ state: 'visible' });
     await pendingPage.locator('.selva-territorio-fuentes-abrir').click();
@@ -176,7 +177,7 @@ async function accessible(page, selector) {
     await pendingPage.keyboard.press('Escape');
     await pendingPage.locator('[data-territorio-capa="bosques"]').check();
     await pendingPage.locator('[data-territorio-map-src] button').waitFor({ state: 'visible' });
-    await pendingPage.unroute('**/datos/territorio/mapa.svg*');
+    await pendingPage.unroute('**/datos/presentacion/mapa-base.svg*');
     await pendingPage.locator('[data-territorio-map-src] button').click();
     await pendingPage.locator('.selva-territorio-svg').waitFor({ timeout: 20000 });
     assert(await pendingPage.locator('[data-territorio-capa="bosques"]').isChecked());

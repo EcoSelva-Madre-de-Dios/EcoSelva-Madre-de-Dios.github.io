@@ -1,0 +1,142 @@
+[
+  {
+    "tema": "bosques",
+    "archivo": "images/microilustraciones/bosques-v1.webp",
+    "herramienta": "image_gen integrada; una generación por asset, sin CLI",
+    "prompt_final": "Use case: stylized-concept. Create ONE standalone editorial microillustration for EcoSelva Madre de Dios: a compact group of mature Amazonian rainforest trees with several canopy layers, buttress-like trunks and a small organic soil base. Semi-3D clay/diorama, refined natural shapes, matte materials, adult natural-history atlas aesthetic, soft light from upper left, subtle contact shadow. Muted palette forest deep #102e22, forest #163d2b, natural green #3d7a4d, earth #c77a3d, water #287c83 and sand #cfb45c sparingly. Camera three-quarter isometric, centered compact silhouette, coherent fine detail that remains clear at 96px. Transparent background, square composition, subject fills 80% with safe margins. No words, no letters, no frame, no people, no cartoon faces, no neon, no glossy plastic. Symbolic editorial artwork, not a scientific diagram or documentary photo.",
+    "transparente": true,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "bytes": 49750,
+    "tratamiento": "Redimensionado y conversión WebP; sin retoque creativo",
+    "alcance": "Ilustración editorial decorativa; no fotografía ni evidencia científica"
+  },
+  {
+    "tema": "conservacion",
+    "archivo": "images/microilustraciones/conservacion-v1.webp",
+    "herramienta": "image_gen integrada; una generación por asset, sin CLI",
+    "prompt_final": "Use case: stylized-concept. Create ONE standalone EcoSelva Madre de Dios editorial microillustration. SUBJECT: a compact cluster of Amazonian trees with a subtle protective arch behind it, organic rather than a corporate shield. Semi-3D clay/diorama with SOFT VOLUME and simplified organic forms, matte unglazed materials, adult natural-history atlas aesthetic, not childish. Soft upper-left lighting, barely visible contact shadow. Restrained colors forest deep #102e22, forest #163d2b, natural green #3d7a4d, earth #c77a3d, water #287c83, sand #cfb45c. Three-quarter isometric view, compact centered readable silhouette at 96px. Transparent background, square composition, subject fills 80% with safe margins. No text, labels, logo, border, face, neon, shiny plastic or dense photoreal detail. Symbolic editorial artwork, not a scientific diagram or documentary photo. Match the visual family: lush rainforest objects, subtle tactile clay, soft natural illumination.",
+    "transparente": true,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "bytes": 41776,
+    "tratamiento": "Redimensionado y conversión WebP; sin retoque creativo",
+    "alcance": "Ilustración editorial decorativa; no fotografía ni evidencia científica"
+  },
+  {
+    "tema": "territorio",
+    "archivo": "images/microilustraciones/territorio-v1.webp",
+    "herramienta": "image_gen integrada; una generación por asset, sin CLI",
+    "prompt_final": "Use case: stylized-concept. Create ONE standalone EcoSelva Madre de Dios editorial microillustration. SUBJECT: a small organic Amazonian terrain diorama with gentle relief, river meander, and a compact forest canopy. Semi-3D clay/diorama with SOFT VOLUME and simplified organic forms, matte unglazed materials, adult natural-history atlas aesthetic, not childish. Soft upper-left lighting, barely visible contact shadow. Restrained colors forest deep #102e22, forest #163d2b, natural green #3d7a4d, earth #c77a3d, water #287c83, sand #cfb45c. Three-quarter isometric view, compact centered readable silhouette at 96px. Transparent background, square composition, subject fills 80% with safe margins. No text, labels, logo, border, face, neon, shiny plastic or dense photoreal detail. Symbolic editorial artwork, not a scientific diagram or documentary photo. Match the visual family: lush rainforest objects, subtle tactile clay, soft natural illumination.",
+    "transparente": true,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "bytes": 39838,
+    "tratamiento": "Redimensionado y conversión WebP; sin retoque creativo",
+    "alcance": "Ilustración editorial decorativa; no fotografía ni evidencia científica"
+  },
+  {
+    "tema": "agua",
+    "archivo": "images/microilustraciones/agua-v1.webp",
+    "herramienta": "image_gen integrada; una generación por asset, sin CLI",
+    "prompt_final": "Use case: stylized-concept. Create ONE standalone EcoSelva Madre de Dios editorial microillustration. SUBJECT: a compact meandering river ribbon in muted teal, riverbank soil and three small rainforest trees. Semi-3D clay/diorama with SOFT VOLUME and simplified organic forms, matte unglazed materials, adult natural-history atlas aesthetic, not childish. Soft upper-left lighting, barely visible contact shadow. Restrained colors forest deep #102e22, forest #163d2b, natural green #3d7a4d, earth #c77a3d, water #287c83, sand #cfb45c. Three-quarter isometric view, compact centered readable silhouette at 96px. Transparent background, square composition, subject fills 80% with safe margins. No text, labels, logo, border, face, neon, shiny plastic or dense photoreal detail. Symbolic editorial artwork, not a scientific diagram or documentary photo. Match the visual family: lush rainforest objects, subtle tactile clay, soft natural illumination.",
+    "transparente": true,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "bytes": 36592,
+    "tratamiento": "Redimensionado y conversión WebP; sin retoque creativo",
+    "alcance": "Ilustración editorial decorativa; no fotografía ni evidencia científica"
+  },
+  {
+    "tema": "ciencia",
+    "archivo": "images/microilustraciones/ciencia-v1.webp",
+    "herramienta": "image_gen integrada; una generación por asset, sin CLI",
+    "prompt_final": "Use case: stylized-concept. Create ONE standalone EcoSelva Madre de Dios editorial microillustration. SUBJECT: a simple matte magnifying glass observing one tropical leaf, with three tiny measurement dots, no text or numbers. Semi-3D clay/diorama with SOFT VOLUME and simplified organic forms, matte unglazed materials, adult natural-history atlas aesthetic, not childish. Soft upper-left lighting, barely visible contact shadow. Restrained colors forest deep #102e22, forest #163d2b, natural green #3d7a4d, earth #c77a3d, water #287c83, sand #cfb45c. Three-quarter isometric view, compact centered readable silhouette at 96px. Transparent background, square composition, subject fills 80% with safe margins. No text, labels, logo, border, face, neon, shiny plastic or dense photoreal detail. Symbolic editorial artwork, not a scientific diagram or documentary photo. Match the visual family: lush rainforest objects, subtle tactile clay, soft natural illumination.",
+    "transparente": true,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "bytes": 20904,
+    "tratamiento": "Redimensionado y conversión WebP; sin retoque creativo",
+    "alcance": "Ilustración editorial decorativa; no fotografía ni evidencia científica"
+  },
+  {
+    "tema": "biodiversidad",
+    "archivo": "images/microilustraciones/biodiversidad-v1.webp",
+    "herramienta": "image_gen integrada; una generación por asset, sin CLI",
+    "prompt_final": "Use case: stylized-concept. Create ONE standalone EcoSelva Madre de Dios editorial microillustration. SUBJECT: a broad rainforest leaf with one delicate butterfly and a tiny tapir silhouette, joined in one balanced composition. Semi-3D clay/diorama with SOFT VOLUME and simplified organic forms, matte unglazed materials, adult natural-history atlas aesthetic, not childish. Soft upper-left lighting, barely visible contact shadow. Restrained colors forest deep #102e22, forest #163d2b, natural green #3d7a4d, earth #c77a3d, water #287c83, sand #cfb45c. Three-quarter isometric view, compact centered readable silhouette at 96px. Transparent background, square composition, subject fills 80% with safe margins. No text, labels, logo, border, face, neon, shiny plastic or dense photoreal detail. Symbolic editorial artwork, not a scientific diagram or documentary photo. Match the visual family: lush rainforest objects, subtle tactile clay, soft natural illumination.",
+    "transparente": true,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "bytes": 22794,
+    "tratamiento": "Redimensionado y conversión WebP; sin retoque creativo",
+    "alcance": "Ilustración editorial decorativa; no fotografía ni evidencia científica"
+  },
+  {
+    "tema": "clima",
+    "archivo": "images/microilustraciones/clima-v1.webp",
+    "herramienta": "image_gen integrada; una generación por asset, sin CLI",
+    "prompt_final": "Use case: stylized-concept. Create ONE standalone EcoSelva Madre de Dios editorial microillustration. SUBJECT: a soft cloud, restrained rain droplets and a small warm sand-colored sun over a young plant. Semi-3D clay/diorama with SOFT VOLUME and simplified organic forms, matte unglazed materials, adult natural-history atlas aesthetic, not childish. Soft upper-left lighting, barely visible contact shadow. Restrained colors forest deep #102e22, forest #163d2b, natural green #3d7a4d, earth #c77a3d, water #287c83, sand #cfb45c. Three-quarter isometric view, compact centered readable silhouette at 96px. Transparent background, square composition, subject fills 80% with safe margins. No text, labels, logo, border, face, neon, shiny plastic or dense photoreal detail. Symbolic editorial artwork, not a scientific diagram or documentary photo. Match the visual family: lush rainforest objects, subtle tactile clay, soft natural illumination.",
+    "transparente": true,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "bytes": 31426,
+    "tratamiento": "Redimensionado y conversión WebP; sin retoque creativo",
+    "alcance": "Ilustración editorial decorativa; no fotografía ni evidencia científica"
+  },
+  {
+    "tema": "castana",
+    "archivo": "images/microilustraciones/castana-v1.webp",
+    "herramienta": "image_gen integrada; una generación por asset, sin CLI",
+    "prompt_final": "Use case: stylized-concept. Create ONE standalone EcoSelva Madre de Dios editorial microillustration. SUBJECT: one woody Brazil nut fruit with a cutaway opening, a few distinct triangular seeds, and two leaves; botanical-inspired symbolic art. Semi-3D clay/diorama with SOFT VOLUME and simplified organic forms, matte unglazed materials, adult natural-history atlas aesthetic, not childish. Soft upper-left lighting, barely visible contact shadow. Restrained colors forest deep #102e22, forest #163d2b, natural green #3d7a4d, earth #c77a3d, water #287c83, sand #cfb45c. Three-quarter isometric view, compact centered readable silhouette at 96px. Transparent background, square composition, subject fills 80% with safe margins. No text, labels, logo, border, face, neon, shiny plastic or dense photoreal detail. Symbolic editorial artwork, not a scientific diagram or documentary photo. Match the visual family: lush rainforest objects, subtle tactile clay, soft natural illumination.",
+    "transparente": true,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "bytes": 27376,
+    "tratamiento": "Redimensionado y conversión WebP; sin retoque creativo",
+    "alcance": "Ilustración editorial decorativa; no fotografía ni evidencia científica"
+  },
+  {
+    "tema": "transformacion",
+    "archivo": "images/microilustraciones/transformacion-v1.webp",
+    "herramienta": "image_gen integrada; una generación por asset, sin CLI",
+    "prompt_final": "Use case: stylized-concept. Create ONE standalone EcoSelva Madre de Dios editorial microillustration. SUBJECT: an organic forest soil diorama showing mature trees beside a modest cleared patch and one remaining tree stump, no fire, no machinery. Semi-3D clay/diorama with SOFT VOLUME and simplified organic forms, matte unglazed materials, adult natural-history atlas aesthetic, not childish. Soft upper-left lighting, barely visible contact shadow. Restrained colors forest deep #102e22, forest #163d2b, natural green #3d7a4d, earth #c77a3d, water #287c83, sand #cfb45c. Three-quarter isometric view, compact centered readable silhouette at 96px. Transparent background, square composition, subject fills 80% with safe margins. No text, labels, logo, border, face, neon, shiny plastic or dense photoreal detail. Symbolic editorial artwork, not a scientific diagram or documentary photo. Match the visual family: lush rainforest objects, subtle tactile clay, soft natural illumination.",
+    "transparente": true,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "bytes": 41364,
+    "tratamiento": "Redimensionado y conversión WebP; sin retoque creativo",
+    "alcance": "Ilustración editorial decorativa; no fotografía ni evidencia científica"
+  },
+  {
+    "tema": "residuos",
+    "archivo": "images/microilustraciones/residuos-v1.webp",
+    "herramienta": "image_gen integrada; una generación por asset, sin CLI",
+    "prompt_final": "Use case: stylized-concept. Create ONE standalone EcoSelva Madre de Dios editorial microillustration. SUBJECT: a small riverbank with a plant, a muted discarded bottle and a few discreet litter fragments, dignified environmental editorial illustration. Semi-3D clay/diorama with SOFT VOLUME and simplified organic forms, matte unglazed materials, adult natural-history atlas aesthetic, not childish. Soft upper-left lighting, barely visible contact shadow. Restrained colors forest deep #102e22, forest #163d2b, natural green #3d7a4d, earth #c77a3d, water #287c83, sand #cfb45c. Three-quarter isometric view, compact centered readable silhouette at 96px. Transparent background, square composition, subject fills 80% with safe margins. No text, labels, logo, border, face, neon, shiny plastic or dense photoreal detail. Symbolic editorial artwork, not a scientific diagram or documentary photo. Match the visual family: lush rainforest objects, subtle tactile clay, soft natural illumination.",
+    "transparente": true,
+    "dimensiones": [
+      320,
+      320
+    ],
+    "bytes": 35382,
+    "tratamiento": "Redimensionado y conversión WebP; sin retoque creativo",
+    "alcance": "Ilustración editorial decorativa; no fotografía ni evidencia científica"
+  }
+]
