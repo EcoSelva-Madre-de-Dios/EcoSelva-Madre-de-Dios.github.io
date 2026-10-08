@@ -1,0 +1,92 @@
+/* Lectura editorial: escala compartida, ilustraciones planas y bloques sin repeticiones. */
+.eco-site{font-size:var(--text-body)}
+.eco-site :is(p,blockquote,figcaption,dd){max-width:var(--reading-max)}
+.eco-flat{display:block;flex:none;width:64px;height:64px;fill:var(--forest);stroke:none}
+.eco-flat *{stroke:none}
+.eco-separator{display:block;width:min(320px,100%);height:32px;margin:var(--space-3) 0;stroke:none}
+.eco-block-sources{margin-top:var(--space-4);padding-top:var(--space-2);border-top:1px solid var(--line);font-size:var(--text-note);color:var(--muted)}
+.eco-block-sources h3{font-size:var(--text-note);margin-bottom:var(--space-1)}
+.eco-block-sources ol{padding-left:var(--space-3);display:grid;gap:var(--space-1)}
+.eco-block-sources li{list-style:decimal;font-size:var(--text-note)}
+.eco-block-sources a{text-decoration:underline;text-underline-offset:4px}
+.eco-site .conoce-provincias{align-items:start}
+.eco-site .conoce-provincia summary .eco-flat{width:56px;height:56px;grid-row:1/4;grid-column:1}
+.eco-site .conoce-provincia summary{display:grid;grid-template-columns:56px 1fr;gap:var(--space-1) var(--space-2)}
+.eco-site .conoce-provincia summary :is(strong,span){grid-column:2}
+.eco-site .conoce-datos dd{font-size:var(--text-title)}
+.eco-story-art{width:144px;height:144px;align-self:center;margin:auto;stroke:none}
+.selva-historia-visual>.eco-story-art{width:min(240px,80%);height:auto;aspect-ratio:1;min-height:0;object-fit:contain;margin:auto}
+.eco-numbered-citations{display:flex;gap:var(--space-1);margin-top:var(--space-2);font-size:var(--text-note)}
+.eco-numbered-citations a{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;text-decoration:underline}
+.eco-site .eco-flora-preview .eco-card{padding:var(--space-3);display:grid;gap:var(--space-1);grid-template-columns:64px minmax(0,1fr)}
+.eco-site .eco-flora-preview .eco-flat{grid-row:1/4;width:64px;height:64px}
+.eco-site .eco-flora-preview .eco-card :is(h3,p,a){grid-column:2;margin:0}
+.eco-site .selva-fauna-icono.eco-flat{width:64px;height:64px;stroke:none}
+.eco-site .selva-fauna-stats{gap:var(--space-2)}
+.eco-site .selva-fauna-especies>li{grid-template-columns:56px minmax(0,1fr);align-items:start;padding:var(--space-2);gap:var(--space-2)}
+.eco-site .selva-fauna-especies .eco-flat{width:48px;height:48px;stroke:none}
+.eco-site .selva-fauna-stat :is(h3,p){max-width:100%}
+.eco-site .selva-fauna-stat [data-fauna-actions]{margin-top:auto}
+.eco-site .selva-fauna-modal-imagen img{aspect-ratio:4/3;object-fit:cover;width:100%;height:auto;min-height:0}
+.eco-site .selva-ambiente-area{grid-template-columns:64px minmax(0,1fr);gap:var(--space-1) var(--space-2);padding:var(--space-3)}
+.eco-site .selva-ambiente-area .eco-flat{grid-column:1;grid-row:2/5;width:64px;height:64px}
+.eco-site .selva-ambiente-area :is(h3,p,a){grid-column:2;max-width:var(--reading-max)}
+.eco-site .selva-ambiente-area .selva-ambiente-numero{grid-column:2}
+.eco-site #investigaciones .eco-separator{fill:var(--sand)}
+@media(max-width:640px){.eco-site .selva-ambiente-area{grid-template-columns:48px minmax(0,1fr);padding:var(--space-2)}.eco-site .selva-ambiente-area .eco-flat{width:48px;height:48px}}
+.eco-site .eco-connected-nav a{grid-template-columns:64px 1fr;padding:var(--space-2);gap:var(--space-2)}
+.eco-site .eco-connected-nav .eco-flat{width:64px;height:64px}
+.eco-site .eco-bento-feature>.eco-ficha-preview{position:static;width:144px;height:144px;margin:auto;aspect-ratio:1;stroke:none}
+.eco-site .eco-bento-feature{grid-template-columns:160px minmax(0,1fr)}
+@media(max-width:640px){.eco-site .eco-bento-feature{grid-template-columns:1fr}.eco-site .eco-connected-nav a{grid-template-columns:48px 1fr}.eco-site .eco-connected-nav .eco-flat{width:48px;height:48px}}
+.eco-learning-sequence{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-2);margin-top:var(--space-3);list-style:none}
+.eco-learning-sequence li{display:grid;justify-items:center;gap:var(--space-1);font-size:var(--text-note);list-style:none;min-width:0}
+.eco-learning-sequence .eco-flat{width:48px;height:48px;stroke:none}
+.eco-site .selva-sobre-imagen img{aspect-ratio:4/3;object-fit:cover;height:auto}
+@media(max-width:640px){.eco-learning-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.eco-site .selva-colabora-layout{max-width:var(--layout-content);gap:var(--space-3)}
+.eco-site .selva-colabora-encabezado{text-align:left;max-width:none;margin:0}
+.eco-site .selva-colabora-encabezado h2{font-size:var(--text-display);margin-bottom:var(--space-2)}
+.eco-site .selva-colabora-pasos{list-style:none;gap:var(--space-3);padding:0;margin:0}
+.eco-site .selva-colabora-paso{list-style:none;min-height:0;padding:var(--space-3);gap:var(--space-2)}
+.eco-site .selva-colabora-paso h3{font-size:var(--text-title);line-height:1.35;margin:0}
+.eco-site .selva-colabora-paso p{font-size:var(--text-body);margin:0}
+.eco-site .selva-colabora-accion{align-items:start;gap:var(--space-1)}
+.eco-site .selva-colabora-compromiso{max-width:var(--reading-max);margin:0;padding-top:var(--space-2);font-size:var(--text-note);line-height:1.6}
+@media(max-width:767px){.eco-site .selva-colabora-pasos{grid-template-columns:1fr}.eco-site .selva-colabora-paso{display:grid;grid-template-columns:48px 1fr;column-gap:var(--space-2)}.eco-site .selva-colabora-paso .eco-flat{width:48px;height:48px;grid-row:1/3}.eco-site .selva-colabora-paso :is(h3,p){grid-column:2}}
+.eco-site .flora-references{display:grid;gap:var(--space-2);padding-left:var(--space-3);grid-column:1/-1}
+.eco-site .flora-references>li{list-style:decimal;min-width:0;max-width:none}
+.eco-site .flora-references .flora-fuente{padding:var(--space-2);max-width:none}
+.eco-site .flora-references p{font-size:var(--text-note)}
+.eco-site .selva-flora-stat-icono.eco-flat{stroke:none}
+.eco-site .ficha-foto img{aspect-ratio:745/858;object-fit:cover;width:100%;height:auto}
+.eco-site .ficha-documentos{padding-left:var(--space-3)}
+.eco-site .ficha-documentos>li{list-style:decimal}
+.eco-site .ficha-tabla{min-width:640px}
+.eco-site .ficha-tabla-marco{overflow-x:auto;max-width:100%}
+.eco-site .ficha-serie-separada tr:first-child>*{border-top:3px solid var(--line)}
+@media(max-width:640px){.eco-site .eco-connected-nav{grid-template-columns:1fr}.eco-site .eco-connected-nav a>div{min-width:0}.eco-site .eco-connected-nav strong{overflow-wrap:anywhere}}
+.eco-site .territorio-method-links{display:grid;gap:var(--space-2);grid-template-columns:repeat(2,minmax(0,1fr));margin-block:var(--space-3)}
+.eco-site .territorio-method-links a{padding:var(--space-2);border-radius:var(--radius-md);background:var(--paper);font-size:var(--text-body)}
+.eco-site .metodologia details{margin-block:var(--space-2);padding:var(--space-2);border:1px solid var(--line);border-radius:var(--radius-md)}
+.eco-site .metodologia summary{font-size:var(--text-body);line-height:1.6;cursor:pointer}
+.eco-site .metodologia dl{margin-top:var(--space-2);font-size:var(--text-body);line-height:1.7}
+.eco-site .metodologia dt{font-weight:700;margin-top:var(--space-2)}
+@media(max-width:767px){.eco-site .territorio-method-links{grid-template-columns:1fr}}
+.eco-source-records{padding-left:var(--space-3);display:grid;gap:var(--space-2)}
+.eco-source-records>li{list-style:decimal;max-width:none;min-width:0}
+.eco-source-records .historia-registro{margin:0}
+.eco-site img{object-fit:cover}
+.eco-site .conoce-localizador img{aspect-ratio:360/405}
+.eco-site .selva-curiosidad-foto{aspect-ratio:4/3}
+.eco-site .eco-image-view img{object-fit:contain;aspect-ratio:auto}
+.eco-site .eco-footer-review{font-size:var(--text-note)}
+.eco-site #colabora .selva-colabora-layout{grid-template-columns:minmax(0,1fr);gap:var(--space-3)}
+.eco-site #colabora .selva-colabora-encabezado::after{content:none}
+.eco-site #colabora .selva-colabora-boton{width:fit-content;min-height:48px;justify-content:center;padding:var(--space-2) var(--space-3)}
+.eco-site #colabora .selva-colabora-compromiso{background:none;border:0;border-radius:0;padding:0;box-shadow:none}
+.eco-site .eco-learning-sequence .eco-flat{width:64px;height:64px;padding:var(--space-1);background:var(--paper);border-radius:var(--radius-md)}
+.eco-site #biodiversidad .eco-topic-heading{justify-content:center;gap:var(--space-2)}
+.eco-site #biodiversidad .eco-topic-heading h2{width:auto;margin:0;text-align:left}
+.eco-site .territorio-castana-art{width:min(240px,100%);height:auto;aspect-ratio:1;justify-self:center}
+.eco-site .anp-galeria>.anp-foto:only-child{grid-column:1/-1;width:min(100%,800px);justify-self:center}

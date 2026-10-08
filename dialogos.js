@@ -13,6 +13,7 @@
         const current = [...document.querySelectorAll('dialog[open]')].at(-1);
         if (record.restoreFocus && origin?.isConnected && origin.getClientRects().length && (!current || current.contains(origin))) {
             origin.focus({ preventScroll: true });
+            window.scrollTo({ left: record.scrollX, top: record.scrollY, behavior: 'instant' });
         }
     };
     const close = (dialog, { restoreFocus = true } = {}) => {
@@ -47,12 +48,15 @@
     const open = (dialog, origin = document.activeElement) => {
         if (dialog.open || typeof dialog.showModal !== 'function') return false;
         register(dialog);
+        dialog.querySelectorAll('template[data-eco-controls]').forEach(template => template.replaceWith(template.content));
         const record = records.get(dialog);
         record.origin = origin;
+        record.scrollX = window.scrollX; record.scrollY = window.scrollY;
         record.restoreFocus = true;
         record.active = true;
         dialog.showModal();
         dialog.scrollTop = 0;
+        dialog.dispatchEvent(new CustomEvent('eco:dialogopen', { bubbles: true }));
         dialog.querySelector(record.options.closeSelector || '[data-eco-dialog-close]')?.focus({ preventScroll: true });
         return true;
     };

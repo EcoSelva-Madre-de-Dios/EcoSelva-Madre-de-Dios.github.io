@@ -7,10 +7,10 @@ button,input,select,textarea{font:inherit}
 img{max-width:100%;height:auto}
 figure{margin:0}
 .metodologia{max-width:850px;margin:auto;padding:40px 24px}
-.metodologia h2{margin-top:36px;font-size:26px}
-.metodologia h3{margin-top:24px;font-size:18px}
+.metodologia h2{margin-top:36px;font-size: var(--text-title)}
+.metodologia h3{margin-top:24px;font-size: var(--text-body)}
 .metodologia p,.metodologia ul{margin-block:20px}
 .metodologia ul{padding-left:24px}
 .metodologia a{text-decoration:underline}
-.metodologia summary{font-size:18px}
+.metodologia summary{font-size: var(--text-body)}
 .metodologia details:not([hidden]){display:block}

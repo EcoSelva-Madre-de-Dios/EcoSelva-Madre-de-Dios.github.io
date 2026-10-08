@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const enlace = evento.target.closest('a[data-historia-fuente]');
         if (!enlace || evento.ctrlKey || evento.metaKey || evento.shiftKey || evento.altKey) return;
         const fuente = document.getElementById(enlace.hash.slice(1));
-        if (!fuente) return;
+        if (!fuente || !fuente.textContent.trim()) return;
         if (typeof modal.showModal !== 'function') {
             revelar(fuente);
             return;

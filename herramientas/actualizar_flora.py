@@ -13,8 +13,10 @@ def e(value):
 
 
 def citations(ids, model):
-    links = ''.join(f'<a href="#flora-fuente-{e(id)}">{e(model["fuentes"][id].get("etiqueta", model["fuentes"][id]["institucion"]))} · {e(model["fuentes"][id]["anio"] or "sin fecha")}</a>' for id in ids)
-    return '<div class="flora-cita" aria-label="Fuentes de este contenido">' + links + '</div>'
+    numbers = {id: i + 1 for i, id in enumerate(model['fuentes'])}
+    links = ''.join(f'<a href="#flora-fuente-{e(id)}" data-eco-context="#flora-fuente-{e(id)}" aria-label="Consultar referencia {numbers[id]}">[{numbers[id]}]</a>' for id in dict.fromkeys(ids))
+    return '<div class="flora-cita eco-numbered-citations" aria-label="Fuentes de este contenido">' + links + '</div>'
+
 
 
 def fragments(model):
@@ -25,20 +27,21 @@ def fragments(model):
         id = e(item['id'])
         steps = ''.join(f'<li><h4>{e(step["etapa"])}</h4><p>{e(step["texto"])}</p></li>' for step in item['pasos'])
         flow += f'<article class="flora-caso" id="flora-caso-{id}" data-flora-caso="{id}" aria-labelledby="flora-caso-{id}-titulo"><h3 id="flora-caso-{id}-titulo">{e(item["nombre"])}</h3><p><em>{e(item["nombre_cientifico"])}</em></p><p class="eco-card-scope">{e(item["alcance"])}</p><ol class="flora-pasos" aria-label="Del bosque al producto: {e(item["nombre"])}">{steps}</ol>{citations(item["fuentes"], model)}</article>\n'
-    sources = ''
+    sources = '<ol class="flora-references">'
     registry = json.loads((ROOT / 'datos/fuentes.json').read_text())
     documents = {doc['id']: doc for doc in registry['documentos']}
     for id, source in model['fuentes'].items():
         document = documents[registry['flora'][id]]
         source = {**source, 'institucion': document['autor'], 'documento': document['titulo'], 'anio': document['anio'], 'url': document['url']}
         year = source['anio'] or 'Sin fecha de publicación indicada'
-        fields = [('Institución y autores', source['institucion']), ('Documento', source['documento']), ('Año', year), ('Alcance', source['alcance']), ('Dónde se documenta', source['localizador'])]
-        metadata = ''.join(f'<div><dt>{e(label)}</dt><dd>{e(value)}</dd></div>' for label, value in fields)
-        sources += f'<details class="flora-tarjeta flora-fuente eco-card" id="flora-fuente-{e(id)}" data-eco-card="document"><summary><span class="flora-fuente-titulo">{e(source["documento"])}<span class="selva-flora-solo-lectores"> · ampliar referencia</span></span></summary><span class="flora-pista">{e(source["institucion"])} · {e(year)}</span><dl>{metadata}</dl><a class="eco-text-link" href="{e(source["url"])}" target="_blank" rel="noopener noreferrer">Consultar fuente original <span aria-hidden="true">↗</span></a></details>\n'
+        sources += f'<li><details class="flora-tarjeta flora-fuente eco-card" id="flora-fuente-{e(id)}" data-eco-card="document"><summary><span class="flora-fuente-titulo">{e(source["documento"])}</span></summary><p class="flora-pista">{e(source["institucion"])} · {e(year)}</p><a class="eco-text-link" href="{e(source["url"])}" target="_blank" rel="noopener noreferrer">Consultar documento original ↗</a><p><a href="fuentes-metodologia.html#metodologia-flora-{e(id)}">Leer el alcance y el método de esta referencia →</a></p></details></li>\n'
+    sources += '</ol>'
     result = {'recorridos': flow, 'fuentes': sources}
     for item in model['especies_destacadas']:
-        fields = ''.join(f'<div><dt>{e(field["campo"])}</dt><dd>{e('Sin documentación regional verificada en las fuentes consultadas.' if field['texto'] == 'Información no verificada para Madre de Dios en las fuentes consultadas.' else field['texto'])}</dd></div>' for field in item['campos'])
-        result['especie-' + item['id']] = '<dl class="flora-especie-datos">' + fields + '</dl>' + f'<p class="flora-especie-localizador">{e(item["localizador"])}</p>' + citations(item['fuentes'], model)
+        unknown = [field['campo'] for field in item['campos'] if field['texto'] == 'Información no verificada para Madre de Dios en las fuentes consultadas.']
+        fields = ''.join(f'<div><dt>{e(field["campo"])}</dt><dd>{e(field["texto"])}</dd></div>' for field in item['campos'] if field['campo'] not in unknown)
+        pending = f'<p class="flora-pista">Sin documentación regional verificada: {e(", ".join(unknown))}.</p>' if unknown else ''
+        result['especie-' + item['id']] = '<dl class="flora-especie-datos">' + fields + '</dl>' + pending + f'<p class="flora-especie-localizador">{e(item["localizador"])}</p>' + citations(item['fuentes'], model)
     return result
 
 

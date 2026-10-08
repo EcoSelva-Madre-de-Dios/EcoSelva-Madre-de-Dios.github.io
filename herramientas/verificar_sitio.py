@@ -160,15 +160,21 @@ class IndicatorPage(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
         self.records, self.record, self.field = {}, None, None
+        self.detail_ids, self.row_ids = set(), set()
 
     def handle_starttag(self, tag, attributes):
         attrs = dict(attributes)
+        if tag == 'tr' and attrs.get('data-registro-resumen'):
+            self.record = attrs['data-registro-resumen']
+            if self.record in self.row_ids: raise ValueError('Valor de indicador repetido: ' + self.record)
+            self.row_ids.add(self.record); self.records.setdefault(self.record, {})
         if tag == 'details' and attrs.get('data-registro'):
             self.record = attrs['data-registro']
-            if self.record in self.records:
-                raise ValueError(f'Indicador repetido: {self.record}')
-            self.records[self.record] = {}
-        if tag == 'dd' and self.record and attrs.get('data-campo'):
+            if self.record in self.detail_ids: raise ValueError('Contexto de indicador repetido: ' + self.record)
+            self.detail_ids.add(self.record); self.records.setdefault(self.record, {})
+            if attrs.get('data-revision'):
+                self.records[self.record]['fecha_revisión'] = {'valor': attrs['data-revision'], 'texto': attrs['data-revision']}
+        if tag in ('dd', 'td') and self.record and attrs.get('data-campo'):
             self.field = attrs['data-campo']
             self.records[self.record][self.field] = {'valor': attrs.get('data-valor'), 'texto': ''}
 
@@ -177,9 +183,9 @@ class IndicatorPage(HTMLParser):
             self.records[self.record][self.field]['texto'] += text
 
     def handle_endtag(self, tag):
-        if tag == 'dd':
+        if tag in ('dd', 'td'):
             self.field = None
-        if tag == 'details':
+        if tag in ('details', 'tr'):
             self.record, self.field = None, None
 
 
@@ -322,7 +328,7 @@ def verify_conservacion():
         raise ValueError('Conservación: CRS desconocido.')
     if len(metadata['control_geometria']) != 6 or any(not c['valida'] or c['variacion_area_recortada_pct'] > .5 for c in metadata['control_geometria']):
         raise ValueError('Conservación: falta validación o hay simplificación excesiva.')
-    if 'Explorar las áreas protegidas →' not in (ROOT / 'index.html').read_text() or 'Conoce las áreas protegidas actuales →' not in (ROOT / 'historia.html').read_text():
+    if not re.search(r'<a[^>]+href="areas-protegidas.html"', (ROOT / 'index.html').read_text()) or 'Conoce las áreas protegidas actuales →' not in (ROOT / 'historia.html').read_text():
         raise ValueError('Conservación: faltan accesos desde Conoce o Historia.')
 
 
@@ -340,7 +346,7 @@ def verify_castana():
     html = IndicatorPage()
     html.feed((ROOT / 'fichas/castana.html').read_text())
     ids = [record['id'] for record in records]
-    if not records or len(ids) != len(set(ids)) or set(ids) != set(html.records) or len(records) != len(csv_records):
+    if not records or len(ids) != len(set(ids)) or set(ids) != set(html.records) or set(ids) != html.row_ids or set(ids) != html.detail_ids or len(records) != len(csv_records):
         raise ValueError('Castaña: los registros HTML, JSON y CSV deben coincidir y tener IDs únicos.')
     fields = ('indicador', 'valor', 'unidad', 'año', 'ámbito', 'fuente', 'publicación', 'URL', 'fecha_revisión', 'notas', 'definición', 'metodología', 'fuente_registro')
     for record, csv_record in zip(records, csv_records):
@@ -367,7 +373,7 @@ def verify_castana():
             if html.records[record['id']][field]['texto'].strip() != str(record[field]):
                 raise ValueError(f'Castaña: ámbito, año o unidad visible incorrectos: {record["id"]}')
         publication = html.records[record['id']]['publicación']['texto']
-        if record['publicación'] not in publication or str(record['año_publicación']) not in publication:
+        if record['publicación'] not in (ROOT / 'fichas/castana.html').read_text() or str(record['año_publicación']) not in publication:
             raise ValueError(f'Castaña: publicación sin título o fecha: {record["id"]}')
     series = [record for record in records if record['serie_regional']]
     if not series or [r['id'] for r in series] != model['serie']['registros']:

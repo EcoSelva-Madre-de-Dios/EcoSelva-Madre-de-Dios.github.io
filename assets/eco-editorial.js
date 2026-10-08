@@ -14,6 +14,7 @@
         const current = [...document.querySelectorAll('dialog[open]')].at(-1);
         if (record.restoreFocus && origin?.isConnected && origin.getClientRects().length && (!current || current.contains(origin))) {
             origin.focus({ preventScroll: true });
+            window.scrollTo({ left: record.scrollX, top: record.scrollY, behavior: 'instant' });
         }
     };
     const close = (dialog, { restoreFocus = true } = {}) => {
@@ -48,12 +49,15 @@
     const open = (dialog, origin = document.activeElement) => {
         if (dialog.open || typeof dialog.showModal !== 'function') return false;
         register(dialog);
+        dialog.querySelectorAll('template[data-eco-controls]').forEach(template => template.replaceWith(template.content));
         const record = records.get(dialog);
         record.origin = origin;
+        record.scrollX = window.scrollX; record.scrollY = window.scrollY;
         record.restoreFocus = true;
         record.active = true;
         dialog.showModal();
         dialog.scrollTop = 0;
+        dialog.dispatchEvent(new CustomEvent('eco:dialogopen', { bubbles: true }));
         dialog.querySelector(record.options.closeSelector || '[data-eco-dialog-close]')?.focus({ preventScroll: true });
         return true;
     };
@@ -89,13 +93,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewport = svg.getBoundingClientRect();
     const occupied = obstacles.map(el => el.getBoundingClientRect());
     [...candidates].sort((a, b) => b.priority - a.priority).forEach(item => {
-      const { text, group = text, anchor, size = 11 } = item;
+      const { text, group = text, anchor } = item;
       group.style.display = item.visible === false ? 'none' : '';
       group.dataset.atlasVisible = 'false';
       group.setAttribute('aria-hidden', 'true');
       if (item.visible === false) return;
       text.classList.add('eco-atlas-label');
-      text.style.fontSize = size * ratio + 'px';
+      text.style.fontSize = 'var(--text-note)';
+      const noteSize = parseFloat(getComputedStyle(text).fontSize) || 13;
+      text.style.fontSize = noteSize * ratio + 'px';
       text.style.strokeWidth = 2.5 * ratio + 'px';
       text.setAttribute('text-anchor', 'middle');
       const shifts = item.offsets || [[0, 0], [0, -16], [0, 16], [20, -10], [-20, 10]];
@@ -190,7 +196,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (document.portada) {
                 const figure = node('figure', 'eco-document-cover'); const image = node('img');
                 image.src = new URL(document.portada, ecoAssetsBase).href; image.width = document.ancho; image.height = document.alto;
-                image.alt = 'Primera página de ' + document.titulo;
+                image.alt = 'Primera página de ' + document.titulo; image.loading = 'lazy'; image.decoding = 'async';
                 figure.append(image, node('figcaption', '', 'Primera página del original · ' + document.autor)); layout.append(figure);
             }
             const details = node('section', 'eco-document-details');
@@ -310,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const figure = pictures[imageIndex], original = figure.querySelector('img');
         const body = imageViewer.querySelector('.eco-overlay-body'); body.replaceChildren();
         const large = node('figure', 'eco-image-view'); const image = node('img');
-        image.src = original.src; image.alt = original.alt; image.width = original.width; image.height = original.height;
+        image.src = original.src; image.alt = original.alt; image.width = original.width; image.height = original.height; image.loading = 'lazy'; image.decoding = 'async';
         large.append(image); const caption = figure.querySelector('figcaption'); if (caption) large.append(clone(caption));
         body.append(large);
         if (pictures.length > 1) {
@@ -322,7 +328,8 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.append(node('span', '', (imageIndex + 1) + ' / ' + pictures.length)); body.append(nav);
         }
     };
-    pictures.forEach((figure, index) => {
+    const enhancePicture = (figure, index) => {
+        if (figure.querySelector(':scope > .eco-image-open')) return;
         const button = node('button', 'eco-image-open'); button.type = 'button'; button.append(icon('ampliar'));
         button.setAttribute('aria-label', 'Ampliar imagen: ' + figure.querySelector('img').alt); button.setAttribute('aria-haspopup', 'dialog');
         button.addEventListener('click', () => {
@@ -336,7 +343,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             showImage(index); open(imageViewer, button);
         }); figure.classList.add('eco-zoomable'); figure.append(button);
-    });
+    };
+    const enhanceVisiblePictures = () => {
+        document.querySelectorAll('.ficha-foto,.ficha-ilustracion,.anp-portada,.anp-foto,.historia-documento,.conoce-localizador').forEach(figure => {
+            const image = figure.querySelector('img');
+            if (!image || !figure.getClientRects().length || figure.closest('dialog:not([open])')) return;
+            let index = pictures.findIndex(item => item.querySelector('img').src === image.src);
+            if (index < 0) { index = pictures.length; pictures.push(figure); }
+            enhancePicture(figure, index);
+        });
+    };
+    document.addEventListener('toggle', enhanceVisiblePictures, true);
+    document.addEventListener('eco:dialogopen', enhanceVisiblePictures);
+    document.addEventListener('eco:panelopen', enhanceVisiblePictures);
+    enhanceVisiblePictures();
+    const revealHash = () => {
+        let target;
+        try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch { return; }
+        for (let current = target; current; current = current.parentElement) {
+            if (current.tagName === 'DETAILS') current.open = true;
+        }
+    };
+    revealHash(); window.addEventListener('hashchange', revealHash);
     // Herramientas breves: accesibles también mediante foco y tecla Escape.
     const tooltip = node('div', 'eco-tooltip'); tooltip.id = 'eco-tooltip'; tooltip.setAttribute('role', 'tooltip'); tooltip.hidden = true; document.body.append(tooltip);
     let tipOrigin, tipTimer;

@@ -12,7 +12,7 @@ async function labels(page, selector) {
   }));
   assert(items.length >= 2, 'Debe haber etiquetas legibles');
   items.forEach((a,i) => {
-    assert(a.font >= 9.5 && a.font <= 14, a.name + ': tipografía fuera de jerarquía');
+    assert(a.font >= 12.99 && a.font <= 14.01, a.name + ': tipografía fuera de jerarquía');
     for (const b of items.slice(i+1)) assert(!(a.x < b.x+b.w && a.x+a.w > b.x && a.y < b.y+b.h && a.y+a.h > b.y), 'Colisión: '+a.name+' / '+b.name);
   });
   return items.length;

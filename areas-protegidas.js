@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   function fullFiche(id, origin) {
     const target = document.getElementById('ficha-' + id);
-    if (!target) return;
+    if (!target || !target.querySelector('.anp-ficha-contenido')?.textContent.trim()) return;
     if (!enhanced) { reveal(target.id); return; }
     openDialog(ficheDialog, cleanClone(target.querySelector('.anp-ficha-contenido')), origin, 'Ficha del área protegida');
   }
@@ -80,8 +80,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const departments = document.createElement('p'); departments.textContent = area.departamentos.join(' · ') + ' · Creación: ' + area.fecha_creacion.slice(0, 4);
     const measures = cleanClone(content.querySelector('.anp-medidas'));
     const citation = document.createElement('p'); citation.className = 'anp-citas';
-    const source = document.createElement('a'); source.href = '#fuente-' + id; source.setAttribute('data-anp-fuente', ''); source.textContent = 'SERNANP · ficha oficial ↗'; citation.append(source);
-    const link = document.createElement('a'); link.href = '#ficha-' + id; link.className = 'anp-boton'; link.dataset.anpFicha = id; link.textContent = 'Ver ficha completa →';
+    const source = document.createElement('a'); source.href = '#fuente-' + id; source.setAttribute('data-anp-fuente', ''); source.textContent = 'Consultar la fuente oficial →'; citation.append(source);
+    const link = document.createElement('a'); link.href = '#ficha-' + id; link.className = 'anp-boton'; link.dataset.anpFicha = id; link.textContent = 'Consultar ' + area.nombre + ' →';
     panel.append(badge, heading, description, departments, measures, citation, link);
     if (enhanced && window.matchMedia('(max-width:700px)').matches) openDialog(ficheDialog, cleanClone(panel), origin, 'Área seleccionada');
     else if (!enhanced) reveal('ficha-' + id);

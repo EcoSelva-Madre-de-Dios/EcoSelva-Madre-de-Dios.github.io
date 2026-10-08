@@ -13,7 +13,7 @@
 :is(.selva-historia-modal,.selva-fauna-modal,.selva-ambiente-modal,.selva-territorio-fuentes-modal)[open] { animation: ecoselva-ventana-entrada 250ms cubic-bezier(.2,.8,.2,1) both; }
 :is(.selva-historia-modal,.selva-fauna-modal,.selva-ambiente-modal,.selva-territorio-fuentes-modal)::backdrop { background: rgb(9 28 21 / 62%); backdrop-filter: blur(3px); animation: ecoselva-backdrop 200ms ease-out both; }
 :is(.selva-historia-modal,.selva-fauna-modal,.selva-ambiente-modal,.selva-territorio-fuentes-modal) :is(h2,h3,h4) { font-family: var(--font-heading); }
-:is(.selva-historia-cerrar,.selva-fauna-modal-cerrar,.selva-ambiente-cerrar,.selva-territorio-fuentes-cerrar) { width: 42px; height: 42px; min-width: 42px; flex-shrink: 0; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgb(22 61 43 / 14%); background: rgb(255 255 255 / 92%); color: var(--forest-deep); font: 28px/1 var(--font-body); box-shadow: 0 2px 8px rgb(22 61 43 / 6%); transition: background 180ms,color 180ms,transform 180ms; }
+:is(.selva-historia-cerrar,.selva-fauna-modal-cerrar,.selva-ambiente-cerrar,.selva-territorio-fuentes-cerrar) { width: 42px; height: 42px; min-width: 42px; flex-shrink: 0; display: grid; place-items: center; border-radius: 50%; border: 1px solid rgb(22 61 43 / 14%); background: rgb(255 255 255 / 92%); color: var(--forest-deep); font:var(--text-title)/1 var(--font-body); box-shadow: 0 2px 8px rgb(22 61 43 / 6%); transition: background 180ms,color 180ms,transform 180ms; }
 :is(.selva-historia-cerrar,.selva-fauna-modal-cerrar,.selva-ambiente-cerrar,.selva-territorio-fuentes-cerrar):is(:hover,:focus-visible) { background: var(--forest-deep); color: #fff; transform: scale(1.04); outline: 2px solid var(--ventana-acento); outline-offset: 3px; }
 .selva-historia-layout { grid-template-columns: 40% minmax(0,1fr); }
 .selva-historia-modal::before { height: 6px; background-color: var(--sand); opacity: .12; }
@@ -32,7 +32,7 @@
 .selva-flora-modal-especies { background: transparent; padding: 0; }
 .selva-fauna-modal-imagen { position: relative; background: #f2eee5; }
 .selva-fauna-modal-imagen::after { content: ""; position: absolute; top: 290px; left: 0; right: 0; height: 90px; background: linear-gradient(transparent,rgb(9 28 21 / 18%)); pointer-events: none; }
-.selva-fauna-foto-nombre { font-family: var(--font-heading); font-size: 22px; color: var(--forest-deep); }
+.selva-fauna-foto-nombre { font-family: var(--font-heading); font-size: var(--text-title); color: var(--forest-deep); }
 .selva-fauna-foto-cientifico { font-style: italic; }
 .selva-fauna-modal-imagen figcaption { border-top: 3px solid var(--earth); }
 #biodiversidad .selva-fauna-modal-categoria { width: fit-content; padding: 5px 10px; border-radius: 6px; border: 1px solid rgb(146 80 31 / 22%); background: #faf1e7; color: #92501f; }
@@ -55,7 +55,7 @@
 .selva-territorio-fuentes-modal-cabecera { align-items: center; border-top: 3px solid var(--water); border-bottom: 1px solid rgb(22 61 43 / 12%); background: #f3f6f1; }
 .selva-territorio-fuentes-modal-cabecera h3 { line-height: 1.5; }
 .selva-territorio-fuentes-modal-cabecera h3::before { content: ""; display: inline-block; width: 22px; height: 22px; vertical-align: middle; margin-right: 10px; background: var(--water); mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2Zm6-2v16m6-14v16' fill='none' stroke='black' stroke-width='1.5'/%3E%3C/svg%3E") center / contain no-repeat; }
-.selva-territorio-fuentes-modal-cuerpo { background: #fff; font-size: 14px; line-height: 1.8; padding: var(--space-4) 28px 28px; }
+.selva-territorio-fuentes-modal-cuerpo { background: #fff; font-size: var(--text-note); line-height: 1.8; padding: var(--space-4) 28px 28px; }
 .selva-territorio-fuentes-modal-cuerpo dl { display: grid; grid-template-columns: minmax(100px,30%) minmax(0,1fr); }
 .selva-territorio-fuentes-modal-cuerpo dt,.selva-territorio-fuentes-modal-cuerpo dd { margin: 0; padding: var(--space-2) 10px; border-bottom: 1px solid rgb(22 61 43 / 9%); }
 .selva-territorio-fuentes-modal-cuerpo dt { color: var(--water); font-size: var(--text-credit); letter-spacing: .04em; background: #f7f9f5; }

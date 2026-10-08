@@ -7,25 +7,25 @@
 .eco-site :is(.container,.anp-ancho,.historia-ancho,.ficha-contenedor,.eco-wide){width:min(var(--layout-wide),calc(100% - 2 * var(--page-gutter)));max-width:var(--layout-wide);margin-inline:auto}
 .eco-site :is(.ficha-lectura,.selva-biodiversidad-intro,.selva-seccion-intro,.historia-capitulo-cabecera,.anp-cabecera){max-width:var(--reading-max)}
 .eco-site :is(.conoce-introduccion,.conoce-subtitulo,.selva-sobre-contenido p,.selva-colabora-encabezado p){max-width:var(--reading-narrow)}
-.eco-site :is(.btn-1,.btn-2,.anp-boton,.historia-boton,.conoce-conservacion-acceso,.ficha-descarga,.ficha-acciones a,.conoce-boton){min-height:44px;border-radius:var(--radius-sm);font-family:var(--font-heading);font-size:14px;transition:background-color var(--motion-fast),border-color var(--motion-fast),color var(--motion-fast)}
+.eco-site :is(.btn-1,.btn-2,.anp-boton,.historia-boton,.conoce-conservacion-acceso,.ficha-descarga,.ficha-acciones a,.conoce-boton){min-height:44px;border-radius:var(--radius-sm);font-family:var(--font-heading);font-size: var(--text-note);transition:background-color var(--motion-fast),border-color var(--motion-fast),color var(--motion-fast)}
 .eco-site :is(.anp-boton,.historia-boton,.conoce-conservacion-acceso,.ficha-descarga){background:var(--forest);color:var(--white)}
 .eco-site :is(.anp-boton,.historia-boton,.conoce-conservacion-acceso,.ficha-descarga):hover{background:var(--forest-deep)}
 .eco-site :is(.anp-filtros,.anp-metricas,.historia-filtros,.conoce-accesos,.ficha-navegacion){scrollbar-width:thin;scroll-padding-inline:8px}
 .eco-site :is(.anp-filtros button,.anp-metricas button,.historia-filtros button,.conoce-accesos a,.ficha-navegacion a){min-height:44px}
 .eco-site :is(.anp-modulo,.historia-capitulo){padding-block:var(--space-7)}
 .eco-site :is(.anp-cabecera,.historia-capitulo-cabecera){margin-bottom:var(--space-5)}
-.eco-site :is(.anp-cabecera h2,.historia-capitulo-cabecera h2,.conoce-cabecera h2,.selva-curiosidades h2,.general>h2,.selva-ambiente h2,.selva-sobre-contenido h2,.selva-colabora-encabezado h2){font-size:clamp(32px,3.5vw,52px);line-height:1.15;letter-spacing:-.035em}
-.eco-site :is(.anp-hero h1,.historia-hero h1,.ficha-identidad h1,.metodologia h1){font-size:clamp(42px,5vw,76px);line-height:1.08;letter-spacing:-.045em}
+.eco-site :is(.anp-cabecera h2,.historia-capitulo-cabecera h2,.conoce-cabecera h2,.selva-curiosidades h2,.general>h2,.selva-ambiente h2,.selva-sobre-contenido h2,.selva-colabora-encabezado h2){font-size: var(--text-display);line-height:1.15;letter-spacing:-.035em}
+.eco-site :is(.anp-hero h1,.historia-hero h1,.ficha-identidad h1,.metodologia h1){font-size: var(--text-display);line-height:1.08;letter-spacing:-.045em}
 .eco-site :is(.anp-concepto,.anp-personas,.historia-dos-columnas,.historia-caucho){gap:var(--space-6)}
 .eco-site :is(.anp-fichas,.anp-citas,.historia-fuente,.ficha-referencia){overflow-wrap:anywhere}
 /* Cabeceras y ruta de lectura de las páginas independientes. */
 .eco-site :is(.anp-barra,.historia-barra,.eco-barra){background:var(--white);border-bottom:1px solid var(--line)}
 .eco-site :is(.anp-barra>.anp-ancho,.historia-barra>.historia-ancho,.eco-barra>.eco-wide,.ficha-barra){display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);min-height:88px;padding-block:var(--space-3)}
 .eco-site .ficha-barra{border-bottom:1px solid var(--line)}
-.eco-site :is(.anp-marca,.historia-marca,.ficha-barra .ficha-marca,.eco-marca){display:flex;align-items:center;gap:var(--space-2);font:800 20px/1.3 var(--font-heading);text-decoration:none;color:var(--forest)}
+.eco-site :is(.anp-marca,.historia-marca,.ficha-barra .ficha-marca,.eco-marca){display:flex;align-items:center;gap:var(--space-2);font:800 var(--text-title)/1.3 var(--font-heading);text-decoration:none;color:var(--forest)}
 .eco-site :is(.anp-marca,.historia-marca,.ficha-marca,.eco-marca) img{width:48px;height:48px;object-fit:contain}
 .eco-site :is(.anp-marca,.historia-marca,.ficha-marca,.eco-marca) small{display:block;font:500 var(--text-credit)/1.5 var(--font-body);letter-spacing:.04em}
-.eco-site :is(.eco-barra a:not(.eco-marca),.anp-barra a:not(.anp-marca),.historia-barra a:not(.historia-marca),.ficha-volver){font-size:14px;color:var(--forest)}
+.eco-site :is(.eco-barra a:not(.eco-marca),.anp-barra a:not(.anp-marca),.historia-barra a:not(.historia-marca),.ficha-volver){font-size: var(--text-note);color:var(--forest)}
 .eco-site .eco-migas{padding-block:var(--space-4);font-size:var(--text-credit);line-height:1.6}
 .eco-site .eco-migas ol{display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-2);list-style:none;padding:0;margin:0}
 .eco-site .eco-migas li+li::before{content:"›";margin-right:var(--space-2);color:var(--muted)}
@@ -45,8 +45,8 @@
 .eco-site .menu.selva-menu-scrolled .logo img{max-height:64px}
 .eco-site .header-content{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--space-5);padding-top:100px}
 .eco-site .header-txt{max-width:var(--reading-narrow);grid-column:1}
-.eco-site .header-txt .hero-titulo{font-size:clamp(42px,5.3vw,76px);line-height:1.07;max-width:12ch}
-.eco-site .header-txt .hero-descripcion{font-size:clamp(17px,1.4vw,20px);max-width:42ch}
+.eco-site .header-txt .hero-titulo{font-size: var(--text-display);line-height:1.07;max-width:12ch}
+.eco-site .header-txt .hero-descripcion{font-size: var(--text-body);max-width:42ch}
 .eco-site .header::before{animation:none;transform:none}
 .eco-site :is(.selva-curiosidades,.selva-ambiente,.selva-colabora){padding-block:var(--space-8)}
 .eco-site .general{padding-block:var(--space-8) var(--space-7)}
@@ -57,15 +57,15 @@
 .eco-site .selva-introduccion-accesos a{grid-template-columns:56px minmax(0,1fr) auto;padding:22px 0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:transparent;min-height:104px}
 .eco-site .selva-introduccion-accesos a::after{background:none}
 .eco-site .selva-introduccion-accesos .selva-acceso-icono{width:36px;height:36px;opacity:1}
-.eco-site .selva-introduccion-accesos strong{font-size:15px;letter-spacing:0;text-transform:none}
-.eco-site .selva-introduccion-accesos a>span{font-size:14px}
+.eco-site .selva-introduccion-accesos strong{font-size: var(--text-body);letter-spacing:0;text-transform:none}
+.eco-site .selva-introduccion-accesos a>span{font-size: var(--text-note)}
 .eco-site .selva-introduccion-accesos .selva-intro-micro{max-width:56px;opacity:.45}
 .eco-site .selva-introduccion::before,.eco-site .selva-introduccion::after{opacity:.025}
 .eco-site .selva-flip-grid{gap:var(--space-4)}
 .eco-site .selva-flip-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 .eco-site #sabias-que .selva-flip-card{height:auto;aspect-ratio:4/3;border-radius:var(--radius-md);box-shadow:none;transition:transform var(--motion-card),box-shadow var(--motion-card),border-color var(--motion-card)}
 .eco-site #sabias-que .selva-flip-front{padding:var(--space-4)}
-.eco-site #sabias-que .selva-flip-frente-titulo{font-size:clamp(19px,1.5vw,24px)}
+.eco-site #sabias-que .selva-flip-frente-titulo{font-size: var(--text-body)}
 .eco-site :is(.selva-fauna-stats,#biodiversidad .selva-flora-stats){gap:0;max-width:none}
 .eco-site .selva-fauna-stats{grid-template-columns:repeat(4,minmax(0,1fr))}
 .eco-site #biodiversidad .selva-flora-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -73,17 +73,17 @@
 .eco-site #biodiversidad :is(.selva-flora-stat,.selva-fauna-stat):first-child{border-left:0}
 .eco-site #biodiversidad .selva-flora-revisiones .selva-flora-stat{padding:0;border:0}
 .eco-site .selva-flora-revisiones .selva-flora-stat::after{display:none}
-.eco-site #biodiversidad :is(.selva-flora-stat p,.selva-fauna-stat p){font-size:15px}
+.eco-site #biodiversidad :is(.selva-flora-stat p,.selva-fauna-stat p){font-size: var(--text-body)}
 .eco-site #biodiversidad :is(.selva-flora-explorar,.selva-fauna-explorar){min-height:44px}
 .eco-site #explora-madre-de-dios .selva-territorio-layout{grid-template-columns:minmax(0,7fr) minmax(320px,3fr);border-radius:var(--radius-lg);box-shadow:none}
 .eco-site #explora-madre-de-dios .selva-territorio-canvas{height:clamp(500px,41vw,620px)}
 .eco-site #explora-madre-de-dios .selva-territorio-panel{padding:var(--space-4)}
-.eco-site #explora-madre-de-dios .selva-territorio-panel-intro{font-size:15px}
+.eco-site #explora-madre-de-dios .selva-territorio-panel-intro{font-size: var(--text-body)}
 .eco-site :is(.selva-territorio-metodologia-resumen,.selva-territorio-nota){max-width:var(--reading-max);font-size:var(--text-credit)}
 .eco-site .selva-territorio-fuentes-abrir{color:var(--water-text);min-height:44px}
 .eco-site .selva-ambiente-areas{gap:var(--space-4);margin-top:var(--space-5)}
 .eco-site .selva-ambiente-area{min-height:164px;border-radius:var(--radius-md);padding:var(--space-4);background:var(--white);box-shadow:none;align-content:start;border-top:3px solid var(--ambiente-acento)}
-.eco-site .selva-ambiente-area p{max-width:60ch;font-size:15px;line-height:1.7}
+.eco-site .selva-ambiente-area p{max-width:60ch;font-size: var(--text-body);line-height:1.7}
 .eco-site #investigaciones{padding-block:var(--space-8);background:var(--forest-deep)}
 .eco-site .selva-investigaciones-contenido{max-width:var(--layout-wide);text-align:left}
 .eco-site #investigaciones :is(h2,p,.selva-investigaciones-etiqueta){max-width:var(--reading-narrow);margin-left:0;margin-right:auto}
@@ -91,17 +91,17 @@
 .eco-site #quienes-somos{padding-block:var(--space-8)}
 .eco-site .selva-sobre-layout{max-width:none;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--space-7);align-items:start}
 .eco-site .selva-sobre-presentacion .selva-sobre-imagen img{width:100%;aspect-ratio:16/9;max-height:340px;object-fit:cover;border-radius:var(--radius-md)}
-.eco-site .selva-sobre-contenido p{font-size:15px;line-height:1.75}
+.eco-site .selva-sobre-contenido p{font-size: var(--text-body);line-height:1.75}
 .eco-site .selva-sobre-proposito{padding-left:var(--space-5)}
 .eco-site #colabora .selva-colabora-layout{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--space-7)}
 .eco-site #colabora .selva-colabora-columna--proceso{border-radius:var(--radius-lg);box-shadow:none;padding:var(--space-5)}
 .eco-site #colabora .selva-colabora-informacion{gap:var(--space-4)}
-.eco-site #colabora :is(.selva-colabora-bloque p,.selva-colabora-bloque li,.selva-colabora-proceso li span,.selva-colabora-compromiso p){font-size:15px;max-width:var(--reading-narrow)}
+.eco-site #colabora :is(.selva-colabora-bloque p,.selva-colabora-bloque li,.selva-colabora-proceso li span,.selva-colabora-compromiso p){font-size: var(--text-body);max-width:var(--reading-narrow)}
 .eco-site .selva-footer-layout{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:var(--space-7)}
 .eco-site .selva-footer-nav{gap:var(--space-2) var(--space-4)}
-.eco-site .selva-footer-nav a{display:inline-flex;align-items:center;min-height:44px;font-size:14px}
+.eco-site .selva-footer-nav a{display:inline-flex;align-items:center;min-height:44px;font-size: var(--text-note)}
 .eco-site form :is(input:not([type=submit]),textarea,select){min-height:44px;border-radius:var(--radius-sm)}
-.eco-site form label{display:block;font-size:14px;margin-top:var(--space-3);color:inherit}
+.eco-site form label{display:block;font-size: var(--text-note);margin-top:var(--space-3);color:inherit}
 .eco-site form :is(input,textarea):disabled{opacity:.65;cursor:not-allowed}
 .eco-site form :is(input,textarea):user-invalid{border-color:#a23b28}
 /* Mini atlas: visuales anchos, explicaciones con medida de lectura. */
@@ -113,7 +113,7 @@
 .eco-site .conoce-geografia-grid{gap:var(--space-4)}
 .eco-site .conoce-provincias{gap:var(--space-4)}
 .eco-site .conoce-provincia{border-radius:var(--radius-md);box-shadow:none}
-.eco-site :is(.conoce-introduccion,.conoce-provincia p,.conoce-personas-grid p,.conoce-geografia-grid p){font-size:15px}
+.eco-site :is(.conoce-introduccion,.conoce-provincia p,.conoce-personas-grid p,.conoce-geografia-grid p){font-size: var(--text-body)}
 /* Ficha: portada y datos amplios; lectura central de 760 px. */
 .eco-site .ficha-hero{grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:var(--space-7);padding-block:var(--space-6) var(--space-7)}
 .eco-site .ficha-identidad{max-width:var(--reading-max)}
@@ -144,11 +144,11 @@
 .eco-site .metodologia h1{margin-block:var(--space-4) var(--space-5)}
 .eco-site .metodologia>p,.eco-site .metodologia>ul{max-width:var(--reading-max)}
 .eco-site .metodologia section[aria-labelledby=metodologia-editorial]{display:grid;grid-template-columns:minmax(160px,3fr) minmax(0,9fr);gap:var(--space-4) var(--space-6);padding-block:var(--space-5) var(--space-6)}
-.eco-site .metodologia section[aria-labelledby=metodologia-editorial]>h2{grid-column:1/-1;font-size:30px;margin:0 0 var(--space-3)}
-.eco-site .metodologia section[aria-labelledby=metodologia-editorial]>h3{margin:0;font-size:19px;line-height:1.6}
-.eco-site .metodologia section[aria-labelledby=metodologia-editorial]>p{max-width:var(--reading-max);margin:0;min-width:0;font-size:16px}
+.eco-site .metodologia section[aria-labelledby=metodologia-editorial]>h2{grid-column:1/-1;font-size: var(--text-title);margin:0 0 var(--space-3)}
+.eco-site .metodologia section[aria-labelledby=metodologia-editorial]>h3{margin:0;font-size: var(--text-body);line-height:1.6}
+.eco-site .metodologia section[aria-labelledby=metodologia-editorial]>p{max-width:var(--reading-max);margin:0;min-width:0;font-size: var(--text-body)}
 .eco-site .metodologia>.selva-territorio-fuentes{margin-block:var(--space-5);padding:var(--space-5);background:var(--white);border:1px solid var(--line);border-radius:var(--radius-md)}
-.eco-site .metodologia .selva-territorio-fuentes :is(p,ul,dl){max-width:var(--reading-max);font-size:15px}
+.eco-site .metodologia .selva-territorio-fuentes :is(p,ul,dl){max-width:var(--reading-max);font-size: var(--text-body)}
 /* Capa visual de ventanas: la apertura, cierre y foco conservan su lógica. */
 .eco-site dialog{border:1px solid var(--line);border-radius:var(--radius-lg);background:var(--white);color:var(--ink);box-shadow:var(--shadow-dialog);padding:0;max-height:90dvh;overscroll-behavior:contain;overflow:auto}
 .eco-site dialog::backdrop{background:rgb(16 46 34 / 64%);backdrop-filter:blur(2px);animation:none}
@@ -157,17 +157,17 @@
 .eco-site dialog.eco-editorial::before{display:none}
 .eco-site :is(.anp-dialogo-ficha){width:min(960px,calc(100vw - 2 * var(--page-gutter)))}
 .eco-site :is(.eco-modal-barra,.selva-territorio-fuentes-modal-cabecera,.anp-dialogo>header,.historia-modal>header){position:sticky;top:0;z-index:5;display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);min-height:76px;padding:var(--space-3) var(--space-4);margin:0;border:0;border-bottom:1px solid var(--line);border-radius:0;background:var(--white)}
-.eco-site .eco-modal-contexto{font:600 14px/1.5 var(--font-heading);color:var(--forest)}
-.eco-site :is(.eco-modal-barra>h2,.anp-dialogo>header h2,.historia-modal>header h2,.selva-territorio-fuentes-modal-cabecera h2){font-size:18px;line-height:1.4;margin:0;padding:0}
+.eco-site .eco-modal-contexto{font:600 var(--text-note)/1.5 var(--font-heading);color:var(--forest)}
+.eco-site :is(.eco-modal-barra>h2,.anp-dialogo>header h2,.historia-modal>header h2,.selva-territorio-fuentes-modal-cabecera h2){font-size: var(--text-body);line-height:1.4;margin:0;padding:0}
 .eco-site :is(.eco-modal-barra button,.selva-territorio-fuentes-cerrar,.conoce-modal-cerrar,.anp-dialogo [data-anp-cerrar],.historia-modal [data-historia-cerrar]){position:static;float:none;flex:0 0 auto;display:grid;place-items:center;min-width:44px;min-height:44px;width:auto;height:44px;margin:0;padding:var(--space-1) var(--space-2);background:var(--paper);color:var(--forest);border:1px solid var(--line);border-radius:var(--radius-sm);box-shadow:none;transform:none}
-.eco-site .eco-modal-barra :is(.selva-historia-cerrar,.selva-fauna-modal-cerrar,.selva-ambiente-cerrar,.ficha-glosario-cerrar){width:44px;padding:0;font:28px/1 var(--font-body)}
+.eco-site .eco-modal-barra :is(.selva-historia-cerrar,.selva-fauna-modal-cerrar,.selva-ambiente-cerrar,.ficha-glosario-cerrar){width:44px;padding:0;font:var(--text-title)/1 var(--font-body)}
 .eco-site .eco-modal-barra button:hover{background:#e3e9dc;color:var(--forest);transform:none}
 .eco-site :is(.selva-historia-layout,.selva-fauna-modal-layout,.selva-ambiente-modal-layout){grid-template-columns:minmax(0,4fr) minmax(0,6fr)}
 .eco-site :is(.selva-historia-contenido,.selva-fauna-modal-contenido,.selva-ambiente-modal-contenido){padding:var(--space-5);overflow:visible;max-height:none;min-width:0}
 .eco-site :is(.selva-historia-cuerpo,.selva-fauna-modal-cuerpo,.selva-ambiente-modal-cuerpo){overflow:visible;max-height:none}
 .eco-site .selva-historia-visual .selva-curiosidad-foto,.eco-site .selva-fauna-modal-imagen>img{height:auto;aspect-ratio:4/3;object-fit:cover}
-.eco-site .selva-fauna-modal #selva-fauna-modal-titulo,.eco-site .selva-historia-modal #selva-historia-titulo,.eco-site .selva-ambiente-modal #selva-ambiente-modal-titulo{font-size:30px;line-height:1.2;margin-block:var(--space-2) 20px}
-.eco-site dialog :is(p,li,dd){font-size:15px}
+.eco-site .selva-fauna-modal #selva-fauna-modal-titulo,.eco-site .selva-historia-modal #selva-historia-titulo,.eco-site .selva-ambiente-modal #selva-ambiente-modal-titulo{font-size: var(--text-title);line-height:1.2;margin-block:var(--space-2) 20px}
+.eco-site dialog :is(p,li,dd){font-size: var(--text-body)}
 .eco-site dialog :is(.anp-nota,.anp-citas,.historia-fuente,.selva-curiosidad-fuentes){font-size:var(--text-credit)}
 .eco-site .ficha-glosario-modal #ficha-glosario-definicion,.eco-site .ficha-glosario-modal>a{display:block;margin:var(--space-4)}
 .eco-site .ficha-glosario-modal .eco-modal-barra{padding-inline:var(--space-4)}
@@ -216,14 +216,14 @@
 }
 @media(max-width:767px){
   :root{--page-gutter:20px}
-  .eco-site{font-size:16px}
+  .eco-site{font-size: var(--text-body)}
   .eco-site .menu.container{height:82px;padding-inline:var(--page-gutter)}
   .eco-site .menu.container.selva-menu-scrolled{height:72px}
   .eco-site .menu .logo img{max-height:68px}
   .eco-site .menu.container .navbar :is(a,summary){min-height:44px}
   .eco-site .header-content{display:block;padding-top:100px}
-  .eco-site .header-txt .hero-titulo{font-size:clamp(42px,10vw,58px);max-width:12ch}
-  .eco-site .header-txt .hero-descripcion{font-size:17px}
+  .eco-site .header-txt .hero-titulo{font-size: var(--text-display);max-width:12ch}
+  .eco-site .header-txt .hero-descripcion{font-size: var(--text-body)}
   .eco-site :is(.selva-curiosidades,.selva-ambiente,.selva-colabora,#quienes-somos,#investigaciones){padding-block:var(--space-6)}
   .eco-site .general{padding-block:var(--space-6)}
   .eco-site :is(.selva-introduccion .container,.selva-flip-grid,.selva-sobre-layout,.selva-footer-layout,.conoce-ubicacion-grid,.conoce-personas-grid,.conoce-provincias,.conoce-geografia-grid,.anp-paisajes,.anp-ejemplos,.anp-amenazas,.anp-galeria,.historia-dos-columnas,.historia-caucho){grid-template-columns:minmax(0,1fr);gap:var(--space-4)}
@@ -233,7 +233,7 @@
   .eco-site #sabias-que .selva-flip-card{aspect-ratio:4/3;height:auto}
   .eco-site #biodiversidad :is(.selva-flora-stats,.selva-fauna-stats){grid-template-columns:repeat(2,minmax(0,1fr));gap:0}
   .eco-site #biodiversidad :is(.selva-flora-stat,.selva-fauna-stat){padding:20px 10px;border:0;border-top:1px solid var(--line)}
-  .eco-site #biodiversidad :is(.selva-flora-stat p,.selva-fauna-stat p){font-size:15px}
+  .eco-site #biodiversidad :is(.selva-flora-stat p,.selva-fauna-stat p){font-size: var(--text-body)}
   .eco-site #explora-madre-de-dios .selva-territorio-layout{grid-template-columns:minmax(0,1fr)}
   .eco-site #explora-madre-de-dios .selva-territorio-canvas{height:380px}
   .eco-site #explora-madre-de-dios .selva-territorio-panel{border-left:0;border-top:1px solid var(--line);padding:var(--space-4)}
@@ -246,7 +246,7 @@
   .eco-site .ficha-hero{grid-template-areas:"texto" "foto"}
   .eco-site .ficha-foto{width:min(100%,420px);justify-self:center}
   .eco-site .ficha-foto img{max-height:440px}
-  .eco-site .ficha-identidad h1{font-size:clamp(42px,10vw,58px)}
+  .eco-site .ficha-identidad h1{font-size: var(--text-display)}
   .eco-site .ficha-datos{padding:var(--space-4) var(--space-3)}
   .eco-site :is(.ficha-indicadores,.ficha-documentos){grid-template-columns:1fr}
   .eco-site :is(.anp-modulo,.historia-capitulo,.conoce-modulo){padding-block:var(--space-6)}
@@ -257,10 +257,10 @@
   .eco-site .anp-cifras>div{padding-inline:var(--space-2)}
   .eco-site .anp-cifras>div:nth-child(odd){padding-left:0}
   .eco-site :is(.anp-concepto,.anp-personas){grid-template-columns:1fr;gap:var(--space-4)}
-  .eco-site .anp-personas h3{font-size:25px}
+  .eco-site .anp-personas h3{font-size: var(--text-title)}
   .eco-site .anp-dialogo .anp-panel{display:block}
   .eco-site :is(.anp-barra>.anp-ancho,.historia-barra>.historia-ancho,.eco-barra>.eco-wide,.ficha-barra){gap:var(--space-2);min-height:76px;padding-block:var(--space-2)}
-  .eco-site :is(.anp-marca,.historia-marca,.ficha-barra .ficha-marca,.eco-marca){font-size:18px;gap:var(--space-1)}
+  .eco-site :is(.anp-marca,.historia-marca,.ficha-barra .ficha-marca,.eco-marca){font-size: var(--text-body);gap:var(--space-1)}
   .eco-site :is(.anp-marca,.historia-marca,.ficha-marca,.eco-marca) img{width:40px;height:40px}
   .eco-site :is(.anp-barra a:not(.anp-marca),.historia-barra a:not(.historia-marca),.eco-barra a:not(.eco-marca),.ficha-volver){font-size: var(--text-credit);max-width:130px;text-align:right}
   .eco-site .eco-migas{padding-block:var(--space-3);font-size: var(--text-credit)}
@@ -293,14 +293,14 @@
 .eco-site .eco-card :is(h2,h3,h4,h5){color:var(--forest);line-height:1.3;overflow-wrap:anywhere}
 .eco-site .eco-card-content{padding:var(--space-4);display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:var(--space-2)}
 .eco-site .eco-eyebrow{font-size: var(--text-credit);font-weight:700;letter-spacing:.09em;text-transform:uppercase;line-height:1.5;color:var(--earth-text);margin:0 0 var(--space-2)}
-.eco-site .eco-card-secondary,.eco-site .eco-card-scope{font-size:14px;line-height:1.6;color:var(--muted);margin:0}
+.eco-site .eco-card-secondary,.eco-site .eco-card-scope{font-size: var(--text-note);line-height:1.6;color:var(--muted);margin:0}
 .eco-site .eco-card-actions{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-2) 20px;margin-top:var(--space-3)}
-.eco-site .eco-button{display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border:1px solid var(--forest);border-radius:var(--radius-sm);background:var(--forest);color:var(--white);font:600 14px/1.5 var(--font-heading);text-decoration:none;cursor:pointer;transition:background-color var(--motion-fast),box-shadow var(--motion-fast)}
+.eco-site .eco-button{display:inline-flex;justify-content:center;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border:1px solid var(--forest);border-radius:var(--radius-sm);background:var(--forest);color:var(--white);font:600 var(--text-note)/1.5 var(--font-heading);text-decoration:none;cursor:pointer;transition:background-color var(--motion-fast),box-shadow var(--motion-fast)}
 .eco-site .eco-button:hover{background:var(--forest-deep);color:var(--white)}
 .eco-site .eco-button-outline{background:transparent;color:var(--forest)}
 .eco-site .eco-button-outline:hover{background:var(--paper);color:var(--forest)}
 .eco-site .eco-button:disabled{cursor:default;opacity:.65}
-.eco-site .eco-text-link,.eco-site .eco-card-context{font-size:14px;font-weight:600;color:var(--water-text);text-underline-offset:4px}
+.eco-site .eco-text-link,.eco-site .eco-card-context{font-size: var(--text-note);font-weight:600;color:var(--water-text);text-underline-offset:4px}
 .eco-site a.eco-text-link{display:inline-flex;align-items:center;min-height:44px}
 .eco-site .eco-arrow{display:inline-block;transition:transform var(--motion-fast)}
 .eco-site [data-eco-card=stat]{font-variant-numeric:tabular-nums}
@@ -315,14 +315,14 @@
 /* Entrada editorial: una imagen protagonista y dos accesos con funciones distintas. */
 .eco-site .eco-discover{padding-block:var(--space-8);background:var(--paper)}
 .eco-site :is(.eco-discover-heading,.eco-library-heading){display:flex;align-items:flex-end;justify-content:space-between;gap:var(--space-5);margin-bottom:var(--space-5)}
-.eco-site :is(.eco-discover-heading,.eco-library-heading,.eco-library-paths) h2{font-size:clamp(30px,3.2vw,46px);line-height:1.15;letter-spacing:-.035em;color:var(--forest);margin-bottom:var(--space-2)}
+.eco-site :is(.eco-discover-heading,.eco-library-heading,.eco-library-paths) h2{font-size: var(--text-title);line-height:1.15;letter-spacing:-.035em;color:var(--forest);margin-bottom:var(--space-2)}
 .eco-site .eco-discover-heading>div{max-width:680px}
 .eco-site .eco-discover-heading>.eco-button{flex:none}
 .eco-site .eco-bento{display:grid;grid-template-columns:1.15fr 1fr;gap:var(--space-4)}
 .eco-site .eco-bento-feature{grid-row:span 2;position:relative;display:flex;flex-direction:column}
 .eco-site .eco-bento-feature>img{width:100%;height:320px;object-fit:cover;object-position:center 42%;transition:transform var(--motion-card)}
 .eco-site .eco-bento-feature>div{position:relative;padding:var(--space-5);background:var(--white);flex:1}
-.eco-site .eco-bento :is(h3){font-size:clamp(25px,2.5vw,34px);margin-bottom:var(--space-2)}
+.eco-site .eco-bento :is(h3){font-size: var(--text-title);margin-bottom:var(--space-2)}
 .eco-site .eco-bento p:not(.eco-eyebrow){font-size:var(--text-reading);line-height:1.7;margin:0 0 20px}
 .eco-site .eco-bento small{display:block;font-size: var(--text-credit);line-height:1.6;margin-top:20px;color:var(--muted)}
 .eco-site .eco-bento small a{color:var(--water-text)}
@@ -333,24 +333,24 @@
 .eco-site .eco-bento-map>.eco-icon{width:40px;height:40px;margin-top:4px}
 .eco-site .eco-bento-document{display:grid;grid-template-columns:140px minmax(0,1fr);align-items:center;gap:var(--space-4);padding:var(--space-5)}
 .eco-site .eco-bento-document>img{width:100%;height:200px;object-fit:contain;background:var(--paper)}
-.eco-site .eco-bento-document h3{font-size:28px}
+.eco-site .eco-bento-document h3{font-size: var(--text-title)}
 /* Biblioteca: portadas completas y metadatos originales, sin recortes decorativos. */
 .eco-site .eco-library-hero{display:grid;grid-template-columns:1.12fr 1fr;align-items:center;gap:var(--space-7);padding-block:var(--space-6) var(--space-8)}
-.eco-site .eco-library-hero h1{font-size:clamp(40px,4.6vw,68px);line-height:1.08;letter-spacing:-.045em;color:var(--forest);margin-bottom:var(--space-4)}
-.eco-site .eco-library-intro{font-size:18px;max-width:54ch;margin-bottom:var(--space-5);color:var(--muted)}
+.eco-site .eco-library-hero h1{font-size: var(--text-display);line-height:1.08;letter-spacing:-.045em;color:var(--forest);margin-bottom:var(--space-4)}
+.eco-site .eco-library-intro{font-size: var(--text-body);max-width:54ch;margin-bottom:var(--space-5);color:var(--muted)}
 .eco-site .eco-library-feature{display:grid;grid-template-columns:minmax(150px,1fr) 1fr;gap:var(--space-4);align-items:center;padding:var(--space-4);background:var(--paper);border-radius:var(--radius-xl)}
 .eco-site .eco-library-feature>img{width:100%;height:300px;object-fit:contain;box-shadow:var(--shadow-raised)}
-.eco-site .eco-library-feature h2{font-size:26px;margin:var(--space-2) 0;line-height:1.25}
-.eco-site .eco-library-feature p:not(.eco-eyebrow){font-size:15px;margin-bottom:20px}
+.eco-site .eco-library-feature h2{font-size: var(--text-title);margin:var(--space-2) 0;line-height:1.25}
+.eco-site .eco-library-feature p:not(.eco-eyebrow){font-size: var(--text-body);margin-bottom:20px}
 .eco-site .eco-feature-source{display:block;color:var(--muted);font-size: var(--text-credit);line-height:1.6;margin-top:var(--space-3);overflow-wrap:anywhere}
 .eco-site .eco-library-catalog{padding-bottom:var(--space-7);scroll-margin-top:24px}
 .eco-site .eco-library-tools{padding:var(--space-4);background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md);margin-bottom:var(--space-5)}
-.eco-site .eco-library-tools label{display:block;font-size:14px;font-weight:600;margin-bottom:var(--space-1)}
+.eco-site .eco-library-tools label{display:block;font-size: var(--text-note);font-weight:600;margin-bottom:var(--space-1)}
 .eco-site .eco-library-search{display:flex;gap:var(--space-2);max-width:720px}
-.eco-site .eco-library-search input{min-width:0;flex:1;height:48px;padding:var(--space-2) var(--space-3);border:1px solid #9daa9b;background:var(--white);color:var(--ink);border-radius:var(--radius-sm);font:16px var(--font-body)}
+.eco-site .eco-library-search input{min-width:0;flex:1;height:48px;padding:var(--space-2) var(--space-3);border:1px solid #9daa9b;background:var(--white);color:var(--ink);border-radius:var(--radius-sm);font:var(--text-body) var(--font-body)}
 .eco-site .eco-library-search input::placeholder{color:var(--muted);opacity:1}
 .eco-site .eco-library-filters{display:flex;flex-wrap:wrap;gap:var(--space-1);margin-top:20px}
-.eco-site .eco-library-filters button{padding:var(--space-1) var(--space-3);border:1px solid #9daa9b;border-radius:30px;background:var(--white);color:var(--forest);font:600 13px var(--font-body);cursor:pointer}
+.eco-site .eco-library-filters button{padding:var(--space-1) var(--space-3);border:1px solid #9daa9b;border-radius:30px;background:var(--white);color:var(--forest);font:600 var(--text-note) var(--font-body);cursor:pointer}
 .eco-site .eco-library-filters button[aria-pressed=true]{background:var(--forest);color:var(--white);border-color:var(--forest)}
 .eco-site .eco-library-count{font-size:var(--text-credit);color:var(--muted);margin-top:var(--space-3)}
 .eco-site .eco-library-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);align-items:stretch}
@@ -359,7 +359,7 @@
 .eco-site .eco-doc-cover>img{height:100%;width:100%;object-fit:contain}
 .eco-site .eco-doc-cover>.eco-icon{width:64px;height:64px;color:var(--water-text)}
 .eco-site .eco-doc-cover>span{position:absolute;left:16px;top:16px;background:var(--white);border:1px solid var(--line);border-radius:4px;padding:3px var(--space-1);color:var(--forest);font:700 var(--text-credit)/1.5 var(--font-body)}
-.eco-site .eco-doc-card h3{font-size:22px;margin:0;letter-spacing:-.02em}
+.eco-site .eco-doc-card h3{font-size: var(--text-title);margin:0;letter-spacing:-.02em}
 .eco-site .eco-doc-meta{display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-3);font-size:var(--text-credit);color:var(--muted);font-variant-numeric:tabular-nums}
 .eco-site .eco-doc-card .eco-card-actions{margin-top:auto;padding-top:20px}
 .eco-site .eco-card-context{margin-top:var(--space-2);font-size:var(--text-credit)}
@@ -368,29 +368,29 @@
 .eco-site .eco-library-paths{padding-block:var(--space-6);border-top:1px solid var(--line)}
 .eco-site .eco-resource-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);margin-top:var(--space-5)}
 .eco-site .eco-resource-card{display:flex;align-items:center;gap:var(--space-3);padding:var(--space-4);text-decoration:none}
-.eco-site .eco-resource-card>span{flex:1;font-size:14px;color:var(--muted)}
-.eco-site .eco-resource-card strong{display:block;font:700 18px/1.4 var(--font-heading);color:var(--forest);margin-bottom:var(--space-1)}
+.eco-site .eco-resource-card>span{flex:1;font-size: var(--text-note);color:var(--muted)}
+.eco-site .eco-resource-card strong{display:block;font:700 var(--text-body)/1.4 var(--font-heading);color:var(--forest);margin-bottom:var(--space-1)}
 /* Tres niveles de contexto: ayuda breve, panel próximo al control y ventana. */
 .eco-site .eco-tooltip{position:fixed;z-index:6001;max-width:min(260px,calc(100vw - 24px));padding:10px 14px;background:var(--forest-deep);color:var(--white);border-radius:var(--radius-sm);box-shadow:var(--shadow-raised);font-size:var(--text-credit);line-height:1.6}
-.eco-site .eco-popover{position:relative;flex:none;max-width:100%;font-size:14px}
+.eco-site .eco-popover{position:relative;flex:none;max-width:100%;font-size: var(--text-note)}
 .eco-site .eco-popover>summary{display:flex;align-items:center;gap:var(--space-1);color:var(--water-text);cursor:pointer;list-style:none;text-underline-offset:4px}
 .eco-site .eco-popover>summary::-webkit-details-marker{display:none}
 .eco-site .eco-popover[open]>summary{text-decoration:underline}
 .eco-site .eco-popover>div{position:absolute;z-index:20;top:calc(100% + 8px);right:0;width:min(340px,calc(100vw - 40px));padding:var(--space-4);background:var(--white);border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow-dialog)}
 .eco-site .eco-popover>div p{margin-bottom:var(--space-3)}
 .eco-site .eco-popover a{color:var(--water-text)}
-.eco-site .eco-overlay-close{width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:50%;font:28px/1 var(--font-body);background:var(--white);color:var(--forest);cursor:pointer}
+.eco-site .eco-overlay-close{width:44px;height:44px;flex:none;border:1px solid var(--line);border-radius:50%;font:var(--text-title)/1 var(--font-body);background:var(--white);color:var(--forest);cursor:pointer}
 .eco-site .eco-overlay-body{padding:var(--space-5);overflow-wrap:anywhere}
 .eco-site .eco-overlay-body :is(h3,h4){color:var(--forest);margin-bottom:var(--space-3)}
-.eco-site .eco-overlay-body h3{font-size:28px;line-height:1.3}
-.eco-site .eco-overlay-body h4{font-size:18px;margin-top:var(--space-4)}
+.eco-site .eco-overlay-body h3{font-size: var(--text-title);line-height:1.3}
+.eco-site .eco-overlay-body h4{font-size: var(--text-body);margin-top:var(--space-4)}
 .eco-site .eco-overlay-body p{margin-bottom:var(--space-3)}
 .eco-site .eco-document-layout{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1fr);gap:var(--space-5);align-items:start}
 .eco-site .eco-document-layout:not(:has(.eco-document-cover)){grid-template-columns:1fr}
 .eco-site .eco-document-cover{margin:0;padding:var(--space-3);background:var(--paper);border:1px solid var(--line);border-radius:var(--radius-md)}
 .eco-site .eco-document-cover img{width:100%;height:auto;max-height:480px;object-fit:contain}
 .eco-site .eco-document-cover figcaption{font-size: var(--text-credit);line-height:1.6;color:var(--muted);margin-top:var(--space-2)}
-.eco-site .eco-document-metadata{display:grid;grid-template-columns:auto 1fr;gap:var(--space-1) var(--space-3);font-size:14px;margin:var(--space-4) 0}
+.eco-site .eco-document-metadata{display:grid;grid-template-columns:auto 1fr;gap:var(--space-1) var(--space-3);font-size: var(--text-note);margin:var(--space-4) 0}
 .eco-site .eco-document-metadata dt{font-weight:600;color:var(--forest)}
 .eco-site .eco-document-metadata dd{margin:0;color:var(--muted)}
 .eco-site .eco-document-details>.eco-button{margin-top:var(--space-4)}
@@ -398,11 +398,11 @@
 .eco-site .eco-pdf-frame{display:block;width:100%;height:65dvh;border:1px solid var(--line);margin-top:var(--space-5);border-radius:var(--radius-sm);background:var(--paper)}
 .eco-site .eco-pdf-reader{margin-top:var(--space-5)}
 .eco-site .eco-pdf-reader .eco-pdf-frame{margin-top:var(--space-2)}
-.eco-site .eco-context-viewer .eco-overlay-body>dl{display:grid;grid-template-columns:1fr;gap:var(--space-1);font-size:15px}
+.eco-site .eco-context-viewer .eco-overlay-body>dl{display:grid;grid-template-columns:1fr;gap:var(--space-1);font-size: var(--text-body)}
 .eco-site .eco-context-viewer dt{color:var(--forest);font-weight:700;margin-top:var(--space-3)}
 .eco-site .eco-context-viewer dd{margin:0;padding-bottom:var(--space-2);border-bottom:1px solid var(--line)}
 .eco-site .eco-context-viewer a:not(.eco-button){color:var(--water-text)}
-.eco-site .eco-document-error{font-size:14px;color:var(--earth-text)}
+.eco-site .eco-document-error{font-size: var(--text-note);color:var(--earth-text)}
 .eco-site .ficha-documentos li.eco-card{padding:var(--space-4);overflow:visible}
 .eco-site .ficha-documentos .eco-button{margin-top:var(--space-2)}
 /* La imagen ampliada incluye siempre su leyenda y procedencia. */
@@ -410,13 +410,13 @@
 .eco-site .eco-image-open{position:absolute;right:12px;top:12px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;border:1px solid var(--line);border-radius:50%;background:var(--white);color:var(--forest);box-shadow:var(--shadow-raised);cursor:pointer;z-index:2}
 .eco-site .eco-image-view{margin:0}
 .eco-site .eco-image-view>img{display:block;width:100%;height:auto;max-height:60dvh;object-fit:contain;background:var(--paper);border-radius:var(--radius-sm)}
-.eco-site .eco-image-view figcaption{font-size:14px;line-height:1.7;padding-top:20px;color:var(--muted)}
+.eco-site .eco-image-view figcaption{font-size: var(--text-note);line-height:1.7;padding-top:20px;color:var(--muted)}
 .eco-site .eco-image-view figcaption a{color:var(--water-text)}
 .eco-site .eco-image-navigation{display:flex;align-items:center;gap:var(--space-2);margin-top:var(--space-4);flex-wrap:wrap}
-.eco-site .eco-image-navigation span{margin-left:auto;font:600 13px var(--font-body);color:var(--muted)}
+.eco-site .eco-image-navigation span{margin-left:auto;font:600 var(--text-note) var(--font-body);color:var(--muted)}
 .eco-site [data-eco-map]{position:relative}
 .eco-site .eco-map-tools{position:absolute;right:12px;top:12px;display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:var(--radius-sm);background:var(--white);box-shadow:var(--shadow-raised)}
-.eco-site .eco-map-tools button{width:44px;height:44px;border:0;border-radius:4px;background:var(--white);color:var(--forest);font:24px var(--font-body);cursor:pointer}
+.eco-site .eco-map-tools button{width:44px;height:44px;border:0;border-radius:4px;background:var(--white);color:var(--forest);font:var(--text-title) var(--font-body);cursor:pointer}
 .eco-site .eco-map-tools button:hover{background:var(--paper)}
 .eco-site .eco-map-tools button:disabled{color:var(--muted);opacity:.6;cursor:default}
 .eco-site .eco-map-hint{font-size:var(--text-credit);line-height:1.7;color:var(--muted);margin:var(--space-2) 0}
@@ -466,15 +466,15 @@
   .eco-site .eco-bento-feature>div,.eco-site .eco-bento-map{padding:var(--space-4)}
   .eco-site .eco-bento-document{grid-template-columns:85px minmax(0,1fr);gap:var(--space-3);padding:20px}
   .eco-site .eco-bento-document>img{height:150px}
-  .eco-site .eco-bento-document h3{font-size:24px}
+  .eco-site .eco-bento-document h3{font-size: var(--text-title)}
   .eco-site .eco-bento-document .eco-eyebrow{letter-spacing:.03em}
   .eco-site .eco-library-hero{padding-block:var(--space-4) var(--space-6);gap:var(--space-5)}
-  .eco-site .eco-library-hero h1{font-size:clamp(38px,9vw,54px)}
-  .eco-site .eco-library-intro{font-size:16px}
+  .eco-site .eco-library-hero h1{font-size: var(--text-display)}
+  .eco-site .eco-library-intro{font-size: var(--text-body)}
   .eco-site .eco-library-feature{grid-template-columns:100px minmax(0,1fr);padding:20px;gap:var(--space-3)}
   .eco-site .eco-library-feature>img{height:180px}
   .eco-site .eco-library-feature>div{padding:0}
-  .eco-site .eco-library-feature h2{font-size:22px}
+  .eco-site .eco-library-feature h2{font-size: var(--text-title)}
   .eco-site .eco-library-tools{padding:20px}
   .eco-site .eco-library-search{gap:var(--space-1)}
   .eco-site .eco-library-search .eco-button{padding-inline:var(--space-2)}
@@ -482,7 +482,7 @@
   .eco-site .eco-popover>div{left:0;right:auto}
   .eco-site .eco-overlay-body{padding:var(--space-4)}
   .eco-site .eco-document-cover img{max-height:230px}
-  .eco-site .eco-document-details h3{font-size:24px}
+  .eco-site .eco-document-details h3{font-size: var(--text-title)}
   .eco-site .eco-image-view>img{max-height:50dvh}
   .eco-site dialog[data-eco-presentation=drawer] .selva-fauna-modal-imagen>img{object-fit:contain}
   .eco-site [data-eco-story]>.ficha-ilustracion{position:relative;top:auto}

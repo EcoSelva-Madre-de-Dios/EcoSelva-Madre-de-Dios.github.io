@@ -14,6 +14,7 @@
         const current = [...document.querySelectorAll('dialog[open]')].at(-1);
         if (record.restoreFocus && origin?.isConnected && origin.getClientRects().length && (!current || current.contains(origin))) {
             origin.focus({ preventScroll: true });
+            window.scrollTo({ left: record.scrollX, top: record.scrollY, behavior: 'instant' });
         }
     };
     const close = (dialog, { restoreFocus = true } = {}) => {
@@ -48,12 +49,15 @@
     const open = (dialog, origin = document.activeElement) => {
         if (dialog.open || typeof dialog.showModal !== 'function') return false;
         register(dialog);
+        dialog.querySelectorAll('template[data-eco-controls]').forEach(template => template.replaceWith(template.content));
         const record = records.get(dialog);
         record.origin = origin;
+        record.scrollX = window.scrollX; record.scrollY = window.scrollY;
         record.restoreFocus = true;
         record.active = true;
         dialog.showModal();
         dialog.scrollTop = 0;
+        dialog.dispatchEvent(new CustomEvent('eco:dialogopen', { bubbles: true }));
         dialog.querySelector(record.options.closeSelector || '[data-eco-dialog-close]')?.focus({ preventScroll: true });
         return true;
     };
@@ -213,6 +217,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const panel = document.getElementById(tab.getAttribute("aria-controls"));
                 if (panel) panel.hidden = !selected;
             });
+            const panel = document.getElementById(activeTab.getAttribute("aria-controls"));
+            panel?.dispatchEvent(new CustomEvent('eco:panelopen', { bubbles: true }));
             if (moveFocus) activeTab.focus({ preventScroll: true });
         };
         tabs.forEach((tab, index) => {
@@ -298,11 +304,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const faunaModal = document.querySelector("#selva-fauna-modal");
     if (faunaModal) {
-        let faunaGroups;
+        let faunaGroups, activeGroup, back;
         const body = faunaModal.querySelector(".selva-fauna-modal-cuerpo");
         const title = faunaModal.querySelector("#selva-fauna-modal-titulo");
-        const back = faunaModal.querySelector(".selva-fauna-volver");
-        let activeGroup;
         window.ecoDialog.register(faunaModal, { closeSelector: '.selva-fauna-modal-cerrar' });
         const element = (tag, text, className) => {
             const node = document.createElement(tag);
@@ -311,103 +315,97 @@ document.addEventListener("DOMContentLoaded", () => {
             return node;
         };
         const link = (text, url) => {
-            const node = element("a", text);
-            node.href = url;
-            node.target = "_blank";
-            node.rel = "noopener noreferrer";
+            const node = element("a", text); node.href = url;
+            node.target = "_blank"; node.rel = "noopener noreferrer";
             return node;
         };
-        const showSpecies = (species) => {
-            const group = faunaGroups[activeGroup];
-            body.replaceChildren();
-            title.textContent = species[0];
-            back.hidden = false;
-            back.textContent = `← Volver a ${group.name}`;
+        const references = entries => {
+            const footer = element("div", null, "eco-block-sources");
+            const list = element("ol");
+            [...new Map(entries.map(([label, url]) => [url, [label, url]])).values()].forEach(([label, url]) => {
+                const item = element("li"); item.append(link(label, url)); list.append(item);
+            });
+            footer.append(element("h4", "Fuentes de los registros"), list); return footer;
+        };
+        const showGroup = (focusTitle = false) => {
+            const group = faunaGroups[activeGroup]; body.replaceChildren();
+            title.textContent = `${group.name}: especies documentadas`;
+            if (back) back.hidden = true;
+            const list = element("ul", null, "selva-fauna-especies");
+            group.species.forEach(species => {
+                const item = element("li"), content = element("div");
+                const illustration = document.querySelector(`[data-fauna-categoria="${activeGroup}"] .selva-fauna-icono`).cloneNode(true);
+                item.append(illustration);
+                content.append(element("h4", species[0]), element("em", species[1]), element("p", `Registro: ${species[2] || group.place}.`));
+                const button = element("button", `Ver ${species[0]} →`, "selva-fauna-conocer");
+                button.type = "button"; button.setAttribute("aria-label", `Ver ficha de ${species[0]}`);
+                button.addEventListener("click", () => showSpecies(species)); content.append(button); item.append(content); list.append(item);
+            });
+            body.append(list, references(group.species.map(species => [species[4] || group.reference, species[3] || group.source])));
+            if (focusTitle) { title.tabIndex = -1; title.focus({ preventScroll: true }); faunaModal.scrollTop = 0; }
+        };
+        const showSpecies = species => {
+            const group = faunaGroups[activeGroup]; body.replaceChildren(); title.textContent = species[0];
+            if (!back) {
+                back = element("button", null, "selva-fauna-volver"); back.type = "button";
+                back.addEventListener("click", () => showGroup(true)); title.before(back);
+            }
+            back.hidden = false; back.textContent = `← Volver a ${group.name.toLowerCase()}`;
             body.append(element("em", species[1], "selva-fauna-cientifico"));
             const record = element("dl", null, "selva-fauna-ficha");
             record.append(element("dt", "Dónde se ha registrado"), element("dd", species[2] || group.place));
-            body.append(record, element("h4", "Fuentes"), link(species[4] || group.reference, species[3] || group.source));
-            body.append(element("p", "Revisión EcoSelva: octubre de 2026.", "selva-fauna-ficha-revision"));
-            // La fotografía lateral conserva el nombre y crédito de la especie representada.
-            body.append(element("p", `Fotografía lateral: ${group.species[0][0]}.`, "selva-fauna-ficha-revision"));
-            back.focus({ preventScroll: true });
-            faunaModal.scrollTop = 0;
-            if (window.matchMedia("(max-width: 640px)").matches) back.scrollIntoView({ block: "start", behavior: "instant" });
+            body.append(record, references([[species[4] || group.reference, species[3] || group.source]]));
+            if (species !== group.species[0]) body.append(element("p", `La fotografía de referencia corresponde a ${group.species[0][0].toLowerCase()}.`, "selva-fauna-ficha-revision"));
+            back.focus({ preventScroll: true }); faunaModal.scrollTop = 0;
         };
-        const showGroup = (focusTitle = false) => {
-            const group = faunaGroups[activeGroup];
-            body.replaceChildren();
-            title.textContent = "Fauna documentada";
-            back.hidden = true;
-            const list = element("ul", null, "selva-fauna-especies");
-            group.species.forEach((species, index) => {
-                const item = element("li");
-                const content = element("div");
-                if (index === 0) {
-                    const photo = element("img");
-                    photo.src = group.photo;
-                    photo.alt = species[0];
-                    photo.width = group.photoWidth;
-                    photo.height = group.photoHeight;
-                    item.append(photo);
-                } else {
-                    const icon = document.querySelector(`[data-fauna-categoria="${activeGroup}"] .selva-fauna-icono`).cloneNode(true);
-                    icon.dataset.visualType = "illustration";
-                    item.append(icon);
+        const validGroup = group => group && typeof group.name === 'string' && group.name.trim()
+            && typeof group.place === 'string' && typeof group.source === 'string' && /^https:\/\//.test(group.source)
+            && typeof group.photo === 'string' && Number.isFinite(group.photoWidth) && Number.isFinite(group.photoHeight)
+            && Array.isArray(group.species) && group.species.length > 0
+            && group.species.every(species => Array.isArray(species) && species.slice(0, 2).length === 2
+                && species.slice(0, 2).every(value => typeof value === 'string' && value.trim()));
+        const openGroup = async button => {
+            if (faunaModal.open) return;
+            button.disabled = true; button.setAttribute("aria-busy", "true");
+            try {
+                if (!faunaGroups) {
+                    const response = await fetch(window.ecoResourceURL("datos/fauna/fichas.json"));
+                    if (!response.ok) throw new Error("No se pudo cargar Fauna.");
+                    faunaGroups = await response.json();
                 }
-                content.append(element("h4", species[0]), element("em", species[1]), element("p", `Registro: ${species[2] || group.place}.`));
-                const button = element("button", "Conocer especie →", "selva-fauna-conocer");
-                button.type = "button";
-                button.setAttribute("aria-label", `Conocer ${species[0]}`);
-                button.addEventListener("click", () => showSpecies(species));
-                content.append(button);
-                item.append(content);
-                list.append(item);
-            });
-            body.append(list, element("p", "Selección educativa de registros locales.", "selva-fauna-ficha-revision"), link(group.reference, group.source));
-            if (focusTitle) {
-                title.tabIndex = -1;
-                title.focus({ preventScroll: true });
-                faunaModal.scrollTop = 0;
-                if (window.matchMedia("(max-width: 640px)").matches) title.scrollIntoView({ block: "start", behavior: "instant" });
-            }
-        };
-        document.querySelectorAll("[data-fauna-explorar]").forEach((button) => {
-            button.addEventListener("click", async () => {
-                if (faunaModal.open) return;
-                button.disabled = true; button.setAttribute("aria-busy", "true");
-                try {
-                    if (!faunaGroups) {
-                        const response = await fetch(window.ecoResourceURL("datos/fauna/fichas.json"));
-                        if (!response.ok) throw new Error("No se pudo cargar Fauna.");
-                        faunaGroups = await response.json();
-                    }
-                } catch {
-                    const feedback = element("p", "No se pudo cargar la ficha. Reintenta o consulta la fuente enlazada debajo de las cifras.", "eco-document-error");
-                    feedback.setAttribute("role", "status");
-                    button.parentElement.querySelector(".eco-document-error")?.remove();
-                    button.parentElement.append(feedback); return;
-                } finally { button.disabled = false; button.removeAttribute("aria-busy"); }
+                const group = faunaGroups[button.dataset.faunaExplorar];
+                if (!validGroup(group)) throw new Error('La ficha no contiene registros completos.');
                 if (document.querySelector("dialog[open]")) return;
                 activeGroup = button.dataset.faunaExplorar;
-                const group = faunaGroups[activeGroup];
-                faunaModal.querySelector(".selva-fauna-modal-categoria").textContent = group.name;
-                const photo = faunaModal.querySelector(".selva-fauna-modal-imagen img");
-                photo.src = group.photo;
-                photo.alt = `${group.species[0][0]} (${group.species[0][1]}). ${group.photoPlace}.`;
-                photo.width = group.photoWidth;
-                photo.height = group.photoHeight;
-                faunaModal.querySelector(".selva-fauna-foto-nombre").textContent = group.species[0][0];
-                faunaModal.querySelector(".selva-fauna-foto-cientifico").textContent = group.species[0][1];
-                faunaModal.querySelector(".selva-fauna-foto-registro").textContent = "Especie documentada en Madre de Dios.";
-                const credit = faunaModal.querySelector(".selva-fauna-foto-credito");
-                credit.replaceChildren(document.createTextNode(`Foto: ${group.author} · `), link("Wikimedia Commons", group.photoSource), document.createTextNode(" · "), link(group.license, group.licenseUrl), document.createTextNode(`. ${group.photoPlace}. Consulta: octubre de 2026.`));
-                showGroup();
-                window.ecoDialog.open(faunaModal, button);
+                button.parentElement.querySelector(".eco-document-error")?.remove();
+                faunaModal.querySelector(".selva-fauna-modal-categoria").textContent = "Registros locales";
+                const photo = faunaModal.querySelector("[data-fauna-photo]");
+                photo.src = group.photo; photo.alt = `${group.species[0][0]} (${group.species[0][1]}). ${group.photoPlace}.`;
+                photo.width = group.photoWidth; photo.height = group.photoHeight;
+                faunaModal.querySelector(".selva-fauna-foto-credito").replaceChildren(
+                    document.createTextNode(`Foto: ${group.author} · `), link("Wikimedia Commons", group.photoSource),
+                    document.createTextNode(" · "), link(group.license, group.licenseUrl), document.createTextNode(`. ${group.photoPlace}.`));
+                showGroup(); window.ecoDialog.open(faunaModal, button);
+            } catch {
+                faunaGroups = undefined;
+                const feedback = element("p", "No se pudo cargar una ficha completa. Puedes volver a intentarlo.", "eco-document-error");
+                feedback.setAttribute("role", "status"); button.parentElement.querySelector(".eco-document-error")?.remove();
+                button.parentElement.append(feedback);
+            } finally { button.disabled = false; button.removeAttribute("aria-busy"); }
+        };
+        const prepareFaunaActions = () => {
+            const panel = document.getElementById('selva-biodiversidad-panel-fauna');
+            if (panel.hidden) return;
+            panel.querySelectorAll('[data-fauna-actions]').forEach(host => {
+                if (host.querySelector('button')) return;
+                const button = element('button', host.dataset.faunaActionLabel + ' →', 'selva-fauna-explorar');
+                button.type = 'button'; button.dataset.faunaExplorar = host.dataset.faunaActions;
+                button.setAttribute('aria-haspopup', 'dialog'); button.setAttribute('aria-controls', faunaModal.id);
+                button.addEventListener('click', () => openGroup(button)); host.append(button);
             });
-        });
-        back.addEventListener("click", () => showGroup(true));
-
+        };
+        biodiversity.addEventListener('eco:panelopen', prepareFaunaActions);
+        prepareFaunaActions();
     }
 
     const storyModal = document.querySelector("#selva-historia-modal");
@@ -423,18 +421,23 @@ document.addEventListener("DOMContentLoaded", () => {
             button.setAttribute("aria-controls", "selva-historia-modal");
             const cue = document.createElement("span");
             cue.className = "selva-historia-descubrir";
-            cue.textContent = "Descubrir →";
+            cue.textContent = {
+                Flora: "Conocer la castaña →", Fauna: "Leer sobre el jaguar →",
+                Ecosistemas: "Distinguir los ambientes →", Agua: "Comprender las cochas →",
+                Ambiente: "Reconocer las presiones →", Conservación: "Conocer el uso sostenible →"
+            }[button.querySelector(".selva-flip-categoria").textContent] || "Leer esta historia →";
             cue.setAttribute("aria-hidden", "true");
             button.querySelector(".selva-flip-frente-texto").append(cue);
             button.addEventListener("click", () => {
-                if (storyModal.open) return;
+                if (storyModal.open || !content.textContent.trim()) return;
                 storyModal.querySelector(".selva-historia-categoria").textContent = button.querySelector(".selva-flip-categoria").textContent;
                 storyModal.querySelector("#selva-historia-titulo").textContent = button.querySelector(".selva-flip-frente-titulo").textContent;
                 const visual = storyModal.querySelector(".selva-historia-visual");
-                const photo = button.querySelector("img").cloneNode(true);
-                photo.removeAttribute("loading");
-                photo.removeAttribute("sizes");
-                visual.replaceChildren(photo);
+                const illustration = button.querySelector("img, .eco-story-art");
+                if (!illustration) return;
+                const picture = illustration.cloneNode(true);
+                picture.removeAttribute("sizes");
+                visual.replaceChildren(picture);
                 const credit = button.querySelector(".selva-curiosidad-foto-credito, .selva-curiosidad-credito");
                 if (credit) visual.append(credit.cloneNode(true));
                 // Clonar mantiene texto, etiquetas, enlaces y todos los atributos de las fuentes.
@@ -560,13 +563,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewport = svg.getBoundingClientRect();
     const occupied = obstacles.map(el => el.getBoundingClientRect());
     [...candidates].sort((a, b) => b.priority - a.priority).forEach(item => {
-      const { text, group = text, anchor, size = 11 } = item;
+      const { text, group = text, anchor } = item;
       group.style.display = item.visible === false ? 'none' : '';
       group.dataset.atlasVisible = 'false';
       group.setAttribute('aria-hidden', 'true');
       if (item.visible === false) return;
       text.classList.add('eco-atlas-label');
-      text.style.fontSize = size * ratio + 'px';
+      text.style.fontSize = 'var(--text-note)';
+      const noteSize = parseFloat(getComputedStyle(text).fontSize) || 13;
+      text.style.fontSize = noteSize * ratio + 'px';
       text.style.strokeWidth = 2.5 * ratio + 'px';
       text.setAttribute('text-anchor', 'middle');
       const shifts = item.offsets || [[0, 0], [0, -16], [0, 16], [20, -10], [-20, 10]];
@@ -661,7 +666,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (document.portada) {
                 const figure = node('figure', 'eco-document-cover'); const image = node('img');
                 image.src = new URL(document.portada, ecoAssetsBase).href; image.width = document.ancho; image.height = document.alto;
-                image.alt = 'Primera página de ' + document.titulo;
+                image.alt = 'Primera página de ' + document.titulo; image.loading = 'lazy'; image.decoding = 'async';
                 figure.append(image, node('figcaption', '', 'Primera página del original · ' + document.autor)); layout.append(figure);
             }
             const details = node('section', 'eco-document-details');
@@ -781,7 +786,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const figure = pictures[imageIndex], original = figure.querySelector('img');
         const body = imageViewer.querySelector('.eco-overlay-body'); body.replaceChildren();
         const large = node('figure', 'eco-image-view'); const image = node('img');
-        image.src = original.src; image.alt = original.alt; image.width = original.width; image.height = original.height;
+        image.src = original.src; image.alt = original.alt; image.width = original.width; image.height = original.height; image.loading = 'lazy'; image.decoding = 'async';
         large.append(image); const caption = figure.querySelector('figcaption'); if (caption) large.append(clone(caption));
         body.append(large);
         if (pictures.length > 1) {
@@ -793,7 +798,8 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.append(node('span', '', (imageIndex + 1) + ' / ' + pictures.length)); body.append(nav);
         }
     };
-    pictures.forEach((figure, index) => {
+    const enhancePicture = (figure, index) => {
+        if (figure.querySelector(':scope > .eco-image-open')) return;
         const button = node('button', 'eco-image-open'); button.type = 'button'; button.append(icon('ampliar'));
         button.setAttribute('aria-label', 'Ampliar imagen: ' + figure.querySelector('img').alt); button.setAttribute('aria-haspopup', 'dialog');
         button.addEventListener('click', () => {
@@ -807,7 +813,28 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             showImage(index); open(imageViewer, button);
         }); figure.classList.add('eco-zoomable'); figure.append(button);
-    });
+    };
+    const enhanceVisiblePictures = () => {
+        document.querySelectorAll('.ficha-foto,.ficha-ilustracion,.anp-portada,.anp-foto,.historia-documento,.conoce-localizador').forEach(figure => {
+            const image = figure.querySelector('img');
+            if (!image || !figure.getClientRects().length || figure.closest('dialog:not([open])')) return;
+            let index = pictures.findIndex(item => item.querySelector('img').src === image.src);
+            if (index < 0) { index = pictures.length; pictures.push(figure); }
+            enhancePicture(figure, index);
+        });
+    };
+    document.addEventListener('toggle', enhanceVisiblePictures, true);
+    document.addEventListener('eco:dialogopen', enhanceVisiblePictures);
+    document.addEventListener('eco:panelopen', enhanceVisiblePictures);
+    enhanceVisiblePictures();
+    const revealHash = () => {
+        let target;
+        try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch { return; }
+        for (let current = target; current; current = current.parentElement) {
+            if (current.tagName === 'DETAILS') current.open = true;
+        }
+    };
+    revealHash(); window.addEventListener('hashchange', revealHash);
     // Herramientas breves: accesibles también mediante foco y tecla Escape.
     const tooltip = node('div', 'eco-tooltip'); tooltip.id = 'eco-tooltip'; tooltip.setAttribute('role', 'tooltip'); tooltip.hidden = true; document.body.append(tooltip);
     let tipOrigin, tipTimer;

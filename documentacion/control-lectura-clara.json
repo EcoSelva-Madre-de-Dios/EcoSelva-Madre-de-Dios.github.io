@@ -1,0 +1,57 @@
+{
+  "datos_originales_identicos": 42,
+  "svg_simbolos": 21,
+  "svg_bytes": 6461,
+  "paginas": 8,
+  "resoluciones_atlas": [
+    [
+      1366,
+      768
+    ],
+    [
+      1440,
+      900
+    ],
+    [
+      1536,
+      864
+    ],
+    [
+      1920,
+      1080
+    ],
+    [
+      2560,
+      1440
+    ],
+    [
+      768,
+      1024
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      412,
+      915
+    ]
+  ],
+  "lectura_resoluciones": [
+    [
+      320,
+      844
+    ],
+    [
+      390,
+      844
+    ],
+    [
+      1440,
+      900
+    ]
+  ],
+  "valores_castana_unicos": 5,
+  "fotografias_sin_repeticiones": true,
+  "anclas_anp_metodologia_conservadas": 6
+}

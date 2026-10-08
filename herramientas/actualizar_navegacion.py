@@ -2,6 +2,8 @@
 from pathlib import Path
 from html import escape
 import re
+import json
+from datetime import date
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = {
@@ -24,13 +26,22 @@ LINKS = (
 
 def fragments(page):
     prefix = '../' if '/' in page else ''
+    review = json.loads((ROOT / 'datos/fuentes.json').read_text())['revision_editorial']
+    if page == 'fichas/castana.html':
+        review = json.loads((ROOT / 'datos/fichas/castana.json').read_text())['fecha_revisión']
+    elif page == 'areas-protegidas.html':
+        model = re.search(r'<script type="application/json" id="anp-datos">(.*?)</script>', (ROOT / page).read_text(), re.S)
+        review = json.loads(model[1])['revision']
+    day = date.fromisoformat(review)
+    months = ('enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre')
+    review_text = f'{day.day} de {months[day.month-1]} de {day.year}'
     target, label = PAGES[page]
     links = ''.join(f'<li><a href="{prefix}{href}"' + (' aria-current="page"' if href == page else '') + f'>{text}</a></li>' for href, text in LINKS)
     header = f'''<!-- sitio:cabecera -->
-<header class="eco-barra eco-global-header"><div class="eco-wide"><a class="eco-marca" href="{prefix}index.html" aria-label="EcoSelva · inicio"><img src="{prefix}images/logo-ecoselva-educacion.png" width="768" height="768" alt=""><span>EcoSelva<small>Madre de Dios</small></span></a><a class="eco-global-return" href="{prefix}{target}">← {escape(label)}</a><details class="eco-global-menu"><summary>Menú</summary><nav class="eco-global-nav" aria-label="Navegación principal"><ul>{links}</ul></nav></details></div></header>
+<header class="eco-barra eco-global-header"><div class="eco-wide"><a class="eco-marca" href="{prefix}index.html" aria-label="EcoSelva · inicio"><img src="{prefix}images/logo-ecoselva-educacion.png" width="768" height="768" alt="" loading="lazy" decoding="async"><span>EcoSelva<small>Madre de Dios</small></span></a><a class="eco-global-return" href="{prefix}{target}">← {escape(label)}</a><details class="eco-global-menu"><summary>Menú</summary><nav class="eco-global-nav" aria-label="Navegación principal"><ul>{links}</ul></nav></details></div></header>
 <!-- /sitio:cabecera -->'''
     footer = f'''<!-- sitio:pie -->
-<footer class="eco-global-footer eco-wide"><span>EcoSelva Madre de Dios</span><nav aria-label="Enlaces del sitio"><a href="{prefix}index.html">Inicio</a><a href="{prefix}biblioteca.html">Biblioteca</a><a href="{prefix}fuentes-metodologia.html">Fuentes y metodología</a><a href="mailto:ecoselvamadrededios@gmail.com">Contacto</a><a href="#contenido">Volver al comienzo ↑</a></nav></footer>
+<footer class="eco-global-footer eco-wide"><span>EcoSelva Madre de Dios</span><span class="eco-footer-review">Revisión de fuentes: <time datetime="{review}">{review_text}</time></span><nav aria-label="Enlaces del sitio"><a href="{prefix}index.html">Inicio</a><a href="{prefix}biblioteca.html">Biblioteca</a><a href="{prefix}fuentes-metodologia.html">Fuentes y metodología</a><a href="mailto:ecoselvamadrededios@gmail.com">Contacto</a><a href="#contenido">Volver al comienzo ↑</a></nav></footer>
 <!-- /sitio:pie -->'''
     return header, footer
 

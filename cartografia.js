@@ -9,13 +9,15 @@
     const viewport = svg.getBoundingClientRect();
     const occupied = obstacles.map(el => el.getBoundingClientRect());
     [...candidates].sort((a, b) => b.priority - a.priority).forEach(item => {
-      const { text, group = text, anchor, size = 11 } = item;
+      const { text, group = text, anchor } = item;
       group.style.display = item.visible === false ? 'none' : '';
       group.dataset.atlasVisible = 'false';
       group.setAttribute('aria-hidden', 'true');
       if (item.visible === false) return;
       text.classList.add('eco-atlas-label');
-      text.style.fontSize = size * ratio + 'px';
+      text.style.fontSize = 'var(--text-note)';
+      const noteSize = parseFloat(getComputedStyle(text).fontSize) || 13;
+      text.style.fontSize = noteSize * ratio + 'px';
       text.style.strokeWidth = 2.5 * ratio + 'px';
       text.setAttribute('text-anchor', 'middle');
       const shifts = item.offsets || [[0, 0], [0, -16], [0, 16], [20, -10], [-20, 10]];

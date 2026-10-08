@@ -1,48 +1,48 @@
 /* Estructura externa del mini atlas; no modifica capas ni controles cartográficos. */
 .conoce-madre { padding-block: 56px 0; background: var(--paper); color: var(--ink); }
-.conoce-cabecera h2 { margin-block: var(--space-2) var(--space-3); font: 700 clamp(32px, 4.2vw, 48px)/1.15 var(--font-heading); letter-spacing: -.035em; color: var(--forest-deep); }
-.conoce-subtitulo { max-width: 790px; font-size: 20px; color: var(--forest); line-height: 1.6; }
-.conoce-introduccion { max-width: 790px; margin-top: var(--space-2); font-size: 15px; color: var(--muted); line-height: 1.75; }
+.conoce-cabecera h2 { margin-block: var(--space-2) var(--space-3); font:700 var(--text-display)/1.15 var(--font-heading); letter-spacing: -.035em; color: var(--forest-deep); }
+.conoce-subtitulo { max-width: 790px; font-size: var(--text-title); color: var(--forest); line-height: 1.6; }
+.conoce-introduccion { max-width: 790px; margin-top: var(--space-2); font-size: var(--text-body); color: var(--muted); line-height: 1.75; }
 .conoce-accesos { display: flex; gap: var(--space-1); margin-block: var(--space-4) var(--space-5); padding-block: 2px var(--space-1); overflow-x: auto; }
-.conoce-accesos a { flex: 0 0 auto; padding: 10px 18px; border: 1px solid #c9d2c3; border-radius: 6px; background: #fff; color: var(--forest); font-size: 14px; font-weight: 600; }
+.conoce-accesos a { flex: 0 0 auto; padding: 10px 18px; border: 1px solid #c9d2c3; border-radius: 6px; background: #fff; color: var(--forest); font-size: var(--text-note); font-weight: 600; }
 .conoce-accesos a:hover { background: #e3eadc; border-color: var(--forest); }
 .conoce-accesos a:focus-visible, .conoce-modulo :is(a,summary):focus-visible, .conoce-cierre a:focus-visible, .conoce-modal :focus-visible { outline: 3px solid var(--water); outline-offset: 4px; }
 .conoce-modulo { padding-block: 30px; border-top: 1px solid #c9d2c3; }
 .conoce-modulo-cabecera { margin-bottom: 22px; }
 .conoce-numero { margin-bottom: 9px; color: #476044; font-size: var(--text-credit); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
-.conoce-modulo h3, #conoce-madre-de-dios .conoce-mapa-titulo, .conoce-cierre h3 { color: var(--forest-deep); font: 700 clamp(24px, 2.6vw, 30px)/1.25 var(--font-heading); letter-spacing: -.025em; }
-.conoce-modulo h4, .conoce-cierre h4 { color: var(--forest-deep); font: 700 17px/1.5 var(--font-heading); }
+.conoce-modulo h3, #conoce-madre-de-dios .conoce-mapa-titulo, .conoce-cierre h3 { color: var(--forest-deep); font:700 var(--text-title)/1.25 var(--font-heading); letter-spacing: -.025em; }
+.conoce-modulo h4, .conoce-cierre h4 { color: var(--forest-deep); font:700 var(--text-body)/1.5 var(--font-heading); }
 .conoce-cabecera p, .conoce-modulo p, .conoce-cierre p { line-height: 1.75; }
 .conoce-ubicacion-grid { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.6fr); align-items: start; gap: 36px; }
 .conoce-localizador { max-width: 340px; margin-inline: auto; }
 .conoce-localizador img { display: block; width: 100%; height: auto; }
 .conoce-localizador figcaption, .conoce-limites figcaption { margin-top: 9px; color: #52614f; font-size: var(--text-credit); line-height: 1.6; }
-.conoce-ubicacion-texto > p { font-size: 15px; margin-bottom: 22px; }
+.conoce-ubicacion-texto > p { font-size: var(--text-body); margin-bottom: 22px; }
 .conoce-datos { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-3); padding-block: var(--space-3); border-block: 1px solid #c9d2c3; }
 .conoce-datos > div { min-width: 0; }
 .conoce-datos dt { margin-bottom: 6px; color: #52614f; font-size: var(--text-credit); font-weight: 600; }
-.conoce-datos dd { color: var(--forest); font: 700 24px/1.35 var(--font-heading); font-variant-numeric: tabular-nums; }
+.conoce-datos dd { color: var(--forest); font:700 var(--text-title)/1.35 var(--font-heading); font-variant-numeric: tabular-nums; }
 .conoce-datos dd > span { font-size: var(--text-credit); font-weight: 400; }
-.conoce-datos .conoce-dato-capital { font-size: 17px; }
+.conoce-datos .conoce-dato-capital { font-size: var(--text-body); }
 .conoce-datos small { display: block; margin-top: 6px; font: 400 var(--text-credit)/1.6 var(--font-body); color: #52614f; }
 .conoce-limites { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .7fr); align-items: center; gap: 20px; max-width: 560px; margin-block: 18px var(--space-2); }
 .conoce-limites img { display: block; width: 100%; height: auto; }
 .conoce-limites figcaption { font-size: var(--text-credit); }
 .conoce-limites-detalle { margin-top: 18px; }
-.conoce-limites-detalle > summary { cursor: pointer; color: var(--forest); font-size: 14px; line-height: 1.7; }
+.conoce-limites-detalle > summary { cursor: pointer; color: var(--forest); font-size: var(--text-note); line-height: 1.7; }
 .conoce-provincias { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; align-items: start; }
 .conoce-provincia { min-width: 0; border: 1px solid #c9d2c3; border-radius: 10px; background: #fff; }
 .conoce-provincia > summary { padding: 20px; list-style: none; cursor: pointer; border-radius: 10px; }
 .conoce-provincia > summary::-webkit-details-marker { display: none; }
 .conoce-provincia > summary::marker { content: ""; }
 .conoce-provincia > summary:hover { background: #f5f7ef; }
-.conoce-provincia > summary > strong { display: block; color: var(--forest-deep); font: 700 21px/1.35 var(--font-heading); }
-.conoce-provincia-capital { display: block; margin-top: var(--space-1); font-size: 14px; color: #52614f; }
+.conoce-provincia > summary > strong { display: block; color: var(--forest-deep); font:700 var(--text-title)/1.35 var(--font-heading); }
+.conoce-provincia-capital { display: block; margin-top: var(--space-1); font-size: var(--text-note); color: #52614f; }
 .conoce-provincia-cantidad { display: block; margin-top: var(--space-3); font-size: var(--text-credit); font-weight: 600; color: var(--forest); }
 .conoce-distritos { display: flex; flex-wrap: wrap; gap: 6px; margin-block: 10px 18px; }
 .conoce-distritos > span { padding: 4px var(--space-1); border-radius: 4px; background: #e8eedf; font-size: var(--text-credit); color: var(--forest); }
-.conoce-provincia-abrir { display: block; font-size: 14px; font-weight: 600; color: var(--forest); }
-.conoce-provincia > .conoce-detalle { padding: 20px; border-top: 1px solid #c9d2c3; font-size: 14px; }
+.conoce-provincia-abrir { display: block; font-size: var(--text-note); font-weight: 600; color: var(--forest); }
+.conoce-provincia > .conoce-detalle { padding: 20px; border-top: 1px solid #c9d2c3; font-size: var(--text-note); }
 .conoce-referencia { margin-top: 14px; color: #52614f; font-size: var(--text-credit); line-height: 1.65; }
 .conoce-fuentes { width: fit-content; margin-top: 14px; max-width: 100%; }
 .conoce-fuentes > summary { cursor: pointer; color: var(--forest); font-size: var(--text-credit); font-weight: 600; padding-block: var(--space-1); text-decoration: underline; text-underline-offset: 4px; }
@@ -55,44 +55,44 @@
 .conoce-geografia-bloque { min-width: 0; padding: 20px; background: #fff; border: 1px solid #d1d9ca; border-radius: 8px; }
 .conoce-geografia-bloque > summary, .conoce-persona > summary { cursor: pointer; }
 .conoce-geografia-bloque summary h4, .conoce-persona summary h4 { display: inline; }
-.conoce-bloque-resumen { margin-top: var(--space-1); font-size: 14px; color: #52614f; }
+.conoce-bloque-resumen { margin-top: var(--space-1); font-size: var(--text-note); color: #52614f; }
 .conoce-bloque-detalle { margin-top: var(--space-3); }
 .conoce-bloque-detalle > img { display: block; width: 100%; height: auto; margin-block: var(--space-2); }
-.conoce-bloque-detalle > p { margin-top: var(--space-2); font-size: 14px; }
+.conoce-bloque-detalle > p { margin-top: var(--space-2); font-size: var(--text-note); }
 .conoce-geografia-bloque .conoce-referencia { font-size: var(--text-credit); }
 .conoce-bloque-detalle > .conoce-esquema-etiqueta { font-size: var(--text-credit); color: #52614f; }
-.conoce-enlace { display: inline-block; margin-top: var(--space-3); color: var(--forest); font-size: 14px; font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
+.conoce-enlace { display: inline-block; margin-top: var(--space-3); color: var(--forest); font-size: var(--text-note); font-weight: 600; text-decoration: underline; text-underline-offset: 4px; }
 .conoce-timeline { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); list-style: none; gap: var(--space-4); }
 .conoce-timeline li { position: relative; padding-top: 22px; border-top: 2px solid #b5c1a6; }
 .conoce-timeline li::before { content: ""; position: absolute; top: -6px; left: 0; width: 10px; height: 10px; border-radius: 50%; background: var(--forest); }
 .conoce-tiempo { margin-bottom: 10px; color: #755230; font-size: var(--text-credit); font-weight: 600; }
-.conoce-timeline li > p:last-child { margin-top: 10px; font-size: 14px; }
+.conoce-timeline li > p:last-child { margin-top: 10px; font-size: var(--text-note); }
 #conoce-historia .conoce-timeline { grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; }
-#conoce-historia .conoce-timeline h4 { font-size: 15px; }
+#conoce-historia .conoce-timeline h4 { font-size: var(--text-body); }
 .conoce-historia-acceso { padding: var(--space-2) 18px; border-radius: 6px; background: var(--forest); color: #fff; text-decoration: none; }
 @media (min-width: 761px) and (max-width: 1000px) { #conoce-historia .conoce-timeline { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 .conoce-personas-grid { display: grid; align-items: start; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
-.conoce-personas-intro { max-width: 760px; margin-bottom: 20px; font-size: 15px; }
+.conoce-personas-intro { max-width: 760px; margin-bottom: 20px; font-size: var(--text-body); }
 .conoce-persona { padding-left: 20px; border-left: 3px solid #a5b994; }
-.conoce-persona .conoce-bloque-detalle > p { margin-top: 10px; font-size: 15px; }
+.conoce-persona .conoce-bloque-detalle > p { margin-top: 10px; font-size: var(--text-body); }
 .conoce-persona .conoce-bloque-detalle > .conoce-referencia { font-size: var(--text-credit); }
 .conoce-cierre { padding-block: 30px; border-top: 1px solid #c9d2c3; }
 .conoce-importancia { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 22px; margin-top: var(--space-4); }
-.conoce-importancia p { margin-top: var(--space-1); font-size: 14px; }
+.conoce-importancia p { margin-top: var(--space-1); font-size: var(--text-note); }
 .conoce-importancia a { color: var(--forest); text-decoration: underline; text-underline-offset: 3px; }
-.conoce-cierre-frase { margin-top: var(--space-4); max-width: 770px; font-size: 17px; color: var(--forest); }
+.conoce-cierre-frase { margin-top: var(--space-4); max-width: 770px; font-size: var(--text-body); color: var(--forest); }
 .conoce-siguiente { margin-block: var(--space-3) 0; padding: var(--space-2) 18px; border-radius: 6px; background: var(--forest); color: #fff; text-decoration: none; }
 #conoce-madre-de-dios .selva-introduccion { padding-block: 28px 42px; }
-#conoce-madre-de-dios .selva-introduccion h2 { font-size: 29px; }
+#conoce-madre-de-dios .selva-introduccion h2 { font-size: var(--text-title); }
 #conoce-madre-de-dios .selva-introduccion .container { max-width: 1200px; }
 .conoce-modal { width: min(800px, calc(100vw - 40px)); max-height: calc(100dvh - 56px); padding: 0; }
 .conoce-modal .selva-territorio-fuentes-modal-cabecera { position: sticky; top: 0; z-index: 1; background: #fff; }
-.conoce-modal-contenido { padding: var(--space-4); font-size: 15px; line-height: 1.75; }
+.conoce-modal-contenido { padding: var(--space-4); font-size: var(--text-body); line-height: 1.75; }
 .conoce-modal-contenido p + p { margin-top: var(--space-3); }
 .conoce-modal a, .conoce-detalle a { color: var(--forest); text-decoration: underline; text-underline-offset: 4px; }
 .conoce-documento + .conoce-documento { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid #d1d9ca; }
-.conoce-documento h4 { color: var(--forest-deep); font: 700 17px/1.5 var(--font-heading); margin-bottom: var(--space-3); }
-.conoce-documento dl, .conoce-ficha-provincia { display: grid; grid-template-columns: 155px minmax(0, 1fr); gap: 10px 20px; font-size: 14px; line-height: 1.7; }
+.conoce-documento h4 { color: var(--forest-deep); font:700 var(--text-body)/1.5 var(--font-heading); margin-bottom: var(--space-3); }
+.conoce-documento dl, .conoce-ficha-provincia { display: grid; grid-template-columns: 155px minmax(0, 1fr); gap: 10px 20px; font-size: var(--text-note); line-height: 1.7; }
 .conoce-documento dt, .conoce-ficha-provincia dt { color: #52614f; }
 .conoce-documento dd, .conoce-ficha-provincia dd { overflow-wrap: anywhere; min-width: 0; }
 .conoce-ficha-provincia { margin-bottom: 20px; }
@@ -104,7 +104,7 @@
 }
 @media (max-width: 760px) {
     .conoce-madre { padding-top: 34px; }
-    .conoce-subtitulo { font-size: 18px; }
+    .conoce-subtitulo { font-size: var(--text-body); }
     .conoce-accesos { margin-block: 20px 22px; }
     .conoce-accesos a { padding-inline: 14px; }
     .conoce-modulo { padding-block: var(--space-4); }
@@ -114,10 +114,10 @@
     .conoce-limites { grid-template-columns: minmax(0, 1fr); gap: 6px; margin-inline: auto; max-width: 360px; }
     .conoce-limites figcaption { margin-top: 0; }
     .conoce-datos { gap: 14px 22px; }
-    .conoce-datos dd { font-size: 25px; }
+    .conoce-datos dd { font-size: var(--text-title); }
     .conoce-provincias { grid-template-columns: minmax(0, 1fr); gap: var(--space-2); }
     .conoce-provincia > summary { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--space-2); padding: var(--space-3) 18px; }
-    .conoce-provincia > summary > strong { font-size: 20px; }
+    .conoce-provincia > summary > strong { font-size: var(--text-title); }
     .conoce-provincia-capital { grid-column: 1 / -1; margin-top: 5px; }
     .conoce-provincia-cantidad { grid-column: 2; grid-row: 1; margin-top: 4px; white-space: nowrap; }
     .conoce-distritos { grid-column: 1 / -1; margin-block: 10px; }
@@ -134,10 +134,10 @@
     .conoce-timeline li::before { top: 5px; left: -6px; }
     .conoce-personas-grid { grid-template-columns: minmax(0, 1fr); gap: 22px; }
     .conoce-importancia { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-    .conoce-cierre-frase { font-size: 16px; }
+    .conoce-cierre-frase { font-size: var(--text-body); }
     #conoce-madre-de-dios .selva-introduccion { padding-block: var(--space-2) var(--space-5); }
     #conoce-madre-de-dios .selva-introduccion .container { gap: 18px; }
-    #conoce-madre-de-dios .selva-introduccion h2 { font-size: 25px; }
+    #conoce-madre-de-dios .selva-introduccion h2 { font-size: var(--text-title); }
     .conoce-modal { inset: auto 0 0; width: 100%; max-height: 88dvh; margin: 0; border-radius: 18px 18px 0 0; }
     .conoce-modal-contenido { padding: 20px; }
     .conoce-documento dl, .conoce-ficha-provincia { grid-template-columns: minmax(0, 1fr); gap: 4px; }
@@ -153,7 +153,7 @@
     .conoce-modulo { break-inside: auto; }
 }
 .conoce-conservacion{display:flex;align-items:center;justify-content:space-between;gap:28px;margin-top:var(--space-4);padding:20px 22px;border:1px solid #c8d9cb;border-radius:8px;background:#f3f6ee;text-align:left}
-.conoce-conservacion strong{font-family:Manrope,Arial,sans-serif;font-size:16px;color:#173c2d}
+.conoce-conservacion strong{font-family:Manrope,Arial,sans-serif;font-size: var(--text-body);color:#173c2d}
 .conoce-conservacion p{font-size:var(--text-credit);line-height:1.65;margin:var(--space-1) 0 0;color:#3f5347}
 .conoce-conservacion p a{color:#173c2d;text-decoration:underline}
 .conoce-conservacion-acceso{flex-shrink:0;display:inline-flex;align-items:center;min-height:44px;padding:11px var(--space-3);background:#173c2d;color:#fff;border-radius:5px;font-size:var(--text-credit);font-weight:600;text-decoration:none}

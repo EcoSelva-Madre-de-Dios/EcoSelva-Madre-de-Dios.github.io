@@ -45,6 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     window.addEventListener('hashchange', () => revealTarget(hashTarget()));
     document.addEventListener('click', event => {
+        if (event.defaultPrevented) return;
         const anchor = event.target.closest('a[href^="#"]');
         if (!anchor) return;
         let target;

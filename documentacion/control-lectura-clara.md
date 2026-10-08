@@ -1,0 +1,27 @@
+# Revisión de lectura y controles
+
+8 de octubre de 2026. Esta fecha corresponde a la implementación visual, no a una nueva revisión científica. Las revisiones originales de las fuentes siguen en el pie de cada página.
+
+La portada muestra ubicación y provincias sin referencias repetidas. Los conteos documentados de Flora se consultan en su lectura completa; Fauna conserva las cuatro cifras regionales y una referencia numerada de CEPLAN. Las historias usan citas numéricas y un registro único por documento. Se unifican la norma de creación de Madre de Dios y su digitalización, conservando el ancla antigua. Flora, Historia, Territorio, Áreas protegidas y castaña remiten sus notas metodológicas extensas a Fuentes y metodología. El alcance común de las seis fichas oficiales de áreas protegidas se explica una sola vez, manteniendo todas las anclas anteriores.
+
+La ficha de castaña muestra una sola fila por cada uno de los cinco registros, con precisión original. Las tres observaciones regionales con cáscara están separadas del registro nacional y del producto pelado. Las tarjetas, el destacado y la comparación remiten a esa tabla y a su procedencia. Los números no se suman ni se recalculan. Los generadores y el verificador vinculan la fila visible con el contexto de cada registro y el CSV original.
+
+Cuatro tamaños con clamp: notas 13–14 px, lectura 16–18 px, títulos 22–28 px y destacado 32–56 px. Los alias anteriores apuntan a esos cuatro tamaños. Se reemplazan tanto font-size como los tamaños de las formas abreviadas font. Lectura máxima 65ch y escala de espacios múltiplos de 8 px; los nuevos bloques utilizan esa escala. Las etiquetas de los mapas usan el tamaño de notas compensado por la transformación SVG.
+
+Se utiliza una colección SVG plana de 21 símbolos, 6 461 bytes en total, sin trazos, con dos o tres tonos de las variables CSS. Cubre separadores, provincias, grupos de fauna, pasos de colaboración, secuencia educativa y accesos temáticos. Las ilustraciones son simbólicas y decorativas; no son nueva cartografía. Los recursos raster anteriores se conservan en el repositorio. No se repite la misma fotografía entre las secciones y lecturas revisadas: castaña y jaguar se representan con SVG en Historias; la foto documental permanece en su ficha o en Fauna. Fauna muestra una sola fotografía por grupo, conservando lugar, crédito, licencia y alcance ilustrativo cuando corresponde. No se vuelve a incluir la foto en la lista de especies. Territorio utiliza el símbolo de castaña y mantiene la fotografía en la ficha; Collpa Colorado aparece una sola vez en Áreas protegidas.
+
+Las fotografías usan aspect-ratio y object-fit: cover; la foto botánica de castaña conserva su relación 745/858 para mostrar el objeto completo. Las imágenes conservan dimensiones y carga lazy; el visor de ampliación utiliza contain para consultar documentos sin recortarlos. Colabora contiene una frase, tres pasos con SVG, el enlace original al formulario y una línea de compromiso. La secuencia educativa es una lista accesible con iconos planos.
+
+Los botones de Fauna se crean al abrir la pestaña; los botones de cierre de diálogos estáticos se instancian desde plantillas al abrirlos. La ampliación de imágenes se activa solo para contenido visible. Las fichas rechazan datos ausentes o listas vacías y ofrecen reintento; el contenido se prepara antes de mostrar la ventana. El gestor de diálogos devuelve foco y posición; las citas de Flora y Territorio abren contexto, evitando desplazar la lectura. Los enlaces a las notas metodológicas abren sus detalles de forma progresiva. Las rutas anteriores se conservan con anclas de compatibilidad.
+
+## Validación
+
+- `python herramientas/actualizar_sitio.py` y `python herramientas/verificar_sitio.py`: contenido reproducible, páginas, rutas, Analytics único G-0KG7JC82NV, fuentes, precisión de indicadores y geometrías de presentación.
+- `herramientas/verificar_interacciones.cjs`: ocho páginas a 320, 390, 820 y 1440 px; Flora, cuatro grupos de Fauna, diálogos, foco, teclado, alternativa sin JavaScript, capas, carga fallida y reintento, axe WCAG A/AA.
+- `herramientas/verificar_atlas.cjs`: ocho tamaños, capas por intención, etiquetas 13–14 px sin colisión y escala dinámica vinculada a la transformación.
+- `herramientas/verificar_lectura.cjs`: revisión única en el pie, dimensiones/lazy, controles diferidos, cinco valores únicos, paneles completos, error con lista de fauna vacía, reintento, retorno de foco y posición al momento real del clic. La comprobación distingue revisión editorial de fechas de creación o publicación.
+- Revisión visual de Conoce, Biodiversidad, Ambiente, Sobre EcoSelva, Colabora y castaña en escritorio y móvil. Se corrigen la cuadrícula heredada de Colabora y el desborde de accesos a 320 px.
+
+Todos los archivos previamente rastreados de datos/ permanecen idénticos al commit anterior; incluye los modelos científicos, fuentes, CSV, GeoJSON y SVG originales y derivados. Se conservan las advertencias MINAM 2015 y limitaciones distritales. Ocho geometrías inválidas de la copia web siguen documentadas sin alterarlas. No se reciben ni convierten shapefiles nuevos; el inventario y comparación deben preceder cualquier conversión o sustitución futura. Las procedencias/licencias fotográficas pendientes continúan en la auditoría existente.
+
+El código por sección está en `codigo-revision-lectura.md`. Las pruebas de navegador requieren Playwright/axe del entorno de desarrollo; no se añaden dependencias a la página pública.
