@@ -249,7 +249,24 @@
     </h3>
    </header>
    <div class="eco-preview-map">
-    <img alt="Esquema de un río que conecta bosques y humedales; ilustración educativa sin escala." decoding="async" height="260" loading="lazy" src="images/territorio-rio.svg" width="720"/>
+    <figure class="eco-territorio-photo">
+     <img alt="Agua del lago Sandoval frente a una orilla de bosque y palmeras, con reflejos de la vegetación." decoding="async" height="855" loading="lazy" src="images/lago-sandoval-carine06.jpg" width="1280"/>
+     <figcaption>
+      Lago Sandoval, Madre de Dios. Foto:
+      <a href="https://www.flickr.com/people/43555660@N00" rel="noopener noreferrer" target="_blank">
+       Carine06
+      </a>
+      ·
+      <a href="https://commons.wikimedia.org/wiki/File:Lake_Sandoval_(7958399600).jpg" rel="noopener noreferrer" target="_blank">
+       Wikimedia Commons
+      </a>
+      ·
+      <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener noreferrer" target="_blank">
+       CC BY-SA 2.0
+      </a>
+      . Versión reducida; encuadre adaptado.
+     </figcaption>
+    </figure>
     <div>
      <p>
       Activa las capas del mapa y consulta sus registros. Las fechas corresponden a las fuentes; no es un monitoreo en tiempo real.
@@ -1645,6 +1662,13 @@
 /* Fauna: orden de lectura continuo, cifras estables y acciones al final. */
 .eco-site #biodiversidad .selva-fauna-stat{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto 1fr;grid-template-areas:"icono" "titulo" "numero" "descripcion" "accion";gap:var(--space-1)}
 .eco-site #biodiversidad .selva-fauna-stat>[data-fauna-actions]{grid-area:accion;align-self:end}
+/* Fotografía documental del territorio, con crédito visible. */
+.eco-site .eco-preview-map .eco-territorio-photo{min-width:0;margin:0}
+.eco-site .eco-territorio-photo img{aspect-ratio:16/9;object-fit:cover;object-position:50% 60%;border-radius:var(--radius-md)}
+.eco-site .eco-territorio-photo figcaption{margin-top:var(--space-1);font-size:var(--text-note);line-height:1.6;color:var(--muted)}
+.eco-site .eco-territorio-photo figcaption a{text-decoration:underline;text-underline-offset:3px}
+/* Sobre EcoSelva: fotografía más baja en escritorio y móvil. */
+.eco-site #quienes-somos .selva-sobre-imagen img{height:clamp(144px,16vw,224px);min-height:0;max-height:224px;object-fit:cover;object-position:50% 50%}
 
 ```
 

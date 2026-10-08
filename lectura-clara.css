@@ -93,3 +93,10 @@
 /* Fauna: orden de lectura continuo, cifras estables y acciones al final. */
 .eco-site #biodiversidad .selva-fauna-stat{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto 1fr;grid-template-areas:"icono" "titulo" "numero" "descripcion" "accion";gap:var(--space-1)}
 .eco-site #biodiversidad .selva-fauna-stat>[data-fauna-actions]{grid-area:accion;align-self:end}
+/* Fotografía documental del territorio, con crédito visible. */
+.eco-site .eco-preview-map .eco-territorio-photo{min-width:0;margin:0}
+.eco-site .eco-territorio-photo img{aspect-ratio:16/9;object-fit:cover;object-position:50% 60%;border-radius:var(--radius-md)}
+.eco-site .eco-territorio-photo figcaption{margin-top:var(--space-1);font-size:var(--text-note);line-height:1.6;color:var(--muted)}
+.eco-site .eco-territorio-photo figcaption a{text-decoration:underline;text-underline-offset:3px}
+/* Sobre EcoSelva: fotografía más baja en escritorio y móvil. */
+.eco-site #quienes-somos .selva-sobre-imagen img{height:clamp(144px,16vw,224px);min-height:0;max-height:224px;object-fit:cover;object-position:50% 50%}
