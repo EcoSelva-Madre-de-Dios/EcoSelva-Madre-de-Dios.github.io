@@ -4932,32 +4932,3 @@ html:has(dialog[open]){overflow:hidden}
 /* Observación: conservar el agua y la orilla dentro del encuadre de la fotografía. */
 .eco-site #explora-madre-de-dios .territorio-foto-observa img{aspect-ratio:4/3;object-fit:cover;object-position:50% 80%}
 .eco-site #explora-madre-de-dios .territorio-foto-observa figcaption a{text-decoration:underline;text-underline-offset:3px}
-/* Emblemas de las provincias en la portada */
-.eco-site .conoce-provincia summary {
-    grid-template-columns: 112px minmax(0, 1fr);
-    column-gap: var(--space-3);
-    align-items: center;
-}
-
-.eco-site .conoce-provincia summary .conoce-provincia-emblema {
-    display: block;
-    grid-column: 1;
-    grid-row: 1 / 4;
-    width: 112px;
-    height: 112px;
-    object-fit: contain;
-    align-self: center;
-    justify-self: center;
-}
-
-@media (max-width: 640px) {
-    .eco-site .conoce-provincia summary {
-        grid-template-columns: 88px minmax(0, 1fr);
-        column-gap: var(--space-2);
-    }
-
-    .eco-site .conoce-provincia summary .conoce-provincia-emblema {
-        width: 88px;
-        height: 88px;
-    }
-}
