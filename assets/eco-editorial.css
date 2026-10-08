@@ -855,3 +855,6 @@ html:has(dialog[open]){overflow:hidden}
 .eco-site #biodiversidad .eco-topic-heading h2{width:auto;margin:0;text-align:left}
 .eco-site .territorio-castana-art{width:min(240px,100%);height:auto;aspect-ratio:1;justify-self:center}
 .eco-site .anp-galeria>.anp-foto:only-child{grid-column:1/-1;width:min(100%,800px);justify-self:center}
+/* Fauna: orden de lectura continuo, cifras estables y acciones al final. */
+.eco-site #biodiversidad .selva-fauna-stat{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto 1fr;grid-template-areas:"icono" "titulo" "numero" "descripcion" "accion";gap:var(--space-1)}
+.eco-site #biodiversidad .selva-fauna-stat>[data-fauna-actions]{grid-area:accion;align-self:end}

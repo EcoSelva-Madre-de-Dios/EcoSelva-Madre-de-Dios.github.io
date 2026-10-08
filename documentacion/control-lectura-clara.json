@@ -1,7 +1,7 @@
 {
   "datos_originales_identicos": 42,
-  "svg_simbolos": 21,
-  "svg_bytes": 6461,
+  "svg_simbolos": 22,
+  "svg_bytes": 7011,
   "paginas": 8,
   "resoluciones_atlas": [
     [
@@ -53,5 +53,9 @@
   ],
   "valores_castana_unicos": 5,
   "fotografias_sin_repeticiones": true,
-  "anclas_anp_metodologia_conservadas": 6
+  "anclas_anp_metodologia_conservadas": 6,
+  "cifras_fauna_estables": true,
+  "primera_especie_visible_al_abrir": true,
+  "enlaces_antiguos_preservados": 86,
+  "accesos_del_heroe": 1
 }

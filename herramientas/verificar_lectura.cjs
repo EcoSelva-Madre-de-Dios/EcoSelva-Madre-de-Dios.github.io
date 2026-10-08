@@ -46,6 +46,10 @@ async function position(page, trigger, dialog, close) {
     await position(page,page.locator('.selva-flip-toggle').first(),'#selva-historia-modal','.selva-historia-cerrar');
     await page.locator('#selva-biodiversidad-tab-fauna').click();
     assert.equal(await page.locator('[data-fauna-explorar]').count(),4);
+    assert.equal(await page.locator('#inicio a[href="#conoce-madre-de-dios"]').count(),1,'Acceso del héroe duplicado');
+    assert.equal(await page.locator('img[src="images/castana.jpg"]').count(),0,'Foto sin relación con uso sostenible');
+    assert.deepEqual(await page.locator('.selva-fauna-stat').evaluateAll(cards=>cards.map(card=>[card.querySelector('h3').textContent.trim(),card.querySelector('[data-fauna-count]').textContent.trim()])),[['Mamíferos','214'],['Aves','755'],['Reptiles','132'],['Anfibios','124']]);
+    assert(await page.locator('.selva-fauna-stat').evaluateAll(cards=>cards.every(card=>card.querySelector('[data-fauna-actions]').getBoundingClientRect().top>=card.querySelector('.selva-fauna-descripcion').getBoundingClientRect().bottom)),'Botón de Fauna antes de su descripción');
     for (const group of ['mamiferos','aves','reptiles','anfibios']) {
       const trigger=page.locator('[data-fauna-explorar="'+group+'"]');
       await trigger.scrollIntoViewIfNeeded();
@@ -53,6 +57,9 @@ async function position(page, trigger, dialog, close) {
       await trigger.click(); await page.locator('#selva-fauna-modal[open]').waitFor();
       const before=await page.evaluate(()=>window.ecoReadingOrigin);
       assert.equal(await page.locator('.selva-fauna-especies li').count(),3);
+      const first=await page.locator('.selva-fauna-especies h4').first().boundingBox();
+      assert(first&&first.y>=0&&first.y+first.height<=height,'La primera vista solo muestra la foto');
+      assert(await page.locator('#selva-fauna-modal').evaluate(dialog=>dialog.querySelector('.selva-fauna-modal-contenido').getBoundingClientRect().top<dialog.querySelector('.selva-fauna-modal-imagen').getBoundingClientRect().top),'La fotografía precede a la lectura');
       assert.equal(await page.locator('#selva-fauna-modal img[src]').count(),1,'Foto repetida en Fauna');
       await page.locator('.selva-fauna-conocer').nth(1).click();
       assert(await page.locator('.selva-fauna-ficha').isVisible());
@@ -86,6 +93,17 @@ async function position(page, trigger, dialog, close) {
     await context.close();
     console.log('Lectura correcta:',width+'×'+height,'datos únicos, revisión en el pie, controles diferidos, paneles completos, reintento y posición conservada.');
   }
+  // Con animación habilitada, los cuatro valores deben conservarse desde el primer clic.
+  const normal=await browser.newContext({viewport:{width:390,height:844},reducedMotion:'no-preference'});
+  const moving=await normal.newPage();
+  await moving.route(/googletagmanager|google-analytics/,r=>r.abort());
+  await moving.goto(new URL('index.html',base).href,{waitUntil:'domcontentloaded'});
+  await moving.locator('#selva-biodiversidad-tab-fauna').click();
+  for(let frame=0;frame<5;frame++){
+    assert.deepEqual(await moving.locator('[data-fauna-count]').allTextContents(),['214','755','132','124'],'Cifra documental sustituida por un contador transitorio');
+    await moving.evaluate(()=>new Promise(resolve=>requestAnimationFrame(resolve)));
+  }
+  await normal.close();
   assert(fs.statSync('images/ecoselva-planas.svg').size<10000);
   await browser.close();
 })().catch(async error=>{console.error(error);await browser?.close();process.exitCode=1;});

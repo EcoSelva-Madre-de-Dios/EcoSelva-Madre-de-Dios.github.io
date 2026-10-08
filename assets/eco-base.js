@@ -279,29 +279,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Contadores independientes: cada registro se anima solo al hacerse visible.
-    const faunaCounters = [...document.querySelectorAll("[data-fauna-count]")];
-    if (faunaCounters.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
-        const faunaObserver = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                faunaObserver.unobserve(entry.target);
-                const counter = entry.target;
-                const target = Number(counter.dataset.faunaCount);
-                let start;
-                counter.textContent = "0";
-                const update = (now) => {
-                    start ??= now;
-                    const progress = Math.min((now - start) / 800, 1);
-                    counter.textContent = String(Math.round(target * (1 - Math.pow(1 - progress, 3))));
-                    if (progress < 1) window.requestAnimationFrame(update);
-                };
-                window.requestAnimationFrame(update);
-            });
-        }, { threshold: 0.35 });
-        faunaCounters.forEach((counter) => faunaObserver.observe(counter));
-    }
-
+    // Las cifras de Fauna permanecen visibles con su valor documental desde el inicio.
     const faunaModal = document.querySelector("#selva-fauna-modal");
     if (faunaModal) {
         let faunaGroups, activeGroup, back;

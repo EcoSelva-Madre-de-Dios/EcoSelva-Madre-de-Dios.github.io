@@ -573,7 +573,10 @@
    <article class="selva-flip-card" data-eco-card="visual">
     <span class="selva-flip-inner">
      <button aria-label="Conservación: Conservar no siempre significa dejar de usar" aria-pressed="false" class="selva-flip-front selva-tema-conservacion selva-flip-toggle" type="button">
-      <img alt="Árbol alto junto a un camino de tierra." class="selva-curiosidad-foto" decoding="async" height="1152" loading="lazy" src="images/castana.jpg" width="768"/>
+      <svg aria-hidden="true" class="eco-story-art" focusable="false" viewbox="0 0 96 96">
+       <use href="images/ecoselva-planas.svg#conservacion-uso">
+       </use>
+      </svg>
       <span class="selva-flip-frente-texto">
        <span class="selva-flip-categoria">
         Conservación
@@ -768,7 +771,7 @@
     <p class="selva-fauna-descripcion">
      especies registradas
     </p>
-    <div data-fauna-action-label="Consultar mamíferos" data-fauna-actions="mamiferos">
+    <div data-fauna-action-label="Ver mamíferos" data-fauna-actions="mamiferos">
     </div>
    </article>
    <article class="selva-fauna-stat selva-fauna-stat--aves" data-eco-card="stat" data-fauna-categoria="aves">
@@ -787,7 +790,7 @@
     <p class="selva-fauna-descripcion">
      especies registradas
     </p>
-    <div data-fauna-action-label="Consultar aves" data-fauna-actions="aves">
+    <div data-fauna-action-label="Ver aves" data-fauna-actions="aves">
     </div>
    </article>
    <article class="selva-fauna-stat selva-fauna-stat--reptiles" data-eco-card="stat" data-fauna-categoria="reptiles">
@@ -806,7 +809,7 @@
     <p class="selva-fauna-descripcion">
      especies reportadas
     </p>
-    <div data-fauna-action-label="Consultar reptiles" data-fauna-actions="reptiles">
+    <div data-fauna-action-label="Ver reptiles" data-fauna-actions="reptiles">
     </div>
    </article>
    <article class="selva-fauna-stat selva-fauna-stat--anfibios" data-eco-card="stat" data-fauna-categoria="anfibios">
@@ -825,7 +828,7 @@
     <p class="selva-fauna-descripcion">
      especies registradas
     </p>
-    <div data-fauna-action-label="Consultar anfibios" data-fauna-actions="anfibios">
+    <div data-fauna-action-label="Ver anfibios" data-fauna-actions="anfibios">
     </div>
    </article>
   </div>
@@ -859,6 +862,15 @@
     </template>
    </header>
    <div class="selva-fauna-modal-layout">
+    <div class="selva-fauna-modal-contenido">
+     <p class="selva-microetiqueta selva-fauna-modal-categoria">
+     </p>
+     <h3 id="selva-fauna-modal-titulo">
+      Registros de fauna
+     </h3>
+     <div class="selva-fauna-modal-cuerpo">
+     </div>
+    </div>
     <figure class="selva-fauna-modal-imagen">
      <img alt="" data-fauna-photo="" decoding="async" height="600" loading="lazy" width="900"/>
      <figcaption>
@@ -866,15 +878,6 @@
       </small>
      </figcaption>
     </figure>
-    <div class="selva-fauna-modal-contenido">
-     <p class="selva-microetiqueta selva-fauna-modal-categoria">
-     </p>
-     <h3 id="selva-fauna-modal-titulo">
-      Especies destacadas
-     </h3>
-     <div class="selva-fauna-modal-cuerpo">
-     </div>
-    </div>
    </div>
   </dialog>
  </div>
@@ -1639,6 +1642,9 @@
 .eco-site #biodiversidad .eco-topic-heading h2{width:auto;margin:0;text-align:left}
 .eco-site .territorio-castana-art{width:min(240px,100%);height:auto;aspect-ratio:1;justify-self:center}
 .eco-site .anp-galeria>.anp-foto:only-child{grid-column:1/-1;width:min(100%,800px);justify-self:center}
+/* Fauna: orden de lectura continuo, cifras estables y acciones al final. */
+.eco-site #biodiversidad .selva-fauna-stat{grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto auto 1fr;grid-template-areas:"icono" "titulo" "numero" "descripcion" "accion";gap:var(--space-1)}
+.eco-site #biodiversidad .selva-fauna-stat>[data-fauna-actions]{grid-area:accion;align-self:end}
 
 ```
 
@@ -1810,4 +1816,311 @@ La fotografía de castaña queda en su ficha; el destacado de Territorio utiliza
 ```html
 <svg class="eco-flat territorio-castana-art" viewBox="0 0 96 96" aria-hidden="true" focusable="false"><use href="images/ecoselva-planas.svg#flora-castana"></use></svg>
 <figure class="anp-foto"><img src="images/conservacion/manu.webp" width="1280" height="960" loading="lazy" decoding="async" alt="Río de agua marrón, bancos de arena y bosque bajo un cielo nublado en el Parque Nacional del Manu."><figcaption><strong>Parque Nacional del Manu · río Manu</strong><span>Erfil · 16/07/2012 · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a> · <a aria-label="Referencia 31: Procedencia ↗" data-anp-fuente="" href="#fuente-foto-manu">[31]</a></span></figcaption></figure>
+```
+
+## Héroe con un único acceso
+
+```html
+<header class="header" id="inicio">
+ <div class="header-content container">
+  <div class="header-txt">
+   <p class="selva-hero-kicker">
+    Madre de Dios · Amazonía peruana
+   </p>
+   <h1 class="hero-titulo">
+    Nuestra selva,
+    <br/>
+    nuestro futuro
+   </h1>
+   <svg aria-label="Línea inspirada en los ríos de la Amazonía" class="selva-rio-trazo" role="img" viewbox="0 0 360 34">
+    <path d="M3 18c42-19 65 17 106-2s58-18 83-2 49 20 75 1 53-14 90 1">
+    </path>
+   </svg>
+   <p class="hero-descripcion">
+    Educación ambiental para conocer, valorar y preservar Madre de Dios.
+   </p>
+   <a class="btn-1" href="#conoce-madre-de-dios">
+    Conoce Madre de Dios
+    <span aria-hidden="true">
+     →
+    </span>
+   </a>
+  </div>
+ </div>
+</header>
+
+```
+
+## Enlaces de compatibilidad con títulos específicos
+
+Se conservan los 86 identificadores y destinos antiguos.
+
+```html
+<div class="eco-legacy-links">
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-cifras-titulo" href="flora.html#flora-cifras-titulo" id="flora-cifras-titulo">
+  Ver Registros documentados en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-maderables-titulo" href="flora.html#flora-maderables-titulo" id="flora-maderables-titulo">
+  Ver Productos maderables en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-no-maderables-titulo" href="flora.html#flora-no-maderables-titulo" id="flora-no-maderables-titulo">
+  Ver Productos forestales no maderables en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-castana-titulo" href="flora.html#flora-castana-titulo" id="flora-castana-titulo">
+  Ver Castaña amazónica en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-medicinales-titulo" href="flora.html#flora-medicinales-titulo" id="flora-medicinales-titulo">
+  Ver Plantas medicinales en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-alimentos-titulo" href="flora.html#flora-alimentos-titulo" id="flora-alimentos-titulo">
+  Ver Alimentos y frutos del bosque en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-cultura-titulo" href="flora.html#flora-cultura-titulo" id="flora-cultura-titulo">
+  Ver El bosque también es conocimiento en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-recorrido-titulo" href="flora.html#flora-recorrido-titulo" id="flora-recorrido-titulo">
+  Ver Del bosque al producto en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-caso-castana-titulo" href="flora.html#flora-caso-castana-titulo" id="flora-caso-castana-titulo">
+  Ver Castaña en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-caso-madera-titulo" href="flora.html#flora-caso-madera-titulo" id="flora-caso-madera-titulo">
+  Ver Madera en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-caso-aguaje-titulo" href="flora.html#flora-caso-aguaje-titulo" id="flora-caso-aguaje-titulo">
+  Ver Aguaje en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-caso-paca-titulo" href="flora.html#flora-caso-paca-titulo" id="flora-caso-paca-titulo">
+  Ver Paca en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-caso-medicinal-titulo" href="flora.html#flora-caso-medicinal-titulo" id="flora-caso-medicinal-titulo">
+  Ver Planta medicinal en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-relaciones-titulo" href="flora.html#flora-relaciones-titulo" id="flora-relaciones-titulo">
+  Ver La planta sigue siendo parte del bosque en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-manejo-titulo" href="flora.html#flora-manejo-titulo" id="flora-manejo-titulo">
+  Ver ¿Aprovechar significa destruir? en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-economia-titulo" href="flora.html#flora-economia-titulo" id="flora-economia-titulo">
+  Ver Cuando el bosque también sostiene economías en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-seguir-titulo" href="flora.html#flora-seguir-titulo" id="flora-seguir-titulo">
+  Ver De la especie al territorio y a su evidencia en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuentes-titulo" href="flora.html#flora-fuentes-titulo" id="flora-fuentes-titulo">
+  Ver Fuentes y alcance de esta lectura en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-bosques-titulo" href="territorio.html#territorio-bosques-titulo" id="territorio-bosques-titulo">
+  Ver La Amazonía no es un solo bosque en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-rios-titulo" href="territorio.html#territorio-rios-titulo" id="territorio-rios-titulo">
+  Ver El agua dibuja el territorio en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-humedales-titulo" href="territorio.html#territorio-humedales-titulo" id="territorio-humedales-titulo">
+  Ver Donde el agua cambia la vida en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-conexiones-titulo" href="territorio.html#territorio-conexiones-titulo" id="territorio-conexiones-titulo">
+  Ver Una red, no una lista de ambientes en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-beneficios-titulo" href="territorio.html#territorio-beneficios-titulo" id="territorio-beneficios-titulo">
+  Ver ¿Qué nos brindan estos ecosistemas? en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-cambios-titulo" href="territorio.html#territorio-cambios-titulo" id="territorio-cambios-titulo">
+  Ver ¿Qué pasa cuando se altera el territorio? en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-ciencia-titulo" href="territorio.html#territorio-ciencia-titulo" id="territorio-ciencia-titulo">
+  Ver ¿Cómo estudiamos el territorio? en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-actividades-titulo" href="territorio.html#territorio-actividades-titulo" id="territorio-actividades-titulo">
+  Ver Mira, relaciona y explora en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-metodologia-titulo" href="territorio.html#territorio-metodologia-titulo" id="territorio-metodologia-titulo">
+  Ver Cada capa tiene una historia en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#selva-territorio-fuentes-titulo" href="territorio.html#selva-territorio-fuentes-titulo" id="selva-territorio-fuentes-titulo">
+  Ver Fuentes y datos del registro en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#selva-territorio-fuentes-modal" href="territorio.html#selva-territorio-fuentes-modal" id="selva-territorio-fuentes-modal">
+  Ver Fuentes y datos del registro en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#conoce-fuentes-geografia" href="territorio.html#conoce-fuentes-geografia" id="conoce-fuentes-geografia">
+  Ver Un paisaje que cambia con el relieve en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#conoce-fuentes-personas" href="territorio.html#conoce-fuentes-personas" id="conoce-fuentes-personas">
+  Ver Referencias sobre personas y territorio en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-especies-maderables" href="flora.html#flora-especies-maderables" id="flora-especies-maderables">
+  Ver Especies maderables documentadas en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-especies-no-maderables" href="flora.html#flora-especies-no-maderables" id="flora-especies-no-maderables">
+  Ver Especies no maderables documentadas en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-maderables" href="flora.html#flora-maderables" id="flora-maderables">
+  Ver Productos maderables en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-no-maderables" href="flora.html#flora-no-maderables" id="flora-no-maderables">
+  Ver Productos forestales no maderables en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-medicinales" href="flora.html#flora-medicinales" id="flora-medicinales">
+  Ver Plantas medicinales en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-alimentos" href="flora.html#flora-alimentos" id="flora-alimentos">
+  Ver Alimentos y frutos del bosque en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-cultura" href="flora.html#flora-cultura" id="flora-cultura">
+  Ver El bosque también es conocimiento en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-caso-castana" href="flora.html#flora-caso-castana" id="flora-caso-castana">
+  Ver Castaña en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-caso-madera" href="flora.html#flora-caso-madera" id="flora-caso-madera">
+  Ver Madera en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-caso-aguaje" href="flora.html#flora-caso-aguaje" id="flora-caso-aguaje">
+  Ver Aguaje en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-caso-paca" href="flora.html#flora-caso-paca" id="flora-caso-paca">
+  Ver Paca en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-caso-medicinal" href="flora.html#flora-caso-medicinal" id="flora-caso-medicinal">
+  Ver Planta medicinal en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-recorrido" href="flora.html#flora-recorrido" id="flora-recorrido">
+  Ver Del bosque al producto en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-relaciones" href="flora.html#flora-relaciones" id="flora-relaciones">
+  Ver La planta sigue siendo parte del bosque en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-manejo" href="flora.html#flora-manejo" id="flora-manejo">
+  Ver ¿Aprovechar significa destruir? en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-economia" href="flora.html#flora-economia" id="flora-economia">
+  Ver Cuando el bosque también sostiene economías en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-seguir" href="flora.html#flora-seguir" id="flora-seguir">
+  Ver De la especie al territorio y a su evidencia en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-catalogo" href="flora.html#flora-fuente-catalogo" id="flora-fuente-catalogo">
+  Ver Catálogo de las especies forestales maderables de la Amazonía y la Yunga Peruana en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-pfnm" href="flora.html#flora-fuente-pfnm" id="flora-fuente-pfnm">
+  Ver Guía de Productos Forestales no Maderables en Madre de Dios en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-manejo" href="flora.html#flora-fuente-manejo" id="flora-fuente-manejo">
+  Ver Manual de Buenas Prácticas de Aprovechamiento Forestal en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-aguaje" href="flora.html#flora-fuente-aguaje" id="flora-fuente-aguaje">
+  Ver El aguaje: Superalimento amazónico, y los beneficios del manejo y conservación de los aguajales para el desarrollo regional amazónico en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-bambu" href="flora.html#flora-fuente-bambu" id="flora-fuente-bambu">
+  Ver Secado de tablillas de bambú nativo en la Amazonía peruana en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-cobertura" href="flora.html#flora-fuente-cobertura" id="flora-fuente-cobertura">
+  Ver Mapa Nacional de Cobertura Vegetal. Memoria descriptiva en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-bdpi" href="flora.html#flora-fuente-bdpi" id="flora-fuente-bdpi">
+  Ver Ficha del pueblo Ese Eja en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-cesteria" href="flora.html#flora-fuente-cesteria" id="flora-fuente-cesteria">
+  Ver Resolución Viceministerial N.° 046-2018-VMPCIC-MC en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-osinfor" href="flora.html#flora-fuente-osinfor" id="flora-fuente-osinfor">
+  Ver Análisis del aprovechamiento de madera en concesiones para castaña en Madre de Dios en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-dispersion" href="flora.html#flora-fuente-dispersion" id="flora-fuente-dispersion">
+  Ver Seed dispersal of the Brazil nut tree (Bertholletia excelsa) by scatter-hoarding rodents in a central amazonian forest en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuente-rockwell" href="flora.html#flora-fuente-rockwell" id="flora-fuente-rockwell">
+  Ver Nut Production in Bertholletia excelsa across a Logged Forest Mosaic: Implications for Multiple Forest Use en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-fuentes" href="flora.html#flora-fuentes" id="flora-fuentes">
+  Ver Fuentes y alcance de esta lectura en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="flora.html#flora-productos-usos" href="flora.html#flora-productos-usos" id="flora-productos-usos">
+  Ver Una planta, muchas relaciones en Flora →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-provincias" href="territorio.html#territorio-provincias" id="territorio-provincias">
+  Ver Explora el territorio en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-panel" href="territorio.html#territorio-panel" id="territorio-panel">
+  Ver Registros del mapa de Madre de Dios en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-castanales" href="territorio.html#territorio-castanales" id="territorio-castanales">
+  Ver Castañales de Madre de Dios en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-bosques" href="territorio.html#territorio-bosques" id="territorio-bosques">
+  Ver La Amazonía no es un solo bosque en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-rios" href="territorio.html#territorio-rios" id="territorio-rios">
+  Ver El agua dibuja el territorio en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-aguajales" href="territorio.html#territorio-aguajales" id="territorio-aguajales">
+  Ver Aguajales en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-humedales" href="territorio.html#territorio-humedales" id="territorio-humedales">
+  Ver Donde el agua cambia la vida en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-conexiones" href="territorio.html#territorio-conexiones" id="territorio-conexiones">
+  Ver Una red, no una lista de ambientes en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-beneficios" href="territorio.html#territorio-beneficios" id="territorio-beneficios">
+  Ver ¿Qué nos brindan estos ecosistemas? en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-cambios" href="territorio.html#territorio-cambios" id="territorio-cambios">
+  Ver ¿Qué pasa cuando se altera el territorio? en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-ciencia" href="territorio.html#territorio-ciencia" id="territorio-ciencia">
+  Ver ¿Cómo estudiamos el territorio? en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-funcion-bosque" href="territorio.html#territorio-funcion-bosque" id="territorio-funcion-bosque">
+  Ver Funciones del bosque en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-funcion-rio" href="territorio.html#territorio-funcion-rio" id="territorio-funcion-rio">
+  Ver Funciones del río en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-funcion-humedal" href="territorio.html#territorio-funcion-humedal" id="territorio-funcion-humedal">
+  Ver Funciones del humedal en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-actividades" href="territorio.html#territorio-actividades" id="territorio-actividades">
+  Ver Mira, relaciona y explora en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-fuente-cobertura" href="territorio.html#territorio-fuente-cobertura" id="territorio-fuente-cobertura">
+  Ver Mapa Nacional de Cobertura Vegetal — MINAM 2015 en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-fuente-ecosistemas" href="territorio.html#territorio-fuente-ecosistemas" id="territorio-fuente-ecosistemas">
+  Ver Mapa Nacional de Ecosistemas del Perú — MINAM 2019 en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-fuente-aguaje" href="territorio.html#territorio-fuente-aguaje" id="territorio-fuente-aguaje">
+  Ver El aguaje: superalimento amazónico y conservación de los aguajales en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-fuente-anp" href="territorio.html#territorio-fuente-anp" id="territorio-fuente-anp">
+  Ver Descripciones oficiales de Tambopata, Manu y Bahuaja-Sonene en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-fuente-cincia" href="territorio.html#territorio-fuente-cincia" id="territorio-fuente-cincia">
+  Ver Inventario biológico rápido del río Madre de Dios y sus tributarios en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-fuente-mercurio" href="territorio.html#territorio-fuente-mercurio" id="territorio-fuente-mercurio">
+  Ver Amazon forests capture high levels of atmospheric mercury pollution from artisanal gold mining en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-fuente-incendios" href="territorio.html#territorio-fuente-incendios" id="territorio-fuente-incendios">
+  Ver Prevención de incendios forestales en Madre de Dios en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-fuente-geobosques" href="territorio.html#territorio-fuente-geobosques" id="territorio-fuente-geobosques">
+  Ver Geobosques: monitoreo de cobertura y pérdida de bosques en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-fuente-satelites" href="territorio.html#territorio-fuente-satelites" id="territorio-fuente-satelites">
+  Ver Sentinel-2 e índices NDVI y NBR en Territorio →
+ </a>
+ <a class="eco-legacy-bridge" data-eco-destino="territorio.html#territorio-metodologia" href="territorio.html#territorio-metodologia" id="territorio-metodologia">
+  Ver Cada capa tiene una historia en Territorio →
+ </a>
+</div>
+
+```
+
+## Ilustración de conservación y uso
+
+```xml
+<symbol id="conservacion-uso" viewBox="0 0 96 96"><rect x="22" y="40" width="10" height="42" rx="4" fill="var(--earth,#c77a3d)"/><path fill="var(--forest,#163d2b)" d="M27 10C11 10 8 23 13 30 0 36 6 54 20 54h14c14 0 20-18 7-24 5-7 2-20-14-20Z"/><rect x="42" y="58" width="46" height="26" rx="10" fill="var(--earth,#c77a3d)"/><g fill="var(--sand,#cfb45c)"><ellipse cx="53" cy="55" rx="7" ry="12" transform="rotate(-25 53 55)"/><ellipse cx="68" cy="51" rx="7" ry="12"/><ellipse cx="80" cy="56" rx="6" ry="11" transform="rotate(25 80 56)"/></g></symbol>
 ```
