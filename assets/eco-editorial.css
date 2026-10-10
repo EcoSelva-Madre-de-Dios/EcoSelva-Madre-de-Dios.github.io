@@ -893,3 +893,165 @@ html:has(dialog[open]){overflow:hidden}
 /* Observación: conservar el agua y la orilla dentro del encuadre de la fotografía. */
 .eco-site #explora-madre-de-dios .territorio-foto-observa img{aspect-ratio:4/3;object-fit:cover;object-position:50% 80%}
 .eco-site #explora-madre-de-dios .territorio-foto-observa figcaption a{text-decoration:underline;text-underline-offset:3px}
+
+/* aviso-piloto.css */
+/* Aviso institucional de etapa piloto: informativo, descartable y no modal. */
+.eco-site .eco-pilot-notice {
+  position: relative;
+  z-index: 4900;
+  margin: 0;
+  border-block: 1px solid color-mix(in srgb, var(--green-natural) 28%, var(--line));
+  background: color-mix(in srgb, var(--paper) 86%, var(--white));
+  color: var(--ink);
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity var(--motion-fast) ease, transform var(--motion-fast) ease;
+}
+
+.eco-site:has(.menu.container) .eco-pilot-notice {
+  margin-top: 106px;
+}
+
+/* El aviso reemplaza temporalmente la imagen bajo la barra fija de Inicio. */
+.eco-site:has(.eco-pilot-notice.is-visible) .menu.container {
+  background: var(--forest-deep);
+}
+
+.eco-site .eco-pilot-notice.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+.eco-site .eco-pilot-notice[hidden] {
+  display: none;
+}
+
+.eco-site .eco-pilot-notice__inner {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  width: min(var(--layout-wide), calc(100% - 2 * var(--page-gutter)));
+  margin-inline: auto;
+  padding-block: var(--space-2);
+  gap: var(--space-2) var(--space-3);
+}
+
+.eco-site .eco-pilot-notice__mark {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--green-natural) 15%, var(--white));
+  color: var(--forest);
+  font: 700 var(--text-body)/1 var(--font-heading);
+}
+
+.eco-site .eco-pilot-notice__content {
+  min-width: 0;
+}
+
+.eco-site .eco-pilot-notice__label {
+  margin: 0 0 2px;
+  color: var(--green-natural);
+  font: 700 var(--text-note)/1.4 var(--font-heading);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.eco-site .eco-pilot-notice h2 {
+  margin: 0;
+  color: var(--forest-deep);
+  font: 700 var(--text-title)/1.25 var(--font-heading);
+}
+
+.eco-site .eco-pilot-notice__text {
+  max-width: 76ch;
+  margin: var(--space-1) 0 0;
+  color: var(--muted);
+  font-size: var(--text-note);
+  line-height: 1.6;
+}
+
+.eco-site .eco-pilot-notice__actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-2);
+}
+
+.eco-site .eco-pilot-notice__accept,
+.eco-site .eco-pilot-notice__suggestion {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 16px;
+  border-radius: var(--radius-sm);
+  font: 700 var(--text-note)/1.35 var(--font-body);
+  cursor: pointer;
+}
+
+.eco-site .eco-pilot-notice__accept {
+  border: 1px solid var(--forest);
+  background: var(--forest);
+  color: var(--white);
+}
+
+.eco-site .eco-pilot-notice__suggestion {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--forest);
+  text-decoration: none;
+}
+
+.eco-site :is(.eco-pilot-notice__accept, .eco-pilot-notice__suggestion, .eco-pilot-reopen):focus-visible {
+  outline: 3px solid var(--water);
+  outline-offset: 3px;
+}
+
+.eco-site .eco-pilot-reopen {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .eco-site .eco-pilot-notice__inner {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+  .eco-site .eco-pilot-notice__actions {
+    grid-column: 2;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 767px) {
+  .eco-site:has(.menu.container) .eco-pilot-notice {
+    margin-top: 82px;
+  }
+  .eco-site .eco-pilot-notice__inner {
+    grid-template-columns: 1fr;
+    width: min(100% - 2 * var(--page-gutter), 620px);
+    padding-block: var(--space-2) var(--space-3);
+  }
+  .eco-site .eco-pilot-notice__mark {
+    display: none;
+  }
+  .eco-site .eco-pilot-notice__actions {
+    grid-column: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eco-site .eco-pilot-notice {
+    transition: none;
+  }
+}

@@ -5,11 +5,11 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 GROUPS = {
     'assets/eco-tokens.css': ('tokens.css',),
-    'assets/eco-base.css': ('style.css', 'ventanas.css', 'conoce.css', 'ecoselva.css', 'lecturas.css', 'navegacion.css', 'atlas.css', 'lectura-clara.css'),
-    'assets/eco-editorial.css': ('editorial.css', 'ecoselva.css', 'lecturas.css', 'navegacion.css', 'atlas.css', 'lectura-clara.css'),
+    'assets/eco-base.css': ('style.css', 'ventanas.css', 'conoce.css', 'ecoselva.css', 'lecturas.css', 'navegacion.css', 'atlas.css', 'lectura-clara.css', 'aviso-piloto.css'),
+    'assets/eco-editorial.css': ('editorial.css', 'ecoselva.css', 'lecturas.css', 'navegacion.css', 'atlas.css', 'lectura-clara.css', 'aviso-piloto.css'),
     'assets/eco-lecturas.css': ('territorio.css', 'flora.css', 'lecturas.css'),
-    'assets/eco-base.js': ('dialogos.js', 'script.js', 'conoce.js', 'navegacion.js', 'cartografia.js', 'ecoselva.js'),
-    'assets/eco-editorial.js': ('dialogos.js', 'navegacion.js', 'cartografia.js', 'ecoselva.js'),
+    'assets/eco-base.js': ('dialogos.js', 'script.js', 'conoce.js', 'navegacion.js', 'cartografia.js', 'ecoselva.js', 'aviso-piloto.js'),
+    'assets/eco-editorial.js': ('dialogos.js', 'navegacion.js', 'cartografia.js', 'ecoselva.js', 'aviso-piloto.js'),
 }
 
 def rendered(target, sources):
