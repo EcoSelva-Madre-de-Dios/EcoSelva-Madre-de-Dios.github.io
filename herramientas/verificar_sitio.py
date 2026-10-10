@@ -115,7 +115,7 @@ def verify_atlas_presentation():
     if [el.attrib for el in source.iter() if el.tag.endswith('path')] != [el.attrib for el in base.iter() if el.tag.endswith('path')]:
         raise ValueError('La base ligera ha alterado geometrías.')
     original = ET.parse(ROOT / 'datos/territorio/capas-adicionales.svg').getroot()
-    for kind in ['anp', 'distritos']:
+    for kind in ['anp', 'distritos', 'provincias']:
         layer = next(el for el in original if el.get('data-territorio-overlay') == kind)
         copy = ET.parse(ROOT / ('datos/presentacion/' + kind + '.svg')).getroot()
         if [el.attrib for el in layer.iter() if el.tag.endswith('path')] != [el.attrib for el in copy.iter() if el.tag.endswith('path')]:
@@ -493,7 +493,7 @@ def verify_territorio_educativo():
     svg = ET.parse(svg_file).getroot()
     if svg.get('viewBox') != '0 0 600 510' or metadata['crs_visualizacion'] != 'EPSG:32719':
         raise ValueError('Territorio: las capas adicionales deben usar el encuadre y CRS originales.')
-    for key, count in (('distritos', 11), ('anp', 6)):
+    for key, count in (('provincias', 3), ('distritos', 11), ('anp', 6)):
         record = metadata[key]
         if record['cantidad'] != count or sha256((ROOT / record['archivo']).read_bytes()).hexdigest() != record['sha256']:
             raise ValueError('Territorio: origen de contornos modificado sin regenerar: ' + key)

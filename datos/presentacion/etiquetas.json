@@ -8,10 +8,35 @@
     "datos/conservacion/anp.geojson": "5f44b3395ec32d140f03aa15efafb1f5f563011bc3a1491cf1be3cbbf255cb54",
     "datos/territorio/masas-agua.geojson": "94670d0d39b5c5a7765c191dae7362bf78758e3f65c3668fce4b88a7aedf40be",
     "datos/territorio/cobertura-vegetal.geojson": "985f6cc8d498c0c5233b395c98b910ec565c972c98e7c214c05b95a51b5caebc",
-    "datos/territorio/capas-adicionales.svg": "85fa0e6034557b7e87e47765baa78ec48414877fb18d61f27f179af381b005eb",
-    "datos/territorio/mapa.svg": "33cb546984c299170d71b3e2772a45c0d80bb2df779e6a5836acb7e32e55cad7"
+    "datos/territorio/capas-adicionales.svg": "d1327d7ae3a47a0bdadf8fb74b0bb3ac0bfd64adfe3c2750cb18c83ed1f92400",
+    "datos/territorio/mapa.svg": "33cb546984c299170d71b3e2772a45c0d80bb2df779e6a5836acb7e32e55cad7",
+    "datos/territorio/provincias.geojson": "544293d796a111ba1ec04908c002bbc3b21a9d71c8ff283c53e5f516d10ede23"
   },
   "etiquetas": [
+    {
+      "capa": "provincias",
+      "nombre": "Tahuamanu",
+      "id": null,
+      "x": 247.292,
+      "y": 160.639,
+      "categoria": null
+    },
+    {
+      "capa": "provincias",
+      "nombre": "Tambopata",
+      "id": null,
+      "x": 415.749,
+      "y": 321.696,
+      "categoria": null
+    },
+    {
+      "capa": "provincias",
+      "nombre": "Manu",
+      "id": null,
+      "x": 226.34,
+      "y": 332.576,
+      "categoria": null
+    },
     {
       "capa": "distritos",
       "nombre": "Tahuamanu",

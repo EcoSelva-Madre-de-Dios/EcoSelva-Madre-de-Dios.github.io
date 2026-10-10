@@ -91,21 +91,37 @@ async function accessible(page, selector) {
         await page.goto(new URL('territorio.html', base).href);
         await page.locator('.selva-territorio-svg').waitFor({ timeout: 20000 });
         assert.equal(await page.locator('[data-territorio-capa]').count(), 3);
+        assert.equal(await page.locator('[data-territorio-overlay-toggle]').count(), 3);
         assert.equal(await page.locator('.selva-territorio-tabs').count(), 0);
         assert.equal(await page.locator('[data-mapa-modo="humedales"]').count(), 174);
-        assert.equal(await page.locator('.selva-territorio-opciones [data-territorio-tema]').count(), 6);
-        for (const mode of ['bosques', 'humedales']) {
+        assert.equal(await page.locator('.selva-territorio-opciones [data-territorio-tema]').count(), 0);
+        assert.equal(await page.locator('.selva-territorio-layout').getAttribute('data-territorio-activo'), 'base');
+        for (const selector of ['[data-territorio-capa]', '[data-territorio-overlay-toggle]']) {
+            const checked = await page.locator(selector).evaluateAll(inputs => inputs.filter(input => input.checked).length);
+            assert.equal(checked, 0, 'El visor debe iniciar sin capas activas');
+        }
+        for (const mode of ['rios', 'bosques', 'humedales']) {
             await page.locator(`[data-territorio-capa="${mode}"]`).check();
             assert.equal(await page.locator('.selva-territorio-layout').getAttribute('data-territorio-activo'), mode);
         }
         assert(await page.locator('[data-territorio-capa="rios"]').isChecked());
         assert(await page.locator('[data-territorio-capa="bosques"]').isChecked());
+        await page.locator('[data-territorio-overlay-toggle="provincias"]').check();
+        await page.locator('[data-territorio-overlay="provincias"]').waitFor();
+        assert.equal(await page.locator('[data-territorio-overlay="provincias"]>path').count(), 3);
+        assert.equal(await page.locator('.selva-territorio-opciones [data-territorio-tema]').count(), 3);
         await page.locator('[data-territorio-overlay-toggle="distritos"]').check();
         await page.locator('[data-territorio-overlay="distritos"]').waitFor();
         assert.equal(await page.locator('[data-territorio-overlay="distritos"]>path').count(), 11);
         await page.locator('[data-territorio-overlay-toggle="anp"]').check();
         await page.locator('[data-territorio-overlay="anp"]').waitFor();
         assert.equal(await page.locator('[data-territorio-overlay="anp"]>path').count(), 6);
+        await page.getByRole('button', { name: 'Reserva nacional', exact: true }).click();
+        assert.equal(await page.locator('.territorio-lista-registros [data-territorio-tema]').count(), 1);
+        await page.locator('.territorio-restablecer').click();
+        assert.equal(await page.locator('.selva-territorio-layout').getAttribute('data-territorio-activo'), 'base');
+        assert.equal(await page.locator('[data-territorio-overlay="anp"]:visible').count(), 0);
+        assert.equal(await page.locator('[data-territorio-capa]:checked,[data-territorio-overlay-toggle]:checked').count(), 0);
         const origin = page.locator('[data-territorio-explorar]').first();
         await origin.locator('xpath=ancestor::details[1]').locator('summary').click();
         await origin.scrollIntoViewIfNeeded();
@@ -149,7 +165,7 @@ async function accessible(page, selector) {
         await page.keyboard.press('Escape');
         assert(await page.locator('[data-eco-document="doc-osinfor"]').evaluate(e => document.activeElement === e));
         assert.equal(errors.length, 0, errors.join('\n'));
-        results.push({ width, pages: pages.length, fauna: 4, flora: 5, humedales: 174, distritos: 11, anp: 6, retorno: true });
+        results.push({ width, pages: pages.length, fauna: 4, flora: 5, humedales: 174, provincias: 3, distritos: 11, anp: 6, retorno: true });
         console.log('Correcto: ocho páginas y recorridos a ' + width + ' px.');
         await context.close();
     }

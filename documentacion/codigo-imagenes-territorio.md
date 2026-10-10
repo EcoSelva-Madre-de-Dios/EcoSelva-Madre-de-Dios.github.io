@@ -195,26 +195,14 @@
 
 ```
 
-## Aguajales · fotografía
+## Aguajales · ilustración conceptual
 
 ```html
 <aside class="territorio-destacado territorio-destacado--agua" id="territorio-aguajales">
  <figure class="territorio-foto-aguajal">
-  <img alt="Palmeras de aguaje de troncos altos y hojas en abanico entre vegetación densa junto al río Comté, en Guayana Francesa." decoding="async" height="797" loading="lazy" src="images/aguaje-mauritia-bernard-dupont.jpg" width="1280"/>
+  <img alt="Ilustración conceptual de palmeras de aguaje sobre un suelo inundado en un bosque amazónico." decoding="async" height="788" loading="lazy" src="images/aguajal-conceptual-ecoselva.jpg" width="1400"/>
   <figcaption>
-   Palmeras de aguaje junto al río Comté, Guayana Francesa. Foto de
-   <a href="https://www.flickr.com/people/65695019@N07" rel="noopener noreferrer" target="_blank">
-    Bernard Dupont
-   </a>
-   ·
-   <a href="https://commons.wikimedia.org/wiki/File:Moriche_Palms_(Mauritia_flexuosa)_on_Comt%C3%A9_River_..._(25055479137).jpg" rel="noopener noreferrer" target="_blank">
-    Wikimedia Commons
-   </a>
-   ·
-   <a href="https://creativecommons.org/licenses/by-sa/2.0/" rel="noopener noreferrer" target="_blank">
-    CC BY-SA 2.0
-   </a>
-   . Copia reducida y encuadre adaptado. Imagen ilustrativa de la especie; no corresponde a Madre de Dios.
+   Ilustración conceptual generada con IA para EcoSelva con fines educativos. Representa un aguajal amazónico; no es una fotografía documental ni corresponde a un lugar específico.
   </figcaption>
  </figure>
  <div>

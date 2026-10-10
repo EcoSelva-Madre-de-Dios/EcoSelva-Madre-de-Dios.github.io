@@ -35,5 +35,14 @@
     "metadatos": "datos/conservacion/metadatos.json",
     "uso": "Contornos de referencia. No incluye ACP ni determina vigencia jurídica."
   },
-  "sha256_svg": "85fa0e6034557b7e87e47765baa78ec48414877fb18d61f27f179af381b005eb"
+  "sha256_svg": "d1327d7ae3a47a0bdadf8fb74b0bb3ac0bfd64adfe3c2750cb18c83ed1f92400",
+  "provincias": {
+    "archivo": "datos/territorio/provincias.geojson",
+    "sha256": "544293d796a111ba1ec04908c002bbc3b21a9d71c8ff283c53e5f516d10ede23",
+    "cantidad": 3,
+    "fuente": "Provincias derivadas de la misma base administrativa de distritos; entidad generadora, fecha y escala no documentadas.",
+    "incorporacion": "2026-10-10",
+    "fecha_descarga": null,
+    "uso": "Referencia educativa; no demarcación legal."
+  }
 }

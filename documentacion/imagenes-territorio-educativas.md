@@ -1,21 +1,16 @@
 # Inventario de las nuevas imágenes educativas
 
-El mapa localizador y el esquema del río son SVG editables. Las fotografías se descargaron como miniaturas de Wikimedia Commons, sin generar ni retocar elementos. No se añadieron shapefiles ni se modificaron capas científicas.
+El mapa localizador y el esquema del río son SVG editables. La fotografía del río procede de Wikimedia Commons y la escena del aguajal es una ilustración conceptual generada con IA, identificada como tal en la página. No se modificaron capas científicas.
 
-## Bernard Dupont
+## Aguajal conceptual · EcoSelva
 
-- Archivo: `images/aguaje-mauritia-bernard-dupont.jpg`.
-- Autor: [Bernard Dupont](https://www.flickr.com/people/65695019@N07).
-- Fuente: [ficha original](https://commons.wikimedia.org/wiki/File:Moriche_Palms_(Mauritia_flexuosa)_on_Comt%C3%A9_River_..._(25055479137).jpg).
-- Licencia de la imagen y su presentación: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/).
-- Fecha y ubicación documentadas: 21 de enero de 2018; río Comté, Roura, Guayana Francesa.
-- Original: 4443 × 2768 píxeles.
-- Copia local: 1280 × 797 píxeles; miniatura descargada de Wikimedia Commons.
-- Archivo de descarga: https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d0/Moriche_Palms_%28Mauritia_flexuosa%29_on_Comt%C3%A9_River_..._%2825055479137%29.jpg/1280px-Moriche_Palms_%28Mauritia_flexuosa%29_on_Comt%C3%A9_River_..._%2825055479137%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail
-- Presentación mediante CSS: 4:5 en escritorio; 4:3 en celular. No se modifica la fotografía almacenada.
-- Alcance: Bosque de palmeras de aguaje; ilustra la especie y no documenta un aguajal de Madre de Dios.
-- El pie visible incluye autor, fuente, licencia, reducción y encuadre adaptado.
-- SHA-256: `042b218d6acf4b6afe63b7ed970c6ddaede0fd47a22656da9663f0f27e56d04b`.
+- Archivo: `images/aguajal-conceptual-ecoselva.jpg`.
+- Modo de creación: herramienta integrada de generación de imágenes de OpenAI, a partir de texto.
+- Prompt de trabajo: “Escena conceptual amplia, semirrealista y de apariencia fotográfica de un aguajal amazónico, con palmeras de aguaje y agua en el sotobosque; composición horizontal, luz natural, sin texto, logotipos ni marcas de agua.”
+- Archivo generado: 1672 × 941 píxeles; copia web en JPEG de 1400 × 788 píxeles, calidad 88.
+- Alcance: representa un aguajal amazónico de forma educativa. No documenta un sitio, una fecha ni un registro de campo y no se atribuye a Madre de Dios.
+- El pie visible declara que es una ilustración conceptual generada con IA y que no corresponde a un lugar específico.
+- SHA-256 de la copia web: `2800688808b84af5b86041871e0160da4004c17f5a2be608992a604cf690afd8`.
 
 ## Andreas König (andy_king50)
 

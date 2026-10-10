@@ -21,10 +21,10 @@ xmin, ymin, xmax, ymax = boundary.bounds
 scale = min(480 / (xmax - xmin), 430 / (ymax - ymin))
 xoff = (600 - (xmax - xmin) * scale) / 2
 labels = []
-inputs = ['datos/territorio/limite.geojson', 'datos/territorio/distritos.geojson', 'datos/conservacion/anp.geojson']
+inputs = ['datos/territorio/limite.geojson', 'datos/territorio/provincias.geojson', 'datos/territorio/distritos.geojson', 'datos/conservacion/anp.geojson']
 inputs += ['datos/territorio/masas-agua.geojson', 'datos/territorio/cobertura-vegetal.geojson']
-for source, kind, key in [(inputs[1], 'distritos', 'distrito_'), (inputs[2], 'anp', 'nombre'),
-                          (inputs[3], 'humedales', 'nombre'), (inputs[4], 'bosques', 'categoria_original')]:
+for source, kind, key in [(inputs[1], 'provincias', 'provincia'), (inputs[2], 'distritos', 'distrito_'), (inputs[3], 'anp', 'nombre'),
+                          (inputs[4], 'humedales', 'nombre'), (inputs[5], 'bosques', 'categoria_original')]:
     for f in json.loads((ROOT / source).read_text())['features']:
         g = transform(forward, shape(f['geometry']))
         # Punto interior de la componente más grande; nunca un centroide externo.
@@ -37,7 +37,7 @@ for source, kind, key in [(inputs[1], 'distritos', 'distrito_'), (inputs[2], 'an
                        'categoria': f['properties'].get('categoria')})
 original = ROOT / 'datos/territorio/capas-adicionales.svg'
 svg = original.read_text()
-for kind in ['distritos', 'anp']:
+for kind in ['provincias', 'distritos', 'anp']:
     group = re.search(r'<g data-territorio-overlay="' + kind + r'".*?</g>', svg).group()
     (OUT / (kind + '.svg')).write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 510">' + group + '</svg>\n')
 inputs.append(str(original.relative_to(ROOT)))
