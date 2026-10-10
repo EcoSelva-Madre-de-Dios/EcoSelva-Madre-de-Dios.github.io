@@ -4084,6 +4084,170 @@ h4,
 .conoce-conservacion-acceso:focus-visible{outline:3px solid #94621e;outline-offset:4px}
 @media(max-width:700px){.conoce-conservacion{flex-direction:column;align-items:flex-start;gap:var(--space-3);padding:18px}.conoce-conservacion-acceso{font-size: var(--text-credit)}}
 
+/* Ubicación: composición compacta del localizador y sus datos documentados. */
+#conoce-ubicacion {
+    width: min(100%, var(--layout-content));
+    margin-inline: auto;
+}
+#conoce-ubicacion .conoce-ubicacion-grid {
+    grid-template-columns: minmax(280px, .82fr) minmax(0, 1.45fr);
+    align-items: center;
+    gap: clamp(32px, 5vw, 72px);
+}
+#conoce-ubicacion .conoce-localizador {
+    width: 100%;
+    max-width: 380px;
+    margin: 0;
+    padding: var(--space-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: var(--white);
+    box-shadow: var(--shadow-raised);
+}
+#conoce-ubicacion .conoce-localizador-etiqueta {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    gap: var(--space-1);
+    margin: 0;
+    padding-right: 52px;
+    color: var(--forest-deep);
+    font: 700 var(--text-note)/1.4 var(--font-heading);
+}
+#conoce-ubicacion .conoce-localizador-etiqueta span {
+    color: var(--muted);
+    font-weight: 500;
+}
+#conoce-ubicacion .conoce-localizador-etiqueta span::before {
+    content: "·";
+    margin-right: var(--space-1);
+}
+#conoce-ubicacion .conoce-localizador img {
+    width: 100%;
+    border-radius: var(--radius-md);
+}
+#conoce-ubicacion .conoce-localizador figcaption {
+    margin: var(--space-1) 2px 0;
+    color: var(--muted);
+}
+#conoce-ubicacion .eco-image-open {
+    top: var(--space-2);
+    right: var(--space-2);
+}
+#conoce-ubicacion .conoce-ubicacion-texto {
+    width: 100%;
+    max-width: 720px;
+}
+#conoce-ubicacion .conoce-modulo-cabecera {
+    margin-bottom: var(--space-3);
+}
+#conoce-ubicacion .conoce-datos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2);
+    padding: 0;
+    border: 0;
+}
+#conoce-ubicacion .conoce-datos > div {
+    display: flex;
+    min-height: 112px;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--space-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: var(--white);
+}
+#conoce-ubicacion .conoce-datos dt {
+    max-width: 22ch;
+    margin: 0 0 var(--space-1);
+    color: var(--muted);
+    line-height: 1.45;
+}
+#conoce-ubicacion .conoce-datos dd {
+    margin: 0;
+    color: var(--forest-deep);
+}
+#conoce-ubicacion .conoce-datos .conoce-dato-capital {
+    max-width: 13ch;
+    font: 700 var(--text-body)/1.35 var(--font-heading);
+}
+#conoce-ubicacion .conoce-colindancias {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+}
+#conoce-ubicacion .conoce-colindancias p {
+    display: grid;
+    gap: 4px;
+    margin: 0;
+    padding-left: var(--space-2);
+    border-left: 2px solid color-mix(in srgb, var(--green-natural) 45%, var(--line));
+    font-size: var(--text-note);
+    line-height: 1.6;
+}
+#conoce-ubicacion .conoce-colindancias strong {
+    color: var(--forest);
+    font-family: var(--font-heading);
+}
+#conoce-ubicacion .conoce-colindancias span {
+    color: var(--muted);
+}
+#conoce-ubicacion .conoce-ubicacion-acciones {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-3);
+    margin-top: var(--space-3);
+}
+#conoce-ubicacion .conoce-ubicacion-acciones .conoce-enlace {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    margin: 0;
+}
+#conoce-ubicacion .conoce-enlace-destacado {
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    background: var(--forest);
+    color: var(--white);
+    text-decoration: none;
+}
+
+@media (min-width: 761px) and (max-width: 1000px) {
+    #conoce-ubicacion .conoce-ubicacion-grid {
+        grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr);
+        gap: var(--space-4);
+    }
+    #conoce-ubicacion .conoce-localizador {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 760px) {
+    #conoce-ubicacion .conoce-ubicacion-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-4);
+    }
+    #conoce-ubicacion .conoce-localizador {
+        width: min(100%, 360px);
+        margin-inline: auto;
+    }
+    #conoce-ubicacion .conoce-ubicacion-texto {
+        max-width: none;
+    }
+}
+
+@media (max-width: 380px) {
+    #conoce-ubicacion .conoce-datos,
+    #conoce-ubicacion .conoce-colindancias {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    #conoce-ubicacion .conoce-datos > div {
+        min-height: 0;
+    }
+}
+
 /* ecoselva.css */
 /* Sistema compartido: composición y presentación; no interviene en los datos. */
 

@@ -93,18 +93,28 @@
         </div>
         <div class="container conoce-modulos">
             <section class="conoce-modulo" id="conoce-ubicacion" aria-labelledby="conoce-ubicacion-titulo">
-                <header class="conoce-modulo-cabecera"><h3 id="conoce-ubicacion-titulo">En el suroriente del Perú</h3></header>
                 <div class="conoce-ubicacion-grid">
-                    <figure class="conoce-localizador"><img src="images/conoce-peru.svg" width="360" height="405" loading="lazy" decoding="async" alt="Localizador del Perú con Madre de Dios resaltado en verde, en el suroriente del país."><figcaption>Localizador educativo; no es cartografía demarcatoria.</figcaption></figure>
+                    <figure class="conoce-localizador" aria-labelledby="conoce-localizador-etiqueta conoce-localizador-nota">
+                        <p class="conoce-localizador-etiqueta" id="conoce-localizador-etiqueta"><strong>Madre de Dios</strong><span>Perú</span></p>
+                        <img src="images/conoce-peru.svg" width="360" height="405" loading="lazy" decoding="async" alt="Mapa localizador del Perú con el departamento de Madre de Dios destacado en verde en el suroriente del país.">
+                        <figcaption id="conoce-localizador-nota">Localizador educativo; no es cartografía demarcatoria.</figcaption>
+                    </figure>
                     <div class="conoce-ubicacion-texto">
-                        <dl class="conoce-datos">
+                        <header class="conoce-modulo-cabecera"><h3 id="conoce-ubicacion-titulo">En el suroriente del Perú</h3></header>
+                        <dl class="conoce-datos" aria-label="Datos principales de Madre de Dios">
                             <div><dt>Superficie aproximada</dt><dd>≈85 000 <span>km²</span></dd></div>
                             <div><dt>Provincias</dt><dd>3</dd></div>
                             <div><dt>Distritos</dt><dd>11</dd></div>
+                            <div><dt>Capital</dt><dd class="conoce-dato-capital">Puerto Maldonado</dd></div>
                         </dl>
-                        <p><strong>Departamentos vecinos:</strong> Ucayali, Cusco y Puno.</p>
-                        <p><strong>Países fronterizos:</strong> Brasil y Bolivia.</p>
-                        <a id="conoce-fuentes-ubicacion" class="conoce-enlace" href="fuentes-metodologia.html#metodologia-conoce">Cómo se documentan la superficie y los límites →</a>
+                        <div class="conoce-colindancias" aria-label="Colindancias de Madre de Dios">
+                            <p><strong>Departamentos vecinos</strong><span>Ucayali, Cusco y Puno</span></p>
+                            <p><strong>Países fronterizos</strong><span>Brasil y Bolivia</span></p>
+                        </div>
+                        <nav class="conoce-ubicacion-acciones" aria-label="Enlaces educativos de ubicación">
+                            <a class="conoce-enlace conoce-enlace-destacado" href="#conoce-provincias">Explora las provincias y sus distritos →</a>
+                            <a id="conoce-fuentes-ubicacion" class="conoce-enlace" href="fuentes-metodologia.html#metodologia-conoce">Cómo se documentan la superficie y los límites →</a>
+                        </nav>
                     </div>
                 </div>
             </section>
