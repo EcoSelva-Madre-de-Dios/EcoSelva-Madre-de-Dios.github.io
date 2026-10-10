@@ -425,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-eco-progress]').forEach(nav => {
         const links = [...nav.querySelectorAll('a[href^="#"]')]; const sections = links.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean); if (!sections.length) return;
         const status = node('span', 'eco-reading-status'); status.setAttribute('aria-hidden', 'true'); nav.append(status);
-        let queued = false;
+        let queued = false; let activeIndex = -1; let initialized = false;
         const update = () => {
             queued = false; const readingLine = Math.max(120, nav.getBoundingClientRect().bottom + 48);
             const index = Math.max(0, sections.findLastIndex(section => section.getBoundingClientRect().top <= readingLine));
@@ -433,6 +433,11 @@ document.addEventListener('DOMContentLoaded', () => {
             nav.style.setProperty('--eco-progress', Math.min(1, Math.max(0, (scrollY - first) / Math.max(1, end - first))));
             status.textContent = String(index + 1).padStart(2, '0') + ' / ' + String(sections.length).padStart(2, '0');
             links.forEach((link, i) => { link.classList.toggle('eco-progress-active', i === index); if (!nav.hasAttribute('data-eco-current-managed')) { if (i === index) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); } });
+            if (initialized && index !== activeIndex && !nav.hasAttribute('data-eco-current-managed')) {
+                const scroller = links[index].parentElement;
+                if (scroller.scrollWidth > scroller.clientWidth) links[index].scrollIntoView({ block: 'nearest', inline: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+            }
+            activeIndex = index; initialized = true;
         };
         const schedule = () => { if (!queued) { queued = true; requestAnimationFrame(update); } }; window.addEventListener('scroll', schedule, { passive: true }); window.addEventListener('resize', schedule); update();
     });

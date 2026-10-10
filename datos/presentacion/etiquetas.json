@@ -8,7 +8,7 @@
     "datos/conservacion/anp.geojson": "5f44b3395ec32d140f03aa15efafb1f5f563011bc3a1491cf1be3cbbf255cb54",
     "datos/territorio/masas-agua.geojson": "94670d0d39b5c5a7765c191dae7362bf78758e3f65c3668fce4b88a7aedf40be",
     "datos/territorio/cobertura-vegetal.geojson": "985f6cc8d498c0c5233b395c98b910ec565c972c98e7c214c05b95a51b5caebc",
-    "datos/territorio/capas-adicionales.svg": "24ef304ab5aea09489d3151f6287d64cb9858ae84ba721716f3cad607b7a0d23",
+    "datos/territorio/capas-adicionales.svg": "85fa0e6034557b7e87e47765baa78ec48414877fb18d61f27f179af381b005eb",
     "datos/territorio/mapa.svg": "33cb546984c299170d71b3e2772a45c0d80bb2df779e6a5836acb7e32e55cad7"
   },
   "etiquetas": [
@@ -110,7 +110,7 @@
     },
     {
       "capa": "anp",
-      "nombre": "Parque Nacional Bahuaja-Sonene",
+      "nombre": "Parque Nacional Bahuaja Sonene",
       "id": "bahuaja",
       "x": 480.458,
       "y": 420.076,

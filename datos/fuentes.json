@@ -169,6 +169,7 @@
     {
       "id": "doc-rockwell",
       "titulo": "Nut Production in Bertholletia excelsa across a Logged Forest Mosaic: Implications for Multiple Forest Use",
+      "lang": "en",
       "autor": "Cara A. Rockwell y colaboradores",
       "anio": 2015,
       "tipo": "Artículo científico",
@@ -181,6 +182,7 @@
     {
       "id": "doc-thomas",
       "titulo": "NTFP harvesters as citizen scientists: Validating traditional and crowdsourced knowledge on seed production of Brazil nut trees in the Peruvian Amazon",
+      "lang": "en",
       "autor": "Evert Thomas y colaboradores",
       "anio": 2017,
       "tipo": "Artículo científico",
@@ -297,6 +299,7 @@
     {
       "id": "fuente-flora-dispersion",
       "titulo": "Seed dispersal of the Brazil nut tree (Bertholletia excelsa) by scatter-hoarding rodents in a central amazonian forest",
+      "lang": "en",
       "autor": "University of East Anglia · Haugaasen y colaboradores",
       "anio": 2010,
       "tipo": "Publicación académica",
@@ -373,6 +376,7 @@
     {
       "id": "fuente-territorio-mercurio",
       "titulo": "Amazon forests capture high levels of atmospheric mercury pollution from artisanal gold mining",
+      "lang": "en",
       "autor": "Gerson y colaboradores",
       "anio": 2022,
       "tipo": "Artículo científico",
@@ -473,6 +477,7 @@
     {
       "id": "fuente-conoce-31",
       "titulo": "Admin 1 – States, Provinces · localizador del Perú",
+      "lang": "en",
       "autor": "Natural Earth",
       "anio": null,
       "tipo": "Fuente institucional",
@@ -613,6 +618,7 @@
     {
       "id": "historia-bosque-mineria",
       "titulo": "Deforestation and Forest Degradation Due to Gold Mining in the Peruvian Amazon: A 34-Year Perspective",
+      "lang": "en",
       "autor": "Jorge Caballero Espejo y colaboradores · Remote Sensing",
       "anio": 2018,
       "fecha_documento": "2018",
@@ -691,6 +697,7 @@
     {
       "id": "historia-jensen",
       "titulo": "Small scale migration along the interoceanic highway in Madre de Dios, Peru: an exploration of community perceptions and dynamics due to migration",
+      "lang": "en",
       "autor": "Kelly E. Jensen y colaboradores · BMC International Health and Human Rights",
       "anio": 2018,
       "fecha_documento": "2018",
@@ -931,7 +938,7 @@
     },
     {
       "id": "conservacion-alto-purus",
-      "titulo": "Ficha oficial · Alto Purus",
+      "titulo": "Ficha oficial · Alto Purús",
       "autor": "SERNANP",
       "anio": 2019,
       "fecha_documento": "1 enero 2019",
@@ -970,7 +977,7 @@
     },
     {
       "id": "conservacion-purus",
-      "titulo": "Ficha oficial · Purus",
+      "titulo": "Ficha oficial · Purús",
       "autor": "SERNANP",
       "anio": 2019,
       "fecha_documento": "1 enero 2019",
@@ -1002,7 +1009,7 @@
       "fecha_documento": "2012",
       "tipo": "Compendio legal oficial",
       "tema": "conservacion",
-      "alcance": "PDF p. 583: Bahuaja-Sonene creado por D. S. 012-96-AG de 17 julio 1996, ampliado en 2000. Antecedentes históricos, no inventario actual.",
+      "alcance": "PDF p. 583: Bahuaja Sonene creado por D. S. 012-96-AG de 17 julio 1996, ampliado en 2000. Antecedentes históricos, no inventario actual.",
       "uso": "Documento de referencia de las áreas protegidas; se distingue la fecha legal, la versión cartográfica y el periodo del dato.",
       "url": "https://sinia.minam.gob.pe/sites/default/files/siar-puno/archivos/public/docs/compendio_de_legislacion_-2012-baja.pdf#page=583",
       "contexto": "areas-protegidas.html#fuente-compendio"
@@ -1028,7 +1035,7 @@
       "fecha_documento": "2024; publicación 2025",
       "tipo": "Documento oficial",
       "tema": "conservacion",
-      "alcance": "P. 38: minería ilegal identificada en zonas de amortiguamiento, entre ellas Bahuaja-Sonene. Distinguir zona vecina de interior del ANP.",
+      "alcance": "P. 38: minería ilegal identificada en zonas de amortiguamiento, entre ellas Bahuaja Sonene. Distinguir zona vecina de interior del ANP.",
       "uso": "Documento de referencia de las áreas protegidas; se distingue la fecha legal, la versión cartográfica y el periodo del dato.",
       "url": "https://cdn.www.gob.pe/uploads/document/file/8514913/7056734-memoria-sernanp-2024.pdf#page=38",
       "contexto": "areas-protegidas.html#fuente-memoria"

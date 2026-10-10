@@ -87,8 +87,9 @@ def fragments(model):
             if doc['jerarquía'] != group:
                 continue
             doc_title = escape(doc['título']).replace('Bertholletia excelsa', '<em>Bertholletia excelsa</em>')
+            title_lang = f' lang="{escape(doc["lang"])}"' if doc.get('lang') else ''
             preview = f'<button class="eco-button eco-button-outline" type="button" data-eco-document="{doc["id"]}" aria-haspopup="dialog">{"Previsualizar" if doc.get("URL_PDF") else "Contexto y fuente"}</button>' if doc["id"] in preview_ids else ""
-            cards.append(f'<li value="{reference_number}" class="eco-card" data-eco-card="{"document" if doc.get("URL_PDF") else "article"}" id="{doc["id"]}"><p class="ficha-etiqueta">{escape(doc["tipo"])}</p><p class="ficha-doc-autor">{escape(doc["autor"])}</p><h5>{doc_title}</h5><p class="ficha-nota">Publicación: {doc["año"]} · {escape(doc["ámbito"])}</p><p><strong>Por qué lo usamos:</strong> {escape(doc["uso"])}</p><div class="ficha-doc-enlaces">{link(doc["URL"], "Abrir documento ↗")}{(" · " + link(doc["URL_PDF"], "PDF original ↗")) if doc.get("URL_PDF") else ""}</div>{preview}</li>')
+            cards.append(f'<li value="{reference_number}" class="eco-card" data-eco-card="{"document" if doc.get("URL_PDF") else "article"}" id="{doc["id"]}"><p class="ficha-etiqueta">{escape(doc["tipo"])}</p><p class="ficha-doc-autor">{escape(doc["autor"])}</p><h5{title_lang}>{doc_title}</h5><p class="ficha-nota">Publicación: {doc["año"]} · {escape(doc["ámbito"])}</p><p><strong>Por qué lo usamos:</strong> {escape(doc["uso"])}</p><div class="ficha-doc-enlaces">{link(doc["URL"], "Abrir documento ↗")}{(" · " + link(doc["URL_PDF"], "PDF original ↗")) if doc.get("URL_PDF") else ""}</div>{preview}</li>')
         groups.append(f'<div class="ficha-documental ficha-documental--{group}"><h4>{title}</h4><p class="ficha-nota">{intro}</p><ol class="ficha-documentos">{"".join(cards)}</ol></div>')
     result['documentos'] = ''.join(groups)
     owner = escape(model['responsabilidad_editorial'])

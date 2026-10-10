@@ -42,7 +42,7 @@ def provenance(path):
                 'crs_origen': m['crs'], 'escala': None,
                 'metadatos': 'datos/territorio/metadatos.json',
                 'limitaciones': ['MasaAgua no es un inventario exhaustivo de humedales.']}
-    return {'fuente': 'Geodatabase aportada; generador no documentado en estas capas',
+    return {'fuente': 'Base cartográfica cuya entidad generadora, fecha y escala no están documentadas',
             'fecha': None, 'escala': None, 'crs_origen': territory['crs_origen'],
             'metadatos': 'datos/territorio/metadatos.json',
             'limitaciones': territory['limitaciones'],

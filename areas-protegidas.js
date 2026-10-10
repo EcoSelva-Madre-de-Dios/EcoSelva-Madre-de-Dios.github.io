@@ -191,7 +191,8 @@ document.addEventListener('DOMContentLoaded', () => {
       window.ecoAtlas.scale(svg, scale, metresPerUnit);
     };
     map.addEventListener('eco:mapview', event => { zoom = event.detail.zoom; tooltip.hidden = true; refreshAtlas(); });
-    new ResizeObserver(refreshAtlas).observe(map);
+    if ('ResizeObserver' in window) new ResizeObserver(refreshAtlas).observe(map);
+    else window.addEventListener('resize', refreshAtlas, { passive: true });
     badges.forEach(({zone}) => {
       const show = event => {
         const area = areas.get(zone.dataset.anp);

@@ -34,7 +34,8 @@ def fragments(model):
         document = documents[registry['flora'][id]]
         source = {**source, 'institucion': document['autor'], 'documento': document['titulo'], 'anio': document['anio'], 'url': document['url']}
         year = source['anio'] or 'Sin fecha de publicación indicada'
-        sources += f'<li><details class="flora-tarjeta flora-fuente eco-card" id="flora-fuente-{e(id)}" data-eco-card="document"><summary><span class="flora-fuente-titulo">{e(source["documento"])}</span></summary><p class="flora-pista">{e(source["institucion"])} · {e(year)}</p><a class="eco-text-link" href="{e(source["url"])}" target="_blank" rel="noopener noreferrer">Consultar documento original ↗</a><p><a href="fuentes-metodologia.html#metodologia-flora-{e(id)}">Leer el alcance y el método de esta referencia →</a></p></details></li>\n'
+        title_lang = f' lang="{e(document["lang"])}"' if document.get('lang') else ''
+        sources += f'<li><details class="flora-tarjeta flora-fuente eco-card" id="flora-fuente-{e(id)}" data-eco-card="document"><summary><span class="flora-fuente-titulo"{title_lang}>{e(source["documento"])}</span></summary><p class="flora-pista">{e(source["institucion"])} · {e(year)}</p><a class="eco-text-link" href="{e(source["url"])}" target="_blank" rel="noopener noreferrer">Consultar documento original ↗</a><p><a href="fuentes-metodologia.html#metodologia-flora-{e(id)}">Leer el alcance y el método de esta referencia →</a></p></details></li>\n'
     sources += '</ol>'
     result = {'recorridos': flow, 'fuentes': sources}
     for item in model['especies_destacadas']:

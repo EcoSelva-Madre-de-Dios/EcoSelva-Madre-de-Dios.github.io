@@ -217,7 +217,7 @@
     "duplicados_geometricos": {},
     "archivos_complementarios": null,
     "procedencia": {
-      "fuente": "Geodatabase aportada; generador no documentado en estas capas",
+      "fuente": "Base cartográfica cuya entidad generadora, fecha y escala no están documentadas",
       "fecha": null,
       "escala": null,
       "crs_origen": "EPSG:32719",
@@ -269,7 +269,7 @@
     "duplicados_geometricos": {},
     "archivos_complementarios": null,
     "procedencia": {
-      "fuente": "Geodatabase aportada; generador no documentado en estas capas",
+      "fuente": "Base cartográfica cuya entidad generadora, fecha y escala no están documentadas",
       "fecha": null,
       "escala": null,
       "crs_origen": "EPSG:32719",
@@ -392,7 +392,7 @@
     "duplicados_geometricos": {},
     "archivos_complementarios": null,
     "procedencia": {
-      "fuente": "Geodatabase aportada; generador no documentado en estas capas",
+      "fuente": "Base cartográfica cuya entidad generadora, fecha y escala no están documentadas",
       "fecha": null,
       "escala": null,
       "crs_origen": "EPSG:32719",
@@ -455,7 +455,7 @@
     "duplicados_geometricos": {},
     "archivos_complementarios": null,
     "procedencia": {
-      "fuente": "Geodatabase aportada; generador no documentado en estas capas",
+      "fuente": "Base cartográfica cuya entidad generadora, fecha y escala no están documentadas",
       "fecha": null,
       "escala": null,
       "crs_origen": "EPSG:32719",

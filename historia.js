@@ -69,13 +69,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if ('IntersectionObserver' in window) {
         const enlaces = [...document.querySelectorAll('.historia-navegacion a')];
+        let enlaceActivo = null;
+        let inicializado = false;
         const observador = new IntersectionObserver((entradas) => {
             const visible = entradas.find((entrada) => entrada.isIntersecting);
             if (!visible) return;
+            const siguiente = enlaces.find((enlace) => enlace.hash === `#${visible.target.id}`) || null;
             enlaces.forEach((enlace) => {
-                if (enlace.hash === `#${visible.target.id}`) enlace.setAttribute('aria-current', 'location');
+                if (enlace === siguiente) enlace.setAttribute('aria-current', 'location');
                 else enlace.removeAttribute('aria-current');
             });
+            if (inicializado && siguiente && siguiente !== enlaceActivo) {
+                const contenedor = siguiente.parentElement;
+                if (contenedor.scrollWidth > contenedor.clientWidth) siguiente.scrollIntoView({ block: 'nearest', inline: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+            }
+            enlaceActivo = siguiente;
+            inicializado = true;
         }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
         document.querySelectorAll('.historia-capitulo').forEach((capitulo) => observador.observe(capitulo));
         observador.observe(document.querySelector('.historia-hero'));

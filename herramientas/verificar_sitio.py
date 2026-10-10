@@ -90,11 +90,17 @@ def local_path(reference, parent):
     return candidate
 
 
+def source_sha256(path):
+    data = path.read_bytes()
+    if path.suffix.lower() == '.svg':
+        data = data.replace(b'\r\n', b'\n')
+    return sha256(data).hexdigest()
+
+
 def verify_atlas_presentation():
     model = json.loads((ROOT / 'datos/presentacion/etiquetas.json').read_text())
-    from hashlib import sha256
     for name, digest in model['fuentes_sha256'].items():
-        if sha256((ROOT / name).read_bytes()).hexdigest() != digest:
+        if source_sha256(ROOT / name) != digest:
             raise ValueError('Fuente de presentación modificada: ' + name)
     source = ET.parse(ROOT / 'datos/territorio/mapa.svg').getroot()
     base = ET.parse(ROOT / 'datos/presentacion/mapa-base.svg').getroot()
@@ -482,7 +488,7 @@ def verify_territorio_educativo():
         raise ValueError('Territorio: acceso educativo a una geometría inexistente.')
     metadata = json.loads((ROOT / 'datos/territorio/capas-adicionales-metadatos.json').read_text())
     svg_file = ROOT / 'datos/territorio/capas-adicionales.svg'
-    if metadata['sha256_svg'] != sha256(svg_file.read_bytes()).hexdigest():
+    if metadata['sha256_svg'] != source_sha256(svg_file):
         raise ValueError('Territorio: los contornos no coinciden con sus metadatos.')
     svg = ET.parse(svg_file).getroot()
     if svg.get('viewBox') != '0 0 600 510' or metadata['crs_visualizacion'] != 'EPSG:32719':

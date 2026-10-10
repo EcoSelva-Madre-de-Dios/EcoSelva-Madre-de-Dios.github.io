@@ -22,8 +22,21 @@ jobs:
       pages: read
     steps:
       - uses: actions/checkout@v6
+      - name: Configurar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - name: Configurar Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Instalar dependencias de navegador
+        run: |
+          npm ci --ignore-scripts
+          ./node_modules/.bin/playwright install --with-deps chromium
       - name: Generar el sitio desde sus fuentes
-        run: python3 herramientas/actualizar_sitio.py
+        run: python herramientas/actualizar_sitio.py
       - name: Comprobar JavaScript
         run: |
           node --check script.js
@@ -39,8 +52,43 @@ jobs:
           node --check territorio.js
           node --check assets/eco-base.js
           node --check assets/eco-editorial.js
-      - name: Preparar y verificar el sitio
-        run: python3 herramientas/preparar_publicacion.py _site
+      - name: Verificar el sitio
+        run: python herramientas/verificar_sitio.py
+      - name: Preparar el sitio para publicar
+        run: python herramientas/preparar_publicacion.py _site
+      - name: Probar interacciones, lectura y atlas en Chromium
+        shell: bash
+        run: |
+          set -euo pipefail
+          server_log="${RUNNER_TEMP}/ecoselva-http.log"
+          python -m http.server 8765 --bind 127.0.0.1 --directory _site >"${server_log}" 2>&1 &
+          server_pid=$!
+          cleanup() {
+            kill "${server_pid}" 2>/dev/null || true
+            wait "${server_pid}" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+
+          ready=false
+          for attempt in {1..30}; do
+            if curl --fail --silent --show-error http://127.0.0.1:8765/ >/dev/null; then
+              ready=true
+              break
+            fi
+            if ! kill -0 "${server_pid}" 2>/dev/null; then
+              cat "${server_log}"
+              exit 1
+            fi
+            sleep 1
+          done
+          if [[ "${ready}" != true ]]; then
+            cat "${server_log}"
+            exit 1
+          fi
+
+          node herramientas/verificar_interacciones.cjs
+          node herramientas/verificar_lectura.cjs
+          node herramientas/verificar_atlas.cjs
       - name: Configurar Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5

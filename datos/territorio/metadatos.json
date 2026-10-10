@@ -9,21 +9,21 @@
                   "DISTRITOS_MDD":  {
                                         "crs":  "EPSG:32719",
                                         "entidades_originales":  11,
-                                        "fuente":  "Geodatabase aportada por el usuario; entidad generadora no indicada en los campos de esta capa",
+                                        "fuente":  "Base cartográfica cuya entidad generadora, fecha y escala no están documentadas",
                                         "fecha_registro":  null,
                                         "incorporacion":  "2026-10-02"
                                     },
                   "RIOS_PRINCIPALES":  {
                                            "crs":  "EPSG:32719",
                                            "entidades_originales":  6421,
-                                           "fuente":  "Geodatabase aportada por el usuario; entidad generadora no indicada en los campos de esta capa",
+                                           "fuente":  "Base cartográfica cuya entidad generadora, fecha y escala no están documentadas",
                                            "fecha_registro":  null,
                                            "incorporacion":  "2026-10-02"
                                        },
                   "Hidrografia_mdd":  {
                                           "crs":  "EPSG:32719",
                                           "entidades_originales":  45757,
-                                          "fuente":  "Geodatabase aportada por el usuario; entidad generadora no indicada en los campos de esta capa",
+                                          "fuente":  "Base cartográfica cuya entidad generadora, fecha y escala no están documentadas",
                                           "fecha_registro":  null,
                                           "incorporacion":  "2026-10-02"
                                       },

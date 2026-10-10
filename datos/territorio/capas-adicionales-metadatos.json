@@ -20,7 +20,7 @@
     "archivo": "datos/territorio/distritos.geojson",
     "sha256": "c70433638a268cf44bfdf36d4162c819e4eaf8fc72604e5eb2cf5c540160db30",
     "cantidad": 11,
-    "fuente": "DISTRITOS_MDD de la geodatabase aportada; generador, año de observación, escala y fecha de descarga no documentados.",
+    "fuente": "DISTRITOS_MDD de una base cartográfica cuya entidad generadora, fecha y escala no están documentadas; fecha de descarga no documentada.",
     "incorporacion": "2026-10-02",
     "fecha_descarga": null,
     "uso": "Referencia educativa; no demarcación legal. La capa de origen ya se simplificó a 180 m."
@@ -35,5 +35,5 @@
     "metadatos": "datos/conservacion/metadatos.json",
     "uso": "Contornos de referencia. No incluye ACP ni determina vigencia jurídica."
   },
-  "sha256_svg": "24ef304ab5aea09489d3151f6287d64cb9858ae84ba721716f3cad607b7a0d23"
+  "sha256_svg": "85fa0e6034557b7e87e47765baa78ec48414877fb18d61f27f179af381b005eb"
 }

@@ -423,7 +423,7 @@ document.addEventListener("DOMContentLoaded", () => {
             card.classList.toggle("is-forest-card", activeMode === "bosques" && !!key);
             if (!key) {
                 const hint = node("div", "selva-territorio-ficha-ayuda");
-                hint.append(icon(modes[activeMode].icon), node("h4", "", activeMode === "bosques" ? "Explora los ambientes forestales" : activeMode === "rios" ? "Selecciona un río para seguir su recorrido." : "Filtra los humedales por tipo o selecciona uno en el mapa."), node("p", "", activeMode === "bosques" && forestData.categories.length ? "Vista completa de las " + forestCategories.length + " categorías presentes en el recorte. Selecciona una categoría en el mapa o en la lista. Fuente: MINAM, publicación de 2015." : "Pulsa una geometría o utiliza las opciones del panel."));
+                hint.append(icon(modes[activeMode].icon), node("h3", "", activeMode === "bosques" ? "Explora los ambientes forestales" : activeMode === "rios" ? "Selecciona un río para seguir su recorrido." : "Filtra los humedales por tipo o selecciona uno en el mapa."), node("p", "", activeMode === "bosques" && forestData.categories.length ? "Vista completa de las " + forestCategories.length + " categorías presentes en el recorte. Selecciona una categoría en el mapa o en la lista. Fuente: MINAM, publicación de 2015." : "Pulsa una geometría o utiliza las opciones del panel."));
                 card.replaceChildren(hint); return;
             }
             const topic = topics[key];

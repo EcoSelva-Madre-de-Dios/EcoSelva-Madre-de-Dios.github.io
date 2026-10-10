@@ -163,7 +163,7 @@ h4,
     background-image:
         linear-gradient(90deg, rgb(11 30 23 / 80%) 0%, rgb(11 30 23 / 55%) 40%, rgb(11 30 23 / 8%) 100%),
         linear-gradient(0deg, rgb(11 30 23 / 25%), transparent 45%),
-        url("images/bg-hero.jpg");
+        url("images/bg-hero-1920.webp");
     background-position: center, center, center 58%;
     background-size: cover;
     animation: selva-hero-zoom 22s ease-out both;
@@ -1389,7 +1389,7 @@ h4,
     color: var(--paper);
     background:
         linear-gradient(90deg, rgb(16 46 34 / 96%), rgb(16 46 34 / 89%)),
-        url("images/bg.png") center / cover no-repeat;
+        url("images/bg-hero-1920.webp") center / cover no-repeat;
 }
 
 .selva-sobre-layout {
@@ -2244,7 +2244,7 @@ h4,
         background-image:
             linear-gradient(90deg, rgb(11 30 23 / 58%), rgb(11 30 23 / 28%)),
             linear-gradient(0deg, rgb(11 30 23 / 35%), transparent 58%),
-            url("images/bg-hero.jpg");
+            url("images/bg-hero-1920.webp");
         background-position: center, center, 56% center;
     }
 
@@ -3100,7 +3100,7 @@ h4,
 .selva-territorio-opciones button { padding: 10px var(--space-2); min-height: 42px; border: 1px solid rgb(22 61 43 / 12%); border-radius: 8px; background: #fafbf8; color: var(--forest); text-align: left; font-size: var(--text-credit); cursor: pointer; }
 .selva-territorio-opciones button[aria-pressed="true"] { background: #eaf2e5; border-color: var(--green-natural); }
 .selva-territorio-ficha { margin-top: 22px; padding-top: 18px; border-top: 1px solid rgb(22 61 43 / 12%); }
-.selva-territorio-ficha h4 { color: var(--forest); font-size: var(--text-body); }
+.selva-territorio-ficha :is(h3,h4) { color: var(--forest); font-size: var(--text-body); }
 .selva-territorio-ficha p { margin: 10px 0; color: var(--muted); font-size: var(--text-credit); line-height: 1.7; }
 .selva-territorio-ficha a, .selva-territorio-fuentes a { color: var(--water); font-size: var(--text-credit); text-decoration: underline; text-underline-offset: 3px; }
 .selva-territorio-aviso { margin: 20px 0 10px; color: var(--muted); font-size: var(--text-credit); line-height: 1.7; }
@@ -3113,7 +3113,7 @@ h4,
 @media (prefers-reduced-motion: reduce) { .selva-territorio-limite, .selva-territorio-rio-linea { transition: none; animation: none !important; } }
 
 /* Investigaciones: video editorial con respaldo estático local. */
-#investigaciones { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: center; min-height: 430px; padding: 52px 0; background: #102e22 url("images/investigaciones-poster.jpg") center / cover no-repeat; }
+#investigaciones { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: center; min-height: 430px; padding: 52px 0; background: #102e22 url("images/investigaciones-poster-960.webp") center / cover no-repeat; }
 #investigaciones::before { content: ""; position: absolute; inset: 0; width: auto; height: auto; background: linear-gradient(90deg, rgba(9,31,23,.82), rgba(16,46,34,.68)); opacity: 1; z-index: 1; pointer-events: none; }
 #investigaciones::after { content: ""; position: absolute; inset: auto 0 0; height: 26px; background-color: var(--sand); mask: var(--ecoselva-rios) center / auto 26px repeat-x; -webkit-mask: var(--ecoselva-rios) center / auto 26px repeat-x; opacity: .12; z-index: 2; pointer-events: none; }
 .selva-investigaciones-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 400ms ease; z-index: 0; }
@@ -3270,7 +3270,7 @@ h4,
 #explora-madre-de-dios .selva-territorio-acceso svg { width: 20px; height: 20px; flex-basis: 20px; }
 #explora-madre-de-dios .selva-territorio-ficha { margin-top: 20px; padding-top: 18px; }
 .selva-territorio-tipo-ficha { display: block; margin-bottom: var(--space-1); color: var(--forest); font-size: var(--text-credit); letter-spacing: .06em; text-transform: uppercase; font-weight: 600; }
-#explora-madre-de-dios .selva-territorio-ficha h4 { font-size: var(--text-body); font-weight: 600; }
+#explora-madre-de-dios .selva-territorio-ficha :is(h3,h4) { font-size: var(--text-body); font-weight: 600; }
 #explora-madre-de-dios .selva-territorio-ficha p { font-size: var(--text-credit); }
 .selva-territorio-datos-principales { display: grid; grid-template-columns: 1fr; gap: 4px; margin-block: 15px; font-size: var(--text-credit); line-height: 1.6; }
 .selva-territorio-datos-principales dt { color: #718174; font-size: var(--text-credit); }
@@ -3355,7 +3355,7 @@ h4,
 #explora-madre-de-dios .selva-territorio-leyenda-aviso { grid-column: 1 / -1; }
 #explora-madre-de-dios [data-territorio-activo="bosques"] .selva-territorio-provincias-limites { filter: drop-shadow(0 0 .5px rgba(255,255,255,.75)); }
 #explora-madre-de-dios .selva-territorio-fuente-cobertura { margin-top: 20px; padding-top: 15px; border-top: 1px solid #dce4de; }
-#explora-madre-de-dios .selva-territorio-fuente-cobertura h4 { font-size: var(--text-note); }
+#explora-madre-de-dios .selva-territorio-fuente-cobertura h3 { font-size: var(--text-note); }
 @media (max-width: 760px) { #explora-madre-de-dios [data-territorio-activo="bosques"] .selva-territorio-leyenda { grid-template-columns: repeat(2,minmax(0,1fr)); } }
 @media (max-width: 360px) { #explora-madre-de-dios [data-territorio-activo="bosques"] .selva-territorio-leyenda { grid-template-columns: minmax(0,1fr); } }
 @media (prefers-reduced-motion: reduce) { #explora-madre-de-dios .selva-territorio-bosque-real { transition: none; } }

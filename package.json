@@ -1,0 +1,11 @@
+{
+  "name": "ecoselva-madre-de-dios",
+  "private": true,
+  "engines": {
+    "node": "22.x"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "playwright": "1.64.0"
+  }
+}

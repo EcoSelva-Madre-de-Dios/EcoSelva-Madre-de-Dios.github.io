@@ -38,7 +38,7 @@
       "id": "bahuaja",
       "codigo": "PN08",
       "numero": 2,
-      "nombre": "Parque Nacional Bahuaja-Sonene",
+      "nombre": "Parque Nacional Bahuaja Sonene",
       "tipo": "PN",
       "categoria": "Parque Nacional",
       "fecha_creacion": "1996-07-17",
@@ -84,7 +84,7 @@
         "Madre de Dios",
         "Ucayali"
       ],
-      "ubicacion": "Provincias de Tahuamanu y Purús.",
+      "ubicacion": "Provincias de Tahuamanu y Tambopata (Madre de Dios), y Purús (Ucayali).",
       "importancia": "Un extenso bosque que cruza límites departamentales.",
       "protege": "Bosque húmedo tropical, procesos ecológicos y especies de flora y fauna amenazadas.",
       "ecosistemas": "Bosques tropicales, terrazas y paisajes de colinas.",
@@ -327,7 +327,7 @@
     },
     {
       "id": "alto-purus",
-      "titulo": "Ficha oficial · Alto Purus",
+      "titulo": "Ficha oficial · Alto Purús",
       "fecha": "1 enero 2019",
       "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1932963-parque-nacional-alto-purus",
       "alcance": "Descripción específica del ANP: objetivos, ecosistemas, elementos destacados y relación con personas. Sus cifras se contrastan con el listado legal de 2026 y los mapas departamentales.",
@@ -357,7 +357,7 @@
     },
     {
       "id": "purus",
-      "titulo": "Ficha oficial · Purus",
+      "titulo": "Ficha oficial · Purús",
       "fecha": "1 enero 2019",
       "url": "https://www.gob.pe/institucion/sernanp/informes-publicaciones/1932470-reserva-comunal-purus",
       "alcance": "Descripción específica del ANP: objetivos, ecosistemas, elementos destacados y relación con personas. Sus cifras se contrastan con el listado legal de 2026 y los mapas departamentales.",
@@ -380,7 +380,7 @@
       "titulo": "D. S. N.º 048-2000-AG · Tambopata y Bahuaja-Sonene",
       "fecha": "4 septiembre 2000",
       "url": "https://legislacionanp.org.pe/wp-content/uploads/2000/09/Decreto-Supremo-No-048-2000-AG.pdf",
-      "alcance": "Crea Tambopata y amplía Bahuaja-Sonene. No crea este último en 2000.",
+      "alcance": "Crea Tambopata y amplía Bahuaja Sonene. No crea este último en 2000.",
       "institucion": "Ministerio de Agricultura · reproducción SPDA",
       "tipo": "Norma original",
       "revision": "2026-10-04"
@@ -410,7 +410,7 @@
       "titulo": "Compendio de legislación sobre ANP",
       "fecha": "2012",
       "url": "https://sinia.minam.gob.pe/sites/default/files/siar-puno/archivos/public/docs/compendio_de_legislacion_-2012-baja.pdf#page=583",
-      "alcance": "PDF p. 583: Bahuaja-Sonene creado por D. S. 012-96-AG de 17 julio 1996, ampliado en 2000. Antecedentes históricos, no inventario actual.",
+      "alcance": "PDF p. 583: Bahuaja Sonene creado por D. S. 012-96-AG de 17 julio 1996, ampliado en 2000. Antecedentes históricos, no inventario actual.",
       "institucion": "SERNANP · SINIA",
       "tipo": "Compendio legal oficial",
       "revision": "2026-10-04"
@@ -440,7 +440,7 @@
       "titulo": "Memoria institucional 2024",
       "fecha": "2024; publicación 2025",
       "url": "https://cdn.www.gob.pe/uploads/document/file/8514913/7056734-memoria-sernanp-2024.pdf#page=38",
-      "alcance": "P. 38: minería ilegal identificada en zonas de amortiguamiento, entre ellas Bahuaja-Sonene. Distinguir zona vecina de interior del ANP.",
+      "alcance": "P. 38: minería ilegal identificada en zonas de amortiguamiento, entre ellas Bahuaja Sonene. Distinguir zona vecina de interior del ANP.",
       "institucion": "SERNANP",
       "tipo": "Documento oficial",
       "revision": "2026-10-04"
@@ -508,6 +508,7 @@
     {
       "id": "foto-manu",
       "titulo": "Manu River 2012-1 · fotografía",
+      "lang": "en",
       "fecha": "16 julio 2012",
       "url": "https://commons.wikimedia.org/wiki/File:Manu_River_2012-1.jpg",
       "alcance": "Río Manu en el Parque Nacional del Manu, según descripción del autor. Autor Erfil. CC BY-SA 4.0. EcoSelva redimensiona y convierte a WebP, sin retoques del contenido; versión bajo la misma licencia.",
@@ -518,6 +519,7 @@
     {
       "id": "foto-collpa",
       "titulo": "Colorado Clay Lick · fotografía",
+      "lang": "en",
       "fecha": "15 noviembre 2015",
       "url": "https://commons.wikimedia.org/wiki/File:Colorado_Clay_Lick.jpg",
       "alcance": "Collpa Colorado en Reserva Nacional Tambopata, según descripción del autor. Autor Olahgy. CC BY-SA 4.0. EcoSelva redimensiona y convierte a WebP, sin retoques del contenido; versión bajo la misma licencia.",

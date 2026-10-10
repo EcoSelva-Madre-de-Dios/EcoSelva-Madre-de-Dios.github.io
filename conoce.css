@@ -11,7 +11,7 @@
 .conoce-modulo-cabecera { margin-bottom: 22px; }
 .conoce-numero { margin-bottom: 9px; color: #476044; font-size: var(--text-credit); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .conoce-modulo h3, #conoce-madre-de-dios .conoce-mapa-titulo, .conoce-cierre h3 { color: var(--forest-deep); font:700 var(--text-title)/1.25 var(--font-heading); letter-spacing: -.025em; }
-.conoce-modulo h4, .conoce-cierre h4 { color: var(--forest-deep); font:700 var(--text-body)/1.5 var(--font-heading); }
+.conoce-modulo h4, .conoce-cierre h4, .conoce-geografia-bloque h3, .conoce-persona h3 { color: var(--forest-deep); font:700 var(--text-body)/1.5 var(--font-heading); }
 .conoce-cabecera p, .conoce-modulo p, .conoce-cierre p { line-height: 1.75; }
 .conoce-ubicacion-grid { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.6fr); align-items: start; gap: 36px; }
 .conoce-localizador { max-width: 340px; margin-inline: auto; }
@@ -54,7 +54,7 @@
 .conoce-geografia-grid { display: grid; align-items: start; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .conoce-geografia-bloque { min-width: 0; padding: 20px; background: #fff; border: 1px solid #d1d9ca; border-radius: 8px; }
 .conoce-geografia-bloque > summary, .conoce-persona > summary { cursor: pointer; }
-.conoce-geografia-bloque summary h4, .conoce-persona summary h4 { display: inline; }
+.conoce-geografia-bloque summary h3, .conoce-persona summary h3 { display: inline; }
 .conoce-bloque-resumen { margin-top: var(--space-1); font-size: var(--text-note); color: #52614f; }
 .conoce-bloque-detalle { margin-top: var(--space-3); }
 .conoce-bloque-detalle > img { display: block; width: 100%; height: auto; margin-block: var(--space-2); }

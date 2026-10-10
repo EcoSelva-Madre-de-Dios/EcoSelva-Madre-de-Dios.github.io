@@ -42,7 +42,7 @@ SHA-256: `985f6cc8d498c0c5233b395c98b910ec565c972c98e7c214c05b95a51b5caebc`.
 
 ## datos/territorio/distritos.geojson
 
-Fuente: Geodatabase aportada; generador no documentado en estas capas. Escala: Sin documentar.
+Fuente: Base cartográfica cuya entidad generadora, fecha y escala no están documentadas. Escala: Sin documentar.
 Extensión (orden x/y): `[-72.408309, -13.397817, -68.652015, -9.867156]`. Unidades: ['degree', 'degree'].
 Campos: `distrito_, provincia, region, situac_lim, validado`.
 Nulos por campo: `{}`. Multipartes: 0; vacías: 0; inválidas: 0; duplicados geométricos: 0.
@@ -56,7 +56,7 @@ SHA-256: `c70433638a268cf44bfdf36d4162c819e4eaf8fc72604e5eb2cf5c540160db30`.
 
 ## datos/territorio/limite.geojson
 
-Fuente: Geodatabase aportada; generador no documentado en estas capas. Escala: Sin documentar.
+Fuente: Base cartográfica cuya entidad generadora, fecha y escala no están documentadas. Escala: Sin documentar.
 Extensión (orden x/y): `[-72.40837, -13.397817, -68.651489, -9.867156]`. Unidades: ['degree', 'degree'].
 Campos: `capa, distritos`.
 Nulos por campo: `{}`. Multipartes: 0; vacías: 0; inválidas: 0; duplicados geométricos: 0.
@@ -80,7 +80,7 @@ SHA-256: `94670d0d39b5c5a7765c191dae7362bf78758e3f65c3668fce4b88a7aedf40be`.
 
 ## datos/territorio/provincias.geojson
 
-Fuente: Geodatabase aportada; generador no documentado en estas capas. Escala: Sin documentar.
+Fuente: Base cartográfica cuya entidad generadora, fecha y escala no están documentadas. Escala: Sin documentar.
 Extensión (orden x/y): `[-72.40830893933074, -13.397816528507612, -68.65148884484084, -9.867156232123332]`. Unidades: ['degree', 'degree'].
 Campos: `provincia, distritos_fid, etiqueta_punto_utm`.
 Nulos por campo: `{}`. Multipartes: 0; vacías: 0; inválidas: 0; duplicados geométricos: 0.
@@ -94,7 +94,7 @@ SHA-256: `b08320925fefa6614c04d516838a3baecf17c52e4b9da35bcc0336cc7148d8e5`.
 
 ## datos/territorio/rios.geojson
 
-Fuente: Geodatabase aportada; generador no documentado en estas capas. Escala: Sin documentar.
+Fuente: Base cartográfica cuya entidad generadora, fecha y escala no están documentadas. Escala: Sin documentar.
 Extensión (orden x/y): `[-72.226114, -13.344398, -68.652831, -11.033356]`. Unidades: ['degree', 'degree'].
 Campos: `id, nombre, capas_trazado, fecha_trazado, metadatos_RioPrin`.
 Nulos por campo: `{'fecha_trazado': 6}`. Multipartes: 6; vacías: 0; inválidas: 0; duplicados geométricos: 0.

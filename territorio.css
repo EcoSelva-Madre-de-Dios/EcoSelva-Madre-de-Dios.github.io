@@ -69,7 +69,7 @@
 #explora-madre-de-dios .territorio-fuentes-educativas ol { padding-left: 22px; }
 #explora-madre-de-dios .territorio-fuentes-educativas li { margin-bottom: 20px; font-size: var(--text-note); line-height: 1.8; scroll-margin-top: 110px; }
 #explora-madre-de-dios .territorio-cierre { margin-top: var(--space-6); border-radius: 20px; background: #173e2a; color: #fff; padding: 40px; }
-#explora-madre-de-dios .territorio-cierre p, #explora-madre-de-dios .territorio-cierre h4, #explora-madre-de-dios .territorio-cierre .eco-eyebrow { color: #fff; }
+#explora-madre-de-dios .territorio-cierre p, #explora-madre-de-dios .territorio-cierre h3, #explora-madre-de-dios .territorio-cierre .eco-eyebrow { color: #fff; }
 #explora-madre-de-dios .territorio-cierre > p { max-width: 760px; }
 #explora-madre-de-dios .territorio-cierre a { color: #e2ead1; }
 #explora-madre-de-dios .territorio-conecta { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4); margin: var(--space-4) 0; }
