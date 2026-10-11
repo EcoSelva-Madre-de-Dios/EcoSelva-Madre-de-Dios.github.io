@@ -37,8 +37,11 @@ def fragments(page):
     review_text = f'{day.day} de {months[day.month-1]} de {day.year}'
     target, label = PAGES[page]
     links = ''.join(f'<li><a href="{prefix}{href}"' + (' aria-current="page"' if href == page else '') + f'>{text}</a></li>' for href, text in LINKS)
+    # Territorio ya conserva la ruta contextual completa mediante sus migas de pan.
+    # Omitir aquí el tercer acceso equivalente evita repetir la misma salida tres veces.
+    return_link = '' if page == 'territorio.html' else f'<a class="eco-global-return" href="{prefix}{target}">← {escape(label)}</a>'
     header = f'''<!-- sitio:cabecera -->
-<header class="eco-barra eco-global-header"><div class="eco-wide"><a class="eco-marca" href="{prefix}index.html" aria-label="EcoSelva Madre de Dios · inicio"><img src="{prefix}images/logo-ecoselva-educacion-256.webp" width="256" height="256" alt="" loading="lazy" decoding="async"><span>EcoSelva<small>Madre de Dios</small></span></a><a class="eco-global-return" href="{prefix}{target}">← {escape(label)}</a><details class="eco-global-menu"><summary>Menú</summary><nav class="eco-global-nav" aria-label="Navegación principal"><ul>{links}</ul></nav></details></div></header>
+<header class="eco-barra eco-global-header"><div class="eco-wide"><a class="eco-marca" href="{prefix}index.html" aria-label="EcoSelva Madre de Dios · inicio"><img src="{prefix}images/logo-ecoselva-educacion-256.webp" width="256" height="256" alt="" loading="lazy" decoding="async"><span>EcoSelva<small>Madre de Dios</small></span></a>{return_link}<details class="eco-global-menu"><summary>Menú</summary><nav class="eco-global-nav" aria-label="Navegación principal"><ul>{links}</ul></nav></details></div></header>
 <!-- /sitio:cabecera -->'''
     footer = f'''<!-- sitio:pie -->
 <footer class="eco-global-footer eco-wide"><span>EcoSelva Madre de Dios</span><span class="eco-footer-review">Revisión de fuentes: <time datetime="{review}">{review_text}</time></span><nav aria-label="Enlaces del sitio"><a href="{prefix}index.html">Inicio</a><a href="{prefix}biblioteca.html">Biblioteca</a><a href="{prefix}fuentes-metodologia.html">Fuentes y metodología</a><a href="mailto:ecoselvamadrededios@gmail.com">Contacto</a><a href="#contenido">Volver al comienzo ↑</a></nav></footer>

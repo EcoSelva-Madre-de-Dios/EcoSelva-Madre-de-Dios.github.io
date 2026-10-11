@@ -541,3 +541,304 @@
     .eco-site #explora-madre-de-dios .territorio-red { grid-template-columns: 1fr; }
     .eco-site #explora-madre-de-dios .territorio-tarjeta summary { padding-right: 48px; }
 }
+
+/* Atlas editorial interactivo: un tema visible a la vez y controles persistentes. */
+.eco-site .eco-global-header .eco-wide { justify-content: space-between; }
+.eco-site #explora-madre-de-dios .territorio-aula.is-enhanced {
+    max-width: 1240px;
+    margin-top: clamp(34px,5vw,58px);
+}
+.eco-site #explora-madre-de-dios .territorio-aula.is-enhanced .territorio-introduccion {
+    display: block;
+    padding: clamp(25px,3.5vw,40px);
+    border-radius: 24px 24px 0 0;
+}
+.eco-site #explora-madre-de-dios .territorio-aula.is-enhanced .territorio-apertura {
+    display: grid;
+    grid-template-columns: minmax(220px,.55fr) minmax(0,1.45fr);
+    gap: 12px 42px;
+    align-items: end;
+    max-width: none;
+}
+.eco-site #explora-madre-de-dios .territorio-aula.is-enhanced .territorio-apertura .eco-eyebrow { grid-column: 1 / -1; }
+.eco-site #explora-madre-de-dios .territorio-aula.is-enhanced .territorio-apertura h2 { margin: 0; }
+.eco-site #explora-madre-de-dios .territorio-aula.is-enhanced .territorio-apertura p:last-child { margin: 0; max-width: 760px; }
+.eco-site #explora-madre-de-dios .territorio-selector-shell {
+    position: sticky;
+    top: 66px;
+    z-index: 18;
+    display: grid;
+    grid-template-columns: minmax(0,1fr) auto;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 16px;
+    border: 1px solid #cfdccf;
+    border-top: 0;
+    border-radius: 0 0 20px 20px;
+    background: #f8faf5;
+    box-shadow: 0 12px 26px rgb(18 54 36 / 9%);
+    backdrop-filter: none;
+}
+.eco-site #explora-madre-de-dios .territorio-selector-shell .territorio-indice {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 7px;
+    margin: 0;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scrollbar-width: thin;
+}
+.eco-site #explora-madre-de-dios .territorio-selector-shell .territorio-indice a {
+    flex: 0 0 auto;
+    min-height: 42px;
+    padding: 9px 13px;
+    border: 1px solid transparent;
+    border-radius: 999px;
+    background: transparent;
+    box-shadow: none;
+    color: #365b47;
+    font-size: .82rem;
+    white-space: nowrap;
+}
+.eco-site #explora-madre-de-dios .territorio-selector-shell .territorio-indice a::after { display: none; }
+.eco-site #explora-madre-de-dios .territorio-selector-shell .territorio-indice a[aria-selected="true"] {
+    border-color: #2f704d;
+    background: #245d40;
+    color: #fff;
+}
+.eco-site #explora-madre-de-dios .territorio-selector-shell .territorio-indice a:focus-visible,
+.eco-site #explora-madre-de-dios .territorio-panel-controles button:focus-visible,
+.eco-site #explora-madre-de-dios .territorio-choice-list button:focus-visible,
+.eco-site #explora-madre-de-dios .territorio-stepper-tabs button:focus-visible {
+    outline: 3px solid #d49b32;
+    outline-offset: 2px;
+}
+.eco-site #explora-madre-de-dios .territorio-panel-controles { display: flex; gap: 6px; align-items: center; }
+.eco-site #explora-madre-de-dios .territorio-panel-controles button {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid #c9d7cb;
+    border-radius: 50%;
+    background: #fff;
+    color: #245d40;
+    font: 800 1rem/1 var(--font-body);
+    cursor: pointer;
+}
+.eco-site #explora-madre-de-dios .territorio-panel-controles output {
+    min-width: 42px;
+    color: #54675a;
+    font-size: .72rem;
+    font-weight: 750;
+    text-align: center;
+}
+.eco-site #explora-madre-de-dios .territorio-aula.is-enhanced > .territorio-capitulo {
+    min-height: 520px;
+    padding: clamp(38px,5vw,60px) clamp(18px,3vw,36px) 34px;
+    border-top: 0;
+}
+.eco-site #explora-madre-de-dios .territorio-aula.is-enhanced > .territorio-capitulo[hidden],
+.eco-site #explora-madre-de-dios .territorio-choice-detail > [hidden],
+.eco-site #explora-madre-de-dios .territorio-stepper-content > [hidden] { display: none !important; }
+
+/* Selectores de fichas: una explicación completa sin mosaicos sobredimensionados. */
+.eco-site #explora-madre-de-dios .territorio-choice-layout {
+    display: grid;
+    grid-template-columns: minmax(210px,.58fr) minmax(0,1.42fr);
+    gap: 18px;
+    margin: 24px 0;
+    align-items: start;
+}
+.eco-site #explora-madre-de-dios .territorio-choice-list {
+    display: grid;
+    gap: 7px;
+    padding: 9px;
+    border: 1px solid #d4dfd4;
+    border-radius: 17px;
+    background: #f3f7f1;
+}
+.eco-site #explora-madre-de-dios .territorio-choice-list button {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    background: transparent;
+    color: #294c39;
+    font: 700 .84rem/1.35 var(--font-body);
+    text-align: left;
+    cursor: pointer;
+}
+.eco-site #explora-madre-de-dios .territorio-choice-list button[aria-selected="true"] {
+    border-color: #8da993;
+    background: #fff;
+    box-shadow: 0 7px 16px rgb(22 61 43 / 7%);
+    color: #164f35;
+}
+.eco-site #explora-madre-de-dios .territorio-choice-detail > .territorio-tarjeta {
+    margin: 0;
+    min-height: 100%;
+    padding: clamp(22px,3vw,32px);
+    border-color: #cfdccf;
+    background: #fff;
+}
+.eco-site #explora-madre-de-dios .territorio-choice-detail > details.territorio-tarjeta > summary { display: none; }
+.eco-site #explora-madre-de-dios .territorio-choice-detail .territorio-tarjeta-cuerpo { padding: 0; }
+.eco-site #explora-madre-de-dios .territorio-choice-detail .territorio-tarjeta-cuerpo dl { margin-top: 0; }
+.eco-site #explora-madre-de-dios .territorio-destacado { margin-top: 24px; padding: clamp(24px,3.5vw,38px); }
+
+/* Ríos, humedales y casos documentados. */
+.eco-site #explora-madre-de-dios .territorio-mas-alla,
+.eco-site #explora-madre-de-dios .territorio-caso {
+    margin: 18px 0 0;
+    padding: 0;
+    border: 1px solid #d4dfd5;
+    border-radius: 15px;
+    background: #f7faf5;
+}
+.eco-site #explora-madre-de-dios :is(.territorio-mas-alla,.territorio-caso) summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    min-height: 54px;
+    padding: 13px 17px;
+    color: #214f37;
+    cursor: pointer;
+    list-style: none;
+}
+.eco-site #explora-madre-de-dios :is(.territorio-mas-alla,.territorio-caso) summary::-webkit-details-marker { display: none; }
+.eco-site #explora-madre-de-dios :is(.territorio-mas-alla,.territorio-caso) summary span { font-size: .78rem; font-weight: 750; white-space: nowrap; }
+.eco-site #explora-madre-de-dios :is(.territorio-mas-alla,.territorio-caso) .territorio-callout-cuerpo { padding: 0 17px 17px; }
+.eco-site #explora-madre-de-dios .territorio-humedales-composicion {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) minmax(360px,.92fr);
+    gap: 22px;
+    margin: 24px 0 18px;
+    align-items: stretch;
+}
+.eco-site #explora-madre-de-dios .territorio-humedales-intro {
+    padding: clamp(22px,3vw,31px);
+    border: 1px solid #d4dfd5;
+    border-radius: 20px;
+    background: #f7faf5;
+}
+.eco-site #explora-madre-de-dios .territorio-humedales-intro > p:first-child { margin-top: 0; }
+.eco-site #explora-madre-de-dios .territorio-humedales-intro .territorio-conceptos { display: grid; grid-template-columns: 1fr; gap: 8px; margin: 18px 0 0; }
+.eco-site #explora-madre-de-dios .territorio-humedales-intro .territorio-tarjeta { padding: 15px 17px; box-shadow: none; }
+.eco-site #explora-madre-de-dios .territorio-humedales-intro .territorio-tarjeta h3 { margin-bottom: 4px; font-size: 1rem; }
+.eco-site #explora-madre-de-dios .territorio-humedales-intro .territorio-tarjeta p { margin: 0; font-size: .86rem; line-height: 1.55; }
+.eco-site #explora-madre-de-dios .territorio-aguajal-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 20px;
+}
+.eco-site #explora-madre-de-dios .territorio-aguajal-card figure { margin: 0; }
+.eco-site #explora-madre-de-dios .territorio-aguajal-card figure img { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }
+.eco-site #explora-madre-de-dios .territorio-aguajal-card > div { padding: 20px; }
+.eco-site #explora-madre-de-dios .territorio-aguajal-card h3 { margin: 3px 0 8px; }
+.eco-site #explora-madre-de-dios .territorio-aguajal-detalle summary { color: #1f6845; font-weight: 800; cursor: pointer; }
+.eco-site #explora-madre-de-dios .territorio-aguajal-detalle[open] summary { margin-bottom: 12px; }
+
+/* Una red y una sola explicación de servicio visible. */
+.eco-site #explora-madre-de-dios .territorio-red {
+    display: grid;
+    grid-template-columns: repeat(13, max-content);
+    justify-content: center;
+    gap: 7px;
+    overflow-x: auto;
+    padding: 8px 2px 14px;
+}
+.eco-site #explora-madre-de-dios .territorio-red article { min-width: 106px; min-height: 100px; padding: 13px 10px; }
+.eco-site #explora-madre-de-dios .territorio-red article .eco-icon { width: 24px; height: 24px; }
+.eco-site #explora-madre-de-dios .territorio-red article p { display: none; }
+.eco-site #explora-madre-de-dios .territorio-red > span { align-self: center; color: #73907c; }
+.eco-site #explora-madre-de-dios .territorio-servicios-selector { margin-top: 24px; }
+.eco-site #explora-madre-de-dios .territorio-service-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 13px; }
+.eco-site #explora-madre-de-dios .territorio-service-chips button {
+    min-height: 40px;
+    padding: 8px 13px;
+    border: 1px solid #cad8cc;
+    border-radius: 999px;
+    background: #fff;
+    color: #315b43;
+    font: 750 .8rem/1.2 var(--font-body);
+    cursor: pointer;
+}
+.eco-site #explora-madre-de-dios .territorio-service-chips button[aria-selected="true"] { background: #245d40; border-color: #245d40; color: #fff; }
+.eco-site #explora-madre-de-dios .territorio-service-detail .territorio-tarjeta { min-height: 0; margin: 0; padding: 19px 21px; box-shadow: none; }
+.eco-site #explora-madre-de-dios .territorio-caso { margin-top: 20px; background: #edf4ed; }
+
+/* Actividad por pasos. */
+.eco-site #explora-madre-de-dios .territorio-practica { margin-top: 0; }
+.eco-site #explora-madre-de-dios .territorio-stepper-tabs {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 8px;
+    margin: 26px 0 16px;
+}
+.eco-site #explora-madre-de-dios .territorio-stepper-tabs button {
+    min-height: 48px;
+    padding: 10px;
+    border: 1px solid #cbd8cd;
+    border-radius: 12px;
+    background: #fff;
+    color: #315b43;
+    font: 750 .82rem/1.25 var(--font-body);
+    cursor: pointer;
+}
+.eco-site #explora-madre-de-dios .territorio-stepper-tabs button[aria-selected="true"] { background: #245d40; border-color: #245d40; color: #fff; }
+.eco-site #explora-madre-de-dios .territorio-stepper-content { max-width: 820px; margin-inline: auto; }
+.eco-site #explora-madre-de-dios .territorio-stepper-content .territorio-actividad { min-height: 460px; }
+.eco-site #explora-madre-de-dios .territorio-stepper-controls { display: flex; justify-content: space-between; gap: 12px; max-width: 820px; margin: 14px auto 0; }
+.eco-site #explora-madre-de-dios .territorio-stepper-controls button { min-height: 44px; padding: 9px 16px; border: 1px solid #b9cabd; border-radius: 11px; background: #fff; color: #245d40; font-weight: 800; cursor: pointer; }
+.eco-site #explora-madre-de-dios .territorio-stepper-controls button:disabled { opacity: .45; cursor: default; }
+
+/* Geografía, personas, metodología y cierre editorial. */
+.eco-site #explora-madre-de-dios .territorio-contexto-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 18px;
+    margin: 0 0 28px;
+}
+.eco-site #explora-madre-de-dios .territorio-contexto-grid > .territorio-contexto {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+}
+.eco-site #explora-madre-de-dios .territorio-contexto-grid .conoce-modulo { height: 100%; margin: 0; padding: clamp(22px,3vw,30px); border: 1px solid #d5dfd6; border-radius: 20px; background: #f8faf6; }
+.eco-site #explora-madre-de-dios .territorio-contexto-grid :is(.conoce-geografia-grid,.conoce-personas-grid) { grid-template-columns: 1fr; }
+.eco-site #explora-madre-de-dios .territorio-contexto-grid .conoce-modulo-cabecera h2 { font-size: clamp(1.35rem,2.1vw,1.8rem); }
+.eco-site #explora-madre-de-dios .territorio-method-links { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.eco-site #explora-madre-de-dios .territorio-cierre { margin-top: 12px; }
+
+@media (max-width: 900px) {
+    .eco-site #explora-madre-de-dios .territorio-selector-shell { top: 58px; grid-template-columns: 1fr; padding: 10px 12px; }
+    .eco-site #explora-madre-de-dios .territorio-panel-controles { justify-content: flex-end; }
+    .eco-site #explora-madre-de-dios .territorio-choice-layout,
+    .eco-site #explora-madre-de-dios .territorio-humedales-composicion,
+    .eco-site #explora-madre-de-dios .territorio-contexto-grid { grid-template-columns: 1fr; }
+    .eco-site #explora-madre-de-dios .territorio-choice-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .eco-site #explora-madre-de-dios .territorio-aula.is-enhanced .territorio-apertura { grid-template-columns: 1fr; }
+}
+@media (max-width: 620px) {
+    .eco-site #explora-madre-de-dios .territorio-aula.is-enhanced .territorio-introduccion { padding: 21px 17px; border-radius: 18px 18px 0 0; }
+    .eco-site #explora-madre-de-dios .territorio-aula.is-enhanced > .territorio-capitulo { min-height: 0; padding: 34px 3px 26px; }
+    .eco-site #explora-madre-de-dios .territorio-selector-shell { margin-inline: -3px; border-radius: 0 0 16px 16px; }
+    .eco-site #explora-madre-de-dios .territorio-panel-controles { display: none; }
+    .eco-site #explora-madre-de-dios .territorio-choice-list { display: flex; grid-template-columns: none; overflow-x: auto; }
+    .eco-site #explora-madre-de-dios .territorio-choice-list button { flex: 0 0 190px; }
+    .eco-site #explora-madre-de-dios .territorio-stepper-tabs { display: flex; overflow-x: auto; }
+    .eco-site #explora-madre-de-dios .territorio-stepper-tabs button { flex: 0 0 150px; }
+    .eco-site #explora-madre-de-dios .territorio-stepper-content .territorio-actividad { min-height: 0; }
+    .eco-site #explora-madre-de-dios .territorio-method-links { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .eco-site #explora-madre-de-dios .territorio-selector-shell { backdrop-filter: none; }
+}

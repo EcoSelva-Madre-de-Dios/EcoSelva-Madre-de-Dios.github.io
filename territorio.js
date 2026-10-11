@@ -473,6 +473,326 @@ document.addEventListener("DOMContentLoaded", () => {
             let parent = target?.parentElement;
             while (parent && parent !== territorioAula) { if (parent.localName === "details") parent.open = true; parent = parent.parentElement; }
         }));
+
+        // Convierte la lectura extensa en un atlas editorial sin perder contenido ni enlaces profundos.
+        const reading = territorioAula.querySelector(".territorio-aula");
+        const index = reading?.querySelector(".territorio-indice");
+        if (reading && index) {
+            reading.classList.add("is-enhanced");
+
+            const activity = reading.querySelector(".territorio-practica");
+            const oldActivityAnchor = document.getElementById("territorio-actividades");
+            let activityPanel = null;
+            if (activity) {
+                activityPanel = document.createElement("div");
+                activityPanel.className = "territorio-capitulo territorio-actividades-panel";
+                activityPanel.id = "territorio-actividades";
+                activityPanel.setAttribute("aria-labelledby", "territorio-actividades-titulo");
+                oldActivityAnchor?.remove();
+                reading.querySelector("#territorio-metodologia")?.before(activityPanel);
+                activityPanel.append(activity);
+            }
+
+            const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+            const makeInteractiveDeck = (grid, name) => {
+                if (!grid || grid.dataset.territorioDeck === "true") return;
+                const items = [...grid.children].filter(item => item.matches("article,details"));
+                if (items.length < 2) return;
+                grid.dataset.territorioDeck = "true";
+                const layout = document.createElement("div");
+                layout.className = "territorio-choice-layout territorio-choice-layout--" + name;
+                const tabs = document.createElement("div");
+                tabs.className = "territorio-choice-list";
+                tabs.setAttribute("role", "tablist");
+                tabs.setAttribute("aria-label", "Elegir una ficha");
+                const detail = document.createElement("div");
+                detail.className = "territorio-choice-detail";
+                layout.append(tabs, detail);
+                grid.replaceWith(layout);
+
+                const buttons = items.map((item, itemIndex) => {
+                    const label = item.querySelector("summary strong,h3")?.textContent.trim() || `Ficha ${itemIndex + 1}`;
+                    const button = document.createElement("button");
+                    const panelId = `territorio-${name}-ficha-${itemIndex + 1}`;
+                    const tabId = `territorio-${name}-opcion-${itemIndex + 1}`;
+                    button.type = "button";
+                    button.id = tabId;
+                    button.textContent = label;
+                    button.setAttribute("role", "tab");
+                    button.setAttribute("aria-controls", panelId);
+                    item.id = panelId;
+                    item.setAttribute("role", "tabpanel");
+                    item.setAttribute("aria-labelledby", tabId);
+                    if (item.localName === "details") item.open = true;
+                    detail.append(item);
+                    tabs.append(button);
+                    return button;
+                });
+
+                const select = (selectedIndex, focus = false) => {
+                    items.forEach((item, itemIndex) => {
+                        const active = itemIndex === selectedIndex;
+                        item.hidden = !active;
+                        buttons[itemIndex].setAttribute("aria-selected", String(active));
+                        buttons[itemIndex].tabIndex = active ? 0 : -1;
+                    });
+                    if (focus) buttons[selectedIndex].focus();
+                    if (!reducedMotion.matches) items[selectedIndex].animate([
+                        { opacity: 0, transform: "translateY(7px)" },
+                        { opacity: 1, transform: "translateY(0)" }
+                    ], { duration: 190, easing: "ease-out" });
+                };
+                buttons.forEach((button, itemIndex) => {
+                    button.addEventListener("click", () => select(itemIndex));
+                    button.addEventListener("keydown", event => {
+                        if (!['ArrowDown','ArrowRight','ArrowUp','ArrowLeft','Home','End'].includes(event.key)) return;
+                        event.preventDefault();
+                        const next = event.key === 'Home' ? 0 : event.key === 'End' ? buttons.length - 1 :
+                            (itemIndex + (['ArrowDown','ArrowRight'].includes(event.key) ? 1 : -1) + buttons.length) % buttons.length;
+                        select(next, true);
+                    });
+                });
+                select(0);
+            };
+
+            makeInteractiveDeck(reading.querySelector("#territorio-bosques .territorio-bosques-grid"), "bosque");
+            makeInteractiveDeck(reading.querySelector("#territorio-cambios > .territorio-grid"), "cambio");
+            makeInteractiveDeck(reading.querySelector("#territorio-ciencia .territorio-ciencia-grid"), "ciencia");
+
+            const toCompactCallout = (aside, className, action) => {
+                if (!aside || aside.localName === "details") return;
+                const title = aside.querySelector(":scope > h3");
+                const details = document.createElement("details");
+                details.className = className;
+                const summary = document.createElement("summary");
+                const strong = document.createElement("strong");
+                strong.textContent = title?.textContent || "Información complementaria";
+                const hint = document.createElement("span");
+                hint.textContent = action;
+                summary.append(strong, hint);
+                const body = document.createElement("div");
+                body.className = "territorio-callout-cuerpo";
+                [...aside.childNodes].forEach(node => { if (node !== title) body.append(node); });
+                details.append(summary, body);
+                aside.replaceWith(details);
+            };
+            toCompactCallout(reading.querySelector("#territorio-rios > aside.territorio-nota"), "territorio-mas-alla", "Leer más ↓");
+            toCompactCallout(reading.querySelector("#territorio-conexiones > aside.territorio-nota"), "territorio-caso", "Conocer el caso ↓");
+
+            const wetlands = reading.querySelector("#territorio-humedales");
+            if (wetlands) {
+                const lead = wetlands.querySelector(":scope > p:not(.territorio-nota):not(.territorio-referencia)");
+                const concepts = wetlands.querySelector(":scope > .territorio-conceptos");
+                const aguajal = wetlands.querySelector("#territorio-aguajales");
+                if (lead && concepts && aguajal) {
+                    const composition = document.createElement("div");
+                    composition.className = "territorio-humedales-composicion";
+                    const intro = document.createElement("div");
+                    intro.className = "territorio-humedales-intro";
+                    intro.append(lead, concepts);
+                    aguajal.classList.add("territorio-aguajal-card");
+                    const info = aguajal.querySelector(":scope > div");
+                    if (info) {
+                        const paragraphs = [...info.querySelectorAll(":scope > p")];
+                        if (paragraphs.length > 1) {
+                            const details = document.createElement("details");
+                            details.className = "territorio-aguajal-detalle";
+                            const summary = document.createElement("summary");
+                            summary.textContent = "Explorar el aguajal →";
+                            details.append(summary);
+                            paragraphs.slice(1).forEach(paragraph => details.append(paragraph));
+                            const reference = info.querySelector(":scope > .territorio-referencia");
+                            if (reference) details.append(reference);
+                            info.append(details);
+                        }
+                    }
+                    composition.append(intro, aguajal);
+                    wetlands.querySelector(".territorio-cabecera")?.after(composition);
+                }
+            }
+
+            const services = reading.querySelector("#territorio-conexiones .territorio-servicios");
+            if (services) {
+                const cards = [...services.querySelectorAll(":scope > article")];
+                const selector = document.createElement("div");
+                selector.className = "territorio-servicios-selector";
+                const chips = document.createElement("div");
+                chips.className = "territorio-service-chips";
+                chips.setAttribute("role", "tablist");
+                chips.setAttribute("aria-label", "Aportes de los ecosistemas");
+                const detail = document.createElement("div");
+                detail.className = "territorio-service-detail";
+                selector.append(chips, detail);
+                services.replaceWith(selector);
+                const buttons = cards.map((card, cardIndex) => {
+                    const button = document.createElement("button");
+                    const label = card.querySelector("h3")?.textContent.trim() || `Aporte ${cardIndex + 1}`;
+                    button.type = "button";
+                    button.textContent = label;
+                    button.id = `territorio-servicio-tab-${cardIndex + 1}`;
+                    button.setAttribute("role", "tab");
+                    button.setAttribute("aria-controls", `territorio-servicio-panel-${cardIndex + 1}`);
+                    card.id = `territorio-servicio-panel-${cardIndex + 1}`;
+                    card.setAttribute("role", "tabpanel");
+                    card.setAttribute("aria-labelledby", button.id);
+                    chips.append(button);
+                    detail.append(card);
+                    return button;
+                });
+                const selectService = selected => {
+                    cards.forEach((card, cardIndex) => {
+                        const active = cardIndex === selected;
+                        card.hidden = !active;
+                        buttons[cardIndex].setAttribute("aria-selected", String(active));
+                        buttons[cardIndex].tabIndex = active ? 0 : -1;
+                    });
+                };
+                buttons.forEach((button, buttonIndex) => button.addEventListener("click", () => selectService(buttonIndex)));
+                selectService(0);
+            }
+
+            const activityGrid = activityPanel?.querySelector(".territorio-actividades-grid");
+            if (activityGrid) {
+                const steps = [...activityGrid.children].filter(step => step.matches("article,form"));
+                const tabs = document.createElement("div");
+                tabs.className = "territorio-stepper-tabs";
+                tabs.setAttribute("role", "tablist");
+                tabs.setAttribute("aria-label", "Pasos de la actividad");
+                const content = document.createElement("div");
+                content.className = "territorio-stepper-content";
+                activityGrid.replaceWith(tabs, content);
+                const buttons = steps.map((step, stepIndex) => {
+                    const button = document.createElement("button");
+                    button.type = "button";
+                    button.textContent = step.querySelector(".territorio-paso")?.textContent.replace(" · ", " — ") || `Paso ${stepIndex + 1}`;
+                    button.id = `territorio-paso-tab-${stepIndex + 1}`;
+                    button.setAttribute("role", "tab");
+                    button.setAttribute("aria-controls", `territorio-paso-panel-${stepIndex + 1}`);
+                    step.id = `territorio-paso-panel-${stepIndex + 1}`;
+                    step.setAttribute("role", "tabpanel");
+                    step.setAttribute("aria-labelledby", button.id);
+                    tabs.append(button);
+                    content.append(step);
+                    return button;
+                });
+                const controls = document.createElement("div");
+                controls.className = "territorio-stepper-controls";
+                const previous = document.createElement("button");
+                previous.type = "button";
+                previous.textContent = "← Anterior";
+                const next = document.createElement("button");
+                next.type = "button";
+                next.textContent = "Siguiente →";
+                controls.append(previous, next);
+                content.after(controls);
+                let currentStep = 0;
+                const selectStep = (selected, focus = false) => {
+                    currentStep = selected;
+                    steps.forEach((step, stepIndex) => {
+                        const active = stepIndex === selected;
+                        step.hidden = !active;
+                        buttons[stepIndex].setAttribute("aria-selected", String(active));
+                        buttons[stepIndex].tabIndex = active ? 0 : -1;
+                    });
+                    previous.disabled = selected === 0;
+                    next.disabled = selected === steps.length - 1;
+                    if (focus) buttons[selected].focus();
+                };
+                buttons.forEach((button, buttonIndex) => button.addEventListener("click", () => selectStep(buttonIndex)));
+                previous.addEventListener("click", () => selectStep(Math.max(0, currentStep - 1), true));
+                next.addEventListener("click", () => selectStep(Math.min(steps.length - 1, currentStep + 1), true));
+                selectStep(0);
+            }
+
+            const panelIds = [
+                "territorio-bosques", "territorio-rios", "territorio-humedales", "territorio-conexiones",
+                "territorio-cambios", "territorio-ciencia", "territorio-actividades", "territorio-metodologia"
+            ];
+            const panels = panelIds.map(id => document.getElementById(id)).filter(Boolean);
+            const tabs = [...index.querySelectorAll('a[href^="#territorio-"]')].filter(link => panelIds.includes(link.hash.slice(1)));
+            const shell = document.createElement("div");
+            shell.className = "territorio-selector-shell";
+            const panelControls = document.createElement("div");
+            panelControls.className = "territorio-panel-controles";
+            const previousPanel = document.createElement("button");
+            previousPanel.type = "button";
+            previousPanel.setAttribute("aria-label", "Tema anterior");
+            previousPanel.textContent = "←";
+            const panelStatus = document.createElement("output");
+            panelStatus.setAttribute("aria-live", "polite");
+            const nextPanel = document.createElement("button");
+            nextPanel.type = "button";
+            nextPanel.setAttribute("aria-label", "Tema siguiente");
+            nextPanel.textContent = "→";
+            panelControls.append(previousPanel, panelStatus, nextPanel);
+            reading.querySelector(".territorio-introduccion")?.after(shell);
+            shell.append(index, panelControls);
+            index.setAttribute("role", "tablist");
+            index.setAttribute("aria-label", "Temas para leer el paisaje");
+            let activePanelIndex = 0;
+
+            const activatePanel = (selected, options = {}) => {
+                const { focus = false, updateUrl = true, animate = true } = options;
+                if (selected < 0 || selected >= panels.length) return;
+                activePanelIndex = selected;
+                panels.forEach((panel, panelIndex) => {
+                    const active = panelIndex === selected;
+                    panel.hidden = !active;
+                    tabs[panelIndex].setAttribute("aria-selected", String(active));
+                    tabs[panelIndex].tabIndex = active ? 0 : -1;
+                });
+                panelStatus.value = `${selected + 1} / ${panels.length}`;
+                previousPanel.disabled = selected === 0;
+                nextPanel.disabled = selected === panels.length - 1;
+                if (focus) tabs[selected].focus({ preventScroll: true });
+                if (updateUrl) history.replaceState(null, "", `#${panels[selected].id}`);
+                if (animate && !reducedMotion.matches) panels[selected].animate([
+                    { opacity: 0, transform: "translateY(10px)" },
+                    { opacity: 1, transform: "translateY(0)" }
+                ], { duration: 230, easing: "ease-out" });
+            };
+            panels.forEach((panel, panelIndex) => {
+                panel.setAttribute("role", "tabpanel");
+                panel.setAttribute("aria-labelledby", `territorio-tema-tab-${panelIndex + 1}`);
+                tabs[panelIndex].id = `territorio-tema-tab-${panelIndex + 1}`;
+                tabs[panelIndex].setAttribute("role", "tab");
+                tabs[panelIndex].setAttribute("aria-controls", panel.id);
+                tabs[panelIndex].addEventListener("click", event => {
+                    event.preventDefault();
+                    activatePanel(panelIndex);
+                });
+                tabs[panelIndex].addEventListener("keydown", event => {
+                    if (!['ArrowRight','ArrowLeft','Home','End'].includes(event.key)) return;
+                    event.preventDefault();
+                    const next = event.key === 'Home' ? 0 : event.key === 'End' ? panels.length - 1 :
+                        (panelIndex + (event.key === 'ArrowRight' ? 1 : -1) + panels.length) % panels.length;
+                    activatePanel(next, { focus: true });
+                });
+            });
+            previousPanel.addEventListener("click", () => activatePanel(Math.max(0, activePanelIndex - 1), { focus: true }));
+            nextPanel.addEventListener("click", () => activatePanel(Math.min(panels.length - 1, activePanelIndex + 1), { focus: true }));
+
+            const panelForTarget = target => target?.closest(".territorio-capitulo");
+            const openHashPanel = (animate = false) => {
+                let target = null;
+                try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch { return false; }
+                const targetPanel = panelForTarget(target);
+                const selected = panels.indexOf(targetPanel);
+                if (selected < 0) return false;
+                activatePanel(selected, { updateUrl: false, animate });
+                return true;
+            };
+            reading.addEventListener("click", event => {
+                const link = event.target.closest('a[href^="#"]');
+                if (!link || tabs.includes(link)) return;
+                let target = null;
+                try { target = document.getElementById(decodeURIComponent(link.hash.slice(1))); } catch { return; }
+                const selected = panels.indexOf(panelForTarget(target));
+                if (selected >= 0 && selected !== activePanelIndex) activatePanel(selected, { updateUrl: false });
+            }, true);
+            window.addEventListener("hashchange", () => openHashPanel());
+            if (!openHashPanel()) activatePanel(0, { updateUrl: false, animate: false });
+        }
     }
 
 
