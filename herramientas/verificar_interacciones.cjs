@@ -126,8 +126,13 @@ async function accessible(page, selector) {
         assert.equal(await page.locator('.selva-territorio-layout').getAttribute('data-territorio-activo'), 'base');
         assert.equal(await page.locator('[data-territorio-overlay="anp"]:visible').count(), 0);
         assert.equal(await page.locator('[data-territorio-capa]:checked,[data-territorio-overlay-toggle]:checked').count(), 0);
+        const territoryTabs = page.locator('.territorio-selector-shell .territorio-indice [role="tab"]');
+        assert.equal(await territoryTabs.count(), 8, 'Territorio debe ofrecer sus ocho temas');
+        assert.equal(await page.locator('.territorio-selector-shell .territorio-indice [aria-selected="true"]').count(), 1);
+        assert.equal(await page.locator('.territorio-aula > .territorio-capitulo:visible').count(), 1);
+        await page.getByRole('tab', { name: 'Bosques', exact: true }).click();
         const origin = page.locator('[data-territorio-explorar]').first();
-        await origin.locator('xpath=ancestor::details[1]').locator('summary').click();
+        await origin.waitFor({ state: 'visible' });
         await origin.scrollIntoViewIfNeeded();
         const y = await page.evaluate(() => scrollY);
         await origin.click();
@@ -137,6 +142,8 @@ async function accessible(page, selector) {
         assert(Math.abs(await page.evaluate(() => scrollY) - y) < 6);
         if ([390, 1440].includes(width)) await accessible(page);
         if (width === 1440) {
+            await page.getByRole('tab', { name: 'Datos y fuentes', exact: true }).click();
+            assert(await page.locator('#territorio-metodologia').isVisible());
             for (const selector of ['.conoce-geografia-grid', '.conoce-personas-grid']) {
                 const cards = page.locator(selector).locator(':scope > details');
                 const heights = await cards.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().height));
