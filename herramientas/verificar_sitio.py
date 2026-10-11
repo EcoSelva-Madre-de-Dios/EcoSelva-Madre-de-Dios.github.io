@@ -92,7 +92,7 @@ def local_path(reference, parent):
 
 def source_sha256(path):
     data = path.read_bytes()
-    if path.suffix.lower() == '.svg':
+    if path.suffix.lower() in ('.svg', '.geojson'):
         data = data.replace(b'\r\n', b'\n')
     return sha256(data).hexdigest()
 
@@ -495,7 +495,7 @@ def verify_territorio_educativo():
         raise ValueError('Territorio: las capas adicionales deben usar el encuadre y CRS originales.')
     for key, count in (('provincias', 3), ('distritos', 11), ('anp', 6)):
         record = metadata[key]
-        if record['cantidad'] != count or sha256((ROOT / record['archivo']).read_bytes()).hexdigest() != record['sha256']:
+        if record['cantidad'] != count or source_sha256(ROOT / record['archivo']) != record['sha256']:
             raise ValueError('Territorio: origen de contornos modificado sin regenerar: ' + key)
         group = next((node for node in svg if node.get('data-territorio-overlay') == key), None)
         if group is None or len(group) != count or group.get('fill') != 'none':

@@ -21,6 +21,12 @@ scale = min(480 / (xmax - xmin), 430 / (ymax - ymin))
 xoff = (600 - (xmax - xmin) * scale) / 2
 
 
+def source_sha256(path):
+    """Calcula una huella estable para datos de texto en Windows y Linux."""
+    data = path.read_bytes().replace(b'\r\n', b'\n')
+    return sha256(data).hexdigest()
+
+
 def ring(points):
     return ' '.join(('M' if i == 0 else 'L') + f'{xoff + (x - xmin) * scale:.2f},{35 + (ymax - y) * scale:.2f}' for i, (x, y) in enumerate(points)) + 'Z'
 
@@ -53,9 +59,9 @@ metadata = {
     'viewBox': [0, 0, 600, 510], 'encuadre_utm': list(boundary.bounds),
     'procesamiento': 'Reproyección de GeoJSON ya publicados; encuadre uniforme del mapa original, norte arriba. Sin nueva simplificación. Redondeo a 0,01 unidades SVG. Contornos superpuestos, sin relleno ni cálculo de nuevas superficies.',
     'clip': 'El visor utiliza territorio-limite-clip del mapa original para ambas capas. ANP procede de un recorte IGN distinto; esta superposición no se usa para demarcación ni cálculo de áreas.',
-    'provincias': {'archivo': 'datos/territorio/provincias.geojson', 'sha256': sha256((OUT / 'provincias.geojson').read_bytes()).hexdigest(), 'cantidad': len(provinces), 'fuente': 'Provincias derivadas de la misma base administrativa de distritos; entidad generadora, fecha y escala no documentadas.', 'incorporacion': '2026-10-10', 'fecha_descarga': None, 'uso': 'Referencia educativa; no demarcación legal.'},
-    'distritos': {'archivo': 'datos/territorio/distritos.geojson', 'sha256': sha256((OUT / 'distritos.geojson').read_bytes()).hexdigest(), 'cantidad': len(districts), 'fuente': 'DISTRITOS_MDD de una base cartográfica cuya entidad generadora, fecha y escala no están documentadas; fecha de descarga no documentada.', 'incorporacion': '2026-10-02', 'fecha_descarga': None, 'uso': 'Referencia educativa; no demarcación legal. La capa de origen ya se simplificó a 180 m.'},
-    'anp': {'archivo': 'datos/conservacion/anp.geojson', 'sha256': sha256((ROOT / 'datos/conservacion/anp.geojson').read_bytes()).hexdigest(), 'cantidad': len(areas), 'fuente': 'SERNANP, servicio oficial de descarga; seis ANP nacionales.', 'consulta': '2026-10-05', 'fecha_version': None, 'metadatos': 'datos/conservacion/metadatos.json', 'uso': 'Contornos de referencia. No incluye ACP ni determina vigencia jurídica.'},
+    'provincias': {'archivo': 'datos/territorio/provincias.geojson', 'sha256': source_sha256(OUT / 'provincias.geojson'), 'cantidad': len(provinces), 'fuente': 'Provincias derivadas de la misma base administrativa de distritos; entidad generadora, fecha y escala no documentadas.', 'incorporacion': '2026-10-10', 'fecha_descarga': None, 'uso': 'Referencia educativa; no demarcación legal.'},
+    'distritos': {'archivo': 'datos/territorio/distritos.geojson', 'sha256': source_sha256(OUT / 'distritos.geojson'), 'cantidad': len(districts), 'fuente': 'DISTRITOS_MDD de una base cartográfica cuya entidad generadora, fecha y escala no están documentadas; fecha de descarga no documentada.', 'incorporacion': '2026-10-02', 'fecha_descarga': None, 'uso': 'Referencia educativa; no demarcación legal. La capa de origen ya se simplificó a 180 m.'},
+    'anp': {'archivo': 'datos/conservacion/anp.geojson', 'sha256': source_sha256(ROOT / 'datos/conservacion/anp.geojson'), 'cantidad': len(areas), 'fuente': 'SERNANP, servicio oficial de descarga; seis ANP nacionales.', 'consulta': '2026-10-05', 'fecha_version': None, 'metadatos': 'datos/conservacion/metadatos.json', 'uso': 'Contornos de referencia. No incluye ACP ni determina vigencia jurídica.'},
     'sha256_svg': sha256(content.encode()).hexdigest()
 }
 files = {'capas-adicionales.svg': content, 'capas-adicionales-metadatos.json': json.dumps(metadata, ensure_ascii=False, indent=2) + '\n'}

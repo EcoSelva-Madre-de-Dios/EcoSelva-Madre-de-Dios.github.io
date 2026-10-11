@@ -14,6 +14,14 @@ from shapely.ops import transform
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'datos/presentacion'
+
+
+def source_sha256(path):
+    """Calcula una huella estable para datos de texto en Windows y Linux."""
+    data = path.read_bytes().replace(b'\r\n', b'\n')
+    return sha256(data).hexdigest()
+
+
 OUT.mkdir(exist_ok=True)
 forward = Transformer.from_crs(4326, 32719, always_xy=True).transform
 boundary = transform(forward, shape(json.loads((ROOT / 'datos/territorio/limite.geojson').read_text())['features'][0]['geometry']))
@@ -55,7 +63,7 @@ for group in coverage:
 (OUT / 'mapa-base.svg').write_bytes(ET.tostring(tree))
 metadata = {'metodo': 'Puntos interiores calculados sobre copias proyectadas a EPSG:32719. Las copias SVG contienen exactamente los grupos existentes, sin modificar coordenadas.',
             'crs_visualizacion': 'EPSG:32719', 'metros_por_unidad_svg': 1 / scale,
-            'fuentes_sha256': {name: sha256((ROOT / name).read_bytes()).hexdigest() for name in inputs},
+            'fuentes_sha256': {name: source_sha256(ROOT / name) for name in inputs},
             'etiquetas': labels}
 (OUT / 'etiquetas.json').write_text(json.dumps(metadata, ensure_ascii=False, indent=2) + '\n')
 print('Puntos interiores de etiqueta y copias SVG separadas; fuentes intactas.')

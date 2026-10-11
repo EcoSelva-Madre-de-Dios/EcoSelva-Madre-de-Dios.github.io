@@ -38,7 +38,7 @@
   "sha256_svg": "d1327d7ae3a47a0bdadf8fb74b0bb3ac0bfd64adfe3c2750cb18c83ed1f92400",
   "provincias": {
     "archivo": "datos/territorio/provincias.geojson",
-    "sha256": "544293d796a111ba1ec04908c002bbc3b21a9d71c8ff283c53e5f516d10ede23",
+    "sha256": "b08320925fefa6614c04d516838a3baecf17c52e4b9da35bcc0336cc7148d8e5",
     "cantidad": 3,
     "fuente": "Provincias derivadas de la misma base administrativa de distritos; entidad generadora, fecha y escala no documentadas.",
     "incorporacion": "2026-10-10",
