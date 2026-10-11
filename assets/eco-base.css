@@ -4010,6 +4010,7 @@ h4,
 #conoce-madre-de-dios .selva-introduccion h2 { font-size: var(--text-title); }
 #conoce-madre-de-dios .selva-introduccion .container { max-width: 1200px; }
 .conoce-modal { width: min(800px, calc(100vw - 40px)); max-height: calc(100dvh - 56px); padding: 0; }
+.conoce-modal[data-conoce-tipo="provincia"] { width: min(620px, calc(100vw - 40px)); }
 .conoce-modal .selva-territorio-fuentes-modal-cabecera { position: sticky; top: 0; z-index: 1; background: #fff; }
 .conoce-modal-contenido { padding: var(--space-4); font-size: var(--text-body); line-height: 1.75; }
 .conoce-modal-contenido p + p { margin-top: var(--space-3); }
@@ -4020,6 +4021,7 @@ h4,
 .conoce-documento dt, .conoce-ficha-provincia dt { color: #52614f; }
 .conoce-documento dd, .conoce-ficha-provincia dd { overflow-wrap: anywhere; min-width: 0; }
 .conoce-ficha-provincia { margin-bottom: 20px; }
+.conoce-modal[data-conoce-tipo="provincia"] .conoce-ficha-provincia { margin: 0; }
 .conoce-modal-contenido .conoce-referencia { font-size: var(--text-credit); }
 @media (max-width: 1100px) {
     .conoce-datos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -4090,13 +4092,13 @@ h4,
     margin-inline: auto;
 }
 #conoce-ubicacion .conoce-ubicacion-grid {
-    grid-template-columns: minmax(280px, .82fr) minmax(0, 1.45fr);
+    grid-template-columns: minmax(340px, .92fr) minmax(0, 1.45fr);
     align-items: center;
     gap: clamp(32px, 5vw, 72px);
 }
 #conoce-ubicacion .conoce-localizador {
     width: 100%;
-    max-width: 380px;
+    max-width: 440px;
     margin: 0;
     padding: var(--space-2);
     border: 1px solid var(--line);
@@ -4216,11 +4218,11 @@ h4,
 
 @media (min-width: 761px) and (max-width: 1000px) {
     #conoce-ubicacion .conoce-ubicacion-grid {
-        grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr);
+        grid-template-columns: minmax(300px, .86fr) minmax(0, 1.2fr);
         gap: var(--space-4);
     }
     #conoce-ubicacion .conoce-localizador {
-        max-width: 320px;
+        max-width: 360px;
     }
 }
 
@@ -4423,7 +4425,7 @@ h4,
 .eco-site .ficha-glosario-modal #ficha-glosario-definicion,.eco-site .ficha-glosario-modal>a{display:block;margin:var(--space-4)}
 .eco-site .ficha-glosario-modal .eco-modal-barra{padding-inline:var(--space-4)}
 .eco-site :is(.eco-drawer,.historia-modal,.anp-dialogo-fuente,.ficha-glosario-modal,.conoce-modal[data-conoce-tipo=fuentes]){position:fixed;inset:0 0 0 auto;margin:0;width:clamp(420px,34vw,540px);max-width:calc(100vw - 2 * var(--page-gutter));height:100dvh;max-height:100dvh;border-radius:var(--radius-lg) 0 0 var(--radius-lg)}
-.eco-site .conoce-modal[data-conoce-tipo=provincia]{position:fixed;inset:0;margin:auto;width:min(900px,calc(100vw - 2 * var(--page-gutter)));height:auto;max-height:90dvh;border-radius:var(--radius-lg)}
+.eco-site .conoce-modal[data-conoce-tipo=provincia]{position:fixed;inset:0;translate:none;margin:auto;width:min(620px,calc(100vw - 2 * var(--page-gutter)));height:fit-content;max-height:90dvh;border-radius:var(--radius-lg)}
 .eco-site :is(.anp-dialogo-fuente,.historia-modal,.eco-drawer) :is(.anp-datos,.historia-registro dl,.selva-territorio-fuentes-modal-cuerpo dl){display:grid;grid-template-columns:minmax(0,1fr);gap:5px}
 .eco-site :is(.anp-dialogo-fuente,.historia-modal,.eco-drawer) dd{margin:0 0 var(--space-3)}
 .eco-site :is(.anp-dialogo-contenido,.historia-modal-contenido,.selva-territorio-fuentes-modal-cuerpo,.conoce-modal-contenido){padding:var(--space-4)}
@@ -4518,7 +4520,7 @@ h4,
   .eco-site .metodologia section[aria-labelledby=metodologia-editorial]{grid-template-columns:1fr;gap:var(--space-2)}
   .eco-site .metodologia section[aria-labelledby=metodologia-editorial]>h3{margin-top:var(--space-4)}
   .eco-site .metodologia>.selva-territorio-fuentes{padding:var(--space-4) var(--space-3)}
-  .eco-site dialog.eco-editorial,.eco-site :is(.eco-drawer,.historia-modal,.anp-dialogo-fuente,.anp-dialogo-ficha,.ficha-glosario-modal,.conoce-modal[data-conoce-tipo]){inset:auto 0 0;margin:0;width:100%;max-width:100%;height:auto;max-height:90dvh;border-radius:var(--radius-lg) var(--radius-lg) 0 0;border-bottom:0}
+  .eco-site dialog.eco-editorial,.eco-site :is(.eco-drawer,.historia-modal,.anp-dialogo-fuente,.anp-dialogo-ficha,.ficha-glosario-modal,.conoce-modal[data-conoce-tipo]){inset:auto 0 0;translate:none;margin:0;width:100%;max-width:100%;height:auto;max-height:90dvh;border-radius:var(--radius-lg) var(--radius-lg) 0 0;border-bottom:0}
   .eco-site :is(.selva-historia-layout,.selva-fauna-modal-layout,.selva-ambiente-modal-layout){grid-template-columns:1fr}
   .eco-site :is(.selva-historia-contenido,.selva-fauna-modal-contenido,.selva-ambiente-modal-contenido){padding:var(--space-4)}
   .eco-site .selva-historia-visual .selva-curiosidad-foto,.eco-site .selva-fauna-modal-imagen>img{height:180px;aspect-ratio:auto;object-fit:cover}

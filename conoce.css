@@ -86,6 +86,7 @@
 #conoce-madre-de-dios .selva-introduccion h2 { font-size: var(--text-title); }
 #conoce-madre-de-dios .selva-introduccion .container { max-width: 1200px; }
 .conoce-modal { width: min(800px, calc(100vw - 40px)); max-height: calc(100dvh - 56px); padding: 0; }
+.conoce-modal[data-conoce-tipo="provincia"] { width: min(620px, calc(100vw - 40px)); }
 .conoce-modal .selva-territorio-fuentes-modal-cabecera { position: sticky; top: 0; z-index: 1; background: #fff; }
 .conoce-modal-contenido { padding: var(--space-4); font-size: var(--text-body); line-height: 1.75; }
 .conoce-modal-contenido p + p { margin-top: var(--space-3); }
@@ -96,6 +97,7 @@
 .conoce-documento dt, .conoce-ficha-provincia dt { color: #52614f; }
 .conoce-documento dd, .conoce-ficha-provincia dd { overflow-wrap: anywhere; min-width: 0; }
 .conoce-ficha-provincia { margin-bottom: 20px; }
+.conoce-modal[data-conoce-tipo="provincia"] .conoce-ficha-provincia { margin: 0; }
 .conoce-modal-contenido .conoce-referencia { font-size: var(--text-credit); }
 @media (max-width: 1100px) {
     .conoce-datos { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -166,13 +168,13 @@
     margin-inline: auto;
 }
 #conoce-ubicacion .conoce-ubicacion-grid {
-    grid-template-columns: minmax(280px, .82fr) minmax(0, 1.45fr);
+    grid-template-columns: minmax(340px, .92fr) minmax(0, 1.45fr);
     align-items: center;
     gap: clamp(32px, 5vw, 72px);
 }
 #conoce-ubicacion .conoce-localizador {
     width: 100%;
-    max-width: 380px;
+    max-width: 440px;
     margin: 0;
     padding: var(--space-2);
     border: 1px solid var(--line);
@@ -292,11 +294,11 @@
 
 @media (min-width: 761px) and (max-width: 1000px) {
     #conoce-ubicacion .conoce-ubicacion-grid {
-        grid-template-columns: minmax(240px, .8fr) minmax(0, 1.2fr);
+        grid-template-columns: minmax(300px, .86fr) minmax(0, 1.2fr);
         gap: var(--space-4);
     }
     #conoce-ubicacion .conoce-localizador {
-        max-width: 320px;
+        max-width: 360px;
     }
 }
 

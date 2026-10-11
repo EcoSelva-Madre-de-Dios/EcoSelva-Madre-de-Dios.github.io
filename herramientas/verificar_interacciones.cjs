@@ -42,11 +42,15 @@ async function accessible(page, selector) {
         await page.goto(new URL('index.html', base).href);
         assert(await page.locator('a[href="mailto:ecoselvamadrededios@gmail.com"]').isVisible());
         const province = page.locator('.conoce-provincia').first();
-        await province.locator('summary').click();
-        assert.equal(await province.getAttribute('open'), '');
-        assert(await province.locator('.conoce-detalle').isVisible());
-        assert.equal(await page.locator('dialog[open]').count(), 0);
-        await province.locator('summary').click();
+        const provinceTrigger = province.locator('summary');
+        await provinceTrigger.click();
+        assert.equal(await province.getAttribute('open'), null);
+        assert(await page.locator('#conoce-modal[open]').isVisible());
+        assert.equal(await page.locator('#conoce-modal-titulo').textContent(), 'Tambopata');
+        assert(await page.locator('#conoce-modal .conoce-ficha-provincia').isVisible());
+        if ([390, 1440].includes(width)) await accessible(page, '#conoce-modal');
+        await page.keyboard.press('Escape');
+        assert(await provinceTrigger.evaluate(e => e === document.activeElement));
         const menu = page.locator('label[for="menu"]');
         if (await menu.isVisible()) {
             await menu.click();
