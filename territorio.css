@@ -217,6 +217,9 @@
 .eco-site #explora-madre-de-dios [data-territorio-overlay="provincias"] { fill: rgb(53 112 75 / 5%); stroke: #2f684b; stroke-width: 2.1; }
 .eco-site #explora-madre-de-dios [data-territorio-overlay="distritos"] { fill: transparent; stroke: #705034; stroke-width: 1; stroke-dasharray: 4 3; }
 .eco-site #explora-madre-de-dios [data-territorio-overlay="anp"] { fill: rgb(61 118 75 / 9%); stroke: #285d3b; stroke-width: 2; }
+.eco-site #explora-madre-de-dios .territorio-overlay-feature--anp-pn { stroke: #2e6d49; fill: rgb(46 109 73 / 10%); }
+.eco-site #explora-madre-de-dios .territorio-overlay-feature--anp-rn { stroke: #2f7180; fill: rgb(47 113 128 / 10%); }
+.eco-site #explora-madre-de-dios .territorio-overlay-feature--anp-rc { stroke: #806e32; fill: rgb(128 110 50 / 10%); }
 .eco-site #explora-madre-de-dios .territorio-overlay-feature { cursor: pointer; transition: stroke-width .16s ease, fill-opacity .16s ease, opacity .16s ease; }
 .eco-site #explora-madre-de-dios .territorio-overlay-feature:hover,
 .eco-site #explora-madre-de-dios .territorio-overlay-feature.is-highlighted,

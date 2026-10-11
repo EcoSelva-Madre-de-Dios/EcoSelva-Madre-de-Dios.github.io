@@ -226,7 +226,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     const group = document.importNode(original, true); group.setAttribute("clip-path", "url(#territorio-limite-clip)"); group.removeAttribute("pointer-events"); group.dataset.territorioOverlay = name;
                     [...group.children].filter(child => child.localName === "path").forEach((path, index) => {
                         const { key, point } = overlayRecord(name, index); if (!key) return; path.dataset.mapaFeature = key; path.dataset.mapaModo = name; path.classList.add("territorio-overlay-feature", "territorio-overlay-feature--" + name);
-                        if (name === "anp") { path.dataset.anpCategoria = topics[key].category; path.style.strokeDasharray = topics[key].category === "Parque Nacional" ? "none" : topics[key].category === "Reserva Nacional" ? "9 4" : "3 4"; }
+                        if (name === "anp") {
+                            path.dataset.anpCategoria = topics[key].category;
+                            const anpType = topics[key].category === "Parque Nacional" ? "pn" : topics[key].category === "Reserva Nacional" ? "rn" : "rc";
+                            path.classList.add("territorio-overlay-feature--anp-" + anpType);
+                            path.style.strokeDasharray = anpType === "pn" ? "none" : anpType === "rn" ? "9 4" : "3 4";
+                        }
                         features.push(path); bindFeature(path);
                         if (point) { const text = document.createElementNS(svg.namespaceURI, "text"); text.textContent = topics[key].name.replace(/^Parque Nacional (del |de )?/i, "").replace(/^Reserva (Nacional|Comunal) /i, ""); labelLayer.append(text); overlayLabels.push({text, anchor: point, layer: name, key}); }
                     });
