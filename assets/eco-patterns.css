@@ -383,7 +383,7 @@
   text-align: center;
 }
 .eco-site #biodiversidad .selva-biodiversidad-badge--revision { background: #f7eed7; color: #6d5320; }
-.eco-site #biodiversidad .selva-biodiversidad-stat h4 {
+.eco-site #biodiversidad .selva-biodiversidad-stat :is(h3, h4) {
   grid-area: title;
   margin: 7px 0 0;
   color: var(--forest-deep);
@@ -473,7 +473,7 @@
 /* La ficha de fauna conserva las fuentes y da protagonismo a la fotografía. */
 .eco-site #selva-fauna-modal { width: min(980px, calc(100vw - 40px)); max-height: min(760px, calc(100dvh - 40px)); }
 .eco-site #selva-fauna-modal .selva-fauna-modal-layout { grid-template-columns: minmax(280px, 36%) minmax(0, 1fr); min-height: 560px; }
-.eco-site #selva-fauna-modal .selva-fauna-modal-imagen { position: relative; min-height: 560px; margin: 0; overflow: hidden; background: var(--forest-deep); }
+.eco-site #selva-fauna-modal .selva-fauna-modal-imagen { position: relative; min-height: 560px; margin: 1px 0 0; overflow: hidden; background: var(--forest-deep); }
 .eco-site #selva-fauna-modal .selva-fauna-modal-imagen > img {
   width: 100% !important;
   height: 100% !important;
@@ -540,6 +540,7 @@
   .eco-site #biodiversidad .selva-biodiversidad-panel-pie .eco-button { width: 100%; justify-content: center; text-align: center; }
   .eco-site #selva-fauna-modal { width: 100%; max-height: 100dvh; }
   .eco-site #selva-fauna-modal .selva-fauna-modal-layout { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .eco-site #selva-fauna-modal .selva-fauna-modal-contenido { order: -1; }
   .eco-site #selva-fauna-modal .selva-fauna-modal-imagen { min-height: 300px; }
   .eco-site #selva-fauna-modal .selva-fauna-modal-imagen > img { min-height: 300px !important; height: 300px !important; }
   .eco-site #selva-fauna-modal .selva-fauna-especies { grid-template-columns: minmax(0, 1fr); }
