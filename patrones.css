@@ -565,3 +565,352 @@
 @media print {
   .eco-site .eco-tema-separador { display: none; }
 }
+
+/* ================================================================
+   Sistema de patrones para todo el sitio
+   La banda marca el borde de cada superficie y el motivo amplio
+   identifica su nivel sin competir con el texto ni las fotografias.
+   ================================================================ */
+
+/* El lienzo general mantiene la identidad incluso entre los modulos. */
+.eco-site {
+  background-color: var(--paper, #f7f6ef);
+  background-image: var(--eco-patron-entrelazado);
+  background-repeat: repeat-y;
+  background-position: calc(100% + 96px) 110px;
+  background-size: 470px auto;
+}
+
+/* Aperturas principales de las paginas y lecturas. */
+.eco-site :where(
+  .flora-page-heading,
+  .historia-hero,
+  .anp-hero,
+  .eco-library-hero,
+  .ficha-hero,
+  .metodologia
+) {
+  background-image: var(--eco-patron-entrelazado) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -54px top -34px !important;
+  background-size: min(470px, 44vw) auto !important;
+}
+
+/* Separadores editoriales dentro de las paginas largas. */
+.eco-site :where(
+  .flora-capitulo,
+  .territorio-capitulo,
+  .historia-capitulo,
+  .anp-modulo,
+  .ficha-capa,
+  .eco-library-catalog,
+  .eco-library-paths,
+  .conoce-modulo,
+  .metodologia > section
+) {
+  --eco-patron-capitulo: var(--eco-patron-dosel);
+  background-image: var(--eco-patron-banda), var(--eco-patron-capitulo) !important;
+  background-repeat: repeat-x, no-repeat !important;
+  background-position: left top, right -78px top 20px !important;
+  background-size: auto 13px, 390px auto !important;
+}
+
+.eco-site :where(
+  .flora-capitulo,
+  .territorio-capitulo,
+  .historia-capitulo,
+  .anp-modulo,
+  .ficha-capa,
+  .eco-library-catalog,
+  .eco-library-paths,
+  .conoce-modulo,
+  .metodologia > section
+):nth-of-type(even) {
+  --eco-patron-capitulo: var(--eco-patron-cauces);
+}
+
+/* Tarjetas y ventanas secundarias: banda fina arriba y trama localizada. */
+.eco-site :where(
+  .eco-card,
+  .conoce-provincia,
+  .conoce-geografia-bloque,
+  .conoce-persona,
+  .conoce-dato,
+  .selva-flora-stat,
+  .selva-fauna-stat,
+  .selva-ambiente-area,
+  .selva-sobre-proposito,
+  .selva-colabora-compromiso,
+  .flora-tarjeta,
+  .flora-castana,
+  .flora-aviso,
+  .flora-caso,
+  .flora-diagrama,
+  .flora-pasos > li,
+  .territorio-tarjeta,
+  .territorio-diagrama,
+  .territorio-practica,
+  .territorio-aguajal-card,
+  .territorio-destacado,
+  .territorio-nota,
+  .historia-pueblo,
+  .historia-bloque,
+  .historia-hito,
+  .historia-personaje,
+  .historia-caucho,
+  .historia-fecha-destacada,
+  .historia-documento,
+  .historia-presente,
+  .historia-reflexion,
+  .historia-nota,
+  .historia-lectura,
+  .anp-categoria,
+  .anp-panel,
+  .anp-selector,
+  .anp-conexion,
+  .anp-acp,
+  .anp-nota,
+  .ficha-datos,
+  .ficha-indicador,
+  .ficha-documentos > li,
+  .eco-popover,
+  .eco-doc-card,
+  .metodologia details
+) {
+  --eco-patron-superficie: var(--eco-patron-dosel);
+  background-image: var(--eco-patron-banda), var(--eco-patron-superficie) !important;
+  background-repeat: repeat-x, no-repeat !important;
+  background-position: left top, right -38px bottom -30px !important;
+  background-size: auto 8px, 230px auto !important;
+}
+
+/* Los conjuntos alternan tres motivos para que la repeticion tenga ritmo. */
+.eco-site :where(
+  .flora-grid,
+  .flora-pasos,
+  .territorio-grid,
+  .territorio-bosques-grid,
+  .territorio-ciencia-grid,
+  .historia-pueblos,
+  .historia-dos-columnas,
+  .historia-timeline,
+  .anp-categorias,
+  .anp-selectores,
+  .anp-ejemplos,
+  .ficha-indicadores,
+  .ficha-documentos,
+  .eco-resource-grid,
+  .conoce-provincias,
+  .conoce-geografia-grid,
+  .conoce-personas-grid
+) > :nth-child(3n + 2) {
+  --eco-patron-superficie: var(--eco-patron-semillas-suave);
+}
+
+.eco-site :where(
+  .flora-grid,
+  .flora-pasos,
+  .territorio-grid,
+  .territorio-bosques-grid,
+  .territorio-ciencia-grid,
+  .historia-pueblos,
+  .historia-dos-columnas,
+  .historia-timeline,
+  .anp-categorias,
+  .anp-selectores,
+  .anp-ejemplos,
+  .ficha-indicadores,
+  .ficha-documentos,
+  .eco-resource-grid,
+  .conoce-provincias,
+  .conoce-geografia-grid,
+  .conoce-personas-grid
+) > :nth-child(3n) {
+  --eco-patron-superficie: var(--eco-patron-trama);
+}
+
+/* Desplegables: el contenido abierto conserva una señal visual propia. */
+.eco-site :where(
+  .flora-tarjeta[open],
+  .territorio-tarjeta[open],
+  .historia-ampliacion[open],
+  .historia-pueblo[open],
+  .historia-hito[open],
+  .anp-categoria[open],
+  .anp-ficha[open],
+  .eco-popover[open],
+  .metodologia details[open]
+) {
+  border-color: rgb(23 60 45 / 26%);
+  box-shadow: 0 12px 32px rgb(17 48 35 / 8%);
+}
+
+.eco-site :where(
+  .territorio-tarjeta-cuerpo,
+  .historia-ampliacion-contenido,
+  .historia-pueblo-contenido,
+  .historia-hito-detalle,
+  .anp-ficha-contenido,
+  .eco-popover > div,
+  .conoce-bloque-detalle
+) {
+  background-image: var(--eco-patron-trama) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -58px bottom -48px !important;
+  background-size: 210px auto !important;
+}
+
+/* Ventanas flotantes, drawers y fichas contextuales. */
+.eco-site :where(dialog, .eco-global-nav) {
+  background-image: var(--eco-patron-entrelazado), var(--eco-patron-semillas-suave) !important;
+  background-repeat: no-repeat, no-repeat !important;
+  background-position: right -70px top -42px, left -48px bottom -38px !important;
+  background-size: 330px auto, 250px auto !important;
+}
+
+.eco-site :where(
+  dialog > header,
+  dialog .eco-modal-barra,
+  .selva-territorio-fuentes-modal-cabecera,
+  .anp-dialogo > header,
+  .historia-modal > header
+) {
+  background-image: var(--eco-patron-banda), var(--eco-patron-entrelazado) !important;
+  background-repeat: repeat-x, no-repeat !important;
+  background-position: left top, right -54px top -44px !important;
+  background-size: auto 9px, 230px auto !important;
+}
+
+.eco-site :where(
+  .selva-historia-contenido,
+  .selva-flora-modal-contenido,
+  .selva-fauna-modal-contenido,
+  .selva-ambiente-modal-contenido,
+  .conoce-modal-contenido,
+  .selva-territorio-fuentes-modal-cuerpo,
+  .anp-dialogo-contenido,
+  .historia-modal-contenido,
+  .ficha-glosario-modal > div,
+  .eco-overlay-body,
+  .eco-modal-contenido
+) {
+  background-image: var(--eco-patron-trama) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -48px bottom -38px !important;
+  background-size: 240px auto !important;
+}
+
+/* Los paneles oscuros usan una version clara y mas perceptible. */
+.eco-site :where(
+  .historia-portada,
+  .anp-cierre,
+  .territorio-cierre,
+  .flora-cierre,
+  .eco-bento-map,
+  .eco-global-footer,
+  .footer
+) {
+  background-image: var(--eco-patron-noche) !important;
+  background-repeat: repeat !important;
+  background-position: center !important;
+  background-size: 190px auto !important;
+}
+
+@media (max-width: 700px) {
+  .eco-site {
+    background-position: calc(100% + 132px) 90px;
+    background-size: 340px auto;
+  }
+
+  .eco-site :where(
+    .flora-page-heading,
+    .historia-hero,
+    .anp-hero,
+    .eco-library-hero,
+    .ficha-hero,
+    .metodologia
+  ) {
+    background-position: right -96px top -45px !important;
+    background-size: 300px auto !important;
+  }
+
+  .eco-site :where(
+    .flora-capitulo,
+    .territorio-capitulo,
+    .historia-capitulo,
+    .anp-modulo,
+    .ficha-capa,
+    .eco-library-catalog,
+    .eco-library-paths,
+    .conoce-modulo,
+    .metodologia > section
+  ) {
+    background-position: left top, right -104px top 12px !important;
+    background-size: auto 9px, 270px auto !important;
+  }
+
+  .eco-site :where(
+    .eco-card,
+    .conoce-provincia,
+    .conoce-geografia-bloque,
+    .conoce-persona,
+    .selva-flora-stat,
+    .selva-fauna-stat,
+    .selva-ambiente-area,
+    .flora-tarjeta,
+    .flora-castana,
+    .flora-aviso,
+    .flora-caso,
+    .flora-diagrama,
+    .flora-pasos > li,
+    .territorio-tarjeta,
+    .territorio-diagrama,
+    .territorio-practica,
+    .territorio-aguajal-card,
+    .historia-pueblo,
+    .historia-bloque,
+    .historia-hito,
+    .anp-categoria,
+    .anp-panel,
+    .anp-selector,
+    .ficha-datos,
+    .ficha-indicador,
+    .ficha-documentos > li,
+    .eco-popover,
+    .eco-doc-card,
+    .metodologia details
+  ) {
+    background-position: left top, right -54px bottom -42px !important;
+    background-size: auto 6px, 175px auto !important;
+  }
+
+  .eco-site :where(dialog, .eco-global-nav) {
+    background-position: right -110px top -52px, left -76px bottom -50px !important;
+    background-size: 270px auto, 210px auto !important;
+  }
+}
+
+@media (prefers-contrast: more), (forced-colors: active), print {
+  .eco-site,
+  .eco-site :where(
+    .flora-page-heading,
+    .historia-hero,
+    .anp-hero,
+    .eco-library-hero,
+    .ficha-hero,
+    .metodologia,
+    .flora-capitulo,
+    .territorio-capitulo,
+    .historia-capitulo,
+    .anp-modulo,
+    .ficha-capa,
+    .eco-library-catalog,
+    .eco-library-paths,
+    .conoce-modulo,
+    .eco-card,
+    dialog,
+    .eco-global-nav
+  ) {
+    background-image: none !important;
+  }
+}
