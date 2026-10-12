@@ -9,6 +9,8 @@
   --eco-patron-semillas-suave: url("../images/patron-ecoselva-semillas-suave.svg");
   --eco-patron-trama: url("../images/patron-ecoselva-trama.svg");
   --eco-patron-noche: url("../images/patron-ecoselva-noche.svg");
+  --eco-patron-entrelazado: url("../images/patron-ecoselva-entrelazado.svg");
+  --eco-patron-banda: url("../images/patron-ecoselva-banda.svg");
 }
 
 /* Una textura localizada da identidad sin reducir la legibilidad del contenido. */
@@ -201,5 +203,365 @@
     --eco-patron-semillas-suave: none;
     --eco-patron-trama: none;
     --eco-patron-noche: none;
+    --eco-patron-entrelazado: none;
+    --eco-patron-banda: none;
   }
+}
+
+/* Tramas de transición inspiradas en el ritmo geométrico de los referentes. */
+.eco-site .eco-tema-separador {
+  width: 100%;
+  height: clamp(28px, 3vw, 42px);
+  border-block: 1px solid rgb(23 60 45 / 8%);
+  background-color: #edf4ec;
+  background-image: var(--eco-patron-banda) !important;
+  background-repeat: repeat-x !important;
+  background-position: center !important;
+  background-size: auto 100% !important;
+  overflow: hidden;
+}
+
+.eco-site .eco-tema-separador--ambiente { background-color: #e9f3f2; background-position: 80px center !important; }
+.eco-site .eco-tema-separador--ciencia { background-color: #173c2d; filter: saturate(.82); }
+.eco-site .eco-tema-separador--ecoselva { background-color: #f2eee3; background-position: 160px center !important; }
+.eco-site .eco-tema-separador--colabora { background-color: #edf4ec; background-position: 240px center !important; }
+
+/* Biodiversidad: composición visual compartida por Flora y Fauna. */
+.eco-site #biodiversidad {
+  position: relative;
+  max-width: min(1440px, calc(100% - 32px));
+  margin-inline: auto;
+  padding: clamp(52px, 6vw, 82px) clamp(18px, 4vw, 58px);
+  border-inline: 1px solid rgb(23 60 45 / 8%);
+  background-color: #f5f8f2;
+  background-image: var(--eco-patron-entrelazado), linear-gradient(135deg, rgb(255 255 255 / 98%), rgb(237 246 238 / 94%)) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -70px top -26px, center !important;
+  background-size: min(560px, 48vw) auto, auto !important;
+  overflow: clip;
+}
+
+.eco-site #biodiversidad::before { display: none; }
+.eco-site #biodiversidad > :not(.selva-biodiversidad-panel) { position: relative; z-index: 1; }
+.eco-site #biodiversidad .selva-biodiversidad-intro { max-width: 760px; margin-inline: auto; }
+
+.eco-site #biodiversidad .selva-biodiversidad-tabs {
+  width: fit-content;
+  margin: 28px auto 34px;
+  padding: 5px;
+  border: 1px solid rgb(23 60 45 / 12%);
+  border-radius: 999px;
+  background: rgb(255 255 255 / 78%);
+  box-shadow: 0 8px 26px rgb(23 60 45 / 7%);
+  backdrop-filter: blur(8px);
+}
+
+.eco-site #biodiversidad .selva-biodiversidad-tab {
+  min-width: 132px;
+  min-height: 46px;
+  border-radius: 999px;
+}
+
+.eco-site #biodiversidad .selva-biodiversidad-tab[aria-selected="true"] {
+  background: var(--forest);
+  color: #fff;
+  box-shadow: 0 5px 14px rgb(23 60 45 / 18%);
+}
+
+.eco-site #biodiversidad .selva-biodiversidad-tab[aria-selected="true"]::after { display: none; }
+.eco-site #biodiversidad .selva-biodiversidad-panel[hidden] { display: none !important; }
+
+.eco-site #biodiversidad .selva-biodiversidad-panel {
+  position: relative;
+  z-index: 1;
+  max-width: none;
+  padding: clamp(24px, 3vw, 42px);
+  border: 1px solid rgb(23 60 45 / 10%);
+  border-radius: 28px;
+  background-color: rgb(255 255 255 / 78%);
+  background-image: var(--eco-patron-entrelazado), linear-gradient(145deg, rgb(255 255 255 / 96%), rgb(241 247 239 / 91%)) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -140px top -70px, center !important;
+  background-size: 520px auto, auto !important;
+  box-shadow: 0 18px 46px rgb(23 60 45 / 8%);
+  text-align: left;
+}
+
+.eco-site #biodiversidad .selva-biodiversidad-panel-cabecera { max-width: 900px; margin-bottom: 28px; }
+.eco-site #biodiversidad .selva-biodiversidad-ruta {
+  margin: 0 0 10px;
+  color: var(--green-natural);
+  font: 700 var(--text-credit)/1.4 var(--font-heading);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.eco-site #biodiversidad .selva-biodiversidad-panel-cabecera h3 {
+  margin: 0;
+  color: var(--forest-deep);
+  font: 800 clamp(1.9rem, 3vw, 3rem)/1.08 var(--font-heading);
+  letter-spacing: -.04em;
+}
+.eco-site #biodiversidad .selva-biodiversidad-panel-cabecera > p:last-child {
+  max-width: 720px;
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: var(--text-body);
+  line-height: 1.65;
+}
+
+.eco-site #biodiversidad .selva-biodiversidad-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.eco-site #biodiversidad .selva-biodiversidad-stat {
+  display: grid !important;
+  grid-template-columns: minmax(76px, 92px) minmax(0, 1fr) !important;
+  grid-template-rows: auto auto auto minmax(46px, auto) auto !important;
+  grid-template-areas:
+    "media badge"
+    "media title"
+    "media number"
+    "media description"
+    "action action" !important;
+  align-items: start !important;
+  gap: 5px 14px !important;
+  min-width: 0;
+  min-height: 270px;
+  padding: 16px !important;
+  border: 1px solid rgb(23 60 45 / 9%) !important;
+  border-radius: 20px !important;
+  background-color: #fff !important;
+  background-image: var(--eco-patron-trama) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -68px bottom -58px !important;
+  background-size: 190px auto !important;
+  box-shadow: 0 7px 22px rgb(23 60 45 / 6%) !important;
+  overflow: hidden;
+  text-align: left !important;
+}
+
+.eco-site #biodiversidad .selva-biodiversidad-stat::after { content: none !important; }
+.eco-site #biodiversidad .selva-biodiversidad-stat > * { position: relative; z-index: 1; }
+
+.eco-site #biodiversidad :is(.selva-biodiversidad-card-imagen, .selva-biodiversidad-card-ilustracion) {
+  grid-area: media;
+  align-self: stretch;
+  width: 100% !important;
+  height: 142px !important;
+  min-width: 0;
+  margin: 0 !important;
+  border: 0;
+  border-radius: 46% 54% 45% 55% / 38% 42% 58% 62%;
+  background: radial-gradient(circle at 45% 35%, #f8fbf5, #e2eddf);
+  object-fit: cover;
+  object-position: center;
+  color: var(--forest);
+}
+
+.eco-site #biodiversidad .selva-biodiversidad-card-ilustracion { padding: 10px; }
+.eco-site #biodiversidad .selva-fauna-stat--aves .selva-biodiversidad-card-imagen { object-position: center 28%; }
+.eco-site #biodiversidad .selva-fauna-stat--anfibios .selva-biodiversidad-card-imagen { object-position: center; }
+
+.eco-site #biodiversidad .selva-biodiversidad-badge {
+  grid-area: badge;
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border-radius: 999px;
+  background: #e5f2e8;
+  color: var(--forest);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.2;
+  text-align: center;
+}
+.eco-site #biodiversidad .selva-biodiversidad-badge--revision { background: #f7eed7; color: #6d5320; }
+.eco-site #biodiversidad .selva-biodiversidad-stat h4 {
+  grid-area: title;
+  margin: 7px 0 0;
+  color: var(--forest-deep);
+  font: 750 var(--text-body)/1.28 var(--font-heading);
+}
+.eco-site #biodiversidad .selva-biodiversidad-numero {
+  grid-area: number;
+  display: block !important;
+  width: auto !important;
+  height: auto !important;
+  border: 0 !important;
+  color: #102f24 !important;
+  font: 800 clamp(2.35rem, 3.1vw, 3.3rem)/1 var(--font-heading) !important;
+  letter-spacing: -.055em;
+  font-variant-numeric: tabular-nums;
+}
+.eco-site #biodiversidad .selva-biodiversidad-numero--sin-cifra { color: #7b857e !important; }
+.eco-site #biodiversidad .selva-biodiversidad-stat > p {
+  grid-area: description;
+  align-self: start;
+  max-width: none;
+  margin: 3px 0 0 !important;
+  color: var(--muted);
+  font-size: 13px !important;
+  line-height: 1.5 !important;
+}
+.eco-site #biodiversidad .selva-biodiversidad-stat > .selva-biodiversidad-accion,
+.eco-site #biodiversidad .selva-biodiversidad-stat > [data-fauna-actions] {
+  grid-area: action;
+  align-self: end;
+  margin-top: 10px;
+}
+.eco-site #biodiversidad :is(.selva-biodiversidad-accion, .selva-fauna-explorar) {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 4px 0 0;
+  border: 0;
+  background: transparent;
+  color: var(--forest);
+  font: 750 var(--text-note)/1.3 var(--font-heading);
+  text-decoration: none;
+  cursor: pointer;
+}
+.eco-site #biodiversidad :is(.selva-biodiversidad-accion, .selva-fauna-explorar)::before {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex: 0 0 40px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+  content: "→";
+  transition: transform 180ms ease, background 180ms ease;
+}
+.eco-site #biodiversidad :is(.selva-biodiversidad-accion, .selva-fauna-explorar):is(:hover, :focus-visible)::before { transform: translateX(3px); background: var(--green-natural); }
+.eco-site #biodiversidad :is(.selva-biodiversidad-accion, .selva-fauna-explorar):focus-visible { outline: 2px solid var(--forest); outline-offset: 4px; border-radius: 999px; }
+
+.eco-site #biodiversidad .selva-biodiversidad-panel-pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 22px;
+}
+.eco-site #biodiversidad .selva-biodiversidad-panel-pie > .selva-fauna-nota { max-width: 56ch; margin: 0; text-align: left; }
+.eco-site #biodiversidad .selva-biodiversidad-alcance {
+  max-width: 680px;
+  border: 1px solid rgb(23 60 45 / 9%);
+  border-radius: 14px;
+  background: rgb(247 250 245 / 88%);
+}
+.eco-site #biodiversidad .selva-biodiversidad-alcance summary {
+  padding: 13px 16px;
+  color: var(--forest);
+  font: 700 var(--text-note)/1.4 var(--font-heading);
+  cursor: pointer;
+}
+.eco-site #biodiversidad .selva-biodiversidad-alcance > div { padding: 0 16px 15px; }
+.eco-site #biodiversidad .selva-biodiversidad-alcance p { margin: 8px 0; font-size: var(--text-credit); line-height: 1.6; }
+.eco-site #biodiversidad .selva-biodiversidad-alcance a { color: var(--forest); font-size: var(--text-credit); font-weight: 700; }
+
+/* La ficha de fauna conserva las fuentes y da protagonismo a la fotografía. */
+.eco-site #selva-fauna-modal { width: min(980px, calc(100vw - 40px)); max-height: min(760px, calc(100dvh - 40px)); }
+.eco-site #selva-fauna-modal .selva-fauna-modal-layout { grid-template-columns: minmax(280px, 36%) minmax(0, 1fr); min-height: 560px; }
+.eco-site #selva-fauna-modal .selva-fauna-modal-imagen { position: relative; min-height: 560px; margin: 0; overflow: hidden; background: var(--forest-deep); }
+.eco-site #selva-fauna-modal .selva-fauna-modal-imagen > img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 560px !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+}
+.eco-site #selva-fauna-modal .selva-fauna-modal-imagen figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 82px 24px 22px;
+  background: linear-gradient(transparent, rgb(7 27 20 / 92%));
+  color: #fff;
+}
+.eco-site #selva-fauna-modal .selva-fauna-foto-nombre { color: #fff; font-size: var(--text-title); }
+.eco-site #selva-fauna-modal .selva-fauna-foto-cientifico { color: rgb(255 255 255 / 88%); }
+.eco-site #selva-fauna-modal .selva-fauna-foto-credito { color: rgb(255 255 255 / 72%); font-size: 12px; }
+.eco-site #selva-fauna-modal .selva-fauna-foto-credito a { color: #fff; }
+.eco-site #selva-fauna-modal .selva-fauna-modal-contenido { padding: 40px clamp(24px, 4vw, 48px) 30px; }
+.eco-site #selva-fauna-modal .selva-fauna-modal-intro { max-width: 54ch; margin: -10px 0 22px; color: var(--muted); font-size: var(--text-note); line-height: 1.65; }
+.eco-site #selva-fauna-modal .selva-fauna-especies { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.eco-site #selva-fauna-modal .selva-fauna-especies li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 16px;
+  background: #f5f8f2;
+}
+.eco-site #selva-fauna-modal .selva-fauna-especie-indice {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-bottom: 12px;
+  border-radius: 50%;
+  background: var(--forest);
+  color: #fff;
+  font: 700 var(--text-credit)/1 var(--font-heading);
+}
+.eco-site #selva-fauna-modal .selva-fauna-especies li > div { display: flex; flex: 1; flex-direction: column; min-width: 0; }
+.eco-site #selva-fauna-modal .selva-fauna-conocer { margin-top: auto; }
+
+@media (max-width: 1120px) {
+  .eco-site #biodiversidad .selva-biodiversidad-stats { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+  .eco-site #biodiversidad .selva-biodiversidad-stat { min-height: 245px; }
+}
+
+@media (max-width: 760px) {
+  .eco-site .eco-tema-separador { height: 24px; }
+  .eco-site #biodiversidad { max-width: 100%; padding: 44px 16px; border-inline: 0; background-size: 300px auto, auto !important; }
+  .eco-site #biodiversidad .selva-biodiversidad-tabs { width: 100%; }
+  .eco-site #biodiversidad .selva-biodiversidad-tab { flex: 1; min-width: 0; }
+  .eco-site #biodiversidad .selva-biodiversidad-panel { padding: 22px 16px; border-radius: 22px; background-size: 340px auto, auto !important; }
+  .eco-site #biodiversidad .selva-biodiversidad-stats { grid-template-columns: minmax(0, 1fr) !important; }
+  .eco-site #biodiversidad .selva-biodiversidad-stat {
+    grid-template-columns: 92px minmax(0, 1fr) !important;
+    min-height: 230px;
+  }
+  .eco-site #biodiversidad .selva-biodiversidad-panel-pie { align-items: stretch; flex-direction: column; }
+  .eco-site #biodiversidad .selva-biodiversidad-panel-pie .eco-button { width: 100%; justify-content: center; text-align: center; }
+  .eco-site #selva-fauna-modal { width: 100%; max-height: 100dvh; }
+  .eco-site #selva-fauna-modal .selva-fauna-modal-layout { grid-template-columns: minmax(0, 1fr); min-height: 0; }
+  .eco-site #selva-fauna-modal .selva-fauna-modal-imagen { min-height: 300px; }
+  .eco-site #selva-fauna-modal .selva-fauna-modal-imagen > img { min-height: 300px !important; height: 300px !important; }
+  .eco-site #selva-fauna-modal .selva-fauna-especies { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (max-width: 420px) {
+  .eco-site #biodiversidad .selva-biodiversidad-stat { grid-template-columns: 78px minmax(0, 1fr) !important; padding: 14px !important; }
+  .eco-site #biodiversidad :is(.selva-biodiversidad-card-imagen, .selva-biodiversidad-card-ilustracion) { height: 126px !important; }
+  .eco-site #biodiversidad .selva-biodiversidad-badge { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eco-site #biodiversidad :is(.selva-biodiversidad-accion, .selva-fauna-explorar)::before { transition: none; }
+}
+
+@media (prefers-contrast: more), (forced-colors: active) {
+  .eco-site .eco-tema-separador { height: 12px; border-block: 2px solid CanvasText; background: Canvas !important; }
+  .eco-site #biodiversidad,
+  .eco-site #biodiversidad .selva-biodiversidad-panel,
+  .eco-site #biodiversidad .selva-biodiversidad-stat { background-image: none !important; }
+}
+
+@media print {
+  .eco-site .eco-tema-separador { display: none; }
 }

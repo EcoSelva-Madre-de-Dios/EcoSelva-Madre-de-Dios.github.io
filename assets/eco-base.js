@@ -307,13 +307,13 @@ document.addEventListener("DOMContentLoaded", () => {
         };
         const showGroup = (focusTitle = false) => {
             const group = faunaGroups[activeGroup]; body.replaceChildren();
-            title.textContent = `${group.name}: especies documentadas`;
+            title.textContent = "Especies destacadas";
             if (back) back.hidden = true;
+            body.append(element("p", `Una selección de especies representativas documentadas para ${group.name.toLowerCase()} en las fuentes consultadas.`, "selva-fauna-modal-intro"));
             const list = element("ul", null, "selva-fauna-especies");
-            group.species.forEach(species => {
+            group.species.forEach((species, index) => {
                 const item = element("li"), content = element("div");
-                const illustration = document.querySelector(`[data-fauna-categoria="${activeGroup}"] .selva-fauna-icono`).cloneNode(true);
-                item.append(illustration);
+                item.append(element("span", String(index + 1).padStart(2, "0"), "selva-fauna-especie-indice"));
                 content.append(element("h4", species[0]), element("em", species[1]), element("p", `Registro: ${species[2] || group.place}.`));
                 const button = element("button", `Ver ${species[0]} →`, "selva-fauna-conocer");
                 button.type = "button"; button.setAttribute("aria-label", `Ver ficha de ${species[0]}`);
@@ -356,10 +356,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (document.querySelector("dialog[open]")) return;
                 activeGroup = button.dataset.faunaExplorar;
                 button.parentElement.querySelector(".eco-document-error")?.remove();
-                faunaModal.querySelector(".selva-fauna-modal-categoria").textContent = "Registros locales";
+                faunaModal.querySelector(".selva-fauna-modal-categoria").textContent = group.name;
                 const photo = faunaModal.querySelector("[data-fauna-photo]");
                 photo.src = group.photo; photo.alt = `${group.species[0][0]} (${group.species[0][1]}). ${group.photoPlace}.`;
                 photo.width = group.photoWidth; photo.height = group.photoHeight;
+                faunaModal.querySelector(".selva-fauna-foto-nombre").textContent = group.species[0][0];
+                faunaModal.querySelector(".selva-fauna-foto-cientifico").textContent = group.species[0][1];
                 faunaModal.querySelector(".selva-fauna-foto-credito").replaceChildren(
                     document.createTextNode(`Foto: ${group.author} · `), link("Wikimedia Commons", group.photoSource),
                     document.createTextNode(" · "), link(group.license, group.licenseUrl), document.createTextNode(`. ${group.photoPlace}.`));
@@ -376,7 +378,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (panel.hidden) return;
             panel.querySelectorAll('[data-fauna-actions]').forEach(host => {
                 if (host.querySelector('button')) return;
-                const button = element('button', host.dataset.faunaActionLabel + ' →', 'selva-fauna-explorar');
+                const button = element('button', host.dataset.faunaActionLabel, 'selva-fauna-explorar');
                 button.type = 'button'; button.dataset.faunaExplorar = host.dataset.faunaActions;
                 button.setAttribute('aria-haspopup', 'dialog'); button.setAttribute('aria-controls', faunaModal.id);
                 button.addEventListener('click', () => openGroup(button)); host.append(button);
