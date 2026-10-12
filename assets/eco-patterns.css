@@ -1,0 +1,205 @@
+/* patrones.css */
+/*
+ * Motivos abstractos del paisaje amazónico: dosel, cauces, semillas y caminos.
+ * Son recursos editoriales propios; no reproducen iconografía de un pueblo específico.
+ */
+.eco-site {
+  --eco-patron-dosel: url("../images/patron-ecoselva-dosel.svg");
+  --eco-patron-cauces: url("../images/patron-ecoselva-cauces.svg");
+  --eco-patron-semillas-suave: url("../images/patron-ecoselva-semillas-suave.svg");
+  --eco-patron-trama: url("../images/patron-ecoselva-trama.svg");
+  --eco-patron-noche: url("../images/patron-ecoselva-noche.svg");
+}
+
+/* Una textura localizada da identidad sin reducir la legibilidad del contenido. */
+.eco-site :where(
+  .eco-card,
+  .conoce-provincia,
+  .conoce-geografia-bloque,
+  .conoce-persona,
+  .selva-flora-stat,
+  .selva-fauna-stat,
+  .selva-ambiente-area,
+  .flora-tarjeta,
+  .territorio-tarjeta,
+  .historia-pueblo,
+  .historia-bloque,
+  .historia-hito,
+  .anp-categoria,
+  .anp-panel,
+  .anp-selector,
+  .ficha-datos,
+  .ficha-documentos > li,
+  .metodologia details
+) {
+  --eco-patron-superficie: var(--eco-patron-dosel);
+  background-image: var(--eco-patron-superficie) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -34px bottom -28px !important;
+  background-size: 230px auto !important;
+}
+
+/* Las colecciones alternan motivos para evitar una cuadrícula monótona. */
+.eco-site :where(
+  .eco-grid,
+  .conoce-provincias,
+  .conoce-geografia-grid,
+  .conoce-personas-grid,
+  .flora-grid,
+  .territorio-grid,
+  .territorio-bosques-grid,
+  .territorio-ciencia-grid,
+  .historia-pueblos,
+  .historia-dos-columnas,
+  .historia-timeline,
+  .anp-categorias,
+  .anp-selectores,
+  .ficha-documentos
+) > :nth-child(3n + 2) {
+  --eco-patron-superficie: var(--eco-patron-semillas-suave);
+}
+
+.eco-site :where(
+  .eco-grid,
+  .conoce-provincias,
+  .conoce-geografia-grid,
+  .conoce-personas-grid,
+  .flora-grid,
+  .territorio-grid,
+  .territorio-bosques-grid,
+  .territorio-ciencia-grid,
+  .historia-pueblos,
+  .historia-dos-columnas,
+  .historia-timeline,
+  .anp-categorias,
+  .anp-selectores,
+  .ficha-documentos
+) > :nth-child(3n) {
+  --eco-patron-superficie: var(--eco-patron-trama);
+}
+
+/* Los contenidos de agua y los documentos reciben un motivo temático. */
+.eco-site :where(
+  #territorio-rios,
+  #territorio-humedales,
+  .territorio-destacado--agua
+) :where(.territorio-tarjeta, .territorio-diagrama, .territorio-aguajal-card),
+.eco-site :where(.eco-doc-card, .eco-document-cover, .historia-documento) {
+  --eco-patron-superficie: var(--eco-patron-cauces);
+  background-image: var(--eco-patron-superficie) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -28px bottom -18px !important;
+  background-size: 250px auto !important;
+}
+
+/* Bloques editoriales amplios: textura más abierta, siempre fuera del eje principal de lectura. */
+.eco-site :where(
+  .historia-personaje,
+  .historia-caucho,
+  .historia-fecha-destacada,
+  .historia-presente,
+  .historia-reflexion,
+  .anp-conexion,
+  .anp-acp,
+  .territorio-destacado,
+  .territorio-diagrama,
+  .territorio-practica,
+  .selva-sobre-proposito,
+  .selva-colabora-compromiso
+) {
+  background-image: var(--eco-patron-semillas-suave) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -24px bottom -20px !important;
+  background-size: 310px auto !important;
+}
+
+/* Las superficies oscuras usan una tinta clara preparada para ese fondo. */
+.eco-site :where(
+  .historia-portada,
+  .anp-cierre,
+  .territorio-cierre,
+  .eco-bento-map,
+  .eco-global-footer,
+  .footer
+) {
+  background-image: var(--eco-patron-noche) !important;
+  background-repeat: repeat !important;
+  background-position: center !important;
+  background-size: 240px auto !important;
+}
+
+/* Ventanas y menús: una trama breve identifica la cabecera sin distraer el cuerpo. */
+.eco-site :where(dialog, .eco-global-nav) {
+  background-image: var(--eco-patron-semillas-suave) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -42px bottom -30px !important;
+  background-size: 260px auto !important;
+}
+
+.eco-site :where(
+  dialog > header,
+  dialog .eco-modal-barra,
+  .selva-territorio-fuentes-modal-cabecera,
+  .anp-dialogo > header,
+  .historia-modal > header
+) {
+  background-image: var(--eco-patron-trama) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -22px top -34px !important;
+  background-size: 190px auto !important;
+}
+
+/* En las páginas largas, un motivo tenue acompaña el cambio de capítulo. */
+.eco-site :where(.historia-capitulo, .anp-modulo, .flora-capitulo, .territorio-capitulo):nth-of-type(odd) {
+  background-image: var(--eco-patron-cauces) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -70px top 18px !important;
+  background-size: 360px auto !important;
+}
+
+.eco-site :where(.historia-capitulo, .anp-modulo, .flora-capitulo, .territorio-capitulo):nth-of-type(even) {
+  background-image: var(--eco-patron-dosel) !important;
+  background-repeat: no-repeat !important;
+  background-position: right -70px top 18px !important;
+  background-size: 360px auto !important;
+}
+
+@media (max-width: 700px) {
+  .eco-site :where(
+    .eco-card,
+    .conoce-provincia,
+    .conoce-geografia-bloque,
+    .conoce-persona,
+    .selva-flora-stat,
+    .selva-fauna-stat,
+    .selva-ambiente-area,
+    .flora-tarjeta,
+    .territorio-tarjeta,
+    .historia-pueblo,
+    .historia-bloque,
+    .historia-hito,
+    .anp-categoria,
+    .anp-panel,
+    .anp-selector,
+    .ficha-datos,
+    .ficha-documentos > li
+  ) {
+    background-position: right -46px bottom -36px !important;
+    background-size: 190px auto !important;
+  }
+
+  .eco-site :where(.historia-capitulo, .anp-modulo, .flora-capitulo, .territorio-capitulo) {
+    background-position: right -90px top 12px !important;
+    background-size: 260px auto !important;
+  }
+}
+
+@media (prefers-contrast: more), (forced-colors: active), print {
+  .eco-site {
+    --eco-patron-dosel: none;
+    --eco-patron-cauces: none;
+    --eco-patron-semillas-suave: none;
+    --eco-patron-trama: none;
+    --eco-patron-noche: none;
+  }
+}
