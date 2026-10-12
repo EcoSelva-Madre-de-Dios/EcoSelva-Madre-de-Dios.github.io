@@ -2897,7 +2897,7 @@ h4,
 
 /* Transición compacta: cuatro entradas reales al recorrido. */
 .selva-introduccion { position: relative; padding: 58px 0; overflow: hidden; text-align: left; }
-.selva-introduccion::before { content: ""; position: absolute; inset: 0; background-image: var(--flora-pattern); opacity: .045; pointer-events: none; }
+.selva-introduccion::before { content: none; background-image: none; }
 .selva-introduccion .container { position: relative; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--space-7); align-items: center; max-width: 1200px; }
 .selva-introduccion .selva-microetiqueta { text-align: left; }
 .selva-introduccion h2 { margin: var(--space-2) 0; font-size: var(--text-title); }
@@ -2962,17 +2962,12 @@ h4,
     .menu.container, .menu .logo img, .selva-introduccion-accesos a { transition: none; }
 }
 
-/* Identidad territorial original: fibras, cauces y semillas; ornamentación localizada. */
-:root {
-    --ecoselva-geometria: url("images/patron-ecoselva-geometria.svg");
-    --ecoselva-rios: url("images/patron-ecoselva-rios.svg");
-    --ecoselva-semillas: url("images/patron-ecoselva-semillas.svg");
-}
+/* Identidad territorial: ornamentación localizada en el sistema editorial común. */
 .header-txt .hero-titulo { font-weight: 600; letter-spacing: -.035em; }
 .selva-curiosidades h2, #biodiversidad > h2, .selva-ambiente h2, .selva-explora h2, .selva-investigaciones h2 { font-size: var(--text-display); font-weight: 600; }
-.menu.container.selva-menu-scrolled::after { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background-image: var(--ecoselva-geometria); background-size: 96px 48px; background-position: center; opacity: .12; pointer-events: none; }
-.selva-introduccion::before { inset: 0 0 auto auto; width: 34%; height: 100%; background-image: var(--ecoselva-geometria); opacity: .05; }
-.selva-introduccion::after { content: ""; position: absolute; bottom: 0; left: 0; width: 180px; height: 72px; background-image: var(--ecoselva-rios); opacity: .05; pointer-events: none; }
+.menu.container.selva-menu-scrolled::after { content: none; background-image: none; }
+.selva-introduccion::before { content: none; background-image: none; }
+.selva-introduccion::after { content: none; background-image: none; }
 .selva-introduccion-accesos a { grid-template-columns: 24px minmax(0, 1fr) auto; column-gap: var(--space-2); }
 .selva-acceso-icono, .selva-ciencia-icono { fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 .selva-acceso-icono { width: 24px; height: 24px; grid-column: 1; grid-row: 1 / 3; color: var(--green-natural); }
@@ -2981,34 +2976,34 @@ h4,
 .selva-introduccion-accesos a > span:last-child { grid-column: 3; }
 .selva-introduccion-accesos a[href="#ambiente"] .selva-acceso-icono, .selva-introduccion-accesos a[href="#investigaciones"] .selva-acceso-icono { color: var(--water); }
 .selva-introduccion-accesos a[href="#explora-madre-de-dios"] .selva-acceso-icono { color: var(--earth); }
-.selva-historia-modal::before { content: ""; display: block; height: 8px; background-image: var(--ecoselva-semillas); background-position: center; background-size: 96px 48px; opacity: .15; pointer-events: none; }
+.selva-historia-modal::before { content: none; background-image: none; }
 .selva-historia-cuerpo .selva-curiosidad-etiquetas > span { border-bottom-color: var(--sand); }
 #biodiversidad { position: relative; }
-#biodiversidad::before { content: ""; position: absolute; top: 30px; right: 0; width: 220px; height: 90px; background-image: var(--ecoselva-geometria); opacity: .045; pointer-events: none; }
+#biodiversidad::before { content: none; background-image: none; }
 .selva-biodiversidad-tab[aria-selected="true"] { position: relative; }
-.selva-biodiversidad-tab[aria-selected="true"]::after { content: ""; position: absolute; bottom: 4px; left: 30%; right: 30%; height: 3px; background-image: var(--ecoselva-geometria); background-color: var(--sand); opacity: .15; pointer-events: none; }
+.selva-biodiversidad-tab[aria-selected="true"]::after { content: none; background-image: none; }
 .selva-ambiente { position: relative; }
-.selva-ambiente::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 28px; background-image: var(--ecoselva-rios); opacity: .06; pointer-events: none; }
+.selva-ambiente::before { content: none; background-image: none; }
 .selva-explora-estado { border-left: 2px solid var(--earth); padding-left: 14px; }
 .selva-sobre-proposito { position: relative; }
-.selva-sobre-proposito::after { content: ""; position: absolute; right: 0; bottom: 0; width: 72px; height: 72px; background-image: var(--ecoselva-semillas); opacity: .07; pointer-events: none; }
+.selva-sobre-proposito::after { content: none; background-image: none; }
 .selva-investigaciones { position: relative; padding: 52px 0; background: var(--paper); }
-.selva-investigaciones::before { content: ""; position: absolute; right: 0; top: 0; width: 140px; height: 100%; background-image: var(--ecoselva-rios); opacity: .05; pointer-events: none; }
+.selva-investigaciones::before { content: none; background-image: none; }
 .selva-ciencia-icono { display: block; width: 32px; height: 32px; margin: 0 auto 14px; color: var(--water); }
 .selva-colabora { padding-block: var(--space-7); }
-.selva-colabora-encabezado::after { content: ""; display: block; width: 144px; height: 10px; margin: 20px auto 0; background-image: var(--ecoselva-geometria); opacity: .15; }
+.selva-colabora-encabezado::after { content: none; background-image: none; }
 .selva-colabora-boton { min-height: 50px; padding-inline: 26px; box-shadow: 0 5px 18px rgb(16 46 34 / 12%); }
 .footer { position: relative; background-color: var(--forest-deep); }
-.footer::before { content: ""; position: absolute; top: 0; right: 0; width: min(420px, 40%); height: 56px; background-image: var(--ecoselva-geometria); opacity: .1; pointer-events: none; }
+.footer::before { content: none; background-image: none; }
 .selva-pie-final-contenido { justify-content: center; text-align: center; }
 @media (max-width: 640px) {
     .selva-curiosidades h2, #biodiversidad > h2, .selva-ambiente h2, .selva-explora h2, .selva-investigaciones h2 { font-size: var(--text-display); }
-    .selva-introduccion::before { width: 72px; height: 72px; opacity: .03; }
-    .selva-introduccion::after, .selva-sobre-proposito::after { display: none; }
-    #biodiversidad::before { width: 80px; height: 48px; opacity: .03; }
-    .selva-ambiente::before { height: 12px; opacity: .04; }
-    .selva-investigaciones::before { width: 48px; height: 72px; opacity: .03; }
-    .footer::before { width: 120px; height: 32px; opacity: .08; }
+    .selva-introduccion::before { content: none; background-image: none; }
+    .selva-introduccion::after, .selva-sobre-proposito::after { content: none; background-image: none; }
+    #biodiversidad::before { content: none; background-image: none; }
+    .selva-ambiente::before { content: none; background-image: none; }
+    .selva-investigaciones::before { content: none; background-image: none; }
+    .footer::before { content: none; background-image: none; }
     .selva-investigaciones { padding-block: 40px; }
     .selva-colabora { padding-block: var(--space-6); }
     .selva-introduccion-accesos a { column-gap: var(--space-1); padding: var(--space-2) 10px; }
@@ -3035,7 +3030,7 @@ h4,
 .selva-ambiente-modal::backdrop { background: rgb(9 28 21 / 65%); }
 .selva-ambiente-modal-layout { display: grid; grid-template-columns: 32% minmax(0, 1fr); min-height: 400px; }
 .selva-ambiente-modal-visual { position: relative; display: grid; place-items: center; background: var(--paper); }
-.selva-ambiente-modal-visual::before { content: ""; position: absolute; bottom: 0; left: 0; right: 0; height: 100px; background-image: var(--ecoselva-rios); opacity: .06; }
+.selva-ambiente-modal-visual::before { content: none; background-image: none; }
 .selva-ambiente-modal-visual .selva-ambiente-icono { position: relative; width: 100px; height: 100px; grid-column: auto; grid-row: auto; stroke-width: 1; }
 .selva-ambiente-modal-contenido { min-width: 0; padding: 40px 30px 30px; }
 #selva-ambiente-modal-titulo { margin: 0 var(--space-4) 14px 0; font-size: var(--text-title); font-weight: 600; line-height: 1.3; color: var(--forest-deep); }
@@ -3093,7 +3088,7 @@ h4,
 [data-territorio-activo="rios"] .selva-territorio-limite { fill: var(--paper); }
 .selva-territorio-mapa figcaption { padding: var(--space-2) 18px; color: var(--muted); font-size: var(--text-credit); line-height: 1.6; border-top: 1px solid rgb(22 61 43 / 8%); }
 .selva-territorio-panel { position: relative; min-width: 0; padding: var(--space-4); border: 1px solid rgb(22 61 43 / 10%); border-radius: 16px; background: white; }
-.selva-territorio-panel::after { content: ""; position: absolute; bottom: 0; right: 0; width: 72px; height: 24px; background-image: var(--ecoselva-rios); opacity: .05; pointer-events: none; }
+.selva-territorio-panel::after { content: none; background-image: none; }
 .selva-territorio-panel h3 { color: var(--forest); font-size: var(--text-title); font-weight: 600; }
 .selva-territorio-panel-intro { margin: 10px 0 18px; color: var(--muted); font-size: var(--text-credit); line-height: 1.6; }
 .selva-territorio-opciones { display: grid; gap: var(--space-1); }
@@ -3115,7 +3110,7 @@ h4,
 /* Investigaciones: video editorial con respaldo estático local. */
 #investigaciones { position: relative; isolation: isolate; overflow: hidden; display: grid; align-items: center; min-height: 430px; padding: 52px 0; background: #102e22 url("images/investigaciones-poster-960.webp") center / cover no-repeat; }
 #investigaciones::before { content: ""; position: absolute; inset: 0; width: auto; height: auto; background: linear-gradient(90deg, rgba(9,31,23,.82), rgba(16,46,34,.68)); opacity: 1; z-index: 1; pointer-events: none; }
-#investigaciones::after { content: ""; position: absolute; inset: auto 0 0; height: 26px; background-color: var(--sand); mask: var(--ecoselva-rios) center / auto 26px repeat-x; -webkit-mask: var(--ecoselva-rios) center / auto 26px repeat-x; opacity: .12; z-index: 2; pointer-events: none; }
+#investigaciones::after { content: none; background-image: none; }
 .selva-investigaciones-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: 0; transition: opacity 400ms ease; z-index: 0; }
 #investigaciones.is-video-playing .selva-investigaciones-video { opacity: 1; }
 .selva-investigaciones-contenido { position: relative; z-index: 2; width: 100%; max-width: 760px; text-align: center; }
@@ -3159,8 +3154,8 @@ h4,
 .selva-territorio-modo-icono { flex: 0 0 32px; width: 32px; height: 32px; color: var(--forest); }
 .selva-territorio-canvas { position: relative; height: 500px; }
 #explora-madre-de-dios .selva-territorio-svg { height: 100%; min-height: 0; }
-.selva-territorio-canvas::before { content: ""; position: absolute; inset: 18px; background: var(--ecoselva-rios) center / 180px repeat; opacity: .035; pointer-events: none; }
-[data-territorio-activo="bosques"] .selva-territorio-canvas::before { background-image: var(--ecoselva-semillas); opacity: .025; }
+.selva-territorio-canvas::before { content: none; background-image: none; }
+[data-territorio-activo="bosques"] .selva-territorio-canvas::before { content: none; background-image: none; }
 .selva-territorio-dosel-fondo { fill: var(--territorio-forest-color); opacity: .83; transition: fill 300ms ease; }
 [data-territorio-scene="bosques"] { pointer-events: none; }
 [data-territorio-scene].is-entering { animation: territorio-escena-entra 480ms ease both; }
@@ -3229,9 +3224,9 @@ h4,
 #explora-madre-de-dios [data-territorio-activo="rios"] .selva-territorio-mapa { background: #f8faf9; }
 #explora-madre-de-dios [data-territorio-activo="humedales"] .selva-territorio-mapa { background: #f4f8f6; }
 #explora-madre-de-dios .selva-territorio-panel { border: 0; border-left: 1px solid #dce4de; border-radius: 0; padding: var(--space-4); }
-#explora-madre-de-dios .selva-territorio-panel::after { content: none; }
+#explora-madre-de-dios .selva-territorio-panel::after { content: none; background-image: none; }
 #explora-madre-de-dios .selva-territorio-canvas { height: 540px; }
-#explora-madre-de-dios .selva-territorio-canvas::before { content: none; }
+#explora-madre-de-dios .selva-territorio-canvas::before { content: none; background-image: none; }
 #explora-madre-de-dios .selva-territorio-mapa-cabecera { padding: 20px var(--space-4) 0; }
 #explora-madre-de-dios .selva-territorio-escena-frase { font-size: var(--text-credit); }
 #explora-madre-de-dios .selva-territorio-modo-icono { width: 26px; height: 26px; flex-basis: 26px; }
@@ -3556,11 +3551,7 @@ h4,
     line-height: 1.75;
 }
 
-#colabora .selva-colabora-encabezado::after {
-    width: 112px;
-    height: 8px;
-    margin: 22px 0 0;
-}
+#colabora .selva-colabora-encabezado::after { content: none; background-image: none; }
 
 #colabora .selva-colabora-informacion {
     grid-template-columns: minmax(0, 1fr);

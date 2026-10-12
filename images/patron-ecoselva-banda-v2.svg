@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="32" viewBox="0 0 120 32">
+  <title>Banda geométrica EcoSelva</title>
+  <desc>Motivo editorial original inspirado de forma abstracta en el dosel, los cauces y las semillas amazónicas.</desc>
+  <path d="M0 16H15L27 5L39 16H60L72 27L84 16H120" fill="none" stroke="#173c2d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M0 6H18L26 12L34 6H60L68 12L76 6H120" fill="none" stroke="#3d7a4d" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity=".78"/>
+  <g fill="#b85f35" opacity=".76">
+    <circle cx="9" cy="25" r="1.5"/>
+    <circle cx="51" cy="25" r="1.5"/>
+    <circle cx="93" cy="25" r="1.5"/>
+  </g>
+</svg>
