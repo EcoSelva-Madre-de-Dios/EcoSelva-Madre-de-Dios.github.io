@@ -551,6 +551,49 @@
   mask-image: linear-gradient(to left, #000 0 44%, transparent 94%);
 }
 
+/* Las cuatro lecturas principales muestran la familia gráfica con una
+   presencia clara: un motivo lateral y una banda que separa la portada. */
+.eco-site #explora-madre-de-dios::after {
+  right: -1%;
+  width: min(640px, 46vw);
+  opacity: .12;
+}
+
+.eco-site :is(.flora-page-heading, .anp-hero)::after {
+  right: -18px;
+  width: min(520px, 42vw);
+  opacity: .13;
+}
+
+.eco-site .historia-hero::after {
+  right: -18px;
+  width: min(540px, 42vw);
+  opacity: .12;
+}
+
+.eco-site :is(
+  #explora-madre-de-dios,
+  .flora-page-heading,
+  .historia-hero,
+  .anp-hero
+)::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 20px;
+  background: var(--eco-patron-banda) center / auto 20px repeat-x;
+  opacity: .62;
+  pointer-events: none;
+}
+
+.eco-site #explora-madre-de-dios::before {
+  top: 0;
+  bottom: auto;
+}
+
 /* Ciencia y Sobre EcoSelva usan la variante clara sobre sus fondos oscuros. */
 .eco-site #investigaciones::after,
 .eco-site #quienes-somos::after {
@@ -611,10 +654,10 @@
   content: "";
   position: absolute;
   z-index: 0;
-  width: min(390px, 32vw);
+  width: min(450px, 36vw);
   aspect-ratio: 1;
   pointer-events: none;
-  opacity: .06;
+  opacity: .11;
 }
 
 .eco-site :is(#territorio-rios, #territorio-humedales)::after {
@@ -631,13 +674,13 @@
 
 .eco-site :is(#territorio-rios, #organizacion, #explorar, #flora-recorrido)::after {
   top: 8%;
-  right: -150px;
+  right: -96px;
   -webkit-mask-image: linear-gradient(to left, #000 0 40%, transparent 94%);
   mask-image: linear-gradient(to left, #000 0 40%, transparent 94%);
 }
 
 .eco-site :is(#territorio-humedales, #memoria, #conservar, #flora-manejo)::after {
-  left: -150px;
+  left: -96px;
   bottom: 7%;
   transform: scaleX(-1);
   -webkit-mask-image: linear-gradient(to right, #000 0 40%, transparent 94%);
@@ -654,7 +697,7 @@
   width: 190px;
   height: 190px;
   background: var(--eco-patron-semillas) center / contain no-repeat;
-  opacity: .045;
+  opacity: .08;
   pointer-events: none;
   -webkit-mask-image: radial-gradient(circle at 68% 68%, #000 0 44%, transparent 86%);
   mask-image: radial-gradient(circle at 68% 68%, #000 0 44%, transparent 86%);
@@ -689,6 +732,10 @@
   pointer-events: none;
 }
 
+.eco-site .eco-global-footer::before {
+  opacity: .1;
+}
+
 .eco-site :is(.eco-global-footer, .footer) > * {
   position: relative;
   z-index: 1;
@@ -710,7 +757,8 @@
     opacity: .055;
   }
   .eco-site .conoce-madre::after,
-  .eco-site #explora-madre-de-dios::after { right: -28%; }
+  .eco-site #explora-madre-de-dios::after { right: -16%; }
+  .eco-site #explora-madre-de-dios::after { width: 300px; opacity: .09; }
   .eco-site .selva-ambiente::after { left: -28%; }
   .eco-site #biodiversidad::after,
   .eco-site :is(.flora-page-heading, .anp-hero, .eco-library-hero, .ficha-hero)::after {
@@ -721,6 +769,16 @@
   }
   .eco-site .historia-hero::after,
   .eco-site main.metodologia::before { width: 270px; right: -105px; opacity: .055; }
+  .eco-site :is(.flora-page-heading, .anp-hero, .historia-hero)::after {
+    right: -70px;
+    width: 280px;
+    opacity: .095;
+  }
+  .eco-site :is(#explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero)::before {
+    height: 16px;
+    background-size: auto 16px;
+    opacity: .58;
+  }
   .eco-site :is(
     #territorio-rios,
     #territorio-humedales,
@@ -731,11 +789,11 @@
     #flora-recorrido,
     #flora-manejo
   )::after {
-    width: 240px;
-    opacity: .05;
+    width: 260px;
+    opacity: .085;
   }
-  .eco-site :is(#territorio-rios, #organizacion, #explorar, #flora-recorrido)::after { right: -110px; }
-  .eco-site :is(#territorio-humedales, #memoria, #conservar, #flora-manejo)::after { left: -110px; }
+  .eco-site :is(#territorio-rios, #organizacion, #explorar, #flora-recorrido)::after { right: -72px; }
+  .eco-site :is(#territorio-humedales, #memoria, #conservar, #flora-manejo)::after { left: -72px; }
   .eco-site #investigaciones::after,
   .eco-site #quienes-somos::after { right: -30%; bottom: -7%; width: 76vw; opacity: .09; }
   .eco-site :is(.flora-castana, #flora-caso-castana, #territorio-castanales, .historia-reflexion, .anp-cierre)::after {
@@ -743,12 +801,12 @@
     bottom: -70px;
     width: 170px;
     height: 170px;
-    opacity: .05;
+    opacity: .075;
   }
   .eco-site :is(.eco-global-footer, .footer)::before {
     background-position: left -190px bottom -105px, right -220px top -105px;
     background-size: 430px auto, 460px auto;
-    opacity: .055;
+    opacity: .075;
   }
 }
 
@@ -757,6 +815,7 @@
   .eco-site .header::after,
   .eco-site :is(.conoce-madre, #biodiversidad, .selva-ambiente, #investigaciones, #quienes-somos, #explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero, .eco-library-hero, .ficha-hero, .flora-castana, #flora-caso-castana, #territorio-castanales, .historia-reflexion, .anp-cierre, #territorio-rios, #territorio-humedales, #organizacion, #memoria, #explorar, #conservar, #flora-recorrido, #flora-manejo)::after,
   .eco-site main.metodologia::before,
+  .eco-site :is(#explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero)::before,
   .eco-site :is(.eco-global-footer, .footer)::before { content: none !important; }
 }
 
@@ -765,5 +824,6 @@
   .eco-site .header::after,
   .eco-site :is(.conoce-madre, #biodiversidad, .selva-ambiente, #investigaciones, #quienes-somos, #explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero, .eco-library-hero, .ficha-hero, .flora-castana, #flora-caso-castana, #territorio-castanales, .historia-reflexion, .anp-cierre, #territorio-rios, #territorio-humedales, #organizacion, #memoria, #explorar, #conservar, #flora-recorrido, #flora-manejo)::after,
   .eco-site main.metodologia::before,
+  .eco-site :is(#explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero)::before,
   .eco-site :is(.eco-global-footer, .footer)::before { display: none !important; }
 }
