@@ -433,6 +433,7 @@
   .ficha-hero,
   main.metodologia,
   .flora-castana,
+  #flora-caso-castana,
   #territorio-castanales,
   .historia-reflexion,
   .anp-cierre
@@ -455,6 +456,7 @@
   .ficha-hero,
   main.metodologia,
   .flora-castana,
+  #flora-caso-castana,
   #territorio-castanales,
   .historia-reflexion,
   .anp-cierre
@@ -489,7 +491,7 @@
   width: min(560px, 40vw);
   height: min(480px, 72%);
   background: var(--eco-patron-curvas) center / contain no-repeat;
-  opacity: .055;
+  opacity: .075;
   pointer-events: none;
 }
 
@@ -525,10 +527,10 @@
   z-index: 0;
   top: -34px;
   right: -46px;
-  width: min(390px, 34vw);
+  width: min(440px, 38vw);
   aspect-ratio: 1;
   background: var(--eco-patron-semillas) center / contain no-repeat;
-  opacity: .052;
+  opacity: .075;
   pointer-events: none;
   -webkit-mask-image: radial-gradient(circle at 78% 20%, #000 0 42%, transparent 82%);
   mask-image: radial-gradient(circle at 78% 20%, #000 0 42%, transparent 82%);
@@ -544,7 +546,7 @@
   width: min(470px, 38vw);
   height: 310px;
   background: var(--eco-patron-conexiones) right top / contain no-repeat;
-  opacity: .05;
+  opacity: .07;
   pointer-events: none;
   -webkit-mask-image: linear-gradient(to left, #000 0 44%, transparent 94%);
   mask-image: linear-gradient(to left, #000 0 44%, transparent 94%);
@@ -567,14 +569,84 @@
   mask-image: linear-gradient(to left, #000 0 40%, transparent 94%);
 }
 
-.eco-site #investigaciones > *,
 .eco-site #quienes-somos > * {
   position: relative;
   z-index: 2;
 }
 
+/* En las lecturas extensas, dos hitos por página mantienen visible la identidad
+   sin convertir todas las tarjetas en superficies ornamentadas. */
+.eco-site :is(
+  #territorio-rios,
+  #territorio-humedales,
+  #organizacion,
+  #memoria,
+  #explorar,
+  #conservar,
+  #flora-recorrido,
+  #flora-manejo
+) {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+
+.eco-site :is(
+  #territorio-rios,
+  #territorio-humedales,
+  #organizacion,
+  #memoria,
+  #explorar,
+  #conservar,
+  #flora-recorrido,
+  #flora-manejo
+) > * {
+  position: relative;
+  z-index: 1;
+}
+
+.eco-site :is(#territorio-rios, #territorio-humedales)::after,
+.eco-site :is(#organizacion, #memoria)::after,
+.eco-site :is(#explorar, #conservar)::after,
+.eco-site :is(#flora-recorrido, #flora-manejo)::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  width: min(390px, 32vw);
+  aspect-ratio: 1;
+  pointer-events: none;
+  opacity: .06;
+}
+
+.eco-site :is(#territorio-rios, #territorio-humedales)::after {
+  background: var(--eco-patron-curvas) center / contain no-repeat;
+}
+
+.eco-site :is(#organizacion, #memoria)::after {
+  background: var(--eco-patron-conexiones) center / contain no-repeat;
+}
+
+.eco-site :is(#explorar, #conservar, #flora-recorrido, #flora-manejo)::after {
+  background: var(--eco-patron-semillas) center / contain no-repeat;
+}
+
+.eco-site :is(#territorio-rios, #organizacion, #explorar, #flora-recorrido)::after {
+  top: 8%;
+  right: -150px;
+  -webkit-mask-image: linear-gradient(to left, #000 0 40%, transparent 94%);
+  mask-image: linear-gradient(to left, #000 0 40%, transparent 94%);
+}
+
+.eco-site :is(#territorio-humedales, #memoria, #conservar, #flora-manejo)::after {
+  left: -150px;
+  bottom: 7%;
+  transform: scaleX(-1);
+  -webkit-mask-image: linear-gradient(to right, #000 0 40%, transparent 94%);
+  mask-image: linear-gradient(to right, #000 0 40%, transparent 94%);
+}
+
 /* Fragmentos de esquina solo en cierres o bloques editoriales seleccionados. */
-.eco-site :is(.flora-castana, #territorio-castanales, .historia-reflexion, .anp-cierre)::after {
+.eco-site :is(.flora-castana, #flora-caso-castana, #territorio-castanales, .historia-reflexion, .anp-cierre)::after {
   content: "";
   position: absolute;
   z-index: 0;
@@ -614,7 +686,7 @@
   background-repeat: no-repeat, no-repeat;
   background-position: left -120px bottom -80px, right -150px top -92px;
   background-size: 520px auto, 580px auto;
-  opacity: .045;
+  opacity: .07;
   pointer-events: none;
 }
 
@@ -636,7 +708,7 @@
   .eco-site :is(.conoce-madre, .selva-ambiente, #explora-madre-de-dios)::after {
     width: 64vw;
     height: 300px;
-    opacity: .04;
+    opacity: .055;
   }
   .eco-site .conoce-madre::after,
   .eco-site #explora-madre-de-dios::after { right: -28%; }
@@ -646,30 +718,45 @@
     top: -24px;
     right: -92px;
     width: 230px;
-    opacity: .04;
+    opacity: .055;
   }
   .eco-site .historia-hero::after,
-  .eco-site main.metodologia::before { width: 250px; right: -105px; opacity: .04; }
+  .eco-site main.metodologia::before { width: 270px; right: -105px; opacity: .055; }
+  .eco-site :is(
+    #territorio-rios,
+    #territorio-humedales,
+    #organizacion,
+    #memoria,
+    #explorar,
+    #conservar,
+    #flora-recorrido,
+    #flora-manejo
+  )::after {
+    width: 240px;
+    opacity: .05;
+  }
+  .eco-site :is(#territorio-rios, #organizacion, #explorar, #flora-recorrido)::after { right: -110px; }
+  .eco-site :is(#territorio-humedales, #memoria, #conservar, #flora-manejo)::after { left: -110px; }
   .eco-site #investigaciones::after,
   .eco-site #quienes-somos::after { right: -30%; bottom: -7%; width: 76vw; opacity: .09; }
-  .eco-site :is(.flora-castana, #territorio-castanales, .historia-reflexion, .anp-cierre)::after {
+  .eco-site :is(.flora-castana, #flora-caso-castana, #territorio-castanales, .historia-reflexion, .anp-cierre)::after {
     right: -76px;
     bottom: -70px;
     width: 170px;
     height: 170px;
-    opacity: .04;
+    opacity: .05;
   }
   .eco-site :is(.eco-global-footer, .footer)::before {
     background-position: left -190px bottom -105px, right -220px top -105px;
     background-size: 430px auto, 460px auto;
-    opacity: .04;
+    opacity: .055;
   }
 }
 
 @media (prefers-contrast: more), (forced-colors: active) {
   .eco-site .eco-tema-separador { display: none; }
   .eco-site .header::after,
-  .eco-site :is(.conoce-madre, #biodiversidad, .selva-ambiente, #investigaciones, #quienes-somos, #explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero, .eco-library-hero, .ficha-hero, .flora-castana, #territorio-castanales, .historia-reflexion, .anp-cierre)::after,
+  .eco-site :is(.conoce-madre, #biodiversidad, .selva-ambiente, #investigaciones, #quienes-somos, #explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero, .eco-library-hero, .ficha-hero, .flora-castana, #flora-caso-castana, #territorio-castanales, .historia-reflexion, .anp-cierre, #territorio-rios, #territorio-humedales, #organizacion, #memoria, #explorar, #conservar, #flora-recorrido, #flora-manejo)::after,
   .eco-site main.metodologia::before,
   .eco-site :is(.eco-global-footer, .footer)::before { content: none !important; }
 }
@@ -677,7 +764,7 @@
 @media print {
   .eco-site .eco-tema-separador,
   .eco-site .header::after,
-  .eco-site :is(.conoce-madre, #biodiversidad, .selva-ambiente, #investigaciones, #quienes-somos, #explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero, .eco-library-hero, .ficha-hero, .flora-castana, #territorio-castanales, .historia-reflexion, .anp-cierre)::after,
+  .eco-site :is(.conoce-madre, #biodiversidad, .selva-ambiente, #investigaciones, #quienes-somos, #explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero, .eco-library-hero, .ficha-hero, .flora-castana, #flora-caso-castana, #territorio-castanales, .historia-reflexion, .anp-cierre, #territorio-rios, #territorio-humedales, #organizacion, #memoria, #explorar, #conservar, #flora-recorrido, #flora-manejo)::after,
   .eco-site main.metodologia::before,
   .eco-site :is(.eco-global-footer, .footer)::before { display: none !important; }
 }

@@ -5160,6 +5160,12 @@ html:has(dialog[open]){overflow:hidden}
   background: var(--forest-deep);
 }
 
+/* Al desplazarse, la barra vuelve a su versión clara para conservar el
+   contraste de todos los enlaces, incluido Contacto. */
+.eco-site:has(.eco-pilot-notice.is-visible) .menu.container.selva-menu-scrolled {
+  background: rgb(243 240 230 / 98%);
+}
+
 .eco-site .eco-pilot-notice.is-visible {
   opacity: 1;
   transform: none;
