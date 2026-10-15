@@ -57,6 +57,8 @@ jobs:
           node --check assets/eco-editorial.js
       - name: Verificar el sitio
         run: python herramientas/verificar_sitio.py
+      - name: Verificar actualizaciones y caché offline
+        run: node herramientas/verificar_cache.cjs
       - name: Preparar el sitio para publicar
         run: python herramientas/preparar_publicacion.py _site
       - name: Probar interacciones, lectura y atlas en Chromium

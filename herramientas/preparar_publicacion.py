@@ -38,6 +38,10 @@ if __name__ == '__main__':
                 return match[1] + reference + match[3]
             html = re.sub(r'((?:src|href)=")([^"]+)(")', version_asset, html)
             target.write_text(html)
+        elif source.name == 'service-worker.js':
+            worker = source.read_text(encoding='utf-8')
+            worker = re.sub(r"const CACHE_VERSION = '[^']+';", "const CACHE_VERSION = 'ecoselva-" + version + "';", worker, count=1)
+            target.write_text(worker, encoding='utf-8')
         else:
             shutil.copy2(source, target)
     (destination / '.nojekyll').touch()

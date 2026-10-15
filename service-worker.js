@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ecoselva-2026-10-b';
+const CACHE_VERSION = 'ecoselva-2026-10-c';
 const CORE = [
   '/',
   '/index.html',
@@ -35,7 +35,7 @@ self.addEventListener('install', event => {
 
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE_VERSION).map(key => caches.delete(key))))
+    caches.keys().then(keys => Promise.all(keys.filter(key => key.startsWith('ecoselva-') && key !== CACHE_VERSION).map(key => caches.delete(key))))
       .then(() => self.clients.claim())
   );
 });
@@ -54,7 +54,7 @@ self.addEventListener('fetch', event => {
       try {
         const response = await fetch(request);
         const cache = await caches.open(CACHE_VERSION);
-        cache.put(request, response.clone());
+        if (response.ok) await cache.put(request, response.clone());
         return response;
       } catch {
         return (await matchIgnoringVersion(request)) || (await caches.match('/index.html')) || new Response(
@@ -67,14 +67,16 @@ self.addEventListener('fetch', event => {
   }
 
   event.respondWith((async () => {
-    const cached = await matchIgnoringVersion(request);
+    // Una versión nueva debe descargarse antes de recurrir a otra versión offline.
+    const cached = await caches.match(request);
     const update = fetch(request).then(async response => {
       if (response.ok) {
         const cache = await caches.open(CACHE_VERSION);
-        cache.put(request, response.clone());
+        await cache.put(request, response.clone());
       }
       return response;
     }).catch(() => null);
-    return cached || (await update) || new Response('', { status: 504, statusText: 'Sin conexión' });
+    event.waitUntil(update);
+    return cached || (await update) || (await matchIgnoringVersion(request)) || new Response('', { status: 504, statusText: 'Sin conexión' });
   })());
 });
