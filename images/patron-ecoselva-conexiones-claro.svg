@@ -1,34 +1,41 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
   <defs>
-    <g id="eco-footer-unit" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <g id="eco-footer-structure" fill="none" stroke-linecap="round" stroke-linejoin="round">
       <path d="M-10 160h34c24 0 32-34 54-34h18c22 0 30 34 54 34h26c24 0 32-34 54-34h18c22 0 30 34 54 34h18"/>
       <path d="M24 160c0-24 18-38 40-38h20c18 0 30-12 30-30s12-30 30-30 30 12 30 30-12 30-30 30h-18c-18 0-30 12-30 30s12 30 30 30h18c18 0 30 12 30 30s-12 30-30 30-30-12-30-30 12-30 30-30h20c22 0 40-14 40-38"/>
       <path d="M58 94c0-18 14-32 32-32h18c16 0 28-12 28-28M58 226c0 18 14 32 32 32h18c16 0 28 12 28 28"/>
       <path d="M212 34c0 16 12 28 28 28h18c18 0 32 14 32 32M212 286c0-16 12-28 28-28h18c18 0 32-14 32-32"/>
-      <path d="M74 160h26l14-14 14 14-14 14-14-14m82 0h26l14-14 14 14-14 14-14-14"/>
-      <path d="M124 92h14v14h14v14h-28v14h-14v-28h14zm0 136h14v-14h14v-14h-28v-14h-14v28h14z"/>
       <circle cx="144" cy="62" r="7"/>
       <circle cx="144" cy="258" r="7"/>
       <circle cx="58" cy="160" r="6"/>
       <circle cx="230" cy="160" r="6"/>
       <path d="m144 132 14 14-14 14-14-14zm0 28 14 14-14 14-14-14z"/>
       <path d="M22 48h54m136 0h62M22 272h54m136 0h62"/>
-      <path d="M92 102h18m68 0h18M92 218h18m68 0h18"/>
+    </g>
+    <g id="eco-footer-detail" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M42 160h34l12-12 12 12-12 12-12-12h24m44-56h18v16h16v16h-32v16h-16v-32h14zm0 112h18v-16h16v-16h-32v-16h-16v32h14z"/>
+      <path d="M84 112c18 0 26-18 42-18s24 18 42 18 26-18 42-18 24 18 42 18M84 208c18 0 26 18 42 18s24-18 42-18 26 18 42 18 24-18 42-18"/>
+      <circle cx="144" cy="94" r="4"/>
+      <circle cx="144" cy="226" r="4"/>
+      <circle cx="104" cy="160" r="4"/>
+      <circle cx="184" cy="160" r="4"/>
+      <path d="M92 76h22m60 0h22M92 244h22m60 0h22"/>
     </g>
   </defs>
 
-  <!-- La misma geometría usa dos tintas muy suaves: sobre fondos claros
-       predomina el verde; sobre fondos oscuros, la línea crema. -->
-  <g stroke="#163d2b" stroke-width="2.15" opacity=".82">
-    <use href="#eco-footer-unit"/>
-    <use href="#eco-footer-unit" transform="translate(300 0)"/>
-  </g>
-  <g stroke="#f3efdf" stroke-width="1.7" opacity=".9">
-    <use href="#eco-footer-unit"/>
-    <use href="#eco-footer-unit" transform="translate(300 0)"/>
+  <!-- Motivo original de EcoSelva inspirado en cauces, encuentros y semillas.
+       No reproduce iconografía de una comunidad específica. -->
+  <g stroke="#163d2b" stroke-width="2.1" opacity=".9">
+    <use href="#eco-footer-structure"/>
+    <use href="#eco-footer-structure" transform="translate(300 0)"/>
   </g>
 
-  <g fill="none" stroke="#c9ad62" stroke-width="1.25" stroke-linecap="round" opacity=".45">
+  <g stroke="#f3efdf" stroke-width="1.8" opacity=".92">
+    <use href="#eco-footer-detail"/>
+    <use href="#eco-footer-detail" transform="translate(300 0)"/>
+  </g>
+
+  <g fill="none" stroke="#c9ad62" stroke-width="1.25" stroke-linecap="round" opacity=".55">
     <circle cx="144" cy="160" r="3.5"/>
     <circle cx="444" cy="160" r="3.5"/>
     <path d="M286 160h28M0 160h14M586 160h14"/>
