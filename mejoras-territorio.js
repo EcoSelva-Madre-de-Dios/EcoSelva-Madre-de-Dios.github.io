@@ -1,4 +1,4 @@
-/* En móvil, el mapa no captura el desplazamiento de la página salvo petición explícita. */
+/* En móvil, el mapa permite desplazar la página y ofrece un modo explícito para moverlo libremente. */
 (() => {
     document.addEventListener('DOMContentLoaded', () => {
         const root = document.getElementById('explora-madre-de-dios');
@@ -15,7 +15,7 @@
             button.type = 'button';
             button.className = 'territorio-gesto-toggle';
             button.setAttribute('aria-pressed', 'false');
-            button.setAttribute('aria-label', 'Activar movimiento táctil del mapa');
+            button.setAttribute('aria-label', 'Activar movimiento táctil libre del mapa');
             button.textContent = 'Mover mapa';
             controls.append(button);
 
@@ -30,17 +30,14 @@
                 enabled = Boolean(value);
                 canvas.classList.toggle('is-touch-map-mode', enabled);
                 button.setAttribute('aria-pressed', String(enabled));
-                button.setAttribute('aria-label', enabled ? 'Desactivar movimiento táctil y volver a desplazar la página' : 'Activar movimiento táctil del mapa');
+                button.setAttribute('aria-label', enabled ? 'Desactivar movimiento táctil libre y volver al desplazamiento de página' : 'Activar movimiento táctil libre del mapa');
                 button.textContent = enabled ? 'Desplazar página' : 'Mover mapa';
                 status.textContent = enabled
                     ? 'Modo mover mapa activado. Desactívalo para desplazar la página con un dedo sobre el mapa.'
-                    : 'Modo mover mapa desactivado. Puedes desplazar la página normalmente.';
+                    : 'Modo mover mapa desactivado. El gesto vertical desplaza la página; todavía puedes tocar elementos del atlas.';
             };
 
             button.addEventListener('click', () => setEnabled(!enabled));
-            svg.addEventListener('pointerdown', event => {
-                if (event.pointerType === 'touch' && !enabled) event.stopImmediatePropagation();
-            }, true);
             root.querySelector('.territorio-restablecer')?.addEventListener('click', () => setEnabled(false));
             setEnabled(false);
         };
