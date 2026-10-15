@@ -41,6 +41,22 @@ async function position(page, trigger, dialog, close) {
       const notes=await page.locator('.eco-block-sources,.ficha-nota,.eco-footer-review').evaluateAll(items=>items.filter(e=>e.getClientRects().length).map(e=>parseFloat(getComputedStyle(e).fontSize)));
       assert(notes.every(size=>size>=13),'Notas menores de 13px');
     }
+    await page.goto(new URL('historia.html',base).href,{waitUntil:'domcontentloaded'});
+    const historyFilters = page.locator('[data-historia-filtro]');
+    const milestoneCount = await page.locator('[data-historia-categoria]').count();
+    for (const filter of await historyFilters.all()) {
+      const category = await filter.getAttribute('data-historia-filtro');
+      await filter.click();
+      assert.equal(await filter.getAttribute('aria-pressed'), 'true');
+      assert.equal(await page.locator('[data-historia-filtro][aria-pressed="true"]').count(), 1);
+      const expected = await page.locator('[data-historia-categoria]').evaluateAll((items, category) => items.filter(item => category === 'todos' || item.dataset.historiaCategoria === category).length, category);
+      assert.equal(await page.locator('[data-historia-categoria]:visible').count(), expected, 'Filtro de historia incorrecto: ' + category);
+      assert((await page.locator('.historia-conteo').textContent()).startsWith(`${expected} de ${milestoneCount} hitos`));
+    }
+    await position(page, page.locator('[data-historia-fuente]').first(), '.historia-modal', '[data-historia-cerrar]');
+    await page.goto(new URL('historia.html#fuente-ese-eja',base).href,{waitUntil:'domcontentloaded'});
+    assert(await page.locator('#fuente-ese-eja').isVisible(), 'Fuente enlazada oculta en Historia');
+    assert(await page.locator('#fuente-ese-eja').evaluate(element => document.activeElement === element));
     await page.goto(new URL('index.html',base).href,{waitUntil:'domcontentloaded'});
     assert.equal(await page.locator('[data-fauna-explorar]').count(),0,'Fauna genera botones antes de abrir la pestaña');
     await position(page,page.locator('.selva-flip-toggle').first(),'#selva-historia-modal','.selva-historia-cerrar');
