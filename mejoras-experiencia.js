@@ -233,7 +233,7 @@
             manifest.href = url('/manifest.json');
             document.head.append(manifest);
         }
-        if ('serviceWorker' in navigator && /^https?:$/.test(location.protocol)) {
+        if ('serviceWorker' in navigator && location.protocol === 'https:') {
             navigator.serviceWorker.register(url('/service-worker.js'), { scope: '/' }).catch(() => {});
         }
     };
