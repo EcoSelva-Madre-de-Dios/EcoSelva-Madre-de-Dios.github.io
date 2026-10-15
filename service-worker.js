@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ecoselva-2026-10-a';
+const CACHE_VERSION = 'ecoselva-2026-10-b';
 const CORE = [
   '/',
   '/index.html',
@@ -47,6 +47,7 @@ self.addEventListener('fetch', event => {
   if (request.method !== 'GET') return;
   const target = new URL(request.url);
   if (target.origin !== self.location.origin) return;
+  if (request.headers.has('range') || ['video', 'audio'].includes(request.destination) || /\.(?:mp4|webm|mp3|ogg)$/i.test(target.pathname)) return;
 
   if (request.mode === 'navigate') {
     event.respondWith((async () => {
