@@ -1,0 +1,30 @@
+{
+  "name": "EcoSelva Madre de Dios",
+  "short_name": "EcoSelva",
+  "description": "Educación ambiental para conocer la biodiversidad, el territorio y los cambios ambientales de Madre de Dios.",
+  "lang": "es-PE",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f5f8f2",
+  "theme_color": "#0b4a36",
+  "icons": [
+    {
+      "src": "images/logo-ecoselva-educacion-256.webp",
+      "sizes": "256x256",
+      "type": "image/webp",
+      "purpose": "any"
+    },
+    {
+      "src": "images/icono-app-ecoselva.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {"name": "Territorio", "url": "/territorio.html", "description": "Abrir el atlas educativo"},
+    {"name": "Biodiversidad", "url": "/#biodiversidad", "description": "Explorar flora y fauna"},
+    {"name": "Biblioteca", "url": "/biblioteca.html", "description": "Consultar documentos y fuentes"}
+  ]
+}

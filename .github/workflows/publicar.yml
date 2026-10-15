@@ -50,6 +50,9 @@ jobs:
           node --check cartografia.js
           node --check flora.js
           node --check territorio.js
+          node --check mejoras-experiencia.js
+          node --check mejoras-territorio.js
+          node --check service-worker.js
           node --check assets/eco-base.js
           node --check assets/eco-editorial.js
       - name: Verificar el sitio
@@ -89,6 +92,7 @@ jobs:
           node herramientas/verificar_interacciones.cjs
           node herramientas/verificar_lectura.cjs
           node herramientas/verificar_atlas.cjs
+          node herramientas/verificar_experiencia.cjs
       - name: Configurar Pages
         if: github.event_name != 'pull_request'
         uses: actions/configure-pages@v5

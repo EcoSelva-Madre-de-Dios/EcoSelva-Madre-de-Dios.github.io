@@ -1,0 +1,28 @@
+/* Controles móviles del atlas: prioriza scroll de página y evita paneles que ocupen toda la pantalla. */
+@media (pointer:coarse){
+  .eco-site #explora-madre-de-dios .selva-territorio-canvas{
+    touch-action:pan-y pinch-zoom;
+    overscroll-behavior:contain;
+  }
+  .eco-site #explora-madre-de-dios .selva-territorio-canvas.is-touch-map-mode{
+    touch-action:none;
+  }
+  .eco-site #explora-madre-de-dios .territorio-gesto-toggle{
+    width:auto;min-width:44px;padding:0 11px;border-radius:999px;
+    font:750 .72rem/1.15 var(--font-body,system-ui);white-space:nowrap
+  }
+  .eco-site #explora-madre-de-dios .territorio-gesto-toggle[aria-pressed="true"]{
+    background:#245d40;color:#fff;border-color:#245d40
+  }
+}
+@media(max-width:700px){
+  .eco-site #explora-madre-de-dios .territorio-capas{
+    position:static!important;max-height:none!important;overflow:visible!important
+  }
+  .eco-site #explora-madre-de-dios .territorio-capas-opciones{
+    max-height:min(34vh,290px);overflow:auto;overscroll-behavior:contain;padding-right:4px
+  }
+  .eco-site #explora-madre-de-dios .selva-territorio-controles{
+    display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px;max-width:min(92%,360px)
+  }
+}
