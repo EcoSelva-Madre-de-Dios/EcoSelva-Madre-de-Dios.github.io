@@ -4241,6 +4241,313 @@ h4,
     }
 }
 
+/* Conoce Madre de Dios: composición compacta aprobada para ubicación y provincias. */
+#conoce-madre-de-dios > .conoce-cabecera,
+#conoce-madre-de-dios #conoce-ubicacion,
+#conoce-madre-de-dios #conoce-provincias {
+    width: min(calc(100% - 40px), 980px);
+    margin-inline: auto;
+}
+
+#conoce-madre-de-dios > .conoce-cabecera {
+    padding-bottom: var(--space-3);
+}
+
+#conoce-madre-de-dios > .conoce-cabecera h2 {
+    margin-block: 8px 10px;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+}
+
+#conoce-madre-de-dios > .conoce-cabecera .conoce-introduccion {
+    max-width: 72ch;
+    margin-top: 0;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    padding: clamp(18px, 2.3vw, 28px);
+    border: 1px solid color-mix(in srgb, var(--line) 82%, var(--white));
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at 84% 24%, rgb(83 125 97 / 9%) 0 1px, transparent 1.5px) 0 0 / 12px 12px,
+        linear-gradient(120deg, rgb(255 255 255 / 96%), rgb(241 245 237 / 90%));
+    box-shadow: 0 18px 42px rgb(25 55 39 / 8%);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -70px;
+    bottom: -96px;
+    width: 360px;
+    aspect-ratio: 1;
+    background: var(--eco-patron-semillas) center / contain no-repeat;
+    opacity: .055;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(circle at 58% 58%, #000 0 42%, transparent 82%);
+    mask-image: radial-gradient(circle at 58% 58%, #000 0 42%, transparent 82%);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-grid {
+    grid-template-columns: minmax(250px, .82fr) minmax(0, 1.55fr);
+    align-items: center;
+    gap: clamp(26px, 4vw, 50px);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-localizador {
+    width: 100%;
+    max-width: 300px;
+    justify-self: center;
+    padding: 14px;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgb(23 60 45 / 14%);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-localizador-etiqueta {
+    min-height: 34px;
+    padding-right: 42px;
+    font-size: .78rem;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-localizador figcaption {
+    margin-top: 8px;
+    font-size: .75rem;
+    line-height: 1.45;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .eco-image-open {
+    top: 11px;
+    right: 11px;
+    width: 38px;
+    height: 38px;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-texto {
+    max-width: none;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-modulo-cabecera {
+    margin-bottom: 14px;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-modulo-cabecera h3 {
+    font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos {
+    gap: 10px;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos > div {
+    min-height: 82px;
+    padding: 12px 14px;
+    border-color: color-mix(in srgb, var(--line) 86%, var(--white));
+    border-radius: 9px;
+    box-shadow: 0 5px 16px rgb(23 60 45 / 4%);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos dt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: none;
+    margin-bottom: 6px;
+    font-size: .75rem;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos dt svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    color: var(--green-natural);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos dd {
+    font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos .conoce-dato-capital {
+    max-width: none;
+    font-size: clamp(1rem, 1.55vw, 1.22rem);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-colindancias {
+    gap: 18px;
+    margin-top: 14px;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-colindancias p {
+    padding-left: 12px;
+    font-size: .75rem;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-acciones {
+    margin-top: 12px;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-acciones .conoce-enlace {
+    min-height: 40px;
+    font-size: .76rem;
+}
+
+#conoce-madre-de-dios #conoce-provincias {
+    padding-block: 18px 30px;
+    border-top: 0;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-modulo-cabecera {
+    margin-bottom: 10px;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-modulo-cabecera h3 {
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincias {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia {
+    --provincia-arte: var(--eco-patron-semillas);
+    overflow: clip;
+    border-color: color-mix(in srgb, var(--line) 88%, var(--white));
+    border-top: 3px solid var(--green-natural);
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: 0 7px 20px rgb(23 60 45 / 7%);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+#conoce-madre-de-dios #conoce-provincias #conoce-provincia-tambopata { --provincia-arte: url("../images/microilustraciones/territorio-v1.webp"); }
+#conoce-madre-de-dios #conoce-provincias #conoce-provincia-manu { --provincia-arte: url("../images/microilustraciones/bosques-v1.webp"); }
+#conoce-madre-de-dios #conoce-provincias #conoce-provincia-tahuamanu { --provincia-arte: url("../images/microilustraciones/castana-v1.webp"); }
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary {
+    position: relative;
+    min-height: 112px;
+    grid-template-columns: 48px minmax(0, 1fr);
+    align-content: center;
+    gap: 3px 10px;
+    padding: 14px 34% 14px 14px;
+    background:
+        linear-gradient(90deg, #fff 0 58%, rgb(255 255 255 / 91%) 68%, rgb(246 249 241 / 50%) 100%),
+        var(--provincia-arte) right -12px center / 48% auto no-repeat,
+        #f6f8f2;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary:hover {
+    background:
+        linear-gradient(90deg, #f8fbf4 0 58%, rgb(248 251 244 / 91%) 68%, rgb(239 246 235 / 45%) 100%),
+        var(--provincia-arte) right -8px center / 50% auto no-repeat,
+        #f3f7ef;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--green-natural) 62%, var(--line));
+    box-shadow: 0 11px 24px rgb(23 60 45 / 11%);
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-emblema {
+    width: 48px;
+    height: 48px;
+    grid-column: 1;
+    grid-row: 1 / 4;
+    align-self: center;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgb(23 60 45 / 10%));
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary > strong {
+    grid-column: 2;
+    color: var(--forest-deep);
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-cantidad,
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-abrir {
+    grid-column: 2;
+    margin-top: 0;
+    font-size: .75rem;
+    line-height: 1.4;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-cantidad {
+    color: var(--muted);
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-abrir {
+    color: var(--forest);
+}
+
+#conoce-madre-de-dios #conoce-fuentes-provincias {
+    margin-top: 10px;
+    font-size: .75rem;
+}
+
+@media (max-width: 860px) {
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-grid {
+        grid-template-columns: minmax(225px, .82fr) minmax(0, 1.35fr);
+        gap: 24px;
+    }
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-localizador {
+        max-width: 270px;
+    }
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincias {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    #conoce-madre-de-dios > .conoce-cabecera,
+    #conoce-madre-de-dios #conoce-ubicacion,
+    #conoce-madre-de-dios #conoce-provincias {
+        width: min(calc(100% - 28px), 980px);
+    }
+    #conoce-madre-de-dios #conoce-ubicacion {
+        padding: 14px;
+        border-radius: 14px;
+    }
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-localizador {
+        width: min(100%, 320px);
+        max-width: none;
+    }
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-datos > div {
+        min-height: 76px;
+    }
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincias {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary {
+        min-height: 104px;
+    }
+}
+
+@media (max-width: 380px) {
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-datos,
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-colindancias {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincia { transition: none; }
+}
+
+@media (prefers-contrast: more), (forced-colors: active) {
+    #conoce-madre-de-dios #conoce-ubicacion::after { content: none; }
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary { background: Canvas; }
+}
+
 /* ecoselva.css */
 /* Sistema compartido: composición y presentación; no interviene en los datos. */
 
@@ -5304,3 +5611,70 @@ html:has(dialog[open]){overflow:hidden}
     transition: none;
   }
 }
+
+/* mejoras-experiencia.css */
+/* Búsqueda global y comparación visual de cifras: mejoras progresivas y accesibles. */
+.eco-search-trigger{
+  display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:8px 12px;
+  border:1px solid var(--line,#ccd8cf);border-radius:999px;background:rgb(255 255 255 / .9);
+  color:var(--forest,#174f38);font:700 .82rem/1.2 var(--font-heading,system-ui);cursor:pointer;
+  box-shadow:0 5px 16px rgb(17 61 42 / 7%);white-space:nowrap
+}
+.eco-search-trigger>span:first-child{font-size:1.1rem;line-height:1}
+.eco-search-trigger kbd{padding:2px 6px;border:1px solid #d6ded7;border-bottom-width:2px;border-radius:6px;background:#f4f7f3;color:#607267;font:600 .68rem/1.25 var(--font-body,system-ui)}
+.eco-search-trigger:is(:hover,:focus-visible){border-color:#6f927b;background:#fff}
+.eco-search-trigger:focus-visible{outline:3px solid #d49b32;outline-offset:2px}
+.eco-search-trigger--floating{position:fixed;z-index:80;right:18px;bottom:18px}
+
+.eco-search-dialog{width:min(720px,calc(100vw - 28px));max-height:min(720px,calc(100dvh - 28px));padding:0;border:0;border-radius:24px;background:#fff;color:#18382a;box-shadow:0 28px 90px rgb(8 35 24 / 32%);overflow:hidden}
+.eco-search-dialog::backdrop{background:rgb(5 24 17 / 55%);backdrop-filter:blur(3px)}
+.eco-search-shell{display:flex;flex-direction:column;max-height:min(720px,calc(100dvh - 28px))}
+.eco-search-head{display:flex;align-items:flex-start;justify-content:space-between;gap:20px;padding:22px 22px 12px}
+.eco-search-head h2{margin:2px 0 0;font:800 clamp(1.25rem,2.4vw,1.7rem)/1.2 var(--font-heading,system-ui);color:var(--forest-deep,#103628)}
+.eco-search-close{display:grid;place-items:center;width:42px;height:42px;flex:0 0 42px;border:1px solid #d7e0d8;border-radius:50%;background:#f7faf6;color:#204f38;font-size:1.35rem;cursor:pointer}
+.eco-search-close:focus-visible{outline:3px solid #d49b32;outline-offset:2px}
+.eco-search-field{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:10px;margin:0 22px;padding:0 14px;border:1px solid #aebfb2;border-radius:14px;background:#fbfcfa}
+.eco-search-field>span[aria-hidden]{color:#557361;font-size:1.25rem}
+.eco-search-field input{width:100%;min-height:52px;border:0;outline:0;background:transparent;color:#17392a;font:600 1rem/1.35 var(--font-body,system-ui)}
+.eco-search-field:focus-within{border-color:#2c7250;box-shadow:0 0 0 3px rgb(44 114 80 / 12%)}
+.eco-search-help{margin:10px 22px 8px;color:#65766b;font-size:.78rem}
+.eco-search-results{overflow:auto;padding:6px 12px 14px}
+.eco-search-result{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:58px;padding:10px 12px;border-radius:12px;color:#1f4d36;text-decoration:none}
+.eco-search-result span{display:flex;flex-direction:column;gap:3px;min-width:0}
+.eco-search-result strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:750 .93rem/1.25 var(--font-heading,system-ui)}
+.eco-search-result small{color:#728078;font-size:.73rem}
+.eco-search-result i{font-style:normal;color:#5f7868}
+.eco-search-result[aria-selected="true"]{background:#edf5ed;box-shadow:inset 0 0 0 1px #ccddcf}
+.eco-search-empty{padding:24px 14px;color:#65766b;text-align:center}
+.eco-search-shell>footer{display:flex;flex-wrap:wrap;gap:8px 16px;padding:11px 22px;border-top:1px solid #e1e8e2;background:#f8faf7;color:#69796e;font-size:.72rem}
+
+.selva-fauna-comparacion{margin:22px 0 4px;padding:20px;border:1px solid rgb(23 60 45 / 10%);border-radius:18px;background:#f8faf6}
+.selva-fauna-comparacion figcaption{display:flex;justify-content:space-between;gap:16px;align-items:baseline;margin-bottom:16px}
+.selva-fauna-comparacion figcaption strong{color:var(--forest-deep,#103628);font:750 .96rem/1.35 var(--font-heading,system-ui)}
+.selva-fauna-comparacion figcaption span,.selva-fauna-comparacion>p{color:#68776d;font-size:.75rem;line-height:1.5}
+.selva-fauna-comparacion>p{margin:14px 0 0}
+.selva-fauna-comparacion-barras{display:grid;gap:10px}
+.selva-fauna-comparacion-fila{display:grid;grid-template-columns:minmax(82px,110px) minmax(0,1fr) 44px;gap:10px;align-items:center}
+.selva-fauna-comparacion-etiqueta{font-size:.8rem;font-weight:700;color:#2b513c}
+.selva-fauna-comparacion-pista{position:relative;height:9px;border-radius:999px;background:#e1ebe2;overflow:hidden}
+.selva-fauna-comparacion-pista i{display:block;width:var(--eco-fauna-bar);height:100%;border-radius:inherit;background:linear-gradient(90deg,#2e704e,#6d9d75)}
+.selva-fauna-comparacion-fila>strong{text-align:right;color:#214b36;font:750 .8rem/1 var(--font-heading,system-ui);font-variant-numeric:tabular-nums}
+
+@media(max-width:760px){
+  .eco-search-trigger kbd{display:none}
+  .eco-search-dialog{width:calc(100vw - 18px);max-height:calc(100dvh - 18px);border-radius:18px}
+  .eco-search-shell{max-height:calc(100dvh - 18px)}
+  .eco-search-head{padding:18px 16px 10px}
+  .eco-search-field{margin-inline:16px}
+  .eco-search-help{margin-inline:16px}
+  .eco-search-shell>footer{padding-inline:16px}
+  .selva-fauna-comparacion{padding:16px}
+  .selva-fauna-comparacion figcaption{display:block}
+  .selva-fauna-comparacion figcaption span{display:block;margin-top:4px}
+}
+@media(max-width:520px){
+  .eco-search-trigger>span:nth-child(2){display:none}
+  .eco-search-trigger{width:42px;justify-content:center;padding:8px}
+  .selva-fauna-comparacion-fila{grid-template-columns:78px minmax(0,1fr) 38px;gap:8px}
+}
+@media(prefers-reduced-motion:reduce){.eco-search-dialog::backdrop{backdrop-filter:none}}
