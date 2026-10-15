@@ -109,7 +109,7 @@
             <div class="eco-search-shell">
                 <header class="eco-search-head">
                     <div><span class="eco-eyebrow">EcoSelva</span><h2 id="eco-search-title">Buscar en el sitio</h2></div>
-                    <button type="button" class="eco-search-close" aria-label="Cerrar búsqueda">×</button>
+                    <template data-eco-search-controls><button type="button" class="eco-search-close" aria-label="Cerrar búsqueda">×</button></template>
                 </header>
                 <label class="eco-search-field">
                     <span class="sr-only">Buscar especies, capas o temas</span>
@@ -124,7 +124,7 @@
 
         const input = dialog.querySelector('input');
         const results = dialog.querySelector('.eco-search-results');
-        const close = dialog.querySelector('.eco-search-close');
+        const controlsTemplate = dialog.querySelector('[data-eco-search-controls]');
         let activos = [];
         let seleccionado = 0;
 
@@ -162,8 +162,18 @@
             });
         };
 
+        const cerrar = () => { if (dialog.open) dialog.close(); };
+        const asegurarControles = () => {
+            let close = dialog.querySelector('.eco-search-close');
+            if (close) return close;
+            dialog.querySelector('.eco-search-head').append(controlsTemplate.content.cloneNode(true));
+            close = dialog.querySelector('.eco-search-close');
+            close.addEventListener('click', cerrar);
+            return close;
+        };
         const abrir = async () => {
             if (dialog.open) return;
+            asegurarControles();
             dialog.showModal();
             input.value = '';
             seleccionado = 0;
@@ -172,11 +182,10 @@
             await cargarDatos();
             pintar();
         };
-        const cerrar = () => { if (dialog.open) dialog.close(); };
 
         trigger.addEventListener('click', abrir);
-        close.addEventListener('click', cerrar);
         dialog.addEventListener('click', event => { if (event.target === dialog) cerrar(); });
+        dialog.addEventListener('close', () => dialog.querySelector('.eco-search-close')?.remove());
         input.addEventListener('input', () => { seleccionado = 0; pintar(); });
         input.addEventListener('keydown', event => {
             if (!activos.length) return;
