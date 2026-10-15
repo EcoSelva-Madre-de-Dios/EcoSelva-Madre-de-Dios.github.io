@@ -4415,7 +4415,7 @@ h4,
     --provincia-arte: var(--eco-patron-semillas);
     overflow: clip;
     border-color: color-mix(in srgb, var(--line) 88%, var(--white));
-    border-top: 3px solid var(--green-natural);
+    border-top: 5px solid #2f7d4c;
     border-radius: 10px;
     background: var(--white);
     box-shadow: 0 7px 20px rgb(23 60 45 / 7%);
@@ -4437,22 +4437,40 @@ h4,
 
 #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary {
     position: relative;
+    isolation: isolate;
+    overflow: hidden;
     min-height: 112px;
     grid-template-columns: 48px minmax(0, 1fr);
     align-content: center;
     gap: 3px 10px;
     padding: 14px 34% 14px 14px;
-    background:
-        linear-gradient(90deg, #fff 0 54%, rgb(255 255 255 / 94%) 63%, rgb(246 249 241 / 16%) 100%),
-        var(--provincia-arte) var(--provincia-foco, center) / cover no-repeat,
-        #f6f8f2;
+    background: #fff;
 }
 
 #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary:hover {
-    background:
-        linear-gradient(90deg, #f8fbf4 0 54%, rgb(248 251 244 / 91%) 63%, rgb(239 246 235 / 8%) 100%),
-        var(--provincia-arte) var(--provincia-foco, center) / cover no-repeat,
-        #f3f7ef;
+    background: #f8fbf4;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    inset: 0 0 0 auto;
+    width: 52%;
+    background: var(--provincia-arte) var(--provincia-foco, center) / cover no-repeat;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, #fff 0 48%, rgb(255 255 255 / 92%) 57%, rgb(255 255 255 / 12%) 78%, transparent 100%);
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary:hover::after {
+    background: linear-gradient(90deg, #f8fbf4 0 48%, rgb(248 251 244 / 90%) 57%, rgb(248 251 244 / 8%) 78%, transparent 100%);
 }
 
 #conoce-madre-de-dios #conoce-provincias .conoce-provincia:hover {
@@ -4570,6 +4588,8 @@ h4,
 @media (prefers-contrast: more), (forced-colors: active) {
     #conoce-madre-de-dios #conoce-ubicacion::after { content: none; }
     #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary { background: Canvas; }
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary::before,
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary::after { content: none; }
 }
 
 /* ecoselva.css */
