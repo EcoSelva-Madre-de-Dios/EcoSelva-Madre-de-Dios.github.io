@@ -592,7 +592,7 @@
     #conoce-madre-de-dios > .conoce-cabecera,
     #conoce-madre-de-dios #conoce-ubicacion,
     #conoce-madre-de-dios #conoce-provincias {
-        width: min(calc(100% - 28px), 980px);
+        width: min(calc(100% - 36px), 980px);
     }
     #conoce-madre-de-dios #conoce-ubicacion {
         padding: 14px;
