@@ -9,7 +9,7 @@ GROUPS = {
     'assets/eco-editorial.css': ('editorial.css', 'ecoselva.css', 'lecturas.css', 'navegacion.css', 'atlas.css', 'lectura-clara.css', 'aviso-piloto.css', 'mejoras-experiencia.css'),
     'assets/eco-lecturas.css': ('territorio.css', 'flora.css', 'lecturas.css', 'mejoras-territorio.css'),
     'assets/eco-patterns.css': ('patrones.css',),
-    'assets/eco-base.js': ('dialogos.js', 'script.js', 'conoce.js', 'navegacion.js', 'cartografia.js', 'ecoselva.js', 'aviso-piloto.js', 'mejoras-experiencia.js'),
+    'assets/eco-base.js': ('dialogos.js', 'script.js', 'conoce.js', 'navegacion.js', 'cartografia.js', 'ecoselva.js', 'aviso-piloto.js', 'mejoras-experiencia.js', 'mejoras-territorio.js'),
     'assets/eco-editorial.js': ('dialogos.js', 'navegacion.js', 'cartografia.js', 'ecoselva.js', 'aviso-piloto.js', 'mejoras-experiencia.js'),
 }
 
