@@ -1,21 +1,43 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" aria-hidden="true">
-  <g fill="none" stroke="#f4eedc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M-20 160h66c34 0 40-62 76-62s42 124 80 124 42-124 80-124 42 62 78 62 42-62 80-62 42 124 80 124 42-62 80-62h40"/>
-    <path d="M18 102h54c26 0 34-38 60-38s36 76 64 76 36-76 64-76 36 38 62 38h58c28 0 36-38 64-38s36 76 64 76 36-76 64-76"/>
-    <path d="M18 218h54c26 0 34 38 60 38s36-76 64-76 36 76 64 76 36-38 62-38h58c28 0 36 38 64 38s36-76 64-76 36 76 64 76"/>
-    <path d="M104 160c18-18 32-32 48-48m0 96c-16-16-30-30-48-48M448 112c16 16 30 30 48 48m-48 48c16-16 30-30 48-48"/>
-    <circle cx="122" cy="98" r="10"/>
-    <circle cx="202" cy="222" r="10"/>
-    <circle cx="282" cy="98" r="10"/>
-    <circle cx="442" cy="160" r="10"/>
-    <circle cx="522" cy="98" r="10"/>
-    <circle cx="72" cy="102" r="3.5"/>
-    <circle cx="196" cy="140" r="3.5"/>
-    <circle cx="322" cy="102" r="3.5"/>
-    <circle cx="382" cy="218" r="3.5"/>
-    <circle cx="522" cy="140" r="3.5"/>
-    <path d="m350 160 14-14 14 14-14 14z"/>
-    <path d="m94 160 12-12 12 12-12 12z"/>
-    <path d="M28 42h106m330 236h108M6 278h100m338-236h142" opacity=".72"/>
+  <defs>
+    <g id="eco-footer-structure" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M-10 160h34c24 0 32-34 54-34h18c22 0 30 34 54 34h26c24 0 32-34 54-34h18c22 0 30 34 54 34h18"/>
+      <path d="M24 160c0-24 18-38 40-38h20c18 0 30-12 30-30s12-30 30-30 30 12 30 30-12 30-30 30h-18c-18 0-30 12-30 30s12 30 30 30h18c18 0 30 12 30 30s-12 30-30 30-30-12-30-30 12-30 30-30h20c22 0 40-14 40-38"/>
+      <path d="M58 94c0-18 14-32 32-32h18c16 0 28-12 28-28M58 226c0 18 14 32 32 32h18c16 0 28 12 28 28"/>
+      <path d="M212 34c0 16 12 28 28 28h18c18 0 32 14 32 32M212 286c0-16 12-28 28-28h18c18 0 32-14 32-32"/>
+      <circle cx="144" cy="62" r="7"/>
+      <circle cx="144" cy="258" r="7"/>
+      <circle cx="58" cy="160" r="6"/>
+      <circle cx="230" cy="160" r="6"/>
+      <path d="m144 132 14 14-14 14-14-14zm0 28 14 14-14 14-14-14z"/>
+      <path d="M22 48h54m136 0h62M22 272h54m136 0h62"/>
+    </g>
+    <g id="eco-footer-detail" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M42 160h34l12-12 12 12-12 12-12-12h24m44-56h18v16h16v16h-32v16h-16v-32h14zm0 112h18v-16h16v-16h-32v-16h-16v32h14z"/>
+      <path d="M84 112c18 0 26-18 42-18s24 18 42 18 26-18 42-18 24 18 42 18M84 208c18 0 26 18 42 18s24-18 42-18 26 18 42 18 24-18 42-18"/>
+      <circle cx="144" cy="94" r="4"/>
+      <circle cx="144" cy="226" r="4"/>
+      <circle cx="104" cy="160" r="4"/>
+      <circle cx="184" cy="160" r="4"/>
+      <path d="M92 76h22m60 0h22M92 244h22m60 0h22"/>
+    </g>
+  </defs>
+
+  <!-- Motivo original de EcoSelva inspirado en cauces, encuentros y semillas.
+       No reproduce iconografía de una comunidad específica. -->
+  <g stroke="#163d2b" stroke-width="2.1" opacity=".9">
+    <use href="#eco-footer-structure"/>
+    <use href="#eco-footer-structure" transform="translate(300 0)"/>
+  </g>
+
+  <g stroke="#f3efdf" stroke-width="1.8" opacity=".92">
+    <use href="#eco-footer-detail"/>
+    <use href="#eco-footer-detail" transform="translate(300 0)"/>
+  </g>
+
+  <g fill="none" stroke="#c9ad62" stroke-width="1.25" stroke-linecap="round" opacity=".55">
+    <circle cx="144" cy="160" r="3.5"/>
+    <circle cx="444" cy="160" r="3.5"/>
+    <path d="M286 160h28M0 160h14M586 160h14"/>
   </g>
 </svg>
