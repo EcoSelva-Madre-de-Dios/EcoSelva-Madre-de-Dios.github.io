@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ecoselva-2026-10-c';
+const CACHE_VERSION = 'ecoselva-2026-10-d';
 const CORE = [
   '/',
   '/index.html',
@@ -26,7 +26,10 @@ const CORE = [
   '/datos/flora/lectura.json',
   '/images/logo-ecoselva-educacion-256.webp',
   '/images/icono-app-ecoselva.svg',
-  '/images/favicon-64.png'
+  '/images/favicon-64.png',
+  '/images/lago-sandoval-768.webp',
+  '/images/conservacion/manu.webp',
+  '/images/castanal-amazonia-peru.jpg'
 ];
 
 self.addEventListener('install', event => {
