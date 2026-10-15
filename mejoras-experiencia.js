@@ -90,6 +90,7 @@
         trigger.type = 'button';
         trigger.className = 'eco-search-trigger';
         trigger.setAttribute('aria-haspopup', 'dialog');
+        trigger.setAttribute('aria-label', 'Buscar en EcoSelva');
         trigger.innerHTML = '<span aria-hidden="true">⌕</span><span>Buscar</span><kbd>Ctrl K</kbd>';
 
         const host = document.querySelector('.eco-global-header > .eco-wide') || document.querySelector('.menu.container');
