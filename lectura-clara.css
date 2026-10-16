@@ -105,6 +105,23 @@
 /* Imágenes educativas: localizador legible también en celular. */
 .eco-site .conoce-ubicacion-grid{grid-template-columns:minmax(280px,.8fr) minmax(0,1.6fr)}
 @media(max-width:767px){.eco-site .conoce-ubicacion-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Conoce: accesos secundarios y fuentes con menor altura visual. */
+.eco-site #conoce-madre-de-dios .conoce-preview-grid{gap:12px;margin-block:18px 20px}
+.eco-site #conoce-madre-de-dios .conoce-preview{display:grid;align-content:start;gap:8px;min-height:0;padding:16px 18px}
+.eco-site #conoce-madre-de-dios .conoce-preview h3{margin:0;font-size:1rem;line-height:1.35}
+.eco-site #conoce-madre-de-dios .conoce-preview p:not(.eco-eyebrow){margin:0;font-size:.8rem;line-height:1.55}
+.eco-site #conoce-madre-de-dios .conoce-preview a{min-height:44px;font-size:.78rem;line-height:1.4}
+.eco-site #conoce-madre-de-dios .eco-block-sources--compact{margin:0 0 24px;padding:0;border:1px solid var(--line);border-radius:var(--radius-md);background:rgb(255 255 255 / 72%)}
+.eco-site #conoce-madre-de-dios .eco-block-sources--compact>summary{display:flex;min-height:46px;align-items:center;justify-content:space-between;gap:16px;padding:10px 14px;color:var(--forest);cursor:pointer;list-style:none}
+.eco-site #conoce-madre-de-dios .eco-block-sources--compact>summary::-webkit-details-marker{display:none}
+.eco-site #conoce-madre-de-dios .eco-block-sources--compact>summary:focus-visible{outline:3px solid var(--water);outline-offset:3px}
+.eco-site #conoce-madre-de-dios .eco-block-sources--compact>summary::after{content:"+";font-size:1.25rem;line-height:1}
+.eco-site #conoce-madre-de-dios .eco-block-sources--compact[open]>summary::after{content:"−"}
+.eco-site #conoce-madre-de-dios .eco-block-sources--compact>summary span{margin-left:auto;color:var(--muted);font-size:.76rem;font-weight:500}
+.eco-site #conoce-madre-de-dios .eco-block-sources--compact>ol{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 28px;margin:0;padding:4px 28px 16px 38px;border-top:1px solid var(--line)}
+@media(min-width:761px) and (max-width:1000px){.eco-site #conoce-madre-de-dios .conoce-preview-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.eco-site #conoce-madre-de-dios .eco-block-sources--compact>ol{grid-template-columns:1fr}.eco-site #conoce-madre-de-dios .eco-block-sources--compact>summary span{display:none}}
 .eco-site .conoce-localizador{width:100%;max-width:360px;margin:0 auto}
 .eco-site .conoce-localizador img{object-fit:contain;border-radius:18px}
 
