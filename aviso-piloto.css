@@ -11,19 +11,18 @@
   transition: opacity var(--motion-fast) ease, transform var(--motion-fast) ease;
 }
 
-.eco-site:has(.menu.container) .eco-pilot-notice {
-  margin-top: 106px;
+.eco-site:has(.eco-home-header) .eco-pilot-notice {
+  margin-top: 88px;
 }
 
 /* El aviso reemplaza temporalmente la imagen bajo la barra fija de Inicio. */
 .eco-site:has(.eco-pilot-notice.is-visible) .menu.container {
-  background: var(--forest-deep);
+  background: rgb(9 45 31 / 96%);
 }
 
-/* Al desplazarse, la barra vuelve a su versión clara para conservar el
-   contraste de todos los enlaces, incluido Contacto. */
+/* La barra conserva el mismo tono oscuro al desplazarse para evitar saltos visuales. */
 .eco-site:has(.eco-pilot-notice.is-visible) .menu.container.selva-menu-scrolled {
-  background: rgb(243 240 230 / 98%);
+  background: rgb(9 45 31 / 96%);
 }
 
 .eco-site .eco-pilot-notice.is-visible {
@@ -143,8 +142,8 @@
 }
 
 @media (max-width: 767px) {
-  .eco-site:has(.menu.container) .eco-pilot-notice {
-    margin-top: 82px;
+  .eco-site:has(.eco-home-header) .eco-pilot-notice {
+    margin-top: 76px;
   }
   .eco-site .eco-pilot-notice__inner {
     grid-template-columns: 1fr;

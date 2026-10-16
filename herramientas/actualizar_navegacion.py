@@ -1,4 +1,4 @@
-"""Cabecera y pie compartidos de las lecturas, con enlaces relativos correctos."""
+"""Cabecera y pie compartidos, con navegación temática y enlaces relativos."""
 from pathlib import Path
 from html import escape
 import re
@@ -15,14 +15,92 @@ PAGES = {
     'fuentes-metodologia.html': ('territorio.html', 'Volver a Territorio'),
     'fichas/castana.html': ('flora.html', 'Volver a Flora'),
 }
-LINKS = (
-    ('index.html', 'Inicio'), ('index.html#conoce-madre-de-dios', 'Conoce Madre de Dios'),
-    ('territorio.html', 'Territorio'), ('historia.html', 'Historia'),
-    ('areas-protegidas.html', 'Áreas protegidas'), ('index.html#biodiversidad', 'Biodiversidad'),
-    ('index.html#ambiente', 'Ambiente'), ('index.html#investigaciones', 'Ciencia'),
-    ('biblioteca.html', 'Biblioteca'), ('index.html#quienes-somos', 'EcoSelva'),
-    ('index.html#colabora', 'Colabora'), ('index.html#contacto', 'Contacto'),
+
+REGION_LINKS = (
+    ('index.html#conoce-madre-de-dios', 'Ubicación y provincias', 'Mapa localizador, capitales y distritos.', 'mapas'),
+    ('territorio.html', 'Territorio y atlas', 'Bosques, ríos, humedales y cartografía.', 'bosques'),
+    ('historia.html', 'Historia regional', 'Pueblos, procesos y memoria del territorio.', 'documentos'),
+    ('areas-protegidas.html', 'Áreas protegidas', 'Espacios de conservación y gestión.', 'conservacion'),
 )
+BIODIVERSITY_LINKS = (
+    ('index.html#biodiversidad', 'Biodiversidad', 'Flora y fauna de Madre de Dios.', 'biodiversidad'),
+    ('flora.html', 'Flora', 'Plantas, productos y usos del bosque.', 'flora'),
+    ('index.html#ambiente', 'Ambiente', 'Cambios, presiones y conservación.', 'conservacion'),
+)
+ECOSYSTEM_LINKS = (
+    ('index.html#quienes-somos', 'Sobre EcoSelva', 'Propósito, misión y visión.', 'educacion'),
+    ('index.html#colabora', 'Colabora', 'Formas de participar y aportar.', 'colabora-acordar'),
+    ('biblioteca.html', 'Biblioteca', 'Fuentes y documentos para explorar.', 'biblioteca'),
+    ('fuentes-metodologia.html', 'Fuentes y metodología', 'Criterios, alcances y referencias.', 'datos'),
+)
+
+
+def _target(href, prefix, home):
+    if home and href == 'index.html':
+        return '#inicio'
+    if home and href.startswith('index.html#'):
+        return href[len('index.html'):]
+    return prefix + href
+
+
+def _is_current(page, href):
+    if page == 'index.html':
+        return href == 'index.html'
+    return href.split('#', 1)[0] == page
+
+
+def _item(prefix, page, home, href, title, description, icon):
+    current = ' aria-current="page"' if _is_current(page, href) else ''
+    target = escape(_target(href, prefix, home), quote=True)
+    return (
+        '<li><a class="selva-nav-mega-link" href="' + target + '"' + current + '>'
+        '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="' + prefix
+        + 'images/ecoselva-iconos.svg#' + icon + '"></use></svg>'
+        '<span><strong>' + escape(title) + '</strong><small>' + escape(description) + '</small></span>'
+        '<b aria-hidden="true">→</b></a></li>'
+    )
+
+
+def _dropdown(prefix, page, home, label, eyebrow, links, modifier):
+    items = ''.join(_item(prefix, page, home, *item) for item in links)
+    active = ' aria-current="page"' if any(_is_current(page, item[0]) for item in links) else ''
+    return (
+        f'<li class="selva-nav-desplegable selva-nav-desplegable--{modifier}"><details>'
+        f'<summary{active}><span class="selva-nav-label">{escape(label)}</span></summary>'
+        '<div class="selva-nav-mega-panel"><p class="selva-nav-mega-eyebrow">' + escape(eyebrow)
+        + '</p><ul>' + items + '</ul></div></details></li>'
+    )
+
+
+def navigation(prefix='', page='index.html', home=False):
+    home_current = ' aria-current="page"' if page == 'index.html' else ''
+    menu = (
+        '<ul class="selva-nav-principal">'
+        '<li><a href="' + escape(_target('index.html', prefix, home), quote=True) + '"' + home_current + '>Inicio</a></li>'
+        + _dropdown(prefix, page, home, 'Región y territorio', 'Geografía regional', REGION_LINKS, 'region')
+        + _dropdown(prefix, page, home, 'Selva y biodiversidad', 'Nuestra selva', BIODIVERSITY_LINKS, 'biodiversidad')
+        + '<li><a href="' + escape(_target('index.html#investigaciones', prefix, home), quote=True) + '">Ciencia y datos</a></li>'
+        + _dropdown(prefix, page, home, 'EcoSelva', 'Conócenos y únete', ECOSYSTEM_LINKS, 'ecoselva')
+        + '<li><a href="' + escape(_target('index.html#contacto', prefix, home), quote=True) + '">Contacto</a></li>'
+        '</ul>'
+    )
+    logo_href = '#inicio' if home else prefix + 'index.html'
+    logo_loading = ' fetchpriority="high"' if home else ''
+    wrapper = 'div' if home else 'header'
+    classes = 'menu container eco-home-header' if home else 'menu container eco-global-header'
+    return (
+        f'<{wrapper} class="{classes}">'
+        f'<a href="{logo_href}" class="logo" aria-label="EcoSelva Madre de Dios · inicio">'
+        f'<img width="256" height="256" src="{prefix}images/logo-ecoselva-educacion-256.webp" '
+        f'alt="EcoSelva Madre de Dios" decoding="async"{logo_loading}></a>'
+        '<input class="selva-menu-toggle" type="checkbox" id="menu">'
+        '<label class="selva-menu-control" for="menu" role="button" tabindex="0" '
+        'aria-label="Abrir o cerrar menú" aria-controls="selva-menu-navegacion" aria-expanded="false">'
+        '<span class="selva-menu-control-lineas" aria-hidden="true"></span><span>Menú</span></label>'
+        '<nav class="navbar" id="selva-menu-navegacion" aria-label="Navegación principal">' + menu + '</nav>'
+        f'</{wrapper}>'
+    )
+
 
 def fragments(page):
     prefix = '../' if '/' in page else ''
@@ -35,20 +113,25 @@ def fragments(page):
     day = date.fromisoformat(review)
     months = ('enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre')
     review_text = f'{day.day} de {months[day.month-1]} de {day.year}'
-    target, label = PAGES[page]
-    links = ''.join(f'<li><a href="{prefix}{href}"' + (' aria-current="page"' if href == page else '') + f'>{text}</a></li>' for href, text in LINKS)
-    # Territorio ya conserva la ruta contextual completa mediante sus migas de pan.
-    # Omitir aquí el tercer acceso equivalente evita repetir la misma salida tres veces.
-    return_link = '' if page == 'territorio.html' else f'<a class="eco-global-return" href="{prefix}{target}">← {escape(label)}</a>'
-    header = f'''<!-- sitio:cabecera -->
-<header class="eco-barra eco-global-header"><div class="eco-wide"><a class="eco-marca" href="{prefix}index.html" aria-label="EcoSelva Madre de Dios · inicio"><img src="{prefix}images/logo-ecoselva-educacion-256.webp" width="256" height="256" alt="" loading="lazy" decoding="async"><span>EcoSelva<small>Madre de Dios</small></span></a>{return_link}<details class="eco-global-menu"><summary>Menú</summary><nav class="eco-global-nav" aria-label="Navegación principal"><ul>{links}</ul></nav></details></div></header>
-<!-- /sitio:cabecera -->'''
+    header = '<!-- sitio:cabecera -->\n' + navigation(prefix, page) + '\n<!-- /sitio:cabecera -->'
     footer = f'''<!-- sitio:pie -->
 <footer class="eco-global-footer eco-wide"><span>EcoSelva Madre de Dios</span><span class="eco-footer-review">Revisión de fuentes: <time datetime="{review}">{review_text}</time></span><nav aria-label="Enlaces del sitio"><a href="{prefix}index.html">Inicio</a><a href="{prefix}biblioteca.html">Biblioteca</a><a href="{prefix}fuentes-metodologia.html">Fuentes y metodología</a><a href="mailto:ecoselvamadrededios@gmail.com">Contacto</a><a href="#contenido">Volver al comienzo ↑</a></nav></footer>
 <!-- /sitio:pie -->'''
     return header, footer
 
+
 def update():
+    index = ROOT / 'index.html'
+    html = index.read_text()
+    home_header = '<!-- sitio:menu-principal -->\n' + navigation(home=True) + '\n<!-- /sitio:menu-principal -->'
+    if '<!-- sitio:menu-principal -->' in html:
+        html = re.sub(r'<!-- sitio:menu-principal -->.*?<!-- /sitio:menu-principal -->', lambda _: home_header, html, flags=re.S)
+    else:
+        html, count = re.subn(r'<div class="menu container">.*?</div>\s*<main id="contenido"', lambda _: home_header + '\n    <main id="contenido"', html, count=1, flags=re.S)
+        if count != 1:
+            raise ValueError('Menú principal no encontrado en index.html')
+    index.write_text(html)
+
     for page in PAGES:
         path = ROOT / page
         html = path.read_text()
@@ -56,22 +139,25 @@ def update():
         if '<!-- sitio:cabecera -->' in html:
             html = re.sub(r'<!-- sitio:cabecera -->.*?<!-- /sitio:cabecera -->', lambda _: header, html, flags=re.S)
         else:
-            html, count = re.subn(r'<header class="(?:eco-barra|anp-barra|historia-barra|ficha-barra)[^"]*">.*?</header>', lambda _: header, html, count=1, flags=re.S)
-            if count != 1: raise ValueError('Cabecera no encontrada: ' + page)
+            raise ValueError('Cabecera no encontrada: ' + page)
         if '<!-- sitio:pie -->' in html:
             html = re.sub(r'<!-- sitio:pie -->.*?<!-- /sitio:pie -->', lambda _: footer, html, flags=re.S)
         elif page == 'fichas/castana.html':
             html = html.replace('</main>', '</main>\n' + footer, 1)
         else:
-            html, count = re.subn(r'<footer class="(?:eco-pie|anp-pie|historia-pie)[^"]*">.*?</footer>', lambda _: footer, html, count=1, flags=re.S)
-            if count != 1: raise ValueError('Pie no encontrado: ' + page)
+            raise ValueError('Pie no encontrado: ' + page)
         path.write_text(html)
 
+
 def check_generated():
+    index = (ROOT / 'index.html').read_text()
+    if navigation(home=True) not in index:
+        raise ValueError('Menú principal desincronizado: index.html')
     for page in PAGES:
         html = (ROOT / page).read_text()
         if not all(fragment in html for fragment in fragments(page)):
             raise ValueError('Navegación desincronizada: ' + page)
+
 
 if __name__ == '__main__':
     update()

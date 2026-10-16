@@ -91,12 +91,11 @@
         trigger.className = 'eco-search-trigger';
         trigger.setAttribute('aria-haspopup', 'dialog');
         trigger.setAttribute('aria-label', 'Buscar en EcoSelva');
-        trigger.innerHTML = '<span aria-hidden="true">⌕</span><span>Buscar</span><kbd>Ctrl K</kbd>';
+        trigger.innerHTML = '<span aria-hidden="true">⌕</span><span>Buscar en EcoSelva…</span><kbd>Ctrl K</kbd>';
 
-        const host = document.querySelector('.eco-global-header > .eco-wide') || document.querySelector('.menu.container');
+        const host = document.querySelector('.menu.container') || document.querySelector('.eco-global-header > .eco-wide');
         if (host) {
-            const before = host.querySelector('.eco-global-menu, .navbar');
-            if (before) before.before(trigger); else host.append(trigger);
+            host.append(trigger);
         } else {
             trigger.classList.add('eco-search-trigger--floating');
             document.body.append(trigger);
