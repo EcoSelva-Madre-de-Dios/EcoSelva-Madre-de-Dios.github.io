@@ -225,6 +225,41 @@
   font: 700 20px/1 var(--font-body);
 }
 
+/* En Capas del atlas, el titulo y sus metadatos comparten la columna de lectura. */
+.eco-site #metodologia-capas-atlas > details > summary {
+  grid-template-columns: minmax(0, 1fr) 28px;
+  grid-template-rows: auto auto;
+  column-gap: 16px;
+  row-gap: 4px;
+}
+
+.eco-site #metodologia-capas-atlas > details > summary > strong,
+.eco-site #metodologia-capas-atlas > details > summary > span {
+  display: block;
+  min-width: 0;
+  grid-column: 1;
+  overflow-wrap: anywhere;
+}
+
+.eco-site #metodologia-capas-atlas > details > summary > strong {
+  grid-row: 1;
+}
+
+.eco-site #metodologia-capas-atlas > details > summary > span {
+  grid-row: 2;
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: var(--text-note);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.eco-site #metodologia-capas-atlas > details > summary::after {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+
 .eco-site .metodologia details[open] > summary {
   border-bottom: 1px solid color-mix(in srgb, var(--forest) 13%, transparent);
   background: color-mix(in srgb, var(--green-natural) 7%, transparent);
