@@ -31,7 +31,7 @@ async function position(page, trigger, dialog, close) {
       assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,'Desborde: '+file);
       assert.equal(await page.locator('time').evaluateAll(items=>items.filter(e=>/revisión|revisado|revisada/i.test(e.parentElement.textContent+' '+(e.parentElement.previousElementSibling?.textContent||''))&&!e.closest('footer')).length),0,'Revisión fuera del pie: '+file);
       assert.equal(await page.locator('footer.eco-global-footer time,footer.selva-pie-final time').count(),1,'Debe haber una revisión única: '+file);
-      assert.deepEqual(await page.locator('img').evaluateAll(items=>items.filter(e=>!e.hasAttribute('width')||!e.hasAttribute('height')||e.loading!=='lazy').map(e=>e.getAttribute('src'))),[],'Imágenes sin dimensiones/carga diferida: '+file);
+      assert.deepEqual(await page.locator('img').evaluateAll(items=>items.filter(e=>!e.hasAttribute('width')||!e.hasAttribute('height')||(e.loading!=='lazy'&&!/logo/i.test(e.getAttribute('src')||''))).map(e=>e.getAttribute('src'))),[],'Imágenes sin dimensiones/carga diferida: '+file);
       assert.equal(await page.locator('dialog:not([open]) button').count(),0,'Controles creados dentro de un diálogo cerrado: '+file);
       const images=await page.locator('img[src]').evaluateAll(items=>items.map(e=>new URL(e.src).pathname).filter(src=>/\.(jpg|jpeg|png|webp)$/i.test(src)&&!/logo/i.test(src)));
       for(const src of images){

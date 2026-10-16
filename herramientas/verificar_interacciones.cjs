@@ -29,14 +29,21 @@ async function accessible(page, selector) {
             assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, file + ': desborde horizontal a ' + width);
             if ([390, 1440].includes(width)) await accessible(page);
             if (file !== 'index.html') {
-                const menu = page.locator('.eco-global-menu');
-                await menu.locator('summary').click();
-                assert(await menu.getByRole('link', { name: 'Historia', exact: true }).isVisible());
-                assert(await menu.getByRole('link', { name: 'Áreas protegidas', exact: true }).isVisible());
+                const header = page.locator('.menu.container');
+                const menuControl = header.locator('label[for="menu"]');
+                if (await menuControl.isVisible()) await menuControl.click();
+                const region = header.locator('.selva-nav-desplegable--region details');
+                await region.locator('summary').click();
+                assert(await region.getByRole('link', { name: /Historia regional/ }).isVisible());
+                assert(await region.getByRole('link', { name: /Áreas protegidas/ }).isVisible());
                 assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
                 await page.keyboard.press('Escape');
-                assert.equal(await menu.getAttribute('open'), null);
-                assert(await menu.locator('summary').evaluate(e => document.activeElement === e));
+                assert.equal(await region.getAttribute('open'), null);
+                assert(await region.locator('summary').evaluate(e => document.activeElement === e));
+                if (await menuControl.isVisible()) {
+                    await page.keyboard.press('Escape');
+                    assert.equal(await header.locator('#menu').isChecked(), false);
+                }
             }
         }
         await page.goto(new URL('index.html', base).href);
@@ -54,12 +61,20 @@ async function accessible(page, selector) {
         const menu = page.locator('label[for="menu"]');
         if (await menu.isVisible()) {
             await menu.click();
-            await page.locator('.navbar summary').first().click();
-            assert(await page.locator('.navbar a[href="historia.html"]').isVisible());
-            assert(await page.locator('.navbar a[href="areas-protegidas.html"]').isVisible());
+            const region = page.locator('.selva-nav-desplegable--region details');
+            await region.locator('summary').click();
+            assert(await region.locator('a[href="historia.html"]').isVisible());
+            assert(await region.locator('a[href="areas-protegidas.html"]').isVisible());
+            await page.keyboard.press('Escape');
+            assert.equal(await region.getAttribute('open'), null);
             await page.keyboard.press('Escape');
             assert.equal(await page.locator('#menu').isChecked(), false);
         }
+        const search = page.locator('.menu.container > .eco-search-trigger');
+        assert(await search.isVisible());
+        await page.keyboard.press('Control+K');
+        assert(await page.locator('.eco-search-dialog[open]').isVisible());
+        await page.keyboard.press('Escape');
         await page.locator('#selva-biodiversidad-tab-fauna').click();
         for (const group of ['mamiferos', 'aves', 'reptiles', 'anfibios']) {
             const trigger = page.locator(`[data-fauna-explorar="${group}"]`);

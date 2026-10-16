@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   verificar:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       pages: read
@@ -95,17 +95,17 @@ jobs:
           node herramientas/verificar_experiencia.cjs
       - name: Configurar Pages
         if: github.event_name != 'pull_request'
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
       - name: Subir el sitio
         if: github.event_name != 'pull_request'
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v5
         with:
           path: _site
 
   publicar:
     if: github.event_name != 'pull_request'
     needs: verificar
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       pages: write
       id-token: write
@@ -115,4 +115,4 @@ jobs:
     steps:
       - name: Publicar la web
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
