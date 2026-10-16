@@ -93,7 +93,7 @@ def navigation(prefix='', page='index.html', home=False):
         f'<a href="{logo_href}" class="logo" aria-label="EcoSelva Madre de Dios · inicio">'
         f'<img width="256" height="256" src="{prefix}images/logo-ecoselva-educacion-256.webp" '
         f'alt="EcoSelva Madre de Dios" decoding="async"{logo_loading}></a>'
-        '<input class="selva-menu-toggle" type="checkbox" id="menu">'
+        '<input class="selva-menu-toggle" type="checkbox" id="menu" hidden>'
         '<label class="selva-menu-control" for="menu" role="button" tabindex="0" '
         'aria-label="Abrir o cerrar menú" aria-controls="selva-menu-navegacion" aria-expanded="false">'
         '<span class="selva-menu-control-lineas" aria-hidden="true"></span><span>Menú</span></label>'
