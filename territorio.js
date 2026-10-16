@@ -258,7 +258,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const sample = (kind, text) => { const item = node("span", "selva-territorio-leyenda-item"); item.append(node("i", "selva-territorio-muestra selva-territorio-muestra--" + kind), node("span", "", text)); legend.append(item); };
                 if (isEnabled("provincias")) { heading("Provincias"); sample("provincias", "Límite provincial de referencia"); }
                 if (isEnabled("distritos")) { heading("Distritos"); sample("distritos", "Límite distrital de referencia"); }
-                if (isEnabled("bosques")) { heading("Cobertura vegetal · MINAM, 2015"); modes.bosques.keys.forEach(key => { const item = node("span", "selva-territorio-leyenda-item"); const swatch = node("i", "selva-territorio-color"); swatch.style.backgroundColor = forestColors[key]; item.append(swatch, node("span", "", topics[key].name)); legend.append(item); }); legend.append(node("small", "selva-territorio-leyenda-aviso", "27 categorías originales presentes; colores de visualización EcoSelva.")); }
+                if (isEnabled("bosques")) {
+                    heading("Cobertura vegetal · MINAM, 2015");
+                    if (selectedKey && topics[selectedKey]?.mode === "bosques") {
+                        const item = node("span", "selva-territorio-leyenda-item"); const swatch = node("i", "selva-territorio-color"); swatch.style.backgroundColor = forestColors[selectedKey]; item.append(swatch, node("span", "", topics[selectedKey].name)); legend.append(item);
+                    } else {
+                        const item = node("span", "selva-territorio-leyenda-item"); item.append(node("i", "selva-territorio-color selva-territorio-color--grupo"), node("span", "", "27 categorías; colores disponibles en la Zona C")); legend.append(item);
+                    }
+                }
                 if (isEnabled("rios")) { heading("Ríos"); sample("rio", "Curso representado"); }
                 if (isEnabled("humedales")) { heading("Humedales"); sample("laguna", "Laguna"); sample("pantano", "Pantano"); }
                 if (isEnabled("anp")) { heading("Áreas naturales protegidas"); sample("anp-pn", "Parque nacional"); sample("anp-rn", "Reserva nacional"); sample("anp-rc", "Reserva comunal"); }
@@ -277,8 +284,24 @@ document.addEventListener("DOMContentLoaded", () => {
                 const more = node("details", "territorio-ficha-aprender"); more.append(node("summary", "", "Comprender esta capa")); const dl = node("dl", ""); const add = (label, value) => dl.append(node("dt", "", label), node("dd", "", value));
                 if (topic.mode === "rios" && lectura.rios[key]) { const record = lectura.rios[key]; add("Ubicación del trazado", lectura.ubicacion); add("Importancia", record.importancia); add("Ambientes relacionados", record.ambientes); add("Biodiversidad y alcance", record.biodiversidad); add("Áreas protegidas relacionadas", record.anp); add("Cambios que estudiar", lectura.amenazas); more.append(dl); }
                 else if (topic.mode === "humedales" && lectura.humedales[topic.waterType]) { const record = lectura.humedales[topic.waterType]; add("Características y límites", record.caracteristicas); add("Importancia", record.importancia); add("Vegetación", record.vegetacion); add("Fauna", record.fauna); more.append(dl); }
-                else if (topic.mode === "bosques") { const education = forestDescriptions.categorias[key]; if (education) { add("Descripción", education.descripcion); add("Memoria descriptiva", "Sección " + education.seccion + " · página " + education.pagina); more.append(dl); } }
+                else if (topic.mode === "bosques") {
+                    const education = forestDescriptions.categorias[key];
+                    if (!education) return;
+                    more.firstChild.textContent = "Descripción en la memoria de MINAM";
+                    more.append(node("p", "", education.descripcion));
+                }
                 target.append(more);
+            };
+            const compactMetadata = (topic, education) => {
+                const wanted = {
+                    provincias: ["Distritos asociados", "Fuente", "Uso"],
+                    distritos: ["Provincia", "Situación del límite", "Uso"],
+                    bosques: ["Código original", "Año de publicación", "Escala de publicación"],
+                    anp: ["Categoría", "Superficie total del ANP", "Dentro de Madre de Dios", "Fuente cartográfica", "Consulta"]
+                }[topic.mode];
+                const rows = wanted ? topic.metadata.filter(([label]) => wanted.includes(label)) : topic.metadata.slice(0, 5);
+                if (topic.mode === "bosques" && education) rows.push(["Memoria descriptiva", "Sección " + education.seccion + " · página " + education.pagina]);
+                return rows;
             };
             const showCard = key => {
                 territory.classList.toggle("has-element-selection", Boolean(key));
@@ -287,8 +310,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!key) { const hint = node("div", "selva-territorio-ficha-ayuda"); hint.append(icon(data.icon), node("h3", "", "Explora " + data.name.toLowerCase()), node("p", "", data.note)); card.replaceChildren(hint); return; }
                 const topic = topics[key], education = topic.mode === "bosques" ? forestDescriptions.categorias[key] : null;
                 const labels = { provincias: "Provincia · límite de referencia", distritos: "Distrito · límite de referencia", bosques: "Cobertura vegetal · categoría oficial", rios: "Río · trazado cartográfico", humedales: (topic.waterType || "Humedal") + " · MasaAgua", anp: topic.category + " · SERNANP" };
-                const type = node("span", "selva-territorio-tipo-ficha", labels[topic.mode]); const heading = node("h3", "", topic.name); const text = node("p", "", education?.descripcion || topic.text);
-                const details = node("dl", "selva-territorio-metadatos"); topic.metadata.forEach(([label, value]) => details.append(node("dt", "", label), node("dd", "", value)));
+                const type = node("span", "selva-territorio-tipo-ficha", labels[topic.mode]); const heading = node("h3", "", topic.name); const text = node("p", "", topic.text);
+                const details = node("dl", "selva-territorio-metadatos"); compactMetadata(topic, education).forEach(([label, value]) => details.append(node("dt", "", label), node("dd", "", value)));
                 const back = node("button", "selva-territorio-ficha-volver", "← Volver a la lista"); back.type = "button"; back.addEventListener("click", () => { clearSelection(); options.querySelector("input,button,select")?.focus({preventScroll: true}); });
                 card.replaceChildren(back, type, heading, text, details); appendLearning(key, card);
                 if (topic.source) { const link = node("a", "selva-territorio-registro-abrir", topic.reference + " →"); link.href = topic.source; card.append(link); }
