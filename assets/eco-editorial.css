@@ -31,12 +31,20 @@ figure{margin:0}
 .eco-site :is(.anp-boton,.historia-boton,.conoce-conservacion-acceso,.ficha-descarga):hover{background:var(--forest-deep)}
 .eco-site :is(.anp-filtros,.anp-metricas,.historia-filtros,.conoce-accesos,.ficha-navegacion){scrollbar-width:thin;scroll-padding-inline:8px}
 .eco-site :is(.anp-filtros button,.anp-metricas button,.historia-filtros button,.conoce-accesos a,.ficha-navegacion a){min-height:44px}
-.eco-site :is(.anp-modulo,.historia-capitulo){padding-block:var(--space-7)}
+.eco-site :is(.anp-modulo,.historia-capitulo){padding-block:var(--space-6)}
 .eco-site :is(.anp-cabecera,.historia-capitulo-cabecera){margin-bottom:var(--space-5)}
-.eco-site :is(.anp-cabecera h2,.historia-capitulo-cabecera h2,.conoce-cabecera h2,.selva-curiosidades h2,.general>h2,.selva-ambiente h2,.selva-sobre-contenido h2,.selva-colabora-encabezado h2){font-size: var(--text-display);line-height:1.15;letter-spacing:-.035em}
+.eco-site :is(.conoce-cabecera h2,.selva-curiosidades h2,.general>h2,.selva-ambiente h2,.selva-sobre-contenido h2,.selva-colabora-encabezado h2){font-size:var(--text-display);line-height:1.15;letter-spacing:-.035em}
+.eco-site :is(.anp-cabecera h2,.historia-capitulo-cabecera h2,.anp-fuentes h2){font-size:clamp(30px,1.45rem + 1.05vw,40px);line-height:1.17;letter-spacing:-.03em}
 .eco-site :is(.anp-hero h1,.historia-hero h1,.ficha-identidad h1,.metodologia h1){font-size: var(--text-display);line-height:1.08;letter-spacing:-.045em}
 .eco-site :is(.anp-concepto,.anp-personas,.historia-dos-columnas,.historia-caucho){gap:var(--space-6)}
 .eco-site :is(.anp-fichas,.anp-citas,.historia-fuente,.ficha-referencia){overflow-wrap:anywhere}
+.eco-site :is(.historia-personaje,.historia-bloque,.historia-caucho,.historia-presente,.historia-reflexion) h3{font-size:clamp(20px,1.05rem + .35vw,24px);line-height:1.35}
+.eco-site :is(.historia-personaje,.historia-bloque,.historia-fecha-destacada){padding:var(--space-3)}
+.eco-site :is(.historia-personaje,.historia-bloque) > p:not(.historia-fuente){font-size:16px;line-height:1.7}
+.eco-site :is(.historia-continuidad,.historia-desafio,.historia-cierre){font-size:clamp(20px,1.05rem + .3vw,23px)}
+.eco-site .anp-ficha>summary strong{font-size:clamp(18px,1rem + .25vw,21px)}
+.eco-site :is(.anp-ficha-contenido h3,.anp-registro h3,.anp-acp h3,.anp-personas h3){font-size:clamp(20px,1.05rem + .35vw,24px)}
+.eco-site :is(.anp-indice,.anp-mas){font-size:clamp(20px,1.05rem + .3vw,23px)}
 /* Cabeceras y ruta de lectura de las páginas independientes. */
 .eco-site :is(.anp-barra,.historia-barra,.eco-barra){background:var(--white);border-bottom:1px solid var(--line)}
 .eco-site :is(.anp-barra>.anp-ancho,.historia-barra>.historia-ancho,.eco-barra>.eco-wide,.ficha-barra){display:flex;align-items:center;justify-content:space-between;gap:var(--space-4);min-height:88px;padding-block:var(--space-3)}
@@ -372,15 +380,16 @@ figure{margin:0}
 .eco-site .eco-library-filters button{padding:var(--space-1) var(--space-3);border:1px solid #9daa9b;border-radius:30px;background:var(--white);color:var(--forest);font:600 var(--text-note) var(--font-body);cursor:pointer}
 .eco-site .eco-library-filters button[aria-pressed=true]{background:var(--forest);color:var(--white);border-color:var(--forest)}
 .eco-site .eco-library-count{font-size:var(--text-credit);color:var(--muted);margin-top:var(--space-3)}
-.eco-site .eco-library-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);align-items:stretch}
-.eco-site .eco-doc-card{display:flex;flex-direction:column}
-.eco-site .eco-doc-cover{position:relative;display:flex;justify-content:center;align-items:center;height:250px;padding:20px;background:var(--paper);border-bottom:1px solid var(--line)}
+.eco-site .eco-library-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:stretch}
+.eco-site .eco-doc-card{display:grid;grid-template-columns:132px minmax(0,1fr);align-items:stretch}
+.eco-site .eco-doc-card .eco-card-content{padding:20px;gap:6px}
+.eco-site .eco-doc-cover{position:relative;display:flex;justify-content:center;align-items:center;min-height:270px;padding:16px;background:var(--paper);border-right:1px solid var(--line)}
 .eco-site .eco-doc-cover>img{height:100%;width:100%;object-fit:contain}
 .eco-site .eco-doc-cover>.eco-icon{width:64px;height:64px;color:var(--water-text)}
 .eco-site .eco-doc-cover>span{position:absolute;left:16px;top:16px;background:var(--white);border:1px solid var(--line);border-radius:4px;padding:3px var(--space-1);color:var(--forest);font:700 var(--text-credit)/1.5 var(--font-body)}
-.eco-site .eco-doc-card h3{font-size: var(--text-title);margin:0;letter-spacing:-.02em}
+.eco-site .eco-doc-card h3{font-size:clamp(18px,1rem + .25vw,21px);line-height:1.35;margin:0;letter-spacing:-.015em}
 .eco-site .eco-doc-meta{display:flex;flex-wrap:wrap;gap:var(--space-1) var(--space-3);font-size:var(--text-credit);color:var(--muted);font-variant-numeric:tabular-nums}
-.eco-site .eco-doc-card .eco-card-actions{margin-top:auto;padding-top:20px}
+.eco-site .eco-doc-card .eco-card-actions{margin-top:auto;padding-top:10px;gap:8px 16px}
 .eco-site .eco-card-context{margin-top:var(--space-2);font-size:var(--text-credit)}
 .eco-site .eco-library-credit{font-size:var(--text-credit);line-height:1.8;color:var(--muted);margin-top:var(--space-4);max-width:var(--reading-max)}
 .eco-site .eco-library-empty{padding:var(--space-5);border:1px dashed var(--line);border-radius:var(--radius-md)}
@@ -468,7 +477,6 @@ figure{margin:0}
 .eco-site [data-eco-compare] input{flex:1;min-width:0;min-height:44px;accent-color:var(--forest)}
 @media(min-width:1024px){.eco-site [data-eco-story-step]{min-height:285px}}
 @media(max-width:1100px){
-  .eco-site .eco-library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .eco-site .eco-library-hero{gap:var(--space-5)}
   .eco-site .eco-library-feature{grid-template-columns:1fr}
   .eco-site .eco-library-feature>img{height:230px}
@@ -497,7 +505,9 @@ figure{margin:0}
   .eco-site .eco-library-tools{padding:20px}
   .eco-site .eco-library-search{gap:var(--space-1)}
   .eco-site .eco-library-search .eco-button{padding-inline:var(--space-2)}
-  .eco-site .eco-doc-cover{height:230px}
+  .eco-site .eco-doc-card{grid-template-columns:118px minmax(0,1fr)}
+  .eco-site .eco-doc-card .eco-card-content{padding:18px}
+  .eco-site .eco-doc-cover{min-height:230px;padding:14px}
   .eco-site .eco-popover>div{left:0;right:auto}
   .eco-site .eco-overlay-body{padding:var(--space-4)}
   .eco-site .eco-document-cover img{max-height:230px}
@@ -508,6 +518,11 @@ figure{margin:0}
   .eco-site .eco-story-step{padding-left:var(--space-3);margin-bottom:var(--space-3)}
   .eco-site .eco-reading-status{font-size: var(--text-credit);right:8px;padding-left:var(--space-1)}
   .eco-site [data-eco-progress]{padding-right:60px}
+}
+@media(max-width:520px){
+  .eco-site .eco-doc-card{grid-template-columns:104px minmax(0,1fr)}
+  .eco-site .eco-doc-card .eco-card-content{padding:16px}
+  .eco-site .eco-doc-cover{min-height:240px;padding:12px}
 }
 @media(prefers-reduced-motion:reduce){
   .eco-site :is(.eco-card,.eco-arrow,.eco-bento-feature>img):hover{transform:none!important}

@@ -8,13 +8,15 @@
 .eco-site .flora-lectura p { margin:0 0 var(--space-3); }
 .eco-site .flora-lectura :is(.flora-intro,.flora-cabecera) { max-width:var(--reading-max); }
 .eco-site .flora-lectura .eco-eyebrow { font-size: var(--text-credit); margin-bottom:var(--space-2); }
-.eco-site .flora-capitulo { padding-block:var(--space-6); border-top:1px solid var(--line); scroll-margin-top:120px; }
+.eco-site .flora-capitulo { padding-block:var(--space-5); border-top:1px solid var(--line); scroll-margin-top:120px; }
 .eco-site .flora-accesos { display:flex; flex-wrap:wrap; gap:var(--space-1) var(--space-2); margin:var(--space-4) 0 var(--space-5); }
 .eco-site .flora-accesos a { display:inline-flex; align-items:center; min-height:44px; padding:var(--space-1) 14px; border:1px solid var(--line); border-radius:var(--radius-sm); color:var(--forest); font-size:var(--text-note); font-weight:600; text-decoration:none; }
 .eco-site .flora-accesos a:hover { background:var(--paper); }
 .eco-site .flora-grid { display:grid; align-items:start; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; margin-block:var(--space-4); }
 .eco-site .flora-grid-tres { grid-template-columns:repeat(3,minmax(0,1fr)); }
-.eco-site .flora-tarjeta { padding:var(--space-4); }
+.eco-site .flora-tarjeta { padding:20px; }
+.eco-site .flora-tarjeta h3 { font-size:clamp(19px,1.05rem + .25vw,22px); line-height:1.35; margin-bottom:var(--space-2); }
+.eco-site .flora-tarjeta p { font-size:16px; line-height:1.7; }
 .eco-site .flora-tarjeta p:last-child { margin-bottom:0; }
 .eco-site .flora-tarjeta summary { display:flex; align-items:center; justify-content:space-between; gap:var(--space-3); font:700 var(--text-body)/1.4 var(--font-heading); color:var(--forest); cursor:pointer; list-style:none; overflow-wrap:anywhere; }
 .eco-site .flora-fuente-titulo { min-width:0; }
