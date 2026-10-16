@@ -702,7 +702,7 @@
   background: #245c44;
   -webkit-mask: var(--eco-patron-banda) center / auto 180px repeat;
   mask: var(--eco-patron-banda) center / auto 180px repeat;
-  opacity: .05;
+  opacity: .11;
   pointer-events: none;
 }
 
@@ -710,14 +710,14 @@
   background-color: #e5d49e;
   -webkit-mask-size: auto 290px;
   mask-size: auto 290px;
-  opacity: .055;
+  opacity: .12;
 }
 
 .eco-site .selva-pie-final::before {
   background-color: #d7c587;
   -webkit-mask-size: auto 96px;
   mask-size: auto 96px;
-  opacity: .04;
+  opacity: .09;
 }
 
 .eco-site :is(.eco-global-footer, .footer, .selva-pie-final) > * {
@@ -783,17 +783,17 @@
   .eco-site .eco-global-footer::before {
     -webkit-mask-size: auto 150px;
     mask-size: auto 150px;
-    opacity: .045;
+    opacity: .1;
   }
   .eco-site .footer::before {
     -webkit-mask-size: auto 220px;
     mask-size: auto 220px;
-    opacity: .05;
+    opacity: .11;
   }
   .eco-site .selva-pie-final::before {
     -webkit-mask-size: auto 82px;
     mask-size: auto 82px;
-    opacity: .035;
+    opacity: .085;
   }
 }
 
