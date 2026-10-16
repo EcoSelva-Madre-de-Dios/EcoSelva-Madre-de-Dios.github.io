@@ -13,22 +13,7 @@
 
 /* Una transición editorial ligera, dibujada sobre el fondo que ya existe. */
 .eco-site .eco-tema-separador {
-  position: relative;
-  left: 50%;
-  width: 100vw;
-  max-width: none;
-  height: 84px;
-  margin-right: -50vw;
-  margin-left: -50vw;
-  background: var(--eco-banda-trazo) !important;
-  -webkit-mask: var(--eco-patron-banda) center / auto 84px repeat-x;
-  mask: var(--eco-patron-banda) center / auto 84px repeat-x;
-  opacity: .78;
-  overflow: hidden;
-}
-
-.eco-site .eco-tema-separador--biodiversidad {
-  --eco-banda-trazo: #3d7a4d;
+  display: none;
 }
 
 /* Biodiversidad: composiciÃ³n visual compartida por Flora y Fauna. */
@@ -493,7 +478,7 @@
   width: min(560px, 40vw);
   height: min(480px, 72%);
   background: var(--eco-patron-curvas) center / contain no-repeat;
-  opacity: .075;
+  opacity: .05;
   pointer-events: none;
 }
 
@@ -532,7 +517,7 @@
   width: min(440px, 38vw);
   aspect-ratio: 1;
   background: var(--eco-patron-semillas) center / contain no-repeat;
-  opacity: .075;
+  opacity: .05;
   pointer-events: none;
   -webkit-mask-image: radial-gradient(circle at 78% 20%, #000 0 42%, transparent 82%);
   mask-image: radial-gradient(circle at 78% 20%, #000 0 42%, transparent 82%);
@@ -580,28 +565,7 @@
   .historia-hero,
   .anp-hero
 )::before {
-  content: "";
-  position: absolute;
-  z-index: 2;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 34px;
-  background: var(--eco-banda-trazo, #245c44);
-  -webkit-mask: var(--eco-patron-banda) center / auto 84px repeat-x;
-  mask: var(--eco-patron-banda) center / auto 84px repeat-x;
-  opacity: .76;
-  pointer-events: none;
-}
-
-.eco-site .flora-page-heading { --eco-banda-trazo: #3d7a4d; }
-.eco-site .historia-hero { --eco-banda-trazo: #9a673e; }
-.eco-site .anp-hero { --eco-banda-trazo: #35684f; }
-.eco-site #explora-madre-de-dios { --eco-banda-trazo: #287c83; }
-
-.eco-site #explora-madre-de-dios::before {
-  top: 0;
-  bottom: auto;
+  content: none;
 }
 
 /* Ciencia y Sobre EcoSelva usan la variante clara sobre sus fondos oscuros. */
@@ -667,7 +631,7 @@
   width: min(450px, 36vw);
   aspect-ratio: 1;
   pointer-events: none;
-  opacity: .11;
+  opacity: .055;
 }
 
 .eco-site :is(#territorio-rios, #territorio-humedales)::after {
@@ -707,7 +671,7 @@
   width: 190px;
   height: 190px;
   background: var(--eco-patron-semillas) center / contain no-repeat;
-  opacity: .08;
+  opacity: .04;
   pointer-events: none;
   -webkit-mask-image: radial-gradient(circle at 68% 68%, #000 0 44%, transparent 86%);
   mask-image: radial-gradient(circle at 68% 68%, #000 0 44%, transparent 86%);
@@ -719,9 +683,8 @@
   background-image: none !important;
 }
 
-/* Cierres: una misma trama lineal, con el color de cada superficie. */
+/* Pie: el fondo propio se conserva y las conexiones no forman un mosaico. */
 .eco-site :is(.eco-global-footer, .footer, .selva-pie-final) {
-  --eco-pie-tinta: #39624d;
   position: relative;
   isolation: isolate;
   overflow: clip;
@@ -735,23 +698,25 @@
   inset: 0;
   width: auto;
   height: auto;
-  background: linear-gradient(90deg, var(--eco-pie-tinta), transparent 42%, transparent 58%, var(--eco-pie-tinta));
-  -webkit-mask: url("images/patron-ecoselva-pie.svg") left center / 360px 270px repeat;
-  mask: url("images/patron-ecoselva-pie.svg") left center / 360px 270px repeat;
-  opacity: .2;
+  background: #245c44;
+  -webkit-mask: var(--eco-patron-banda) center / auto 180px repeat;
+  mask: var(--eco-patron-banda) center / auto 180px repeat;
+  opacity: .075;
   pointer-events: none;
 }
 
-.eco-site :is(.footer, .selva-pie-final) {
-  --eco-pie-tinta: #c4d7bd;
-}
-
 .eco-site .footer::before {
-  opacity: .16;
+  background-color: #e5d49e;
+  -webkit-mask-size: auto 290px;
+  mask-size: auto 290px;
+  opacity: .055;
 }
 
 .eco-site .selva-pie-final::before {
-  opacity: .09;
+  background-color: #d7c587;
+  -webkit-mask-size: auto 96px;
+  mask-size: auto 96px;
+  opacity: .04;
 }
 
 .eco-site :is(.eco-global-footer, .footer, .selva-pie-final) > * {
@@ -760,23 +725,12 @@
 }
 
 @media (max-width: 1024px) {
-  .eco-site .eco-tema-separador {
-    height: 72px;
-    -webkit-mask-size: auto 72px;
-    mask-size: auto 72px;
-  }
   .eco-site :is(.conoce-madre, .selva-ambiente, #explora-madre-de-dios)::after { width: min(430px, 44vw); }
   .eco-site #biodiversidad::after,
   .eco-site :is(.flora-page-heading, .anp-hero, .eco-library-hero, .ficha-hero)::after { width: min(330px, 38vw); }
 }
 
 @media (max-width: 600px) {
-  .eco-site .eco-tema-separador {
-    height: 56px;
-    -webkit-mask-size: auto 56px;
-    mask-size: auto 56px;
-    opacity: .7;
-  }
   .eco-site .header::after { top: 28%; right: -28%; width: 78vw; height: 48%; opacity: .11; }
   .eco-site :is(.conoce-madre, .selva-ambiente, #explora-madre-de-dios)::after {
     width: 64vw;
@@ -800,12 +754,6 @@
     right: -70px;
     width: 280px;
     opacity: .095;
-  }
-  .eco-site :is(#explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero)::before {
-    height: 32px;
-    -webkit-mask-size: auto 64px;
-    mask-size: auto 64px;
-    opacity: .7;
   }
   .eco-site :is(
     #territorio-rios,
@@ -831,10 +779,20 @@
     height: 170px;
     opacity: .075;
   }
-  .eco-site :is(.eco-global-footer, .footer, .selva-pie-final)::before {
-    -webkit-mask-size: 280px 210px;
-    mask-size: 280px 210px;
-    opacity: .13;
+  .eco-site .eco-global-footer::before {
+    -webkit-mask-size: auto 150px;
+    mask-size: auto 150px;
+    opacity: .045;
+  }
+  .eco-site .footer::before {
+    -webkit-mask-size: auto 220px;
+    mask-size: auto 220px;
+    opacity: .05;
+  }
+  .eco-site .selva-pie-final::before {
+    -webkit-mask-size: auto 82px;
+    mask-size: auto 82px;
+    opacity: .035;
   }
 }
 
