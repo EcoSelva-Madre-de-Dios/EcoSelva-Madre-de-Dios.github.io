@@ -4595,10 +4595,10 @@ h4,
 /* Conoce: ubicación y división política comparten una composición compacta. */
 #conoce-madre-de-dios .conoce-arranque-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.72fr) minmax(310px, .78fr);
+    grid-template-columns: minmax(0, 1.7fr) minmax(330px, .82fr);
     align-items: stretch;
-    gap: 18px;
-    width: min(calc(100% - 40px), 1240px);
+    gap: 20px;
+    width: min(calc(100% - 32px), 1280px);
     margin-inline: auto;
 }
 
@@ -4610,25 +4610,25 @@ h4,
 }
 
 #conoce-madre-de-dios .conoce-arranque-grid > #conoce-ubicacion {
-    padding: clamp(16px, 1.8vw, 22px);
+    padding: clamp(18px, 2vw, 24px);
 }
 
 #conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-ubicacion-grid {
-    grid-template-columns: minmax(220px, .78fr) minmax(0, 1.35fr);
-    gap: clamp(18px, 2.2vw, 30px);
+    grid-template-columns: minmax(235px, .8fr) minmax(0, 1.35fr);
+    gap: clamp(20px, 2.4vw, 32px);
 }
 
 #conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-localizador {
-    max-width: 260px;
+    max-width: 280px;
 }
 
 #conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-datos > div {
-    min-height: 76px;
-    padding: 10px 12px;
+    min-height: 84px;
+    padding: 12px 14px;
 }
 
 #conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias {
-    padding: 18px;
+    padding: 20px;
     border: 1px solid color-mix(in srgb, var(--line) 82%, var(--white));
     border-radius: var(--radius-lg);
     background: linear-gradient(145deg, rgb(255 255 255 / 96%), rgb(244 247 240 / 92%));
@@ -4641,8 +4641,8 @@ h4,
 }
 
 #conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias .conoce-provincia > summary {
-    min-height: 92px;
-    padding-block: 10px;
+    min-height: 100px;
+    padding-block: 12px;
 }
 
 @media (max-width: 1120px) {
