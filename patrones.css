@@ -701,7 +701,7 @@
   background: #245c44;
   -webkit-mask: var(--eco-patron-banda) center / auto 180px repeat;
   mask: var(--eco-patron-banda) center / auto 180px repeat;
-  opacity: .075;
+  opacity: .05;
   pointer-events: none;
 }
 
