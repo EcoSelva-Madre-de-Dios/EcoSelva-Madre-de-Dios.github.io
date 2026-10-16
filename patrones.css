@@ -7,7 +7,7 @@
   --eco-patron-semillas: url("images/patron-ecoselva-semillas.svg");
   --eco-patron-conexiones: url("images/patron-ecoselva-conexiones.svg");
   --eco-patron-conexiones-claro: url("images/patron-ecoselva-conexiones-claro.svg");
-  --eco-patron-banda: url("images/patron-ecoselva-banda-v4.svg");
+  --eco-patron-banda: url("images/patron-ecoselva-banda-original.png");
   --eco-banda-trazo: #245c44;
 }
 
@@ -17,13 +17,13 @@
   left: 50%;
   width: 100vw;
   max-width: none;
-  height: 42px;
+  height: 84px;
   margin-right: -50vw;
   margin-left: -50vw;
   background: var(--eco-banda-trazo) !important;
-  -webkit-mask: var(--eco-patron-banda) center / auto 42px repeat-x;
-  mask: var(--eco-patron-banda) center / auto 42px repeat-x;
-  opacity: .64;
+  -webkit-mask: var(--eco-patron-banda) center / auto 84px repeat-x;
+  mask: var(--eco-patron-banda) center / auto 84px repeat-x;
+  opacity: .78;
   overflow: hidden;
 }
 
@@ -309,7 +309,7 @@
   display: grid;
   place-items: center;
   width: 34px;
-  height: 34px;
+  height: 42px;
   margin-bottom: 12px;
   border-radius: 50%;
   background: var(--forest);
@@ -588,9 +588,9 @@
   left: 0;
   height: 34px;
   background: var(--eco-banda-trazo, #245c44);
-  -webkit-mask: var(--eco-patron-banda) center / auto 34px repeat-x;
-  mask: var(--eco-patron-banda) center / auto 34px repeat-x;
-  opacity: .68;
+  -webkit-mask: var(--eco-patron-banda) center / auto 84px repeat-x;
+  mask: var(--eco-patron-banda) center / auto 84px repeat-x;
+  opacity: .76;
   pointer-events: none;
 }
 
@@ -753,9 +753,9 @@
 
 @media (max-width: 1024px) {
   .eco-site .eco-tema-separador {
-    height: 36px;
-    -webkit-mask-size: auto 36px;
-    mask-size: auto 36px;
+    height: 72px;
+    -webkit-mask-size: auto 72px;
+    mask-size: auto 72px;
   }
   .eco-site :is(.conoce-madre, .selva-ambiente, #explora-madre-de-dios)::after { width: min(430px, 44vw); }
   .eco-site #biodiversidad::after,
@@ -764,10 +764,10 @@
 
 @media (max-width: 600px) {
   .eco-site .eco-tema-separador {
-    height: 30px;
-    -webkit-mask-size: auto 30px;
-    mask-size: auto 30px;
-    opacity: .56;
+    height: 56px;
+    -webkit-mask-size: auto 56px;
+    mask-size: auto 56px;
+    opacity: .7;
   }
   .eco-site .header::after { top: 28%; right: -28%; width: 78vw; height: 48%; opacity: .11; }
   .eco-site :is(.conoce-madre, .selva-ambiente, #explora-madre-de-dios)::after {
@@ -794,10 +794,10 @@
     opacity: .095;
   }
   .eco-site :is(#explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero)::before {
-    height: 26px;
-    -webkit-mask-size: auto 26px;
-    mask-size: auto 26px;
-    opacity: .62;
+    height: 32px;
+    -webkit-mask-size: auto 64px;
+    mask-size: auto 64px;
+    opacity: .7;
   }
   .eco-site :is(
     #territorio-rios,
