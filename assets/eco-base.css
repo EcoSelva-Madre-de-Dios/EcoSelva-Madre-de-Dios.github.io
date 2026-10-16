@@ -5197,28 +5197,171 @@ h4,
 .eco-site .flora-pasos h4{font-size:var(--text-note);line-height:1.5;margin:0 0 8px;color:var(--forest)}
 
 /* navegacion.css */
-/* Un único bloqueo de desplazamiento para todos los diálogos, también anidados. */
+/* Navegación global: una sola experiencia para la portada y las lecturas. */
 html:has(dialog[open]){overflow:hidden}
-.eco-site .eco-global-header>.eco-wide{display:flex;flex-wrap:wrap;align-items:center;gap:var(--space-4);padding-block:var(--space-3)}
-.eco-site .eco-global-return{margin-left:auto}
-.eco-site .eco-global-menu{position:relative;flex:none}
-.eco-site .eco-global-menu>summary{display:flex;align-items:center;gap:var(--space-2);padding:var(--space-2) var(--space-3);border:1px solid var(--line);border-radius:var(--radius-sm);font:600 var(--text-note)/1.4 var(--font-heading);color:var(--forest);list-style:none;cursor:pointer}
-.eco-site .eco-global-menu>summary::-webkit-details-marker{display:none}
-.eco-site .eco-global-menu>summary::after{content:'▾';font-size: var(--text-body)}
-.eco-site .eco-global-menu[open]>summary::after{content:'▴'}
-.eco-site .eco-global-nav{position:absolute;z-index:100;top:calc(100% + var(--space-2));right:0;min-width:250px;max-width:calc(100vw - 2 * var(--page-gutter));max-height:75dvh;overflow:auto;padding:var(--space-2);background:var(--white);border:1px solid var(--line);border-radius:var(--radius-md);box-shadow:var(--shadow-raised)}
-.eco-site .eco-global-nav ul{list-style:none;margin:0;padding:0}
-.eco-site .eco-global-header .eco-global-nav a{display:block;padding:var(--space-2) var(--space-3);min-height:44px;max-width:none;font-size:var(--text-note);color:var(--forest);text-align:left;text-decoration:none;border-radius:var(--radius-sm)}
-.eco-site .eco-global-nav a:hover,.eco-site .eco-global-nav a[aria-current=page]{background:var(--paper);text-decoration:underline}
+
+.eco-site .menu.container{
+  position:sticky;z-index:5000;top:0;right:auto;left:auto;
+  display:flex;width:100%;max-width:none;height:88px;align-items:center;gap:clamp(12px,1.6vw,26px);
+  margin:0;padding:6px max(var(--page-gutter),calc((100vw - var(--layout-wide))/2));
+  border-bottom:1px solid rgb(231 215 164 / 18%);
+  background:rgb(10 50 34 / 91%);
+  box-shadow:0 10px 34px rgb(4 24 16 / 14%);
+  -webkit-backdrop-filter:blur(14px) saturate(125%);
+  backdrop-filter:blur(14px) saturate(125%);
+  transition:background-color var(--motion-fast),box-shadow var(--motion-fast)
+}
+.eco-site .menu.container.eco-home-header{position:fixed;right:0;left:0}
+.eco-site .menu.container.selva-menu-scrolled{
+  height:88px;padding-block:6px;border-bottom-color:rgb(231 215 164 / 22%);
+  background:rgb(9 45 31 / 96%);box-shadow:0 10px 34px rgb(4 24 16 / 20%)
+}
+.eco-site .menu .logo{display:inline-flex;flex:0 0 auto;align-items:center;align-self:stretch}
+.eco-site .menu .logo img,
+.eco-site .menu.selva-menu-scrolled .logo img{
+  display:block;width:auto;height:72px;max-height:72px;object-fit:contain;filter:drop-shadow(0 2px 6px rgb(0 0 0 / 14%))
+}
+.eco-site .menu .selva-menu-toggle{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+.eco-site .menu .selva-menu-control{display:none}
+.eco-site .menu .navbar{display:flex;min-width:0;flex:1;align-items:center;justify-content:flex-end}
+.eco-site .menu .selva-nav-principal{display:flex;min-width:0;align-items:center;justify-content:flex-end;gap:clamp(1px,.35vw,6px);margin:0;padding:0;list-style:none}
+.eco-site .menu .selva-nav-principal>li{min-width:0;list-style:none}
+.eco-site .menu .selva-nav-principal>li>a,
+.eco-site .menu .selva-nav-desplegable>details>summary{
+  position:relative;display:flex;min-height:48px;align-items:center;justify-content:center;gap:8px;
+  max-width:none;padding:9px clamp(8px,.75vw,13px);border:1px solid transparent;border-radius:10px;
+  color:#f5f1e6;background:transparent;font:600 clamp(12px,.77vw,14px)/1.25 var(--font-heading);
+  letter-spacing:-.01em;text-align:center;white-space:normal;cursor:pointer;list-style:none;
+  transition:color var(--motion-fast),background-color var(--motion-fast),border-color var(--motion-fast)
+}
+.eco-site .menu .selva-nav-desplegable>details>summary::-webkit-details-marker{display:none}
+.eco-site .menu .selva-nav-desplegable>details>summary::after{
+  position:static;right:auto;bottom:auto;left:auto;width:7px;height:7px;flex:0 0 7px;
+  border:0;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;border-radius:0;
+  content:"";background:transparent;transform:translateY(-2px) rotate(45deg);transition:transform var(--motion-fast)
+}
+.eco-site .menu .selva-nav-desplegable>details[open]>summary::after{transform:translateY(2px) rotate(225deg)}
+.eco-site .menu .selva-nav-desplegable>details[open]>summary>.selva-nav-label{transform:none}
+.eco-site .menu .selva-nav-principal>li>a:hover,
+.eco-site .menu .selva-nav-principal>li>a:focus-visible,
+.eco-site .menu .selva-nav-desplegable>details>summary:hover,
+.eco-site .menu .selva-nav-desplegable>details>summary:focus-visible,
+.eco-site .menu .selva-nav-principal>li>a[aria-current],
+.eco-site .menu .selva-nav-desplegable>details>summary[aria-current],
+.eco-site .menu .selva-nav-desplegable>details[open]>summary{
+  border-color:rgb(231 215 164 / 14%);color:#f4dda1;background:rgb(255 255 255 / 10%)
+}
+.eco-site .menu .selva-nav-principal>li>a::after,
+.eco-site .menu .selva-nav-desplegable>details>summary::before{
+  position:absolute;right:12px;bottom:5px;left:12px;height:2px;border-radius:99px;
+  content:"";background:#d9b95f;transform:scaleX(0);transform-origin:left;transition:transform var(--motion-fast)
+}
+.eco-site .menu .selva-nav-principal>li>a:is(:hover,:focus-visible,[aria-current])::after,
+.eco-site .menu .selva-nav-desplegable>details>summary:is(:hover,:focus-visible,[aria-current])::before,
+.eco-site .menu .selva-nav-desplegable>details[open]>summary::before{transform:scaleX(1)}
+.eco-site .menu .selva-nav-desplegable{position:relative}
+.eco-site .menu .selva-nav-mega-panel{
+  position:absolute;z-index:30;top:calc(100% + 10px);left:0;width:min(540px,calc(100vw - 2 * var(--page-gutter)));
+  padding:20px;border:1px solid rgb(231 215 164 / 20%);border-radius:16px;
+  color:#f6f3e9;background:rgb(13 58 40 / 98%);box-shadow:0 24px 64px rgb(2 20 13 / 34%);
+  -webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);animation:selva-nav-mega-entrada 170ms ease-out
+}
+.eco-site .menu .selva-nav-desplegable--biodiversidad .selva-nav-mega-panel{width:min(420px,calc(100vw - 2 * var(--page-gutter)))}
+.eco-site .menu .selva-nav-desplegable--ecoselva .selva-nav-mega-panel{right:0;left:auto;width:min(440px,calc(100vw - 2 * var(--page-gutter)))}
+.eco-site .menu .selva-nav-mega-eyebrow{
+  max-width:none;margin:0 0 12px;padding:0 4px;color:#d9c789;font:700 11px/1.4 var(--font-heading);
+  letter-spacing:.14em;text-transform:uppercase
+}
+.eco-site .menu .selva-nav-mega-panel ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:0;padding:0;list-style:none}
+.eco-site .menu .selva-nav-desplegable--biodiversidad .selva-nav-mega-panel ul,
+.eco-site .menu .selva-nav-desplegable--ecoselva .selva-nav-mega-panel ul{grid-template-columns:1fr}
+.eco-site .menu .selva-nav-mega-panel li{min-width:0;list-style:none}
+.eco-site .menu .selva-nav-mega-link{
+  display:grid;grid-template-columns:40px minmax(0,1fr) auto;align-items:center;gap:12px;min-height:74px;
+  max-width:none;padding:11px;border:1px solid transparent;border-radius:11px;color:#f7f4ea;text-align:left;
+  transition:background-color var(--motion-fast),border-color var(--motion-fast),transform var(--motion-fast)
+}
+.eco-site .menu .selva-nav-mega-link>svg{
+  width:40px;height:40px;padding:8px;border:1px solid rgb(231 215 164 / 22%);border-radius:10px;
+  color:#e8d691;background:rgb(255 255 255 / 6%);fill:none;stroke:currentColor;stroke-width:1.55;
+  stroke-linecap:round;stroke-linejoin:round
+}
+.eco-site .menu .selva-nav-mega-link>span{display:grid;gap:2px;min-width:0}
+.eco-site .menu .selva-nav-mega-link strong{color:inherit;font:650 14px/1.3 var(--font-heading)}
+.eco-site .menu .selva-nav-mega-link small{max-width:none;color:#cbd8d0;font:400 12px/1.4 var(--font-body)}
+.eco-site .menu .selva-nav-mega-link>b{color:#d9c789;font:500 16px/1 var(--font-body);opacity:.7}
+.eco-site .menu .selva-nav-mega-link:is(:hover,:focus-visible),
+.eco-site .menu .selva-nav-mega-link[aria-current]{
+  border-color:rgb(231 215 164 / 16%);color:#fff;background:rgb(255 255 255 / 9%);transform:translateY(-1px)
+}
+.eco-site .menu :is(a,summary,label):focus-visible{outline:3px solid #e1bd58;outline-offset:3px}
+
+/* Pie compartido. */
 .eco-site .eco-global-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--space-4);padding-block:var(--space-5);border-top:1px solid var(--line);font-size:var(--text-note);overflow-wrap:anywhere}
 .eco-site .eco-global-footer nav{display:flex;flex-wrap:wrap;gap:var(--space-2) var(--space-4)}
 .eco-site .eco-global-footer a{display:inline-flex;align-items:center;min-height:44px;color:var(--forest)}
+
+@keyframes selva-nav-mega-entrada{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+@media(max-width:1180px){
+  .eco-site .menu.container,
+  .eco-site .menu.container.selva-menu-scrolled{height:76px;padding-block:5px;gap:10px}
+  .eco-site .menu .logo{margin-right:auto}
+  .eco-site .menu .logo img,
+  .eco-site .menu.selva-menu-scrolled .logo img{height:62px;max-height:62px}
+  .eco-site .menu .selva-menu-control{
+    position:relative;order:3;display:inline-flex;min-height:44px;align-items:center;gap:9px;margin:0;
+    padding:8px 12px;border:1px solid rgb(231 215 164 / 24%);border-radius:10px;color:#f7f4ea;
+    font:650 var(--text-note)/1.2 var(--font-heading);cursor:pointer
+  }
+  .eco-site .menu .selva-menu-control-lineas,
+  .eco-site .menu .selva-menu-control-lineas::before,
+  .eco-site .menu .selva-menu-control-lineas::after{display:block;width:19px;height:2px;border-radius:99px;background:currentColor;content:"";transition:transform var(--motion-fast),opacity var(--motion-fast)}
+  .eco-site .menu .selva-menu-control-lineas{position:relative}
+  .eco-site .menu .selva-menu-control-lineas::before{position:absolute;top:-6px}
+  .eco-site .menu .selva-menu-control-lineas::after{position:absolute;top:6px}
+  .eco-site .menu .selva-menu-toggle:checked+label .selva-menu-control-lineas{background:transparent}
+  .eco-site .menu .selva-menu-toggle:checked+label .selva-menu-control-lineas::before{top:0;transform:rotate(45deg)}
+  .eco-site .menu .selva-menu-toggle:checked+label .selva-menu-control-lineas::after{top:0;transform:rotate(-45deg)}
+  .eco-site .menu .navbar{
+    position:absolute;z-index:40;top:100%;right:var(--page-gutter);left:var(--page-gutter);display:none;
+    max-height:calc(100dvh - 88px);overflow:auto;padding:14px;border:1px solid rgb(231 215 164 / 20%);
+    border-radius:0 0 16px 16px;background:rgb(9 45 31 / 98%);box-shadow:0 24px 64px rgb(2 20 13 / 32%)
+  }
+  .eco-site .menu .selva-menu-toggle:checked~.navbar{display:block}
+  .eco-site .menu .selva-nav-principal{display:grid;grid-template-columns:1fr;gap:4px}
+  .eco-site .menu .selva-nav-principal>li>a,
+  .eco-site .menu .selva-nav-desplegable>details>summary{justify-content:space-between;width:100%;min-height:48px;padding:11px 13px;text-align:left}
+  .eco-site .menu .selva-nav-principal>li>a::after,
+  .eco-site .menu .selva-nav-desplegable>details>summary::before{display:none}
+  .eco-site .menu .selva-nav-mega-panel,
+  .eco-site .menu .selva-nav-desplegable--biodiversidad .selva-nav-mega-panel,
+  .eco-site .menu .selva-nav-desplegable--ecoselva .selva-nav-mega-panel{
+    position:static;width:100%;margin:4px 0 9px;padding:12px;border-radius:12px;background:rgb(255 255 255 / 5%);box-shadow:none;animation:none
+  }
+  .eco-site .menu .selva-nav-mega-panel ul,
+  .eco-site .menu .selva-nav-desplegable--biodiversidad .selva-nav-mega-panel ul,
+  .eco-site .menu .selva-nav-desplegable--ecoselva .selva-nav-mega-panel ul{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .eco-site .menu .selva-nav-mega-link{min-height:68px}
+}
+
 @media(max-width:640px){
- .eco-site .eco-global-header .eco-marca{font-size: var(--text-body)}
- .eco-site .eco-global-menu{margin-left:auto}
- .eco-site .eco-global-return{order:3;flex-basis:100%;margin:0;max-width:none!important;text-align:left!important;min-height:44px;display:flex;align-items:center}
- .eco-site .eco-global-footer{display:block}
- .eco-site .eco-global-footer nav{margin-top:var(--space-3)}
+  .eco-site .menu.container,
+  .eco-site .menu.container.selva-menu-scrolled{padding-inline:18px}
+  .eco-site .menu .navbar{right:10px;left:10px;padding:10px}
+  .eco-site .menu .selva-menu-control>span:last-child{display:none}
+  .eco-site .menu .selva-nav-mega-panel ul,
+  .eco-site .menu .selva-nav-desplegable--biodiversidad .selva-nav-mega-panel ul,
+  .eco-site .menu .selva-nav-desplegable--ecoselva .selva-nav-mega-panel ul{grid-template-columns:1fr}
+  .eco-site .menu .selva-nav-mega-link{min-height:62px;grid-template-columns:38px minmax(0,1fr) auto;padding:9px}
+  .eco-site .menu .selva-nav-mega-link>svg{width:38px;height:38px}
+  .eco-site .menu .selva-nav-mega-link small{display:none}
+  .eco-site .eco-global-footer{display:block}
+  .eco-site .eco-global-footer nav{margin-top:var(--space-3)}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .eco-site .menu *{animation:none!important;transition-duration:.01ms!important}
 }
 
 /* atlas.css */
@@ -5503,19 +5646,18 @@ html:has(dialog[open]){overflow:hidden}
   transition: opacity var(--motion-fast) ease, transform var(--motion-fast) ease;
 }
 
-.eco-site:has(.menu.container) .eco-pilot-notice {
-  margin-top: 106px;
+.eco-site:has(.eco-home-header) .eco-pilot-notice {
+  margin-top: 88px;
 }
 
 /* El aviso reemplaza temporalmente la imagen bajo la barra fija de Inicio. */
 .eco-site:has(.eco-pilot-notice.is-visible) .menu.container {
-  background: var(--forest-deep);
+  background: rgb(9 45 31 / 96%);
 }
 
-/* Al desplazarse, la barra vuelve a su versión clara para conservar el
-   contraste de todos los enlaces, incluido Contacto. */
+/* La barra conserva el mismo tono oscuro al desplazarse para evitar saltos visuales. */
 .eco-site:has(.eco-pilot-notice.is-visible) .menu.container.selva-menu-scrolled {
-  background: rgb(243 240 230 / 98%);
+  background: rgb(9 45 31 / 96%);
 }
 
 .eco-site .eco-pilot-notice.is-visible {
@@ -5635,8 +5777,8 @@ html:has(dialog[open]){overflow:hidden}
 }
 
 @media (max-width: 767px) {
-  .eco-site:has(.menu.container) .eco-pilot-notice {
-    margin-top: 82px;
+  .eco-site:has(.eco-home-header) .eco-pilot-notice {
+    margin-top: 76px;
   }
   .eco-site .eco-pilot-notice__inner {
     grid-template-columns: 1fr;
@@ -5661,14 +5803,15 @@ html:has(dialog[open]){overflow:hidden}
 /* Búsqueda global y comparación visual de cifras: mejoras progresivas y accesibles. */
 .eco-search-trigger{
   display:inline-flex;align-items:center;gap:8px;min-height:42px;padding:8px 12px;
-  border:1px solid var(--line,#ccd8cf);border-radius:999px;background:rgb(255 255 255 / .9);
-  color:var(--forest,#174f38);font:700 .82rem/1.2 var(--font-heading,system-ui);cursor:pointer;
-  box-shadow:0 5px 16px rgb(17 61 42 / 7%);white-space:nowrap
+  border:1px solid rgb(231 215 164 / 24%);border-radius:999px;background:rgb(255 255 255 / 7%);
+  color:#f7f4ea;font:650 .78rem/1.2 var(--font-heading,system-ui);cursor:pointer;
+  box-shadow:inset 0 1px 0 rgb(255 255 255 / 5%);white-space:nowrap
 }
 .eco-search-trigger>span:first-child{font-size:1.1rem;line-height:1}
-.eco-search-trigger kbd{padding:2px 6px;border:1px solid #d6ded7;border-bottom-width:2px;border-radius:6px;background:#f4f7f3;color:#607267;font:600 .68rem/1.25 var(--font-body,system-ui)}
-.eco-search-trigger:is(:hover,:focus-visible){border-color:#6f927b;background:#fff}
-.eco-search-trigger:focus-visible{outline:3px solid #d49b32;outline-offset:2px}
+.eco-search-trigger kbd{padding:3px 7px;border:1px solid rgb(231 215 164 / 32%);border-bottom-width:2px;border-radius:7px;background:#f3eedf;color:#173d2c;font:650 .68rem/1.25 var(--font-body,system-ui)}
+.eco-search-trigger:is(:hover,:focus-visible){border-color:rgb(231 215 164 / 44%);color:#fff;background:rgb(255 255 255 / 13%)}
+.eco-search-trigger:focus-visible{outline:3px solid #e1bd58;outline-offset:3px}
+.eco-site .menu .eco-search-trigger{order:4;flex:0 0 auto;max-width:none}
 .eco-search-trigger--floating{position:fixed;z-index:80;right:18px;bottom:18px}
 
 .eco-search-dialog{width:min(720px,calc(100vw - 28px));max-height:min(720px,calc(100dvh - 28px));padding:0;border:0;border-radius:24px;background:#fff;color:#18382a;box-shadow:0 28px 90px rgb(8 35 24 / 32%);overflow:hidden}
@@ -5716,6 +5859,9 @@ html:has(dialog[open]){overflow:hidden}
   .selva-fauna-comparacion{padding:16px}
   .selva-fauna-comparacion figcaption{display:block}
   .selva-fauna-comparacion figcaption span{display:block;margin-top:4px}
+}
+@media(max-width:1180px){
+  .eco-site .menu .eco-search-trigger{order:2;margin-left:auto}
 }
 @media(max-width:520px){
   .eco-search-trigger>span:nth-child(2){display:none}
