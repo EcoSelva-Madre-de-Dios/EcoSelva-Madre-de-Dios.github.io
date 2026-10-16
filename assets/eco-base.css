@@ -5216,6 +5216,11 @@ html:has(dialog[open]){overflow:hidden}
   height:88px;padding-block:6px;border-bottom-color:rgb(231 215 164 / 22%);
   background:rgb(9 45 31 / 96%);box-shadow:0 10px 34px rgb(4 24 16 / 20%)
 }
+.eco-site .menu.container.selva-menu-scrolled .navbar .selva-nav-principal>li>a,
+.eco-site .menu.container.selva-menu-scrolled .navbar .selva-nav-desplegable>details>summary{color:#f5f1e6}
+.eco-site .menu.container.selva-menu-scrolled .navbar .selva-nav-principal>li>a:is(:hover,:focus-visible,[aria-current]),
+.eco-site .menu.container.selva-menu-scrolled .navbar .selva-nav-desplegable>details>summary:is(:hover,:focus-visible,[aria-current]),
+.eco-site .menu.container.selva-menu-scrolled .navbar .selva-nav-desplegable>details[open]>summary{color:#f4dda1}
 .eco-site .menu .logo{display:inline-flex;flex:0 0 auto;align-items:center;align-self:stretch}
 .eco-site .menu .logo img,
 .eco-site .menu.selva-menu-scrolled .logo img{
