@@ -37,8 +37,8 @@
 
 .eco-site .metodologia-layout {
   display: grid;
-  grid-template-columns: minmax(190px, 238px) minmax(0, 1fr);
-  gap: clamp(38px, 5vw, 72px);
+  grid-template-columns: minmax(220px, 252px) minmax(0, 1fr);
+  gap: clamp(34px, 4vw, 64px);
   align-items: stretch;
 }
 
@@ -117,6 +117,10 @@
   min-width: 0;
   padding-block: var(--space-6);
   border-bottom: 1px solid color-mix(in srgb, var(--forest) 16%, transparent);
+  scroll-margin-top: 112px;
+}
+
+.eco-site .metodologia-seccion :is(h2, h3, details)[id] {
   scroll-margin-top: 112px;
 }
 
@@ -283,8 +287,9 @@
 
 .eco-site .metodologia .conoce-fuentes > .conoce-detalle {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 390px), 1fr));
   gap: 18px;
+  align-items: start;
   margin: 0;
   padding: clamp(18px, 3vw, 28px);
   border: 0;
@@ -294,6 +299,7 @@
 
 .eco-site .metodologia .conoce-documento {
   min-width: 0;
+  height: fit-content;
   padding: clamp(20px, 2.5vw, 28px);
   border: 1px solid color-mix(in srgb, var(--forest) 14%, transparent);
   border-radius: var(--radius-md);
@@ -314,28 +320,38 @@
 }
 
 .eco-site .metodologia .conoce-documento dl {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(112px, .34fr) minmax(0, 1fr);
+  column-gap: 14px;
   margin: 0;
   font-size: var(--text-note);
   line-height: 1.65;
 }
 
 .eco-site .metodologia .conoce-documento dt {
-  margin-top: 14px;
+  margin: 0;
+  padding: 10px 0;
+  border-top: 1px solid color-mix(in srgb, var(--forest) 10%, transparent);
   color: var(--forest);
   font-weight: 750;
 }
 
-.eco-site .metodologia .conoce-documento dt:first-child {
-  margin-top: 0;
+.eco-site .metodologia .conoce-documento dt:first-of-type,
+.eco-site .metodologia .conoce-documento dt:first-of-type + dd {
+  padding-top: 0;
+  border-top: 0;
 }
 
 .eco-site .metodologia .conoce-documento dd {
-  margin: 3px 0 0;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 0;
+  border-top: 1px solid color-mix(in srgb, var(--forest) 10%, transparent);
   color: var(--muted);
+  overflow-wrap: anywhere;
 }
 
-@media (max-width: 1020px) {
+@media (max-width: 1120px) {
   .eco-site .metodologia-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 0;
@@ -442,6 +458,25 @@
   .eco-site .metodologia .conoce-fuentes > .conoce-detalle {
     gap: 14px;
     padding: 14px;
+  }
+
+  .eco-site .metodologia .conoce-documento dl {
+    display: block;
+  }
+
+  .eco-site .metodologia .conoce-documento dt {
+    padding: 12px 0 0;
+    border-top: 0;
+  }
+
+  .eco-site .metodologia .conoce-documento dt:first-of-type {
+    padding-top: 0;
+  }
+
+  .eco-site .metodologia .conoce-documento dd,
+  .eco-site .metodologia .conoce-documento dt:first-of-type + dd {
+    padding: 3px 0 0;
+    border-top: 0;
   }
 }
 

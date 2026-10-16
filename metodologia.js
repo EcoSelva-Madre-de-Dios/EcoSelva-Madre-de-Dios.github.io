@@ -34,9 +34,15 @@
       disclosure = disclosure.parentElement?.closest('details');
     }
     const scrollTarget = target.closest('.metodologia-seccion') || target;
-    const alignTarget = () => scrollTarget.scrollIntoView({ block: 'start', behavior: 'instant' });
+    const alignTarget = () => {
+      const header = document.querySelector('.eco-global-header');
+      const headerHeight = header?.getBoundingClientRect().height || 0;
+      const top = window.scrollY + scrollTarget.getBoundingClientRect().top - headerHeight - 24;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+    };
     requestAnimationFrame(() => requestAnimationFrame(alignTarget));
     document.fonts?.ready.then(alignTarget);
+    setTimeout(alignTarget, 160);
     const matching = indexedSections.find(item => item.target === target || item.target.closest('section') === target.closest('section'));
     if (matching) markCurrent(matching.link);
   };
@@ -55,6 +61,7 @@
   if (indexedSections[0]) markCurrent(indexedSections[0].link);
   revealHashTarget();
   addEventListener('hashchange', revealHashTarget);
+  addEventListener('load', revealHashTarget, { once: true });
 
   if ('IntersectionObserver' in window && indexedSections.length) {
     const visible = new Map();
