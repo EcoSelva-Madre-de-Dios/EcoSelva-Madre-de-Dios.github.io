@@ -1257,12 +1257,12 @@ html:has(dialog[open]){overflow:hidden}
 /* Franja de dosel: transición ilustrada entre los grandes capítulos de la portada. */
 .eco-home .eco-canopy-divider{
   width:100%;
-  height:clamp(100px,10vw,148px);
+  height:clamp(72px,6.5vw,96px);
   position:relative;
   overflow:hidden;
   border-block:1px solid rgb(45 106 79 / 18%);
   background-color:#f3f0e5;
-  background-image:url(../images/franja-dosel-ecoselva.png);
+  background-image:url(../images/franja-dosel-ecoselva-compacta.png);
   background-repeat:repeat-x;
   background-position:center bottom;
   background-size:auto 100%;
@@ -1296,7 +1296,7 @@ html:has(dialog[open]){overflow:hidden}
 
 @media(max-width:640px){
   .eco-home .eco-canopy-divider{
-    height:88px;
+    height:60px;
     background-size:auto 100%;
   }
   .eco-home #historias-fuentes ol{
