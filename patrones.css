@@ -224,7 +224,7 @@
   border-radius: 50%;
   background: var(--forest);
   color: #fff;
-  content: "â†’";
+  content: "\2192";
   transition: transform 180ms ease, background 180ms ease;
 }
 .eco-site #biodiversidad :is(.selva-biodiversidad-accion, .selva-fauna-explorar):is(:hover, :focus-visible)::before { transform: translateX(3px); background: var(--green-natural); }

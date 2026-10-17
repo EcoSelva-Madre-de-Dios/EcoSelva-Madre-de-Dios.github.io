@@ -5732,6 +5732,233 @@ html:has(dialog[open]){overflow:hidden}
 .eco-site .conoce-localizador{width:100%;max-width:360px;margin:0 auto}
 .eco-site .conoce-localizador img{object-fit:contain;border-radius:18px}
 
+/* Portada: una retícula editorial común y secciones más compactas. */
+.eco-home{
+  --home-layout:1200px;
+  --home-section-space:clamp(48px,4.5vw,64px);
+}
+.eco-home :is(
+  .header-content,
+  #conoce-madre-de-dios>.conoce-cabecera,
+  #conoce-madre-de-dios>.conoce-modulos,
+  #explora-madre-de-dios>.container,
+  .eco-connected>.container,
+  #sabias-que>.container,
+  #biodiversidad,
+  #ambiente>.container,
+  #investigaciones>.selva-investigaciones-contenido,
+  #seguir-explorando>.container,
+  #quienes-somos>.container,
+  #colabora>.container,
+  #contacto>.container,
+  .selva-pie-final>.container
+){
+  width:min(var(--home-layout),calc(100% - 2 * var(--page-gutter)));
+  max-width:var(--home-layout);
+  margin-inline:auto;
+}
+.eco-home #conoce-madre-de-dios .conoce-arranque-grid{
+  width:100%;
+  max-width:none;
+}
+.eco-home :is(
+  #conoce-madre-de-dios,
+  #sabias-que,
+  #biodiversidad,
+  #ambiente,
+  #investigaciones,
+  #seguir-explorando,
+  #quienes-somos,
+  #colabora
+){
+  padding-block:var(--home-section-space);
+}
+.eco-home :is(
+  #conoce-madre-de-dios>.conoce-cabecera h2,
+  #sabias-que h2,
+  #biodiversidad>h2,
+  #ambiente h2,
+  #investigaciones h2,
+  #quienes-somos h2,
+  #colabora h2
+){
+  font-size:clamp(30px,2.35vw,44px);
+  line-height:1.12;
+}
+
+/* Historias: las referencias ocupan el ancho disponible sin alargar la página. */
+.eco-home #historias-fuentes ol{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px var(--space-5);
+}
+
+/* Ciencia: texto y accesos comparten la franja en escritorio. */
+.eco-home #investigaciones{
+  min-height:0;
+}
+.eco-home #investigaciones .selva-investigaciones-contenido{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  grid-template-areas:
+    "kicker links"
+    "title links"
+    "copy links"
+    ". more";
+  column-gap:var(--space-7);
+  align-items:start;
+  text-align:left;
+}
+.eco-home #investigaciones .selva-microetiqueta{
+  grid-area:kicker;
+  margin:0 0 var(--space-1);
+}
+.eco-home #investigaciones h2{
+  grid-area:title;
+  margin:0;
+}
+.eco-home #investigaciones .selva-proximamente{
+  grid-area:copy;
+  margin:var(--space-2) 0 0;
+  text-align:left;
+}
+.eco-home #investigaciones .eco-science-links{
+  grid-area:links;
+  align-self:center;
+  display:grid;
+  gap:12px;
+  margin:0;
+}
+.eco-home #investigaciones .eco-science-links .eco-button{
+  justify-content:flex-start;
+  width:100%;
+  padding:14px 18px;
+  text-align:left;
+}
+.eco-home #investigaciones .selva-investigaciones-etiqueta{
+  grid-area:more;
+  margin:16px 0 0;
+  justify-self:start;
+}
+
+/* Biblioteca y atlas: dos accesos equivalentes, con la misma altura visual. */
+.eco-home #seguir-explorando .eco-bento{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+}
+.eco-home #seguir-explorando .eco-bento-feature{
+  display:grid;
+  grid-template-columns:148px minmax(0,1fr);
+  align-items:center;
+  min-height:250px;
+}
+.eco-home #seguir-explorando .eco-bento-feature>.eco-ficha-preview{
+  width:124px;
+  height:124px;
+}
+.eco-home #seguir-explorando .eco-bento-feature>div{
+  align-self:stretch;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:var(--space-4);
+}
+.eco-home #seguir-explorando .eco-bento-map{
+  align-items:center;
+  min-height:250px;
+  padding:var(--space-4);
+}
+
+/* Colabora: jerarquía horizontal arriba y cierre compacto debajo. */
+.eco-home #colabora .selva-colabora-layout{
+  grid-template-columns:max-content minmax(0,1fr);
+  gap:var(--space-3) var(--space-4);
+  max-width:var(--home-layout);
+}
+.eco-home #colabora .selva-colabora-encabezado{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:minmax(280px,.85fr) minmax(0,1.15fr);
+  gap:var(--space-5);
+  align-items:end;
+  max-width:none;
+  text-align:left;
+}
+.eco-home #colabora .selva-colabora-encabezado h2,
+.eco-home #colabora .selva-colabora-encabezado p{
+  margin:0;
+}
+.eco-home #colabora .selva-colabora-pasos{
+  grid-column:1/-1;
+}
+.eco-home #colabora .selva-colabora-paso{
+  min-height:180px;
+  padding:20px;
+}
+.eco-home #colabora .selva-colabora-accion{
+  grid-column:1;
+  margin:0;
+}
+.eco-home #colabora .selva-colabora-compromiso{
+  grid-column:2;
+  align-self:center;
+  margin:0;
+}
+
+.eco-home #quienes-somos .selva-sobre-layout{
+  gap:var(--space-5);
+}
+
+@media(max-width:900px){
+  .eco-home #investigaciones .selva-investigaciones-contenido{
+    grid-template-columns:minmax(0,1fr);
+    grid-template-areas:"kicker" "title" "copy" "links" "more";
+    row-gap:0;
+  }
+  .eco-home #investigaciones .eco-science-links{
+    margin-top:var(--space-4);
+  }
+  .eco-home #seguir-explorando .eco-bento{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .eco-home #seguir-explorando .eco-bento-feature,
+  .eco-home #seguir-explorando .eco-bento-map{
+    min-height:0;
+  }
+  .eco-home #colabora .selva-colabora-encabezado{
+    grid-template-columns:minmax(0,1fr);
+    gap:var(--space-2);
+  }
+}
+
+@media(max-width:640px){
+  .eco-home #historias-fuentes ol{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .eco-home #seguir-explorando .eco-discover-heading{
+    align-items:flex-start;
+  }
+  .eco-home #seguir-explorando .eco-bento-feature{
+    grid-template-columns:96px minmax(0,1fr);
+  }
+  .eco-home #seguir-explorando .eco-bento-feature>.eco-ficha-preview{
+    width:84px;
+    height:84px;
+  }
+  .eco-home #seguir-explorando .eco-bento-feature>div,
+  .eco-home #seguir-explorando .eco-bento-map{
+    padding:var(--space-3);
+  }
+  .eco-home #colabora .selva-colabora-layout{
+    grid-template-columns:minmax(0,1fr);
+  }
+  .eco-home #colabora :is(.selva-colabora-encabezado,.selva-colabora-pasos,.selva-colabora-accion,.selva-colabora-compromiso){
+    grid-column:1;
+  }
+  .eco-home #colabora .selva-colabora-paso{
+    min-height:0;
+  }
+}
+
 /* Los números del esquema mantienen su tamaño de lectura al reducir la imagen. */
 .eco-site #explora-madre-de-dios .territorio-diagrama{max-width:1064px;margin-inline:auto}
 .territorio-rio-escena{position:relative}
@@ -5753,6 +5980,196 @@ html:has(dialog[open]){overflow:hidden}
 /* Observación: conservar el agua y la orilla dentro del encuadre de la fotografía. */
 .eco-site #explora-madre-de-dios .territorio-foto-observa img{aspect-ratio:4/3;object-fit:cover;object-position:50% 80%}
 .eco-site #explora-madre-de-dios .territorio-foto-observa figcaption a{text-decoration:underline;text-underline-offset:3px}
+
+/* Portada: cabeceras editoriales alineadas y densidad final. */
+.eco-home :is(
+  #conoce-madre-de-dios,
+  #sabias-que,
+  #biodiversidad,
+  #ambiente,
+  #investigaciones,
+  #seguir-explorando,
+  #quienes-somos,
+  #colabora
+){
+  padding-top:var(--home-section-space);
+  padding-bottom:var(--home-section-space);
+}
+.eco-home #conoce-madre-de-dios>.conoce-cabecera{
+  display:grid;
+  grid-template-columns:minmax(320px,.85fr) minmax(0,1.15fr);
+  gap:0 var(--space-5);
+  align-items:end;
+}
+.eco-home #conoce-madre-de-dios>.conoce-cabecera>.selva-microetiqueta,
+.eco-home #conoce-madre-de-dios>.conoce-cabecera>h2{
+  grid-column:1;
+  text-align:left;
+}
+.eco-home #conoce-madre-de-dios>.conoce-cabecera>.conoce-introduccion{
+  grid-column:2;
+  grid-row:1/3;
+  align-self:end;
+  margin:0;
+}
+
+.eco-home #sabias-que>.container{
+  display:grid;
+  grid-template-columns:minmax(300px,.8fr) minmax(0,1.2fr);
+  gap:0 var(--space-5);
+  align-items:end;
+}
+.eco-home #sabias-que>.container>.selva-microetiqueta,
+.eco-home #sabias-que>.container>h2{
+  grid-column:1;
+  text-align:left;
+}
+.eco-home #sabias-que>.container>.selva-seccion-intro{
+  grid-column:2;
+  grid-row:1/3;
+  align-self:end;
+  margin:0;
+  text-align:left;
+}
+.eco-home #sabias-que>.container>:is(.selva-flip-grid,.selva-curiosidad-explorar,.selva-historia-modal,#historias-fuentes){
+  grid-column:1/-1;
+}
+
+.eco-site.eco-home #biodiversidad{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:0 var(--space-5);
+  padding:var(--home-section-space) 0;
+  text-align:left;
+}
+.eco-home #biodiversidad>.selva-microetiqueta,
+.eco-home #biodiversidad>.eco-topic-heading,
+.eco-home #biodiversidad>.selva-biodiversidad-intro{
+  grid-column:1;
+  justify-content:flex-start;
+  margin-left:0;
+  margin-right:0;
+  text-align:left;
+}
+.eco-home #biodiversidad>.selva-biodiversidad-tabs{
+  grid-column:2;
+  grid-row:1/4;
+  align-self:center;
+  margin:0;
+}
+.eco-home #biodiversidad>.selva-biodiversidad-panel,
+.eco-home #biodiversidad>.selva-fauna-proxima,
+.eco-home #biodiversidad>.selva-fauna-modal{
+  grid-column:1/-1;
+}
+.eco-home #biodiversidad .eco-topic-heading h2{
+  font-size:clamp(30px,2.35vw,44px);
+}
+
+.eco-home #ambiente>.container{
+  display:grid;
+  grid-template-columns:minmax(300px,.8fr) minmax(0,1.2fr);
+  gap:0 var(--space-5);
+  align-items:end;
+}
+.eco-home #ambiente>.container>.selva-microetiqueta,
+.eco-home #ambiente>.container>h2,
+.eco-home #ambiente>.container>.eco-separator{
+  grid-column:1;
+  margin-left:0;
+  text-align:left;
+}
+.eco-home #ambiente>.container>.selva-ambiente-subtitulo{
+  grid-column:2;
+  grid-row:1;
+  margin:0;
+  text-align:left;
+}
+.eco-home #ambiente>.container>.selva-seccion-intro{
+  grid-column:2;
+  grid-row:2/4;
+  align-self:end;
+  margin:0;
+  text-align:left;
+}
+.eco-home #ambiente .selva-ambiente-areas{
+  grid-column:1/-1;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:var(--space-2);
+  margin-top:var(--space-4);
+}
+.eco-home #ambiente .selva-ambiente-area{
+  grid-template-columns:48px minmax(0,1fr);
+  grid-template-rows:auto auto 1fr auto;
+  align-content:start;
+  min-height:292px;
+  padding:20px;
+}
+.eco-home #ambiente .selva-ambiente-area>.eco-flat{
+  grid-column:1;
+  grid-row:1/3;
+  width:48px;
+  height:48px;
+}
+.eco-home #ambiente .selva-ambiente-area>.selva-ambiente-numero{
+  grid-column:2;
+  grid-row:1;
+}
+.eco-home #ambiente .selva-ambiente-area>h3{
+  grid-column:2;
+  grid-row:2;
+}
+.eco-home #ambiente .selva-ambiente-area>.selva-ambiente-area-descripcion{
+  grid-column:1/-1;
+  grid-row:3;
+  margin-top:var(--space-2);
+}
+.eco-home #ambiente .selva-ambiente-area>.selva-ambiente-acceso{
+  grid-column:1/-1;
+  grid-row:4;
+  align-self:end;
+}
+
+.eco-home #colabora .selva-colabora-encabezado h2{
+  max-width:none;
+}
+
+@media(max-width:1100px){
+  .eco-home #ambiente .selva-ambiente-areas{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+  .eco-home #ambiente .selva-ambiente-area{
+    min-height:240px;
+  }
+}
+
+@media(max-width:767px){
+  .eco-home #conoce-madre-de-dios>.conoce-cabecera,
+  .eco-home #sabias-que>.container,
+  .eco-site.eco-home #biodiversidad,
+  .eco-home #ambiente>.container{
+    display:block;
+  }
+  .eco-home #conoce-madre-de-dios>.conoce-cabecera>.conoce-introduccion,
+  .eco-home #sabias-que>.container>.selva-seccion-intro,
+  .eco-home #biodiversidad>.selva-biodiversidad-intro,
+  .eco-home #ambiente>.container>.selva-seccion-intro{
+    margin-top:var(--space-2);
+  }
+  .eco-home #biodiversidad>.selva-biodiversidad-tabs{
+    margin:var(--space-3) 0 var(--space-4);
+  }
+  .eco-home #ambiente>.container>.selva-ambiente-subtitulo{
+    margin-top:var(--space-2);
+  }
+  .eco-home #ambiente .selva-ambiente-areas{
+    grid-template-columns:minmax(0,1fr);
+    margin-top:var(--space-4);
+  }
+  .eco-home #ambiente .selva-ambiente-area{
+    min-height:0;
+  }
+}
 
 /* aviso-piloto.css */
 /* Aviso institucional de etapa piloto: informativo, descartable y no modal. */
