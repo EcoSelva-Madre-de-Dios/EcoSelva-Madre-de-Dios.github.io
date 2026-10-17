@@ -5649,7 +5649,7 @@ html:has(dialog[open]){overflow:hidden}
 @media(max-width:640px){.eco-site .eco-bento-feature{grid-template-columns:1fr}.eco-site .eco-connected-nav a{grid-template-columns:64px 1fr}.eco-site .eco-connected-nav .eco-flat{width:64px;height:64px}}
 .eco-learning-sequence{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--space-2);margin-top:var(--space-3);list-style:none}
 .eco-learning-sequence li{display:grid;justify-items:center;gap:var(--space-1);font-size:var(--text-note);list-style:none;min-width:0}
-.eco-learning-sequence .eco-flat{width:48px;height:48px;stroke:none}
+.eco-learning-sequence .selva-sobre-etapa-icono{display:block;width:64px;height:64px;object-fit:contain}
 .eco-site .selva-sobre-imagen img{aspect-ratio:4/3;object-fit:cover;height:auto}
 @media(max-width:640px){.eco-learning-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .eco-site .selva-colabora-layout{max-width:var(--layout-content);gap:var(--space-3)}
@@ -5693,7 +5693,7 @@ html:has(dialog[open]){overflow:hidden}
 .eco-site #colabora .selva-colabora-encabezado::after{content:none}
 .eco-site #colabora .selva-colabora-boton{width:fit-content;min-height:48px;justify-content:center;padding:var(--space-2) var(--space-3)}
 .eco-site #colabora .selva-colabora-compromiso{background:none;border:0;border-radius:0;padding:0;box-shadow:none}
-.eco-site .eco-learning-sequence .eco-flat{width:64px;height:64px;padding:var(--space-1);background:var(--paper);border-radius:var(--radius-md)}
+.eco-site .eco-learning-sequence .selva-sobre-etapa-icono{width:72px;height:72px;background:var(--paper);border:1px solid rgb(229 212 158 / 38%);border-radius:var(--radius-md);box-shadow:0 8px 20px rgb(4 24 16 / 18%)}
 .eco-site #biodiversidad .eco-topic-heading{justify-content:center;gap:var(--space-2)}
 .eco-site #biodiversidad .eco-topic-heading h2{width:auto;margin:0;text-align:left}
 .eco-site .territorio-castana-art{width:min(240px,100%);height:auto;aspect-ratio:1;justify-self:center}
