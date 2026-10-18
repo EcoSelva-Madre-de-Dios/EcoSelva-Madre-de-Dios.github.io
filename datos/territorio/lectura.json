@@ -2,7 +2,7 @@
   "revision": "2026-10-05",
   "fuentes": {
     "anp": "#territorio-fuente-anp",
-    "cincia": "#territorio-fuente-cincia",
+    "cincia": "ambiente.html#fuente-cincia",
     "ecosistemas": "#territorio-fuente-ecosistemas"
   },
   "rios": {

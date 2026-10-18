@@ -369,9 +369,9 @@
       "tipo": "Fuente institucional",
       "tema": "ciencia",
       "alcance": "Río Madre de Dios y tributarios · estaciones del proyecto River Mining, 2020–2022; no diagnóstico de toda la región.",
-      "uso": "Contexto educativo del territorio. Conserva el alcance y las limitaciones de la referencia publicada.",
+      "uso": "Contexto educativo de Ambiente. Conserva el alcance y las limitaciones de la referencia publicada.",
       "url": "https://cincia.org/wp-content/uploads/Inventario-biologico-rapido-en-comunidades-acuaticas-evidencia-deterioro-ambiental-por-mineria-aurifera-aluvial-en-el-rio-Madre-de-Dios-Peru-espanol.pdf",
-      "contexto": "territorio.html#territorio-fuente-cincia"
+      "contexto": "ambiente.html#fuente-cincia"
     },
     {
       "id": "fuente-territorio-mercurio",
@@ -382,9 +382,9 @@
       "tipo": "Artículo científico",
       "tema": "ciencia",
       "alcance": "Sitios del estudio próximos y alejados de minería; no mapa de exposición actual.",
-      "uso": "Contexto educativo del territorio. Conserva el alcance y las limitaciones de la referencia publicada.",
+      "uso": "Contexto educativo de Ambiente. Conserva el alcance y las limitaciones de la referencia publicada.",
       "url": "https://www.nature.com/articles/s41467-022-27997-3",
-      "contexto": "territorio.html#territorio-fuente-mercurio"
+      "contexto": "ambiente.html#fuente-mercurio"
     },
     {
       "id": "fuente-territorio-incendios",
@@ -394,9 +394,9 @@
       "tipo": "Fuente institucional",
       "tema": "conservacion",
       "alcance": "Madre de Dios · gestión del riesgo; no capa de incendios activos.",
-      "uso": "Contexto educativo del territorio. Conserva el alcance y las limitaciones de la referencia publicada.",
+      "uso": "Contexto educativo de Ambiente. Conserva el alcance y las limitaciones de la referencia publicada.",
       "url": "https://www.gob.pe/institucion/sernanp/noticias/522436-sernanp-y-gobierno-regional-de-madre-de-dios-refuerzan-estrategia-regional-para-prevencion-de-incendios-forestales",
-      "contexto": "territorio.html#territorio-fuente-incendios"
+      "contexto": "ambiente.html#fuente-incendios"
     },
     {
       "id": "fuente-territorio-geobosques",
@@ -406,9 +406,9 @@
       "tipo": "Fuente institucional",
       "tema": "mapas",
       "alcance": "Productos de cobertura y pérdida de bosques con periodos y métodos propios.",
-      "uso": "Contexto educativo del territorio. Conserva el alcance y las limitaciones de la referencia publicada.",
+      "uso": "Contexto educativo de Ambiente. Conserva el alcance y las limitaciones de la referencia publicada.",
       "url": "https://www.gob.pe/institucion/minam/pages/966-plataforma-de-monitoreo-de-bosques-geobosques",
-      "contexto": "territorio.html#territorio-fuente-geobosques"
+      "contexto": "ambiente.html#fuente-geobosques"
     },
     {
       "id": "fuente-territorio-satelites-0",
@@ -418,9 +418,9 @@
       "tipo": "Fuente institucional",
       "tema": "ciencia",
       "alcance": "Documentación de Sentinel-2; no resultados calculados para este visor.",
-      "uso": "Contexto educativo del territorio. Conserva el alcance y las limitaciones de la referencia publicada.",
+      "uso": "Contexto educativo de Ambiente. Conserva el alcance y las limitaciones de la referencia publicada.",
       "url": "https://sentiwiki.copernicus.eu/web/s2-mission",
-      "contexto": "territorio.html#territorio-fuente-satelites"
+      "contexto": "ambiente.html#fuente-satelites"
     },
     {
       "id": "fuente-territorio-satelites-1",
@@ -430,9 +430,9 @@
       "tipo": "Fuente institucional",
       "tema": "ciencia",
       "alcance": "Definición y usos de NDVI; no resultados calculados para este visor.",
-      "uso": "Contexto educativo del territorio. Conserva el alcance y las limitaciones de la referencia publicada.",
+      "uso": "Contexto educativo de Ambiente. Conserva el alcance y las limitaciones de la referencia publicada.",
       "url": "https://www.usgs.gov/landsat-missions/landsat-normalized-difference-vegetation-index",
-      "contexto": "territorio.html#territorio-fuente-satelites"
+      "contexto": "ambiente.html#fuente-satelites"
     },
     {
       "id": "fuente-territorio-satelites-2",
@@ -442,9 +442,9 @@
       "tipo": "Fuente institucional",
       "tema": "ciencia",
       "alcance": "Definición y usos de NBR; no resultados calculados para este visor.",
-      "uso": "Contexto educativo del territorio. Conserva el alcance y las limitaciones de la referencia publicada.",
+      "uso": "Contexto educativo de Ambiente. Conserva el alcance y las limitaciones de la referencia publicada.",
       "url": "https://www.usgs.gov/landsat-missions/landsat-normalized-burn-ratio",
-      "contexto": "territorio.html#territorio-fuente-satelites"
+      "contexto": "ambiente.html#fuente-satelites"
     },
     {
       "id": "fuente-conoce-29",
