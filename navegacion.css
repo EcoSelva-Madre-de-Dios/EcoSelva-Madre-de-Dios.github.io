@@ -22,6 +22,11 @@ html:has(dialog[open]){overflow:hidden}
 .eco-site .menu.container.selva-menu-scrolled .navbar .selva-nav-principal>li>a:is(:hover,:focus-visible,[aria-current]),
 .eco-site .menu.container.selva-menu-scrolled .navbar .selva-nav-desplegable>details>summary:is(:hover,:focus-visible,[aria-current]),
 .eco-site .menu.container.selva-menu-scrolled .navbar .selva-nav-desplegable>details[open]>summary{color:#f4dda1}
+/* Una regla heredada del encabezado claro alcanzaba estos enlaces al desplazarse. */
+.eco-site .menu.container.selva-menu-scrolled .navbar .selva-nav-mega-panel a.selva-nav-mega-link{
+  color:#f7f4ea;text-shadow:none
+}
+.eco-site .menu.container.selva-menu-scrolled .navbar .selva-nav-mega-panel a.selva-nav-mega-link:is(:hover,:focus-visible,[aria-current]){color:#fff}
 .eco-site .menu .logo{position:relative;display:inline-flex;flex:0 0 auto;align-items:center;align-self:stretch}
 .eco-site .menu .logo::before{
   position:absolute;inset:7px -5px;border-radius:50%;content:"";
