@@ -1037,7 +1037,12 @@ document.addEventListener('DOMContentLoaded', () => {
       /* El aviso se inserta después de resolver el ancla inicial; recupera su posición. */
       if (window.location.hash) {
         const restoreAnchor = () => {
-          const id = decodeURIComponent(window.location.hash.slice(1));
+          let id;
+          try {
+            id = decodeURIComponent(window.location.hash.slice(1));
+          } catch {
+            return;
+          }
           document.getElementById(id)?.scrollIntoView({ behavior: 'instant', block: 'start' });
         };
         window.requestAnimationFrame(() => window.requestAnimationFrame(restoreAnchor));
