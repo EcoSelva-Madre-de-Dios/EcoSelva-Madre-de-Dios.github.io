@@ -18,7 +18,11 @@ const redirectLegacyTerritoryHash = () => {
         ["#territorio-fuente-mercurio", "ambiente.html#fuente-mercurio"],
         ["#territorio-fuente-incendios", "ambiente.html#fuente-incendios"],
         ["#territorio-fuente-geobosques", "ambiente.html#fuente-geobosques"],
-        ["#territorio-fuente-satelites", "ambiente.html#fuente-satelites"]
+        ["#territorio-fuente-satelites", "ambiente.html#fuente-satelites"],
+        ["#conoce-geografia", "territorio.html#territorio-rios"],
+        ["#conoce-personas", "historia.html#territorio"],
+        ["#conoce-fuentes-geografia", "fuentes-metodologia.html#metodologia-conoce"],
+        ["#conoce-fuentes-personas", "historia.html#fuentes"]
     ]).get(location.hash);
     if (legacyDestination) {
         location.replace(legacyDestination);
