@@ -1,5 +1,5 @@
 /* Estructura externa del mini atlas; no modifica capas ni controles cartográficos. */
-.conoce-madre { padding-block: 56px 0; background: #e9efe5; color: var(--ink); }
+.conoce-madre { width: 100%; max-width: none; margin-inline: 0; padding-block: 56px 0; background: #dcebdd; color: var(--ink); }
 .conoce-cabecera h2 { margin-block: var(--space-2) var(--space-3); font:700 var(--text-display)/1.15 var(--font-heading); letter-spacing: -.035em; color: var(--forest-deep); }
 .conoce-subtitulo { max-width: 790px; font-size: var(--text-title); color: var(--forest); line-height: 1.6; }
 .conoce-introduccion { max-width: 790px; margin-top: var(--space-2); font-size: var(--text-body); color: var(--muted); line-height: 1.75; }
@@ -48,7 +48,7 @@
 .conoce-fuentes > summary { cursor: pointer; color: var(--forest); font-size: var(--text-credit); font-weight: 600; padding-block: var(--space-1); text-decoration: underline; text-underline-offset: 4px; }
 .conoce-fuentes[open] { width: 100%; }
 .conoce-fuentes > .conoce-detalle { padding: 22px; background: #fff; border: 1px solid #c9d2c3; border-radius: 8px; margin-top: var(--space-1); }
-#conoce-madre-de-dios .selva-explora { padding-block: 30px 36px; background: var(--paper); }
+#conoce-madre-de-dios .selva-explora { padding-block: 30px 36px; background: transparent; }
 #conoce-madre-de-dios .selva-explora > .container { border-top: 1px solid #c9d2c3; padding-top: 30px; }
 #conoce-madre-de-dios .selva-territorio-subtitulo { margin-top: var(--space-2); }
 .conoce-geografia-grid { display: grid; align-items: start; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
