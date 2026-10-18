@@ -4590,6 +4590,27 @@ h4,
     #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary::after { content: none; }
 }
 
+/* La sección funciona como una sola superficie; los módulos no crean franjas nuevas. */
+#conoce-madre-de-dios .conoce-modulo,
+#conoce-madre-de-dios .eco-preview-map,
+#conoce-madre-de-dios .conoce-preview,
+#conoce-madre-de-dios .eco-block-sources {
+    background: transparent;
+}
+
+#conoce-madre-de-dios .eco-preview-map {
+    border-color: color-mix(in srgb, var(--forest) 24%, transparent);
+    box-shadow: none;
+}
+
+#conoce-madre-de-dios .eco-territorio-preview-content {
+    background: transparent;
+}
+
+#conoce-madre-de-dios .conoce-preview {
+    border-color: color-mix(in srgb, var(--forest) 24%, transparent);
+}
+
 /* Conoce: ubicación y división política comparten una composición compacta. */
 #conoce-madre-de-dios .conoce-arranque-grid {
     display: grid;
