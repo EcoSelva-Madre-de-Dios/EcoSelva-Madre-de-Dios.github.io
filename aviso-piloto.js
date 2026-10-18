@@ -90,6 +90,18 @@
     accept.addEventListener('click', () => hideNotice());
     reopen.addEventListener('click', () => showNotice({ origin: reopen, bringIntoView: true }));
 
-    if (!readAcknowledgement()) showNotice();
+    if (!readAcknowledgement()) {
+      showNotice();
+      /* El aviso se inserta después de resolver el ancla inicial; recupera su posición. */
+      if (window.location.hash) {
+        const restoreAnchor = () => {
+          const id = decodeURIComponent(window.location.hash.slice(1));
+          document.getElementById(id)?.scrollIntoView({ behavior: 'instant', block: 'start' });
+        };
+        window.requestAnimationFrame(() => window.requestAnimationFrame(restoreAnchor));
+        if (document.readyState === 'complete') restoreAnchor();
+        else window.addEventListener('load', restoreAnchor, { once: true });
+      }
+    }
   });
 })();

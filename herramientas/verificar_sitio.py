@@ -19,7 +19,7 @@ import actualizar_navegacion
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = 'https://ecoselva-madre-de-dios.github.io'
-PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html', 'flora.html', 'territorio.html')
+PAGES = ('index.html', 'fuentes-metodologia.html', 'fichas/castana.html', 'historia.html', 'areas-protegidas.html', 'biblioteca.html', 'flora.html', 'territorio.html', 'ambiente.html')
 ENTRYPOINTS = PAGES + ('google46599e54e679b03a.html', 'robots.txt', 'sitemap.xml')
 
 

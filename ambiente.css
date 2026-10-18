@@ -1,0 +1,129 @@
+/* Ambiente: página temática compacta para cambios, evidencia y respuestas. */
+.eco-ambiente-page{background:#f5f2e8;color:var(--ink)}
+.eco-ambiente-page main{overflow:clip}
+.eco-ambiente-page :is(#presiones,#bosques,#agua,#incendios,#mineria,#monitoreo,#respuestas,#fuentes){scroll-margin-top:58px}
+
+.ambiente-hero{
+  position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);gap:clamp(28px,5vw,76px);
+  align-items:start;padding-block:clamp(34px,5vw,72px) clamp(42px,6vw,82px)
+}
+.ambiente-hero::before{
+  position:absolute;z-index:-1;top:-42px;right:min(-10vw,-80px);width:min(560px,48vw);height:390px;content:"";
+  background:var(--eco-patron-conexiones);background-repeat:no-repeat;background-position:center;background-size:contain;opacity:.11
+}
+.ambiente-hero-copy{max-width:700px;padding-top:clamp(10px,2vw,28px)}
+.ambiente-hero h1{max-width:12ch;margin:0;color:var(--forest-deep);font:800 clamp(2.6rem,5.2vw,4.8rem)/.98 var(--font-heading);letter-spacing:-.06em}
+.ambiente-hero-lead{max-width:61ch;margin:22px 0 0;color:#35443d;font-size:clamp(1.06rem,1rem + .35vw,1.28rem);line-height:1.7}
+.ambiente-hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.ambiente-hero-visual{position:relative;margin:0;border-radius:24px;overflow:hidden;background:var(--forest-deep);box-shadow:0 22px 54px rgb(16 46 34 / 18%)}
+.ambiente-hero-visual img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;opacity:.82}
+.ambiente-hero-visual::after{position:absolute;inset:0;content:"";background:linear-gradient(180deg,transparent 38%,rgb(7 35 25 / 84%))}
+.ambiente-hero-visual figcaption{position:absolute;z-index:1;right:22px;bottom:18px;left:22px;color:#f8f5e9;font-size:12px;line-height:1.45}
+.ambiente-hero-badge{position:absolute;z-index:2;top:18px;left:18px;display:flex;align-items:center;gap:10px;padding:9px 12px;border:1px solid rgb(255 255 255 / 20%);border-radius:999px;color:#fff;background:rgb(8 44 30 / 78%);font:700 12px/1 var(--font-heading);letter-spacing:.06em;text-transform:uppercase;backdrop-filter:blur(8px)}
+.ambiente-hero-badge svg{width:19px;height:19px;fill:none;stroke:currentColor}
+
+.ambiente-nav-wrap{position:sticky;z-index:80;top:76px;border-block:1px solid rgb(22 61 43 / 12%);background:rgb(245 242 232 / 94%);backdrop-filter:blur(14px)}
+.ambiente-nav{display:flex;gap:7px;overflow:auto;padding-block:9px;scrollbar-width:thin}
+.ambiente-nav a{display:inline-flex;min-height:40px;flex:none;align-items:center;padding:8px 13px;border-radius:999px;color:var(--forest);font:650 13px/1.2 var(--font-heading);text-decoration:none}
+.ambiente-nav a:is(:hover,:focus-visible){background:#e1eadf;color:var(--forest-deep)}
+
+.ambiente-section{padding-block:clamp(48px,6vw,78px);border-bottom:1px solid rgb(22 61 43 / 10%)}
+.ambiente-section--light{background:rgb(255 255 255 / 56%)}
+.ambiente-section-head{display:grid;grid-template-columns:minmax(220px,.7fr) minmax(0,1.3fr);gap:clamp(24px,5vw,76px);align-items:end;margin-bottom:32px}
+.ambiente-section-head h2{max-width:13ch;margin:0;color:var(--forest-deep);font:800 clamp(2rem,3vw,3rem)/1.08 var(--font-heading);letter-spacing:-.045em}
+.ambiente-section-head>p{max-width:66ch;margin:0;color:var(--muted);font-size:var(--text-body);line-height:1.72}
+
+.ambiente-pressure-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.ambiente-pressure{
+  position:relative;display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px 18px;align-content:start;min-height:220px;
+  padding:24px;border:1px solid rgb(22 61 43 / 12%);border-radius:18px;background:#fff;box-shadow:0 8px 24px rgb(16 46 34 / 6%);overflow:hidden
+}
+.ambiente-pressure::after{position:absolute;right:-54px;bottom:-62px;width:178px;height:178px;content:"";background:var(--eco-patron-semillas) center/contain no-repeat;opacity:.055}
+.ambiente-pressure-icon{display:grid;grid-row:1/4;place-items:center;width:46px;height:46px;border-radius:13px;color:var(--forest);background:#e4eee2}
+.ambiente-pressure-icon svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.55}
+.ambiente-pressure h3{margin:2px 0 0;color:var(--forest-deep);font:750 clamp(1.08rem,1.4vw,1.32rem)/1.25 var(--font-heading)}
+.ambiente-pressure p{position:relative;z-index:1;grid-column:2;max-width:58ch;margin:0;color:var(--muted);line-height:1.65}
+.ambiente-pressure a{position:relative;z-index:1;grid-column:2;width:fit-content;color:var(--water-text);font-weight:650;text-underline-offset:4px}
+.ambiente-reading-note{display:grid;grid-template-columns:auto minmax(0,1fr);gap:16px;margin-top:18px;padding:20px 22px;border-left:4px solid var(--sand);border-radius:0 14px 14px 0;background:#ece8d8}
+.ambiente-reading-note svg{width:28px;height:28px;color:var(--earth-text);fill:none;stroke:currentColor}
+.ambiente-reading-note :is(h3,p){margin:0}
+.ambiente-reading-note h3{color:var(--forest-deep);font:750 1rem/1.3 var(--font-heading)}
+.ambiente-reading-note p{margin-top:5px;color:#4e5953;line-height:1.6}
+
+.ambiente-monitor-layout{display:grid;grid-template-columns:minmax(320px,.86fr) minmax(0,1.14fr);gap:26px;align-items:stretch}
+.ambiente-monitor-figure{position:relative;min-height:330px;margin:0;border-radius:20px;overflow:hidden;background:var(--forest-deep)}
+.ambiente-monitor-figure img{width:100%;height:100%;object-fit:cover}
+.ambiente-monitor-figure figcaption{position:absolute;right:0;bottom:0;left:0;padding:34px 20px 17px;color:#fff;background:linear-gradient(transparent,rgb(6 31 22 / 88%));font-size:12px;line-height:1.45}
+.ambiente-methods{display:grid;gap:12px}
+.ambiente-method{padding:19px 20px;border:1px solid rgb(22 61 43 / 12%);border-radius:16px;background:#fff}
+.ambiente-method summary{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:14px;align-items:center;cursor:pointer;list-style:none}
+.ambiente-method summary::-webkit-details-marker{display:none}
+.ambiente-method summary::after{content:"+";color:var(--forest);font:400 1.45rem/1 var(--font-heading)}
+.ambiente-method[open] summary::after{content:"−"}
+.ambiente-method-number{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#fff;background:var(--forest);font:750 12px/1 var(--font-heading)}
+.ambiente-method summary>span:not(.ambiente-method-number){display:grid;gap:2px}
+.ambiente-method summary strong{color:var(--forest-deep);font:750 1rem/1.3 var(--font-heading)}
+.ambiente-method summary small{display:block;color:var(--muted);font-size:13px;line-height:1.35}
+.ambiente-method-body{padding:15px 46px 0 48px;color:#46524b;line-height:1.65}
+.ambiente-method-body p{margin:0 0 10px}
+.ambiente-method-body dl{display:grid;grid-template-columns:auto 1fr;gap:7px 11px;margin:12px 0 0}
+.ambiente-method-body dt{color:var(--forest);font-weight:750}
+.ambiente-method-body dd{margin:0}
+
+.ambiente-response-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.ambiente-response{display:flex;min-height:240px;flex-direction:column;padding:24px;border-radius:18px;color:#eef6ef;background:var(--forest-deep);text-decoration:none;overflow:hidden}
+.ambiente-response:nth-child(2){background:#1f5d58}
+.ambiente-response:nth-child(3){color:var(--forest-deep);background:#e2dec9}
+.ambiente-response svg{width:36px;height:36px;margin-bottom:auto;fill:none;stroke:currentColor}
+.ambiente-response .eco-eyebrow{margin-top:28px;color:#e2ce8d}
+.ambiente-response:nth-child(3) .eco-eyebrow{color:var(--earth-text)}
+.ambiente-response h3{margin:0;font:750 1.28rem/1.25 var(--font-heading)}
+.ambiente-response p{margin:9px 0 0;color:inherit;font-size:14px;line-height:1.55;opacity:.86}
+.ambiente-response span{margin-top:16px;font-weight:700}
+.ambiente-response:is(:hover,:focus-visible){transform:translateY(-2px);box-shadow:0 14px 30px rgb(16 46 34 / 14%)}
+
+.ambiente-sources{border:1px solid rgb(22 61 43 / 13%);border-radius:18px;background:#fff;overflow:hidden}
+.ambiente-sources>summary{display:flex;min-height:64px;align-items:center;justify-content:space-between;gap:16px;padding:18px 22px;color:var(--forest-deep);font:750 1rem/1.3 var(--font-heading);cursor:pointer;list-style:none}
+.ambiente-sources>summary::-webkit-details-marker{display:none}
+.ambiente-sources>summary::after{content:"+";font-size:1.5rem;font-weight:400}
+.ambiente-sources[open]>summary::after{content:"−"}
+.ambiente-source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:0 18px 18px}
+.ambiente-source{padding:18px;border:1px solid rgb(22 61 43 / 10%);border-radius:13px;background:#f8f7f1}
+.ambiente-source h3{margin:0 0 7px;color:var(--forest-deep);font:700 1rem/1.35 var(--font-heading)}
+.ambiente-source p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.55}
+.ambiente-source a{color:var(--water-text);font-size:14px;font-weight:650;text-underline-offset:4px}
+.ambiente-source-index{display:block;margin-bottom:8px;color:var(--earth-text);font:750 12px/1 var(--font-heading);letter-spacing:.08em;text-transform:uppercase}
+
+.ambiente-next{display:flex;align-items:center;justify-content:space-between;gap:24px;padding-block:38px}
+.ambiente-next p{max-width:56ch;margin:0;color:var(--muted);line-height:1.65}
+.ambiente-next div{display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-end}
+
+@media(max-width:900px){
+  .ambiente-hero,.ambiente-monitor-layout{grid-template-columns:1fr}
+  .ambiente-hero{padding-top:28px}
+  .ambiente-hero-copy{max-width:760px}
+  .ambiente-hero-visual{max-width:760px}
+  .ambiente-section-head{grid-template-columns:1fr;gap:14px;align-items:start}
+  .ambiente-pressure-grid,.ambiente-source-grid{grid-template-columns:1fr}
+  .ambiente-response-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ambiente-response:last-child{grid-column:1/-1;min-height:190px}
+}
+@media(max-width:640px){
+  .eco-ambiente-page :is(#presiones,#bosques,#agua,#incendios,#mineria,#monitoreo,#respuestas,#fuentes){scroll-margin-top:42px}
+  .ambiente-nav-wrap{top:76px}
+  .ambiente-hero{grid-template-columns:minmax(0,1fr)}
+  .ambiente-hero-copy{padding-top:0}
+  .ambiente-hero h1{font-size:clamp(2.4rem,13vw,3.5rem)}
+  .ambiente-hero-actions .eco-button{width:100%}
+  .ambiente-pressure{grid-template-columns:1fr;min-height:0;padding:20px}
+  .ambiente-pressure-icon{grid-row:auto}
+  .ambiente-pressure :is(p,a){grid-column:1}
+  .ambiente-monitor-figure{min-height:240px}
+  .ambiente-method-body{padding-inline:0}
+  .ambiente-response-grid{grid-template-columns:1fr}
+  .ambiente-response:last-child{grid-column:auto}
+  .ambiente-response{min-height:210px}
+  .ambiente-next{display:grid}
+  .ambiente-next div{justify-content:flex-start}
+}
+@media(prefers-reduced-motion:reduce){.ambiente-response{transition:none}}

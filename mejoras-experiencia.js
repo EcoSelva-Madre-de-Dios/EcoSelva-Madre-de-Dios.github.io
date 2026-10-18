@@ -23,7 +23,7 @@
         ['Flora de Madre de Dios', '/flora.html', 'flora maderables no maderables medicinales alimenticias'],
         ['Castaña amazónica', '/fichas/castana.html', 'castaña Bertholletia excelsa ficha especie'],
         ['Biodiversidad', '/#biodiversidad', 'flora fauna mamíferos aves reptiles anfibios'],
-        ['Ambiente', '/#ambiente', 'ambiente cambios conservación'],
+        ['Ambiente', '/ambiente.html', 'ambiente cambios conservación monitoreo presiones'],
         ['Investigaciones', '/#investigaciones', 'ciencia estudios investigación'],
         ['Biblioteca', '/biblioteca.html', 'biblioteca documentos mapas estudios'],
         ['Fuentes y metodología', '/fuentes-metodologia.html', 'fuentes metodología revisión datos'],

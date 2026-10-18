@@ -1,8 +1,9 @@
-const CACHE_VERSION = 'ecoselva-2026-10-e';
+const CACHE_VERSION = 'ecoselva-2026-10-f';
 const CORE = [
   '/',
   '/index.html',
   '/territorio.html',
+  '/ambiente.html',
   '/flora.html',
   '/historia.html',
   '/areas-protegidas.html',
@@ -15,6 +16,7 @@ const CORE = [
   '/assets/eco-editorial.css',
   '/assets/eco-lecturas.css',
   '/assets/eco-patterns.css',
+  '/ambiente.css',
   '/assets/eco-base.js',
   '/assets/eco-editorial.js',
   '/territorio.js',
@@ -33,7 +35,9 @@ const CORE = [
   '/images/conexion-biodiversidad.jpg',
   '/images/conexion-ambiente.jpg',
   '/images/conexion-territorio.jpg',
-  '/images/conexion-ciencia.jpg'
+  '/images/conexion-ciencia.jpg',
+  '/images/agua-madre-de-dios.jpg',
+  '/images/territorio-observacion-campo.webp'
 ];
 
 self.addEventListener('install', event => {

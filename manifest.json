@@ -24,6 +24,7 @@
   ],
   "shortcuts": [
     {"name": "Territorio", "url": "/territorio.html", "description": "Abrir el atlas educativo"},
+    {"name": "Ambiente", "url": "/ambiente.html", "description": "Comprender cambios y conservación"},
     {"name": "Biodiversidad", "url": "/#biodiversidad", "description": "Explorar flora y fauna"},
     {"name": "Biblioteca", "url": "/biblioteca.html", "description": "Consultar documentos y fuentes"}
   ]

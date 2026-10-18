@@ -1032,7 +1032,19 @@ document.addEventListener('DOMContentLoaded', () => {
     accept.addEventListener('click', () => hideNotice());
     reopen.addEventListener('click', () => showNotice({ origin: reopen, bringIntoView: true }));
 
-    if (!readAcknowledgement()) showNotice();
+    if (!readAcknowledgement()) {
+      showNotice();
+      /* El aviso se inserta después de resolver el ancla inicial; recupera su posición. */
+      if (window.location.hash) {
+        const restoreAnchor = () => {
+          const id = decodeURIComponent(window.location.hash.slice(1));
+          document.getElementById(id)?.scrollIntoView({ behavior: 'instant', block: 'start' });
+        };
+        window.requestAnimationFrame(() => window.requestAnimationFrame(restoreAnchor));
+        if (document.readyState === 'complete') restoreAnchor();
+        else window.addEventListener('load', restoreAnchor, { once: true });
+      }
+    }
   });
 })();
 
@@ -1062,7 +1074,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ['Flora de Madre de Dios', '/flora.html', 'flora maderables no maderables medicinales alimenticias'],
         ['Castaña amazónica', '/fichas/castana.html', 'castaña Bertholletia excelsa ficha especie'],
         ['Biodiversidad', '/#biodiversidad', 'flora fauna mamíferos aves reptiles anfibios'],
-        ['Ambiente', '/#ambiente', 'ambiente cambios conservación'],
+        ['Ambiente', '/ambiente.html', 'ambiente cambios conservación monitoreo presiones'],
         ['Investigaciones', '/#investigaciones', 'ciencia estudios investigación'],
         ['Biblioteca', '/biblioteca.html', 'biblioteca documentos mapas estudios'],
         ['Fuentes y metodología', '/fuentes-metodologia.html', 'fuentes metodología revisión datos'],

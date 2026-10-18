@@ -7,6 +7,7 @@ from datetime import date
 
 ROOT = Path(__file__).resolve().parents[1]
 PAGES = {
+    'ambiente.html': ('index.html#ambiente', 'Volver a Ambiente'),
     'flora.html': ('index.html#biodiversidad', 'Volver a Biodiversidad'),
     'territorio.html': ('index.html#conoce-madre-de-dios', 'Volver a Conoce Madre de Dios'),
     'historia.html': ('index.html#conoce-madre-de-dios', 'Volver a Conoce Madre de Dios'),
@@ -25,7 +26,7 @@ REGION_LINKS = (
 BIODIVERSITY_LINKS = (
     ('index.html#biodiversidad', 'Biodiversidad', 'Flora y fauna de Madre de Dios.', 'biodiversidad'),
     ('flora.html', 'Flora', 'Plantas, productos y usos del bosque.', 'flora'),
-    ('index.html#ambiente', 'Ambiente', 'Cambios, presiones y conservación.', 'conservacion'),
+    ('ambiente.html', 'Ambiente', 'Cambios, presiones y conservación.', 'conservacion'),
 )
 ECOSYSTEM_LINKS = (
     ('index.html#quienes-somos', 'Sobre EcoSelva', 'Propósito, misión y visión.', 'educacion'),
