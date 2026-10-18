@@ -462,9 +462,7 @@ def verify_territorio_educativo():
     page = AtlasPage()
     page.feed(html)
     modules = ('territorio-bosques', 'territorio-castanales', 'territorio-rios',
-               'territorio-humedales', 'territorio-aguajales', 'territorio-conexiones',
-               'territorio-beneficios', 'territorio-cambios', 'territorio-ciencia',
-               'territorio-actividades', 'territorio-metodologia')
+               'territorio-humedales', 'territorio-aguajales', 'territorio-metodologia')
     if any(page.parents.get(id) != ('explora-madre-de-dios',) for id in modules):
         raise ValueError('Territorio: capítulos fuera de su página de lectura.')
     if page.map_hosts != [('datos/presentacion/mapa-base.svg', ('explora-madre-de-dios',))]:

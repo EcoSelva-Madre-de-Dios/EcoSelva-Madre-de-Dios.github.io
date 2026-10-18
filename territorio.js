@@ -1,5 +1,34 @@
-/* Visor y actividades de Territorio: conserva los datos cartográficos originales. */
+/* Visor y lectura de Territorio: conserva los datos cartográficos originales. */
+const redirectLegacyTerritoryHash = () => {
+    const legacyDestination = new Map([
+        ["#territorio-conexiones", "territorio.html#territorio-humedales"],
+        ["#territorio-conexiones-titulo", "territorio.html#territorio-humedales"],
+        ["#territorio-beneficios", "territorio.html#territorio-humedales"],
+        ["#territorio-beneficios-titulo", "territorio.html#territorio-humedales"],
+        ["#territorio-cambios", "ambiente.html#presiones"],
+        ["#territorio-cambios-titulo", "ambiente.html#presiones"],
+        ["#territorio-ciencia", "ambiente.html#monitoreo"],
+        ["#territorio-ciencia-titulo", "ambiente.html#monitoreo"],
+        ["#territorio-actividades", "index.html#investigaciones"],
+        ["#territorio-actividades-titulo", "index.html#investigaciones"],
+        ["#territorio-funcion-bosque", "territorio.html#territorio-bosques"],
+        ["#territorio-funcion-rio", "territorio.html#territorio-rios"],
+        ["#territorio-funcion-humedal", "territorio.html#territorio-humedales"],
+        ["#territorio-fuente-cincia", "ambiente.html#fuente-cincia"],
+        ["#territorio-fuente-mercurio", "ambiente.html#fuente-mercurio"],
+        ["#territorio-fuente-incendios", "ambiente.html#fuente-incendios"],
+        ["#territorio-fuente-geobosques", "ambiente.html#fuente-geobosques"],
+        ["#territorio-fuente-satelites", "ambiente.html#fuente-satelites"]
+    ]).get(location.hash);
+    if (legacyDestination) {
+        location.replace(legacyDestination);
+        return true;
+    }
+    return false;
+};
+window.addEventListener("hashchange", redirectLegacyTerritoryHash);
 document.addEventListener("DOMContentLoaded", () => {
+    if (redirectLegacyTerritoryHash()) return;
     const revealReference = () => {
         let target; try { target = document.getElementById(decodeURIComponent(location.hash.slice(1))); } catch { return; }
         if (!target) return;
@@ -451,45 +480,49 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Actividades locales: sin llamadas externas y con alternativas en noscript.
+    // Mejora progresiva de la lectura territorial.
     const territorioAula = document.getElementById("explora-madre-de-dios");
     if (territorioAula) {
         const quiz = territorioAula.querySelector("[data-territorio-quiz]");
-        const answers = [...quiz.querySelectorAll("[data-territorio-respuesta]")];
-        answers.forEach(button => {
-            button.disabled = false; button.setAttribute("aria-pressed", "false");
-            button.addEventListener("click", () => {
-                answers.forEach(answer => answer.setAttribute("aria-pressed", String(answer === button)));
-                const value = button.dataset.territorioRespuesta;
-                quiz.querySelector(".territorio-feedback").textContent = value === "rio" ?
-                    "Correcto: el agua de la parte inferior corresponde al río Tambopata; el bosque crece en la orilla. La fotografía no permite identificar todos los humedales del paisaje." :
-                    value === "bosque" ? "El bosque aparece en la orilla. Observa el agua de la parte inferior y prueba otra respuesta." :
-                    "Esta fotografía muestra el río Tambopata. La presencia de agua por sí sola no identifica un aguajal ni otro tipo de humedal. Observa la parte inferior y prueba otra respuesta.";
+        if (quiz) {
+            const answers = [...quiz.querySelectorAll("[data-territorio-respuesta]")];
+            answers.forEach(button => {
+                button.disabled = false; button.setAttribute("aria-pressed", "false");
+                button.addEventListener("click", () => {
+                    answers.forEach(answer => answer.setAttribute("aria-pressed", String(answer === button)));
+                    const value = button.dataset.territorioRespuesta;
+                    quiz.querySelector(".territorio-feedback").textContent = value === "rio" ?
+                        "Correcto: el agua de la parte inferior corresponde al río Tambopata; el bosque crece en la orilla. La fotografía no permite identificar todos los humedales del paisaje." :
+                        value === "bosque" ? "El bosque aparece en la orilla. Observa el agua de la parte inferior y prueba otra respuesta." :
+                        "Esta fotografía muestra el río Tambopata. La presencia de agua por sí sola no identifica un aguajal ni otro tipo de humedal. Observa la parte inferior y prueba otra respuesta.";
+                });
             });
-        });
+        }
         const form = territorioAula.querySelector("[data-territorio-relaciona]");
-        form.querySelectorAll("button").forEach(button => { button.disabled = false; });
-        const expected = {bosque: "carbono", rio: "agua", humedal: "regulacion"};
-        const names = {bosque: "bosque → almacenamiento de carbono", rio: "río → conducción de agua", humedal: "humedal → almacenamiento y regulación hídrica"};
-        form.addEventListener("submit", event => {
-            event.preventDefault();
-            if (!form.reportValidity()) return;
-            const wrong = Object.keys(expected).filter(name => {
-                const field = form.elements.namedItem(name);
-                const match = field.value === expected[name];
-                field.setAttribute("aria-invalid", String(!match));
-                field.setAttribute("aria-describedby", "territorio-relaciona-feedback");
-                return !match;
+        if (form) {
+            form.querySelectorAll("button").forEach(button => { button.disabled = false; });
+            const expected = {bosque: "carbono", rio: "agua", humedal: "regulacion"};
+            const names = {bosque: "bosque → almacenamiento de carbono", rio: "río → conducción de agua", humedal: "humedal → almacenamiento y regulación hídrica"};
+            form.addEventListener("submit", event => {
+                event.preventDefault();
+                if (!form.reportValidity()) return;
+                const wrong = Object.keys(expected).filter(name => {
+                    const field = form.elements.namedItem(name);
+                    const match = field.value === expected[name];
+                    field.setAttribute("aria-invalid", String(!match));
+                    field.setAttribute("aria-describedby", "territorio-relaciona-feedback");
+                    return !match;
+                });
+                const feedback = form.querySelector(".territorio-feedback");
+                feedback.id = "territorio-relaciona-feedback";
+                feedback.textContent = wrong.length ? "Has relacionado " + (3 - wrong.length) + " de 3 funciones destacadas. Revisa: " + wrong.map(name => names[name]).join("; ") + ". Estas funciones son ejemplos y no son exclusivas de un ambiente." :
+                    "Correcto: bosque → carbono; río → agua; humedal → regulación hídrica. Los humedales también pueden almacenar carbono y los bosques influir en el agua: las funciones se conectan.";
             });
-            const feedback = form.querySelector(".territorio-feedback");
-            feedback.id = "territorio-relaciona-feedback";
-            feedback.textContent = wrong.length ? "Has relacionado " + (3 - wrong.length) + " de 3 funciones destacadas. Revisa: " + wrong.map(name => names[name]).join("; ") + ". Estas funciones son ejemplos y no son exclusivas de un ambiente." :
-                "Correcto: bosque → carbono; río → agua; humedal → regulación hídrica. Los humedales también pueden almacenar carbono y los bosques influir en el agua: las funciones se conectan.";
-        });
-        form.addEventListener("reset", () => {
-            form.querySelector(".territorio-feedback").textContent = "";
-            form.querySelectorAll("select").forEach(field => { field.removeAttribute("aria-invalid"); field.removeAttribute("aria-describedby"); });
-        });
+            form.addEventListener("reset", () => {
+                form.querySelector(".territorio-feedback").textContent = "";
+                form.querySelectorAll("select").forEach(field => { field.removeAttribute("aria-invalid"); field.removeAttribute("aria-describedby"); });
+            });
+        }
         // Abre las fuentes desplegables al seguir una referencia local.
         territorioAula.querySelectorAll('a[href^="#territorio-"]').forEach(link => link.addEventListener("click", () => {
             const target = document.getElementById(link.hash.slice(1));
@@ -727,10 +760,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 selectStep(0);
             }
 
-            const panelIds = [
-                "territorio-bosques", "territorio-rios", "territorio-humedales", "territorio-conexiones",
-                "territorio-cambios", "territorio-ciencia", "territorio-actividades", "territorio-metodologia"
-            ];
+            const panelIds = ["territorio-bosques", "territorio-rios", "territorio-humedales", "territorio-metodologia"];
             const panels = panelIds.map(id => document.getElementById(id)).filter(Boolean);
             const tabs = [...index.querySelectorAll('a[href^="#territorio-"]')].filter(link => panelIds.includes(link.hash.slice(1)));
             const shell = document.createElement("div");

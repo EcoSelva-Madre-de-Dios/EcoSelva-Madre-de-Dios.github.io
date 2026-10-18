@@ -142,7 +142,8 @@ async function accessible(page, selector) {
         assert.equal(await page.locator('[data-territorio-overlay="anp"]:visible').count(), 0);
         assert.equal(await page.locator('[data-territorio-capa]:checked,[data-territorio-overlay-toggle]:checked').count(), 0);
         const territoryTabs = page.locator('.territorio-selector-shell .territorio-indice [role="tab"]');
-        assert.equal(await territoryTabs.count(), 8, 'Territorio debe ofrecer sus ocho temas');
+        assert.equal(await territoryTabs.count(), 4, 'Territorio debe ofrecer cuatro temas vinculados con las capas');
+        assert.equal(await page.locator('#territorio-conexiones,#territorio-cambios,#territorio-ciencia,#territorio-actividades').count(), 0, 'Territorio no debe repetir Ambiente, Ciencia ni actividades');
         assert.equal(await page.locator('.territorio-selector-shell .territorio-indice [aria-selected="true"]').count(), 1);
         assert.equal(await page.locator('.territorio-aula > .territorio-capitulo:visible').count(), 1);
         await page.getByRole('tab', { name: 'Bosques', exact: true }).click();
@@ -159,14 +160,10 @@ async function accessible(page, selector) {
         if (width === 1440) {
             await page.getByRole('tab', { name: 'Datos y fuentes', exact: true }).click();
             assert(await page.locator('#territorio-metodologia').isVisible());
-            for (const selector of ['.conoce-geografia-grid', '.conoce-personas-grid']) {
-                const cards = page.locator(selector).locator(':scope > details');
-                const heights = await cards.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().height));
-                await cards.first().locator('summary').click();
-                const after = await cards.evaluateAll(nodes => nodes.map(node => node.getBoundingClientRect().height));
-                assert(after[0] > heights[0]);
-                for (let i = 1; i < heights.length; i++) assert(Math.abs(after[i] - heights[i]) < 1, 'Tarjeta vecina de Territorio estirada');
-            }
+            assert.equal(await page.locator('#territorio-metodologia .territorio-method-links a').count(), 4);
+            assert.equal(await page.locator('#territorio-metodologia .territorio-contexto-grid').count(), 0, 'Datos y fuentes no debe repetir geografía ni personas');
+            await page.goto(new URL('territorio.html#territorio-ciencia', base).href);
+            await page.waitForURL('**/ambiente.html#monitoreo');
         }
         await page.goto(new URL('areas-protegidas.html#%', base).href);
         await page.locator('[data-anp-seleccionar="manu"]').click();

@@ -587,16 +587,13 @@
     backdrop-filter: none;
 }
 .eco-site #explora-madre-de-dios .territorio-selector-shell .territorio-indice {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: repeat(4,minmax(110px,1fr));
     gap: 7px;
     margin: 0;
-    overflow-x: auto;
-    overscroll-behavior-inline: contain;
-    scrollbar-width: thin;
 }
 .eco-site #explora-madre-de-dios .territorio-selector-shell .territorio-indice a {
-    flex: 0 0 auto;
+    justify-content: center;
     min-height: 42px;
     padding: 9px 13px;
     border: 1px solid transparent;
@@ -641,7 +638,7 @@
     text-align: center;
 }
 .eco-site #explora-madre-de-dios .territorio-aula.is-enhanced > .territorio-capitulo {
-    min-height: 520px;
+    min-height: 0;
     padding: clamp(38px,5vw,60px) clamp(18px,3vw,36px) 34px;
     border-top: 0;
 }
@@ -806,7 +803,26 @@
 .eco-site #explora-madre-de-dios .territorio-stepper-controls button { min-height: 44px; padding: 9px 16px; border: 1px solid #b9cabd; border-radius: 11px; background: #fff; color: #245d40; font-weight: 800; cursor: pointer; }
 .eco-site #explora-madre-de-dios .territorio-stepper-controls button:disabled { opacity: .45; cursor: default; }
 
-/* Geografía, personas, metodología y cierre editorial. */
+/* Rutas relacionadas, metodología y cierre editorial. */
+.eco-site #explora-madre-de-dios .territorio-rutas {
+    display: grid;
+    grid-template-columns: minmax(220px,.7fr) minmax(0,1.3fr);
+    gap: 24px;
+    align-items: center;
+    margin: 8px 0 28px;
+    padding: clamp(20px,3vw,30px);
+    border: 1px solid #cfdccf;
+    border-radius: 20px;
+    background: #eef4eb;
+}
+.eco-site #explora-madre-de-dios .territorio-rutas h2 { margin: 4px 0 8px; font-size: clamp(1.35rem,2vw,1.75rem); }
+.eco-site #explora-madre-de-dios .territorio-rutas p:last-child { margin-bottom: 0; }
+.eco-site #explora-madre-de-dios .territorio-rutas nav { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.eco-site #explora-madre-de-dios .territorio-rutas a { display: grid; grid-template-columns: auto 1fr auto; gap: 10px; align-items: center; min-height: 82px; padding: 14px; border: 1px solid #d3ddd3; border-radius: 14px; background: #fff; color: #214d37; text-decoration: none; }
+.eco-site #explora-madre-de-dios .territorio-rutas a:hover { border-color: #75a083; box-shadow: 0 8px 18px rgb(18 54 36 / 8%); }
+.eco-site #explora-madre-de-dios .territorio-rutas a .eco-icon { width: 28px; height: 28px; }
+.eco-site #explora-madre-de-dios .territorio-rutas a span { display: grid; gap: 3px; }
+.eco-site #explora-madre-de-dios .territorio-rutas a small { color: #587064; line-height: 1.35; }
 .eco-site #explora-madre-de-dios .territorio-contexto-grid {
     display: grid;
     grid-template-columns: repeat(2,minmax(0,1fr));
@@ -830,7 +846,8 @@
     .eco-site #explora-madre-de-dios .territorio-panel-controles { justify-content: flex-end; }
     .eco-site #explora-madre-de-dios .territorio-choice-layout,
     .eco-site #explora-madre-de-dios .territorio-humedales-composicion,
-    .eco-site #explora-madre-de-dios .territorio-contexto-grid { grid-template-columns: 1fr; }
+    .eco-site #explora-madre-de-dios .territorio-contexto-grid,
+    .eco-site #explora-madre-de-dios .territorio-rutas { grid-template-columns: 1fr; }
     .eco-site #explora-madre-de-dios .territorio-choice-list { grid-template-columns: repeat(2,minmax(0,1fr)); }
     .eco-site #explora-madre-de-dios .territorio-aula.is-enhanced .territorio-apertura { grid-template-columns: 1fr; }
 }
@@ -839,6 +856,9 @@
     .eco-site #explora-madre-de-dios .territorio-aula.is-enhanced > .territorio-capitulo { min-height: 0; padding: 34px 3px 26px; }
     .eco-site #explora-madre-de-dios .territorio-selector-shell { margin-inline: -3px; border-radius: 0 0 16px 16px; }
     .eco-site #explora-madre-de-dios .territorio-panel-controles { display: none; }
+    .eco-site #explora-madre-de-dios .territorio-selector-shell .territorio-indice { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    .eco-site #explora-madre-de-dios .territorio-selector-shell .territorio-indice a { min-width: 0; padding-inline: 8px; }
+    .eco-site #explora-madre-de-dios .territorio-rutas nav { grid-template-columns: 1fr; }
     .eco-site #explora-madre-de-dios .territorio-choice-list { display: flex; grid-template-columns: none; overflow-x: auto; }
     .eco-site #explora-madre-de-dios .territorio-choice-list button { flex: 0 0 190px; }
     .eco-site #explora-madre-de-dios .territorio-stepper-tabs { display: flex; overflow-x: auto; }
