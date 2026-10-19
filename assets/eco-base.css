@@ -6496,3 +6496,40 @@ html:has(dialog[open]){overflow:hidden}
 @media (max-width: 760px) {
   #conoce-madre-de-dios { padding-top: 48px; }
 }
+
+
+/* Conoce Madre de Dios: una sola superficie verde claro, sin fondos anidados. */
+#conoce-madre-de-dios {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  background: #f5f8f2;
+  color: var(--ink);
+}
+#conoce-madre-de-dios .conoce-cabecera,
+#conoce-madre-de-dios .conoce-modulos { position: relative; z-index: 1; }
+#conoce-madre-de-dios .conoce-cabecera h2,
+#conoce-madre-de-dios .conoce-modulo h3,
+#conoce-madre-de-dios .conoce-modulo h4 { color: var(--forest-deep); }
+#conoce-madre-de-dios .conoce-introduccion,
+#conoce-madre-de-dios .conoce-modulo p,
+#conoce-madre-de-dios .conoce-localizador figcaption,
+#conoce-madre-de-dios .conoce-colindancias span,
+#conoce-madre-de-dios .conoce-datos dt { color: var(--muted); }
+#conoce-madre-de-dios .conoce-modulo { border-color: #c9d2c3; }
+#conoce-madre-de-dios .conoce-localizador,
+#conoce-madre-de-dios .conoce-datos > div,
+#conoce-madre-de-dios .conoce-provincia,
+#conoce-madre-de-dios .eco-preview-map,
+#conoce-madre-de-dios .conoce-preview {
+  border-color: #c9d2c3;
+  background: #fff;
+  box-shadow: var(--shadow-raised);
+}
+#conoce-madre-de-dios .eco-block-sources,
+#conoce-madre-de-dios .eco-territorio-preview-content {
+  background: transparent;
+  box-shadow: none;
+}
+#conoce-madre-de-dios .eco-territorio-preview-rutas a { background: rgb(255 255 255 / 72%); }
+@media (max-width: 760px) { #conoce-madre-de-dios { padding-top: 48px; } }
