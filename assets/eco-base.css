@@ -6503,7 +6503,9 @@ html:has(dialog[open]){overflow:hidden}
   width: 100%;
   max-width: none;
   margin-inline: 0;
-  background: #f5f8f2;
+  background-color: #f5f8f2;
+  background-image: radial-gradient(circle at 1px 1px, rgb(61 122 77 / 14%) 1px, transparent 1.25px);
+  background-size: 18px 18px;
   color: var(--ink);
 }
 #conoce-madre-de-dios .conoce-cabecera,
