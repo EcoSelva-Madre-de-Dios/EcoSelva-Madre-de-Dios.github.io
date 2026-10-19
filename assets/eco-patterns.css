@@ -351,6 +351,7 @@
   .eco-site .eco-tema-separador { display: none; }
 }
 
+
 /* Sistema ornamental reducido: superficies limpias para leer y comparar. */
 .eco-site :is(
   .eco-card,
@@ -812,49 +813,4 @@
   .eco-site main.metodologia::before,
   .eco-site :is(#explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero)::before,
   .eco-site :is(.eco-global-footer, .footer, .selva-pie-final)::before { display: none !important; }
-}
-
-/* Regla final: el patrón punteado pertenece a la sección completa. */
-.eco-site #conoce-madre-de-dios,
-.eco-site #biodiversidad {
-  width: 100% !important;
-  max-width: none !important;
-  margin-inline: 0 !important;
-  background-color: #f5f8f2 !important;
-  background-image: radial-gradient(circle at 1px 1px, rgb(61 122 77 / 14%) 1px, transparent 1.25px) !important;
-  background-size: 18px 18px !important;
-}
-.eco-site #conoce-madre-de-dios {
-  color: var(--ink) !important;
-}
-.eco-site #conoce-madre-de-dios :is(h2, h3, h4, strong, dd) {
-  color: var(--forest-deep) !important;
-}
-.eco-site #conoce-madre-de-dios :is(p, dt, figcaption, span) {
-  color: var(--muted) !important;
-}
-.eco-site #conoce-madre-de-dios #conoce-ubicacion,
-.eco-site #biodiversidad .selva-biodiversidad-panel {
-  padding: 0 !important;
-  border: 0 !important;
-  border-radius: 0 !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  box-shadow: none !important;
-}
-.eco-site #conoce-madre-de-dios .selva-explora {
-  background: transparent !important;
-}
-.eco-site #conoce-madre-de-dios :is(.conoce-localizador, .conoce-datos > div, .conoce-provincia, .eco-preview-map, .conoce-preview),
-.eco-site #biodiversidad .selva-biodiversidad-stat {
-  background: #fff !important;
-}
-.eco-site #conoce-madre-de-dios :is(.conoce-localizador, .conoce-datos > div, .conoce-provincia, .eco-preview-map, .conoce-preview) :is(h2, h3, h4, strong, dd),
-.eco-site #biodiversidad .selva-biodiversidad-stat :is(h3, h4) {
-  color: var(--forest-deep) !important;
-}
-
-@media (prefers-contrast: more), (forced-colors: active) {
-  .eco-site #conoce-madre-de-dios,
-  .eco-site #biodiversidad { background-image: none !important; }
 }
