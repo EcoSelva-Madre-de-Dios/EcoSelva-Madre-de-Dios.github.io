@@ -829,3 +829,23 @@
 .eco-site #biodiversidad > .selva-microetiqueta { color: var(--green-natural); }
 .eco-site #biodiversidad > .eco-topic-heading h2,
 .eco-site #biodiversidad > .selva-biodiversidad-intro { color: var(--forest-deep); }
+
+/* Fondos generales: la sección contiene las tarjetas, no al revés. */
+.eco-site #conoce-madre-de-dios #conoce-ubicacion {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.eco-site #conoce-madre-de-dios .selva-explora {
+  background: transparent !important;
+}
+.eco-site #biodiversidad .selva-biodiversidad-panel {
+  padding-inline: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
