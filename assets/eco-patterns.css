@@ -816,13 +816,14 @@
 }
 
 
-/* Biodiversidad: el verde claro ocupa toda la franja de la sección. */
+/* Biodiversidad: el fondo punteado ocupa toda la franja de la sección. */
 .eco-site #biodiversidad {
   width: 100%;
   max-width: none;
   margin-inline: 0;
   background-color: #f5f8f2 !important;
-  background-image: none !important;
+  background-image: radial-gradient(circle at 1px 1px, rgb(61 122 77 / 14%) 1px, transparent 1.25px) !important;
+  background-size: 18px 18px;
   color: var(--ink);
 }
 .eco-site #biodiversidad > :not(.selva-biodiversidad-panel) { position: relative; z-index: 1; }
