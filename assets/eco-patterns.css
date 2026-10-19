@@ -825,10 +825,7 @@
   background-image: none !important;
   color: var(--ink);
 }
-.eco-site #biodiversidad > :not(.selva-biodiversidad-panel) {
-  position: relative;
-  z-index: 1;
-}
+.eco-site #biodiversidad > :not(.selva-biodiversidad-panel) { position: relative; z-index: 1; }
 .eco-site #biodiversidad > .selva-microetiqueta { color: var(--green-natural); }
 .eco-site #biodiversidad > .eco-topic-heading h2,
 .eco-site #biodiversidad > .selva-biodiversidad-intro { color: var(--forest-deep); }
