@@ -326,6 +326,495 @@
     }
 }
 
+/* Conoce Madre de Dios: composición compacta aprobada para ubicación y provincias. */
+#conoce-madre-de-dios > .conoce-cabecera,
+#conoce-madre-de-dios #conoce-ubicacion,
+#conoce-madre-de-dios #conoce-provincias {
+    width: min(calc(100% - 40px), 980px);
+    margin-inline: auto;
+}
+
+#conoce-madre-de-dios > .conoce-cabecera {
+    padding-bottom: var(--space-3);
+}
+
+#conoce-madre-de-dios > .conoce-cabecera h2 {
+    margin-block: 8px 10px;
+    font-size: clamp(2rem, 4vw, 3.35rem);
+}
+
+#conoce-madre-de-dios > .conoce-cabecera .conoce-introduccion {
+    max-width: 72ch;
+    margin-top: 0;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    padding: clamp(18px, 2.3vw, 28px);
+    border: 1px solid color-mix(in srgb, var(--line) 82%, var(--white));
+    border-radius: var(--radius-lg);
+    background:
+        radial-gradient(circle at 84% 24%, rgb(83 125 97 / 9%) 0 1px, transparent 1.5px) 0 0 / 12px 12px,
+        linear-gradient(120deg, rgb(255 255 255 / 96%), rgb(241 245 237 / 90%));
+    box-shadow: 0 18px 42px rgb(25 55 39 / 8%);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -70px;
+    bottom: -96px;
+    width: 360px;
+    aspect-ratio: 1;
+    background: var(--eco-patron-semillas) center / contain no-repeat;
+    opacity: .055;
+    pointer-events: none;
+    -webkit-mask-image: radial-gradient(circle at 58% 58%, #000 0 42%, transparent 82%);
+    mask-image: radial-gradient(circle at 58% 58%, #000 0 42%, transparent 82%);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-grid {
+    grid-template-columns: minmax(250px, .82fr) minmax(0, 1.55fr);
+    align-items: center;
+    gap: clamp(26px, 4vw, 50px);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-localizador {
+    width: 100%;
+    max-width: 300px;
+    justify-self: center;
+    padding: 14px;
+    border-radius: 16px;
+    box-shadow: 0 12px 28px rgb(23 60 45 / 14%);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-localizador-etiqueta {
+    min-height: 34px;
+    padding-right: 42px;
+    font-size: .78rem;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-localizador figcaption {
+    margin-top: 8px;
+    font-size: .75rem;
+    line-height: 1.45;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .eco-image-open {
+    top: 11px;
+    right: 11px;
+    width: 38px;
+    height: 38px;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-texto {
+    max-width: none;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-modulo-cabecera {
+    margin-bottom: 14px;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-modulo-cabecera h3 {
+    font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos {
+    gap: 10px;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos > div {
+    min-height: 82px;
+    padding: 12px 14px;
+    border-color: color-mix(in srgb, var(--line) 86%, var(--white));
+    border-radius: 9px;
+    box-shadow: 0 5px 16px rgb(23 60 45 / 4%);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos dt {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    max-width: none;
+    margin-bottom: 6px;
+    font-size: .75rem;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos dt svg {
+    width: 18px;
+    height: 18px;
+    flex: 0 0 18px;
+    color: var(--green-natural);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos dd {
+    font-size: clamp(1.35rem, 2.4vw, 1.85rem);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-datos .conoce-dato-capital {
+    max-width: none;
+    font-size: clamp(1rem, 1.55vw, 1.22rem);
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-colindancias {
+    gap: 18px;
+    margin-top: 14px;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-colindancias p {
+    padding-left: 12px;
+    font-size: .75rem;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-acciones {
+    margin-top: 12px;
+}
+
+#conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-acciones .conoce-enlace {
+    min-height: 40px;
+    font-size: .76rem;
+}
+
+#conoce-madre-de-dios #conoce-provincias {
+    padding-block: 18px 30px;
+    border-top: 0;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-modulo-cabecera {
+    margin-bottom: 10px;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-modulo-cabecera h3 {
+    font-size: clamp(1.25rem, 2vw, 1.55rem);
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincias {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia {
+    --provincia-arte: var(--eco-patron-semillas);
+    overflow: clip;
+    border-color: color-mix(in srgb, var(--line) 88%, var(--white));
+    border-top: 5px solid #2f7d4c;
+    border-radius: 10px;
+    background: var(--white);
+    box-shadow: 0 7px 20px rgb(23 60 45 / 7%);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+
+#conoce-madre-de-dios #conoce-provincias #conoce-provincia-tambopata {
+    --provincia-arte: url("images/lago-sandoval-768.webp");
+    --provincia-foco: center 62%;
+}
+#conoce-madre-de-dios #conoce-provincias #conoce-provincia-manu {
+    --provincia-arte: url("images/conservacion/manu.webp");
+    --provincia-foco: center 60%;
+}
+#conoce-madre-de-dios #conoce-provincias #conoce-provincia-tahuamanu {
+    --provincia-arte: url("images/castanal-amazonia-peru.jpg");
+    --provincia-foco: center 42%;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-height: 112px;
+    grid-template-columns: 48px minmax(0, 1fr);
+    align-content: center;
+    gap: 3px 10px;
+    padding: 14px 34% 14px 14px;
+    background: #fff;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary:hover {
+    background: #f8fbf4;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary::before {
+    content: "";
+    position: absolute;
+    z-index: -2;
+    inset: 0 0 0 auto;
+    width: 52%;
+    background: var(--provincia-arte) var(--provincia-foco, center) / cover no-repeat;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(90deg, #fff 0 48%, rgb(255 255 255 / 92%) 57%, rgb(255 255 255 / 12%) 78%, transparent 100%);
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary:hover::after {
+    background: linear-gradient(90deg, #f8fbf4 0 48%, rgb(248 251 244 / 90%) 57%, rgb(248 251 244 / 8%) 78%, transparent 100%);
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia:hover {
+    transform: translateY(-2px);
+    border-color: color-mix(in srgb, var(--green-natural) 62%, var(--line));
+    box-shadow: 0 11px 24px rgb(23 60 45 / 11%);
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-emblema {
+    width: 48px;
+    height: 48px;
+    grid-column: 1;
+    grid-row: 1 / 4;
+    align-self: center;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgb(23 60 45 / 10%));
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary > strong {
+    grid-column: 2;
+    color: var(--forest-deep);
+    font-size: 1rem;
+    line-height: 1.25;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-cantidad,
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-abrir {
+    grid-column: 2;
+    margin-top: 0;
+    font-size: .75rem;
+    line-height: 1.4;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-cantidad {
+    color: var(--muted);
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-abrir {
+    color: var(--forest);
+}
+
+#conoce-madre-de-dios #conoce-fuentes-provincias {
+    margin-top: 10px;
+    font-size: .75rem;
+}
+
+#conoce-madre-de-dios .conoce-provincia-foto-credito {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-size: .78rem;
+    line-height: 1.6;
+}
+
+#conoce-madre-de-dios .conoce-provincia-foto-credito a {
+    color: var(--forest);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+@media (max-width: 860px) {
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-grid {
+        grid-template-columns: minmax(225px, .82fr) minmax(0, 1.35fr);
+        gap: 24px;
+    }
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-localizador {
+        max-width: 270px;
+    }
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincias {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    #conoce-madre-de-dios > .conoce-cabecera,
+    #conoce-madre-de-dios #conoce-ubicacion,
+    #conoce-madre-de-dios #conoce-provincias {
+        width: min(calc(100% - 36px), 980px);
+    }
+    #conoce-madre-de-dios #conoce-ubicacion {
+        padding: 14px;
+        border-radius: 14px;
+    }
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-ubicacion-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+    }
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-localizador {
+        width: min(100%, 320px);
+        max-width: none;
+    }
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-datos > div {
+        min-height: 76px;
+    }
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincias {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary {
+        min-height: 104px;
+    }
+}
+
+@media (max-width: 380px) {
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-datos,
+    #conoce-madre-de-dios #conoce-ubicacion .conoce-colindancias {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincia { transition: none; }
+}
+
+@media (prefers-contrast: more), (forced-colors: active) {
+    #conoce-madre-de-dios #conoce-ubicacion::after { content: none; }
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary { background: Canvas; }
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary::before,
+    #conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary::after { content: none; }
+}
+
+/* Conoce: ubicación y división política comparten una composición compacta. */
+#conoce-madre-de-dios .conoce-arranque-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(330px, .82fr);
+    align-items: stretch;
+    gap: 20px;
+    width: min(calc(100% - 32px), 1280px);
+    margin-inline: auto;
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid > #conoce-ubicacion,
+#conoce-madre-de-dios .conoce-arranque-grid > #conoce-provincias {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid > #conoce-ubicacion {
+    padding: clamp(18px, 2vw, 24px);
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-ubicacion-grid {
+    grid-template-columns: minmax(235px, .8fr) minmax(0, 1.35fr);
+    gap: clamp(20px, 2.4vw, 32px);
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-localizador {
+    max-width: 280px;
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-datos > div {
+    min-height: 84px;
+    padding: 12px 14px;
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias {
+    padding: 20px;
+    border: 1px solid color-mix(in srgb, var(--line) 82%, var(--white));
+    border-radius: var(--radius-lg);
+    background: linear-gradient(145deg, rgb(255 255 255 / 96%), rgb(244 247 240 / 92%));
+    box-shadow: 0 18px 42px rgb(25 55 39 / 7%);
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias .conoce-provincias {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias .conoce-provincia > summary {
+    min-height: 100px;
+    padding-block: 12px;
+}
+
+@media (max-width: 1120px) {
+    #conoce-madre-de-dios .conoce-arranque-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: min(calc(100% - 40px), 980px);
+    }
+    #conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias .conoce-provincias {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+    }
+}
+
+@media (max-width: 760px) {
+    #conoce-madre-de-dios .conoce-arranque-grid {
+        width: min(calc(100% - 36px), 980px);
+        gap: 12px;
+    }
+    #conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-ubicacion-grid,
+    #conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias .conoce-provincias {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    #conoce-madre-de-dios .conoce-arranque-grid > #conoce-provincias {
+        padding: 14px;
+    }
+}
+
+
+/* Conoce Madre de Dios: franja editorial completa, sin fondos anidados. */
+#conoce-madre-de-dios {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-block: clamp(64px, 8vw, 96px) 0;
+  background: #0d2818;
+  color: #fff;
+}
+#conoce-madre-de-dios .conoce-cabecera,
+#conoce-madre-de-dios .conoce-modulos { position: relative; z-index: 1; }
+#conoce-madre-de-dios .selva-microetiqueta,
+#conoce-madre-de-dios .eco-eyebrow { color: #74c69d; }
+#conoce-madre-de-dios .conoce-cabecera h2,
+#conoce-madre-de-dios .conoce-modulo h3,
+#conoce-madre-de-dios .conoce-modulo h4 { color: #fff; }
+#conoce-madre-de-dios .conoce-introduccion,
+#conoce-madre-de-dios .conoce-modulo p,
+#conoce-madre-de-dios .conoce-localizador figcaption,
+#conoce-madre-de-dios .conoce-colindancias span,
+#conoce-madre-de-dios .conoce-datos dt { color: #d8f3dc; }
+#conoce-madre-de-dios .conoce-modulo { border-color: rgb(255 255 255 / 18%); }
+#conoce-madre-de-dios .conoce-localizador,
+#conoce-madre-de-dios .conoce-datos > div,
+#conoce-madre-de-dios .conoce-provincia,
+#conoce-madre-de-dios .eco-preview-map,
+#conoce-madre-de-dios .conoce-preview,
+#conoce-madre-de-dios .eco-block-sources {
+  border-color: rgb(255 255 255 / 18%);
+  background: rgb(255 255 255 / 7%);
+  box-shadow: none;
+}
+#conoce-madre-de-dios .conoce-datos dd,
+#conoce-madre-de-dios .conoce-provincia > summary > strong,
+#conoce-madre-de-dios .conoce-provincia-cantidad,
+#conoce-madre-de-dios .conoce-provincia-abrir,
+#conoce-madre-de-dios .conoce-enlace,
+#conoce-madre-de-dios .eco-text-link,
+#conoce-madre-de-dios .eco-territorio-preview-rutas a,
+#conoce-madre-de-dios .eco-block-sources summary { color: #fff; }
+#conoce-madre-de-dios .conoce-provincia > summary,
+#conoce-madre-de-dios .conoce-provincia > summary:hover { background: transparent; }
+#conoce-madre-de-dios .conoce-provincia > summary::after {
+  background: linear-gradient(90deg, rgb(13 40 24 / 94%) 0 48%, rgb(13 40 24 / 78%) 60%, rgb(13 40 24 / 18%) 82%, transparent 100%);
+}
+#conoce-madre-de-dios .eco-territorio-preview-content,
+#conoce-madre-de-dios .eco-territorio-photo figcaption {
+  background: transparent;
+  color: #d8f3dc;
+}
+#conoce-madre-de-dios .eco-territorio-preview-rutas a {
+  border-color: rgb(255 255 255 / 18%);
+  background: rgb(255 255 255 / 7%);
+}
+#conoce-madre-de-dios .eco-territorio-preview-rutas a:hover { background: rgb(255 255 255 / 14%); }
+@media (max-width: 760px) {
+  #conoce-madre-de-dios { padding-top: 48px; }
+}
+
 
 /* Conoce Madre de Dios: una sola superficie verde claro, sin fondos anidados. */
 #conoce-madre-de-dios {
@@ -360,9 +849,5 @@
   background: transparent;
   box-shadow: none;
 }
-#conoce-madre-de-dios .eco-territorio-preview-rutas a {
-  background: rgb(255 255 255 / 72%);
-}
-@media (max-width: 760px) {
-  #conoce-madre-de-dios { padding-top: 48px; }
-}
+#conoce-madre-de-dios .eco-territorio-preview-rutas a { background: rgb(255 255 255 / 72%); }
+@media (max-width: 760px) { #conoce-madre-de-dios { padding-top: 48px; } }
