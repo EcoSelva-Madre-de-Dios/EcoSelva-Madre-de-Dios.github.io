@@ -913,10 +913,8 @@
   color: #fffdf6;
 }
 
-/* Bloques institucionales y pies: verde profundo con lineas doradas. */
-.eco-home #quienes-somos,
-.eco-site .footer,
-.eco-site .eco-global-footer {
+/* Bloques institucionales: verde profundo con lineas doradas. */
+.eco-home #quienes-somos {
   background-color: #063e2b !important;
   background-image:
     linear-gradient(90deg, rgb(2 47 31 / 8%), rgb(3 55 36 / 20%)),
@@ -947,18 +945,15 @@
   opacity: .34;
 }
 
-.eco-home #quienes-somos :is(h2, h3, strong),
-.eco-site :is(.footer, .eco-global-footer) :is(h2, h3, strong) {
+.eco-home #quienes-somos :is(h2, h3, strong) {
   color: #fffdf6;
 }
 
-.eco-home #quienes-somos :is(p, li),
-.eco-site :is(.footer, .eco-global-footer) :is(p, span, time) {
+.eco-home #quienes-somos :is(p, li) {
   color: rgb(255 253 246 / 84%);
 }
 
-.eco-home #quienes-somos :is(a, .selva-sobre-editorial a),
-.eco-site :is(.footer, .eco-global-footer) a {
+.eco-home #quienes-somos :is(a, .selva-sobre-editorial a) {
   color: #ead180;
   text-decoration-color: rgb(234 209 128 / 70%);
 }
@@ -988,8 +983,7 @@
   .anp-hero,
   .eco-library-hero
 )::after,
-.eco-site main.metodologia::before,
-.eco-site :is(.footer, .eco-global-footer)::before {
+.eco-site main.metodologia::before {
   content: none !important;
 }
 
@@ -1006,8 +1000,7 @@
 
   .eco-site :is(.flora-page-heading, .anp-hero, .historia-hero, .eco-library-hero, .metodologia-hero),
   .eco-ambiente-page .ambiente-hero,
-  .eco-home :is(#biodiversidad, #ambiente, #colabora, #quienes-somos, #investigaciones),
-  .eco-site :is(.footer, .eco-global-footer) {
+  .eco-home :is(#biodiversidad, #ambiente, #colabora, #quienes-somos, #investigaciones) {
     background-position: center;
     background-size: auto 100%;
   }
