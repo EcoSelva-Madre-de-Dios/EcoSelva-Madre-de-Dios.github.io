@@ -729,6 +729,41 @@
   z-index: 1;
 }
 
+/* Portada: una sola figura continua une Contacto y la franja legal. */
+.eco-home .eco-home-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  background: #0b3829;
+}
+
+.eco-home .eco-home-footer::before {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background-color: #d7c587;
+  -webkit-mask: var(--eco-patron-banda) center / 100% 100% no-repeat;
+  mask: var(--eco-patron-banda) center / 100% 100% no-repeat;
+  opacity: .2;
+  pointer-events: none;
+}
+
+.eco-home .eco-home-footer > :is(.footer, .selva-pie-final) {
+  position: relative;
+  z-index: 1;
+  background: transparent;
+  background-image: none !important;
+}
+
+.eco-home .eco-home-footer > :is(.footer, .selva-pie-final)::before {
+  content: none !important;
+}
+
+.eco-home .eco-home-footer > .selva-pie-final {
+  border-top: 0;
+}
+
 @media (max-width: 1024px) {
   .eco-site :is(.conoce-madre, .selva-ambiente, #explora-madre-de-dios)::after { width: min(430px, 44vw); }
   .eco-site #biodiversidad::after,
