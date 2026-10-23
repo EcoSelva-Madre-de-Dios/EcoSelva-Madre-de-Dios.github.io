@@ -1009,6 +1009,60 @@
   }
 }
 
+/* Fondos editoriales a sangre completa.
+   El arte llega a ambos bordes, mientras el contenido conserva la misma
+   columna de lectura de 1320 px. */
+.eco-site :is(
+  .flora-page-heading,
+  .anp-hero,
+  .historia-hero,
+  .eco-library-hero,
+  .ambiente-hero
+) {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: max(var(--page-gutter), calc((100vw - var(--layout-wide)) / 2));
+}
+
+.eco-site .metodologia-hero {
+  width: 100vw;
+  max-width: none;
+  margin-left: calc(50% - 50vw);
+  padding-inline: max(var(--page-gutter), calc((100vw - var(--layout-wide)) / 2));
+}
+
+.eco-site.eco-home :is(#biodiversidad, #ambiente, #colabora) {
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
+  padding-inline: max(var(--page-gutter), calc((100vw - var(--layout-wide)) / 2));
+  border-inline: 0;
+}
+
+/* Conoce vuelve a una superficie neutra: el mapa y las provincias son el foco. */
+.eco-home #conoce-madre-de-dios {
+  background: var(--paper) !important;
+}
+
+.eco-home #conoce-madre-de-dios::after {
+  content: none !important;
+}
+
+@media (max-width: 700px) {
+  .eco-site :is(
+    .flora-page-heading,
+    .anp-hero,
+    .historia-hero,
+    .eco-library-hero,
+    .ambiente-hero
+  ),
+  .eco-site .metodologia-hero,
+  .eco-site.eco-home :is(#biodiversidad, #ambiente, #colabora) {
+    padding-inline: var(--page-gutter);
+  }
+}
+
 @media (prefers-contrast: more), (forced-colors: active) {
   .eco-site :is(
     #conoce-madre-de-dios,

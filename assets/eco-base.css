@@ -5103,6 +5103,130 @@ body.eco-site .conoce-modal[data-conoce-tipo="provincia"] {
     #conoce-madre-de-dios::after { content: none; }
 }
 
+/* Conoce: mayor escala y mejor uso del ancho disponible. */
+.eco-site.eco-home #conoce-madre-de-dios > .conoce-cabecera,
+.eco-site.eco-home #conoce-madre-de-dios > .conoce-modulos {
+    width: min(var(--layout-max), calc(100% - 2 * var(--page-gutter)));
+    max-width: var(--layout-max);
+}
+
+#conoce-madre-de-dios > .conoce-cabecera {
+    padding-bottom: clamp(24px, 3vw, 38px);
+}
+
+#conoce-madre-de-dios .conoce-cabecera h2 {
+    font-size: clamp(2.45rem, 4.2vw, 4.25rem);
+}
+
+#conoce-madre-de-dios .conoce-introduccion {
+    max-width: 860px;
+    font-size: clamp(1.05rem, 1rem + .25vw, 1.28rem);
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid {
+    width: 100%;
+    grid-template-columns: minmax(0, 1.72fr) minmax(390px, .86fr);
+    align-items: start;
+    gap: clamp(24px, 2.4vw, 38px);
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid > #conoce-ubicacion,
+#conoce-madre-de-dios .conoce-arranque-grid > #conoce-provincias {
+    height: auto;
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid > #conoce-ubicacion {
+    padding: clamp(24px, 2.4vw, 36px);
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-ubicacion-grid {
+    grid-template-columns: minmax(390px, 1.04fr) minmax(360px, .96fr);
+    gap: clamp(28px, 3vw, 48px);
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-localizador {
+    max-width: 500px;
+    padding: 14px;
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-datos > div {
+    min-height: 104px;
+    padding: 16px 18px;
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid > #conoce-provincias {
+    padding: clamp(22px, 2.2vw, 30px);
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-modulo-cabecera {
+    margin-bottom: 18px;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-modulo-cabecera h3 {
+    font-size: clamp(1.45rem, 2.1vw, 1.9rem);
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias .conoce-provincias {
+    gap: 13px;
+}
+
+#conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias .conoce-provincia > summary {
+    min-height: 126px;
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 5px 13px;
+    padding: 16px 35% 16px 16px;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-emblema {
+    width: 58px;
+    height: 58px;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia > summary > strong {
+    font-size: 1.12rem;
+}
+
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-cantidad,
+#conoce-madre-de-dios #conoce-provincias .conoce-provincia-abrir {
+    font-size: .8rem;
+}
+
+@media (max-width: 1180px) {
+    #conoce-madre-de-dios .conoce-arranque-grid {
+        grid-template-columns: minmax(0, 1fr);
+        width: 100%;
+    }
+
+    #conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias .conoce-provincias {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 760px) {
+    .eco-site.eco-home #conoce-madre-de-dios > .conoce-cabecera,
+    .eco-site.eco-home #conoce-madre-de-dios > .conoce-modulos {
+        width: calc(100% - 2 * var(--page-gutter));
+    }
+
+    #conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-ubicacion-grid,
+    #conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias .conoce-provincias {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #conoce-madre-de-dios .conoce-arranque-grid > #conoce-ubicacion,
+    #conoce-madre-de-dios .conoce-arranque-grid > #conoce-provincias {
+        padding: 18px;
+    }
+
+    #conoce-madre-de-dios .conoce-arranque-grid #conoce-ubicacion .conoce-localizador {
+        max-width: 520px;
+    }
+
+    #conoce-madre-de-dios .conoce-arranque-grid #conoce-provincias .conoce-provincia > summary {
+        min-height: 112px;
+    }
+}
+
 /* ecoselva.css */
 /* Sistema compartido: composición y presentación; no interviene en los datos. */
 
