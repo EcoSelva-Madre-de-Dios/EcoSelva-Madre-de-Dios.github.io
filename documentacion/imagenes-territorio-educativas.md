@@ -27,6 +27,17 @@ El mapa localizador y el esquema del río son SVG editables. La fotografía del 
 - El pie visible incluye autor, fuente, licencia, reducción y encuadre adaptado.
 - SHA-256: `e47991ad59be6530bc6511e50864407832f2ec49de79dc67e1e39a450470bd74`.
 
+## Ribera del río Manu · As578
+
+- Archivo: `images/manu-ribera-as578.jpg`.
+- Autor: [As578](https://en.wikipedia.org/wiki/User:As578).
+- Fuente: [Manu riverbank](https://commons.wikimedia.org/wiki/File:Manu_riverbank.jpg), Wikimedia Commons.
+- Licencia: [CC BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/).
+- Lugar documentado por la fuente: ribera del río Manu, Parque Nacional del Manu, Madre de Dios, Perú.
+- Copia local: 1280 × 874 píxeles; miniatura oficial de Wikimedia Commons.
+- Presentación: cabecera recortada mediante CSS en la ficha territorial de la provincia de Manu; el archivo almacenado no se recorta.
+- SHA-256: `d3e34eebc2dfcc441c1e442bcf028e15b6455cfdc4d154de3bfe4a4c8d5716f8`.
+
 ## Localizador del Perú
 
 Se conservaron exactamente los dos atributos `d` originales de Natural Earth 5.1.1: base del Perú y región Madre de Dios. Se cambiaron fondo, colores, ubicación de etiquetas y orientación; las coordenadas no se transformaron. Se mantiene el aviso de localizador educativo sin valor demarcatorio.

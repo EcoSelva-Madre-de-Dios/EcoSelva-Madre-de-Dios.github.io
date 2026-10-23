@@ -754,3 +754,328 @@
         padding: 14px;
     }
 }
+
+/* Fichas territoriales de las provincias. */
+body.eco-site .conoce-modal[data-conoce-tipo="provincia"] {
+    --ventana-acento: #2f7d4c;
+    width: min(900px, calc(100vw - 40px));
+    max-height: min(92dvh, 940px);
+    overflow: auto;
+    border: 1px solid rgb(23 60 45 / 18%);
+    border-radius: 22px;
+    background: #fffdf8;
+}
+
+.conoce-modal[data-conoce-tipo="provincia"] .selva-territorio-fuentes-modal-cabecera {
+    position: absolute;
+    z-index: 5;
+    inset: 16px 16px auto auto;
+    padding: 0;
+    border: 0;
+    background: transparent;
+}
+
+.conoce-modal[data-conoce-tipo="provincia"] .selva-territorio-fuentes-modal-cabecera h3 {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.conoce-modal[data-conoce-tipo="provincia"] .conoce-modal-cerrar {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-color: rgb(23 60 45 / 20%);
+    background: rgb(255 253 248 / 94%);
+    color: var(--forest-deep);
+    font-size: 1.45rem;
+    box-shadow: 0 7px 20px rgb(9 28 21 / 18%);
+}
+
+.conoce-modal[data-conoce-tipo="provincia"] .conoce-modal-contenido {
+    padding: 0;
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.conoce-provincia-atlas {
+    min-width: 0;
+}
+
+.conoce-provincia-hero {
+    position: relative;
+    isolation: isolate;
+    height: clamp(230px, 33vh, 310px);
+    margin: 0;
+    overflow: hidden;
+    background: #dbe6d4;
+}
+
+.conoce-provincia-hero > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 60%;
+}
+
+.conoce-provincia-hero--manu > img { object-position: center 58%; }
+.conoce-provincia-hero--tahuamanu > img { object-position: center 42%; }
+
+.conoce-provincia-hero::after {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgb(6 28 18 / 5%) 20%, rgb(6 28 18 / 78%) 100%);
+}
+
+.conoce-provincia-hero figcaption {
+    position: absolute;
+    z-index: 2;
+    inset: auto clamp(22px, 4vw, 40px) 24px;
+    display: grid;
+    justify-items: start;
+    color: #fff;
+    text-shadow: 0 2px 12px rgb(0 0 0 / 32%);
+}
+
+.conoce-provincia-tipo {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 7px;
+    padding: 5px 11px;
+    border: 1px solid rgb(255 255 255 / 34%);
+    border-radius: 999px;
+    background: rgb(28 94 55 / 82%);
+    font-size: .8rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-shadow: none;
+}
+
+.conoce-provincia-tipo svg {
+    width: 18px;
+    height: 18px;
+}
+
+.conoce-provincia-hero figcaption > strong {
+    font: 750 clamp(2.35rem, 6vw, 4rem)/1 var(--font-heading);
+    letter-spacing: -.035em;
+}
+
+.conoce-provincia-hero figcaption > span:last-child {
+    margin-top: 6px;
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.conoce-provincia-cuerpo {
+    padding: clamp(20px, 3.2vw, 30px);
+}
+
+.conoce-provincia-metricas {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(185px, .7fr);
+    gap: 14px;
+}
+
+.conoce-provincia-metrica {
+    position: relative;
+    display: grid;
+    align-content: center;
+    min-height: 110px;
+    padding: 16px 18px 16px 76px;
+    border: 1px solid #d6dfd1;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #fffef9, #f4f8f0);
+}
+
+.conoce-provincia-metrica::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    background-color: #dcebd9;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 24px;
+}
+
+.conoce-provincia-metrica--capital::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2317603d' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 9h18M5 9V7l7-4 7 4v2M6 19V11m4 8v-8m4 8v-8m4 8v-8M3 21h18'/%3E%3C/svg%3E");
+}
+
+.conoce-provincia-metrica--distritos::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2317603d' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='8' r='3'/%3E%3Ccircle cx='16.5' cy='9' r='2.5'/%3E%3Cpath d='M3 20c0-4 2.5-7 6-7s6 3 6 7M14 14c4-1 7 2 7 6'/%3E%3C/svg%3E");
+}
+
+.conoce-provincia-metrica > span,
+.conoce-provincia-ubicacion > div > span {
+    color: #397052;
+    font-size: .78rem;
+    font-weight: 750;
+    letter-spacing: .035em;
+    text-transform: uppercase;
+}
+
+.conoce-provincia-metrica > strong {
+    color: var(--forest-deep);
+    font: 750 clamp(1.3rem, 2.4vw, 1.72rem)/1.18 var(--font-heading);
+}
+
+.conoce-provincia-metrica--distritos > strong { font-size: 2.25rem; }
+
+.conoce-provincia-metrica > small {
+    margin-top: 3px;
+    color: #627166;
+    font-size: .82rem;
+}
+
+.conoce-provincia-distritos {
+    margin-top: 22px;
+}
+
+.conoce-provincia-distritos h4 {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 11px;
+    color: var(--forest-deep);
+    font: 750 1.35rem/1.2 var(--font-heading);
+}
+
+.conoce-provincia-distritos h4::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    background: #17603d;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 22s7-7.2 7-13A7 7 0 1 0 5 9c0 5.8 7 13 7 13Zm0-9.5A3.5 3.5 0 1 0 12 5a3.5 3.5 0 0 0 0 7.5Z' fill='black'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+.conoce-provincia-distritos ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 9px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.conoce-provincia-distritos li {
+    min-width: 0;
+    padding: 9px 12px;
+    border: 1px solid #c8ddc5;
+    border-radius: 999px;
+    background: #e7f1e3;
+    color: #173c2d;
+    font-size: .86rem;
+    font-weight: 700;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+.conoce-provincia-ubicacion {
+    display: grid;
+    grid-template-columns: minmax(260px, .95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: clamp(18px, 3vw, 32px);
+    margin-top: 20px;
+    padding: 16px 20px;
+    border: 1px solid #d6dfd1;
+    border-radius: 15px;
+    background: #fbfcf7;
+}
+
+.conoce-provincia-ubicacion > img {
+    width: 100%;
+    height: 205px;
+    object-fit: contain;
+}
+
+.conoce-provincia-ubicacion > div {
+    padding-left: clamp(0px, 2vw, 20px);
+    border-left: 1px solid #d6dfd1;
+}
+
+.conoce-provincia-ubicacion h4 {
+    margin-top: 5px;
+    color: var(--forest-deep);
+    font: 750 1.35rem/1.25 var(--font-heading);
+}
+
+.conoce-provincia-ubicacion p {
+    margin-top: 8px;
+    color: #33483c;
+    line-height: 1.55;
+}
+
+.conoce-provincia-ubicacion small {
+    display: block;
+    margin-top: 10px;
+    color: #66746a;
+    font-size: .72rem;
+    line-height: 1.45;
+}
+
+.conoce-modal[data-conoce-tipo="provincia"] .conoce-provincia-foto-credito {
+    width: 100%;
+    max-width: none;
+    margin: 16px 0 0;
+    padding-top: 13px;
+    border-top: 1px solid #dce3d8;
+    color: #68756c;
+    font-size: .7rem;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.conoce-modal[data-conoce-tipo="provincia"] .conoce-provincia-foto-credito a {
+    color: #315f47;
+    text-underline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+    body.eco-site .conoce-modal[data-conoce-tipo="provincia"] {
+        inset: auto 0 0;
+        width: 100%;
+        max-height: 94dvh;
+        margin: 0;
+        border-width: 1px 0 0;
+        border-radius: 18px 18px 0 0;
+    }
+    .conoce-modal[data-conoce-tipo="provincia"] .selva-territorio-fuentes-modal-cabecera {
+        inset: 12px 12px auto auto;
+    }
+    .conoce-provincia-hero { height: 220px; }
+    .conoce-provincia-hero figcaption { inset: auto 20px 20px; }
+    .conoce-provincia-hero figcaption > strong { font-size: clamp(2.25rem, 12vw, 3.2rem); }
+    .conoce-provincia-cuerpo { padding: 18px; }
+    .conoce-provincia-metricas { grid-template-columns: minmax(0, 1fr) 118px; gap: 10px; }
+    .conoce-provincia-metrica { min-height: 100px; padding: 14px 12px 14px 58px; }
+    .conoce-provincia-metrica::before { left: 12px; width: 36px; height: 36px; background-size: 21px; }
+    .conoce-provincia-metrica > strong { font-size: 1.05rem; }
+    .conoce-provincia-metrica--distritos { padding-left: 14px; text-align: center; }
+    .conoce-provincia-metrica--distritos::before { display: none; }
+    .conoce-provincia-metrica--distritos > strong { font-size: 2rem; }
+    .conoce-provincia-metrica > small { font-size: .7rem; }
+    .conoce-provincia-distritos ul { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .conoce-provincia-ubicacion { grid-template-columns: minmax(0, 1fr); gap: 10px; padding: 13px 16px 18px; }
+    .conoce-provincia-ubicacion > img { height: 180px; }
+    .conoce-provincia-ubicacion > div { padding: 14px 0 0; border-top: 1px solid #d6dfd1; border-left: 0; }
+}
+
+@media (max-width: 380px) {
+    .conoce-provincia-metricas { grid-template-columns: minmax(0, 1fr); }
+    .conoce-provincia-metrica--distritos { padding-left: 58px; text-align: left; }
+    .conoce-provincia-metrica--distritos::before { display: block; }
+}

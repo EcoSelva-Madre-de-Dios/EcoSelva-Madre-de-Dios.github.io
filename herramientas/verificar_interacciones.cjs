@@ -54,10 +54,28 @@ async function accessible(page, selector) {
         assert.equal(await province.getAttribute('open'), null);
         assert(await page.locator('#conoce-modal[open]').isVisible());
         assert.equal(await page.locator('#conoce-modal-titulo').textContent(), 'Tambopata');
-        assert(await page.locator('#conoce-modal .conoce-ficha-provincia').isVisible());
+        assert(await page.locator('#conoce-modal .conoce-provincia-hero img').isVisible());
+        assert(await page.locator('#conoce-modal .conoce-provincia-hero img').evaluate(async image => { try { await image.decode(); return image.naturalWidth > 0; } catch { return false; } }));
+        assert(await page.locator('#conoce-modal .conoce-provincia-metricas').isVisible());
+        assert.equal(await page.locator('#conoce-modal .conoce-provincia-distritos li').count(), 4);
+        assert(await page.locator('#conoce-modal .conoce-provincia-ubicacion img[src$="minimapa-tambopata.svg"]').isVisible());
+        assert.equal(await page.locator('#conoce-modal a[href*="territorio.html"]').count(), 0);
         if ([390, 1440].includes(width)) await accessible(page, '#conoce-modal');
         await page.keyboard.press('Escape');
         assert(await provinceTrigger.evaluate(e => e === document.activeElement));
+        for (const item of [
+            { id: 'manu', title: 'Manu', districts: 4 },
+            { id: 'tahuamanu', title: 'Tahuamanu', districts: 3 }
+        ]) {
+            const trigger = page.locator(`#conoce-provincia-${item.id} > summary`);
+            await trigger.click();
+            assert.equal(await page.locator('#conoce-modal-titulo').textContent(), item.title);
+            assert.equal(await page.locator('#conoce-modal .conoce-provincia-distritos li').count(), item.districts);
+            assert(await page.locator('#conoce-modal .conoce-provincia-hero img').evaluate(async image => { try { await image.decode(); return image.naturalWidth > 0; } catch { return false; } }));
+            assert(await page.locator(`#conoce-modal .conoce-provincia-ubicacion img[src$="minimapa-${item.id}.svg"]`).isVisible());
+            await page.keyboard.press('Escape');
+            assert(await trigger.evaluate(e => e === document.activeElement));
+        }
         const menu = page.locator('label[for="menu"]');
         if (await menu.isVisible()) {
             await menu.click();

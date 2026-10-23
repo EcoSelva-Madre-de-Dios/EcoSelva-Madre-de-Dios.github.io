@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ecoselva-2026-10-g';
+const CACHE_VERSION = 'ecoselva-2026-10-h';
 const CORE = [
   '/',
   '/index.html',
@@ -30,8 +30,13 @@ const CORE = [
   '/images/icono-app-ecoselva.svg',
   '/images/favicon-64.png',
   '/images/lago-sandoval-768.webp',
+  '/images/rio-tambopata-andreas-koenig.jpg',
   '/images/conservacion/manu.webp',
+  '/images/manu-ribera-as578.jpg',
   '/images/castanal-amazonia-peru.jpg',
+  '/images/mapas/minimapa-tambopata.svg',
+  '/images/mapas/minimapa-manu.svg',
+  '/images/mapas/minimapa-tahuamanu.svg',
   '/images/conexion-biodiversidad.jpg',
   '/images/conexion-ambiente.jpg',
   '/images/conexion-territorio.jpg',
