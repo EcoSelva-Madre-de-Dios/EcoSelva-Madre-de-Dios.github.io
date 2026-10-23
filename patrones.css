@@ -712,6 +712,11 @@
   opacity: .12;
 }
 
+.eco-home .footer::before {
+  -webkit-mask-size: auto 210px;
+  mask-size: auto 210px;
+}
+
 .eco-site .selva-pie-final::before {
   background-color: #d7c587;
   -webkit-mask-size: auto 96px;
@@ -788,6 +793,10 @@
     -webkit-mask-size: auto 220px;
     mask-size: auto 220px;
     opacity: .11;
+  }
+  .eco-home .footer::before {
+    -webkit-mask-size: auto 165px;
+    mask-size: auto 165px;
   }
   .eco-site .selva-pie-final::before {
     -webkit-mask-size: auto 82px;
