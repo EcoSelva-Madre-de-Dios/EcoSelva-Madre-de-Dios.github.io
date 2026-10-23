@@ -5227,6 +5227,18 @@ body.eco-site .conoce-modal[data-conoce-tipo="provincia"] {
     }
 }
 
+/* El mapa y las provincias se integran directamente en el fondo territorial. */
+#conoce-madre-de-dios .conoce-arranque-grid > #conoce-ubicacion,
+#conoce-madre-de-dios .conoce-arranque-grid > #conoce-provincias {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+}
+
 /* ecoselva.css */
 /* Sistema compartido: composición y presentación; no interviene en los datos. */
 

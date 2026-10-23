@@ -1040,15 +1040,6 @@
   border-inline: 0;
 }
 
-/* Conoce vuelve a una superficie neutra: el mapa y las provincias son el foco. */
-.eco-home #conoce-madre-de-dios {
-  background: var(--paper) !important;
-}
-
-.eco-home #conoce-madre-de-dios::after {
-  content: none !important;
-}
-
 @media (max-width: 700px) {
   .eco-site :is(
     .flora-page-heading,
