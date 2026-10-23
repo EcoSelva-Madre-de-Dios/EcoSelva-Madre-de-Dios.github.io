@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ecoselva-2026-10-h';
+const CACHE_VERSION = 'ecoselva-2026-10-i';
 const CORE = [
   '/',
   '/index.html',
@@ -37,6 +37,7 @@ const CORE = [
   '/images/mapas/minimapa-tambopata.svg',
   '/images/mapas/minimapa-manu.svg',
   '/images/mapas/minimapa-tahuamanu.svg',
+  '/images/mapas/conoce-madre-de-dios-atlas.svg',
   '/images/conexion-biodiversidad.jpg',
   '/images/conexion-ambiente.jpg',
   '/images/conexion-territorio.jpg',

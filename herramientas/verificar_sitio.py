@@ -238,7 +238,7 @@ def verify_conoce():
             raise ValueError('Conoce: falta una ficha provincial: ' + id)
     if 'href="mailto:ecoselvamadrededios@gmail.com"' not in homepage or 'selva-formulario-contacto' in homepage:
         raise ValueError('Contacto: debe ofrecer un canal real, sin formulario simulado.')
-    for name in ('conoce-peru.svg', 'conoce-limites.svg', 'conoce-relieve.svg'):
+    for name in ('conoce-peru.svg', 'conoce-limites.svg', 'conoce-relieve.svg', 'mapas/conoce-madre-de-dios-atlas.svg'):
         ET.parse(ROOT / 'images' / name)
 
 

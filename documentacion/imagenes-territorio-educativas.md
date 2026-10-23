@@ -38,9 +38,14 @@ El mapa localizador y el esquema del río son SVG editables. La fotografía del 
 - Presentación: cabecera recortada mediante CSS en la ficha territorial de la provincia de Manu; el archivo almacenado no se recorta.
 - SHA-256: `d3e34eebc2dfcc441c1e442bcf028e15b6455cfdc4d154de3bfe4a4c8d5716f8`.
 
-## Localizador del Perú
+## Localizador territorial de Madre de Dios
 
-Se conservaron exactamente los dos atributos `d` originales de Natural Earth 5.1.1: base del Perú y región Madre de Dios. Se cambiaron fondo, colores, ubicación de etiquetas y orientación; las coordenadas no se transformaron. Se mantiene el aviso de localizador educativo sin valor demarcatorio.
+- Archivo visible: `images/mapas/conoce-madre-de-dios-atlas.svg`.
+- Ubicación nacional: conserva exactamente los dos atributos `d` de Natural Earth 5.1.1 usados en `images/conoce-peru.svg`, correspondientes a la base del Perú y Madre de Dios.
+- Vista departamental: se genera desde `datos/territorio/provincias.geojson`, derivado de la capa `DISTRITOS_MDD` del archivo cartográfico entregado.
+- Presentación: muestra Tahuamanu, Manu y Tambopata y sitúa Ucayali, Cusco, Puno, Brasil y Bolivia dentro de la misma lámina.
+- Alcance: los límites se simplifican para la lectura a escala web. La entidad generadora y la escala de `DISTRITOS_MDD` no están documentadas; el mapa mantiene el aviso de referencia educativa sin valor demarcatorio.
+- Generador: `herramientas/generar_mapa_conoce.py`.
 
 ## Esquema del río
 
