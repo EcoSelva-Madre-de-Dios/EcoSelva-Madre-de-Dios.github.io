@@ -814,3 +814,290 @@
   .eco-site :is(#explora-madre-de-dios, .flora-page-heading, .historia-hero, .anp-hero)::before,
   .eco-site :is(.eco-global-footer, .footer, .selva-pie-final)::before { display: none !important; }
 }
+
+/* Fondos editoriales entregados para EcoSelva.
+   Las zonas centrales permanecen despejadas y el contenido conserva superficies
+   de lectura propias cuando la ilustracion gana presencia en los bordes. */
+.eco-site {
+  --eco-fondo-relieve-claro: url("../images/fondos/eco-fondo-relieve-claro.jpg");
+  --eco-fondo-editorial-crema: url("../images/fondos/eco-fondo-editorial-crema.jpg");
+  --eco-fondo-bosque-claro: url("../images/fondos/eco-fondo-bosque-claro.jpg");
+  --eco-fondo-verde-oscuro: url("../images/fondos/eco-fondo-verde-oscuro.jpg");
+}
+
+/* Territorio y ambiente: curvas de relieve y hojas sobre una base verde clara. */
+.eco-home #conoce-madre-de-dios {
+  background-color: #edf3d7;
+  background-image:
+    linear-gradient(180deg, rgb(246 249 226 / 18%), rgb(239 245 218 / 36%)),
+    var(--eco-fondo-relieve-claro),
+    var(--eco-fondo-relieve-claro) !important;
+  background-repeat: no-repeat;
+  background-position: center, center top, center bottom;
+  background-size: auto, 100% auto, 100% auto;
+}
+
+.eco-home #ambiente,
+.eco-ambiente-page .ambiente-hero {
+  background-color: #edf3d7;
+  background-image:
+    linear-gradient(90deg, rgb(245 249 228 / 20%), rgb(236 244 216 / 32%)),
+    var(--eco-fondo-relieve-claro) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.eco-reading-page #explora-madre-de-dios {
+  background-color: #f0f4df;
+  background-image:
+    linear-gradient(180deg, rgb(250 251 239 / 32%), rgb(245 247 234 / 82%) 28%, #f5f4ea 64%),
+    var(--eco-fondo-relieve-claro) !important;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% auto;
+}
+
+/* Biodiversidad, flora y conservacion: bosque ilustrado en los bordes. */
+.eco-home #biodiversidad,
+.eco-site .flora-page-heading,
+.eco-site .anp-hero {
+  background-color: #edf4df !important;
+  background-image:
+    linear-gradient(90deg, rgb(242 248 227 / 16%), rgb(244 249 232 / 34%)),
+    var(--eco-fondo-bosque-claro) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Historia, fuentes, biblioteca y colaboracion: papel calido de lectura. */
+.eco-site .historia-hero,
+.eco-site .eco-library-hero,
+.eco-site .metodologia-hero,
+.eco-home #colabora {
+  background-color: #f8f2e4;
+  background-image:
+    linear-gradient(90deg, rgb(255 252 243 / 18%), rgb(255 251 241 / 42%)),
+    var(--eco-fondo-editorial-crema) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+/* Los paneles claros separan la informacion de los fondos ilustrados. */
+.eco-home #ambiente .selva-ambiente-area,
+.eco-home #colabora .selva-colabora-paso,
+.eco-home #biodiversidad .selva-biodiversidad-panel {
+  border-color: rgb(23 60 45 / 14%) !important;
+  background-color: rgb(255 255 252 / 88%) !important;
+  box-shadow: 0 16px 38px rgb(23 60 45 / 9%) !important;
+  backdrop-filter: blur(3px);
+}
+
+.eco-home #colabora :is(h2, h3),
+.eco-home #ambiente :is(h2, h3),
+.eco-home #biodiversidad :is(h2, h3, h4),
+.eco-site :is(.flora-page-heading, .anp-hero, .historia-hero, .eco-library-hero, .metodologia-hero) :is(h1, h2, h3) {
+  color: #173c2d;
+}
+
+.eco-home #colabora :is(p, .selva-colabora-compromiso),
+.eco-home #ambiente > .container > :is(p, .selva-seccion-intro),
+.eco-site :is(.flora-page-heading, .anp-hero, .historia-hero, .eco-library-hero, .metodologia-hero) p {
+  color: #40584b;
+}
+
+/* La tarjeta oscura de la portada historica conserva su contraste propio. */
+.eco-site .historia-hero .historia-portada :is(.historia-kicker, .historia-portada-frase) {
+  color: #fffdf6;
+}
+
+/* Bloques institucionales y pies: verde profundo con lineas doradas. */
+.eco-home #quienes-somos,
+.eco-site .footer,
+.eco-site .eco-global-footer {
+  background-color: #063e2b !important;
+  background-image:
+    linear-gradient(90deg, rgb(2 47 31 / 8%), rgb(3 55 36 / 20%)),
+    var(--eco-fondo-verde-oscuro) !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: cover !important;
+  color: #f7f3e7;
+}
+
+.eco-home #investigaciones {
+  background-color: #063e2b;
+  background-image: var(--eco-fondo-verde-oscuro) !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.eco-home #investigaciones::before {
+  background: linear-gradient(90deg, rgb(4 42 28 / 88%), rgb(5 55 37 / 62%), rgb(4 42 28 / 82%));
+}
+
+.eco-home #investigaciones .selva-investigaciones-video {
+  opacity: .24;
+}
+
+.eco-home #investigaciones.is-video-playing .selva-investigaciones-video {
+  opacity: .34;
+}
+
+.eco-home #quienes-somos :is(h2, h3, strong),
+.eco-site :is(.footer, .eco-global-footer) :is(h2, h3, strong) {
+  color: #fffdf6;
+}
+
+.eco-home #quienes-somos :is(p, li),
+.eco-site :is(.footer, .eco-global-footer) :is(p, span, time) {
+  color: rgb(255 253 246 / 84%);
+}
+
+.eco-home #quienes-somos :is(a, .selva-sobre-editorial a),
+.eco-site :is(.footer, .eco-global-footer) a {
+  color: #ead180;
+  text-decoration-color: rgb(234 209 128 / 70%);
+}
+
+.eco-home #quienes-somos .selva-sobre-bloque {
+  padding: 18px 20px;
+  border: 1px solid rgb(234 209 128 / 18%);
+  border-radius: 16px;
+  background: rgb(0 30 20 / 34%);
+  box-shadow: 0 14px 34px rgb(0 20 13 / 13%);
+  backdrop-filter: blur(3px);
+}
+
+.eco-home #quienes-somos .eco-learning-sequence li {
+  color: #fffdf6;
+}
+
+/* El arte raster reemplaza los motivos vectoriales en estas superficies. */
+.eco-site :is(
+  .conoce-madre,
+  #biodiversidad,
+  .selva-ambiente,
+  #investigaciones,
+  #quienes-somos,
+  .flora-page-heading,
+  .historia-hero,
+  .anp-hero,
+  .eco-library-hero
+)::after,
+.eco-site main.metodologia::before,
+.eco-site :is(.footer, .eco-global-footer)::before {
+  content: none !important;
+}
+
+@media (max-width: 700px) {
+  .eco-home #conoce-madre-de-dios {
+    background-position: center, left top, right bottom;
+    background-size: auto, auto 430px, auto 430px;
+  }
+
+  .eco-reading-page #explora-madre-de-dios {
+    background-position: left top;
+    background-size: auto 520px;
+  }
+
+  .eco-site :is(.flora-page-heading, .anp-hero, .historia-hero, .eco-library-hero, .metodologia-hero),
+  .eco-ambiente-page .ambiente-hero,
+  .eco-home :is(#biodiversidad, #ambiente, #colabora, #quienes-somos, #investigaciones),
+  .eco-site :is(.footer, .eco-global-footer) {
+    background-position: center;
+    background-size: auto 100%;
+  }
+
+  .eco-home #quienes-somos .selva-sobre-bloque {
+    padding: 16px;
+  }
+}
+
+@media (prefers-contrast: more), (forced-colors: active) {
+  .eco-site :is(
+    #conoce-madre-de-dios,
+    #biodiversidad,
+    #ambiente,
+    #investigaciones,
+    #quienes-somos,
+    #colabora,
+    #explora-madre-de-dios,
+    .flora-page-heading,
+    .historia-hero,
+    .anp-hero,
+    .ambiente-hero,
+    .eco-library-hero,
+    .metodologia-hero,
+    .footer,
+    .eco-global-footer
+  ) {
+    background: Canvas !important;
+    color: CanvasText !important;
+  }
+
+  .eco-site :is(
+    #conoce-madre-de-dios,
+    #biodiversidad,
+    #ambiente,
+    #investigaciones,
+    #quienes-somos,
+    #colabora,
+    #explora-madre-de-dios,
+    .flora-page-heading,
+    .historia-hero,
+    .anp-hero,
+    .ambiente-hero,
+    .eco-library-hero,
+    .metodologia-hero,
+    .footer,
+    .eco-global-footer
+  ) :is(h1, h2, h3, h4, p, li, strong, span, time) {
+    color: CanvasText !important;
+  }
+
+  .eco-site :is(
+    #conoce-madre-de-dios,
+    #biodiversidad,
+    #ambiente,
+    #investigaciones,
+    #quienes-somos,
+    #colabora,
+    #explora-madre-de-dios,
+    .flora-page-heading,
+    .historia-hero,
+    .anp-hero,
+    .ambiente-hero,
+    .eco-library-hero,
+    .metodologia-hero,
+    .footer,
+    .eco-global-footer
+  ) a {
+    color: LinkText !important;
+  }
+}
+
+@media print {
+  .eco-site :is(
+    #conoce-madre-de-dios,
+    #biodiversidad,
+    #ambiente,
+    #investigaciones,
+    #quienes-somos,
+    #colabora,
+    #explora-madre-de-dios,
+    .flora-page-heading,
+    .historia-hero,
+    .anp-hero,
+    .ambiente-hero,
+    .eco-library-hero,
+    .metodologia-hero,
+    .footer,
+    .eco-global-footer
+  ) {
+    background-image: none !important;
+  }
+}

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ecoselva-2026-10-i';
+const CACHE_VERSION = 'ecoselva-2026-10-j';
 const CORE = [
   '/',
   '/index.html',
@@ -38,6 +38,10 @@ const CORE = [
   '/images/mapas/minimapa-manu.svg',
   '/images/mapas/minimapa-tahuamanu.svg',
   '/images/mapas/conoce-madre-de-dios-atlas.svg',
+  '/images/fondos/eco-fondo-relieve-claro.jpg',
+  '/images/fondos/eco-fondo-editorial-crema.jpg',
+  '/images/fondos/eco-fondo-bosque-claro.jpg',
+  '/images/fondos/eco-fondo-verde-oscuro.jpg',
   '/images/conexion-biodiversidad.jpg',
   '/images/conexion-ambiente.jpg',
   '/images/conexion-territorio.jpg',
