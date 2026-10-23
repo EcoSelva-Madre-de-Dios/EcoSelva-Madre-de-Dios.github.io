@@ -730,7 +730,7 @@
   z-index: 1;
 }
 
-/* Portada: una sola figura continua une Contacto y la franja legal. */
+/* Portada: una secuencia continua une Contacto y la franja legal. */
 .eco-home .eco-home-footer {
   position: relative;
   isolation: isolate;
@@ -744,8 +744,8 @@
   z-index: 0;
   inset: 0;
   background-color: #d7c587;
-  -webkit-mask: var(--eco-patron-banda) center / 100% 100% no-repeat;
-  mask: var(--eco-patron-banda) center / 100% 100% no-repeat;
+  -webkit-mask: var(--eco-patron-banda) left center / 50% 100% repeat-x;
+  mask: var(--eco-patron-banda) left center / 50% 100% repeat-x;
   opacity: .2;
   pointer-events: none;
 }
