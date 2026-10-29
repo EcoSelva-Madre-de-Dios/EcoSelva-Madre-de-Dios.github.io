@@ -9,6 +9,7 @@
   --eco-patron-conexiones: url("../images/patron-ecoselva-conexiones.svg");
   --eco-patron-conexiones-claro: url("../images/patron-ecoselva-conexiones-claro.svg");
   --eco-patron-banda: url("../images/patron-ecoselva-banda-original.png");
+  --eco-patron-banda-vertical: url("../images/patron-ecoselva-banda-vertical.png");
   --eco-banda-trazo: #245c44;
 }
 
@@ -744,8 +745,8 @@
   z-index: 0;
   inset: 0;
   background-color: #d7c587;
-  -webkit-mask: var(--eco-patron-banda) left center / 50% 100% repeat-x;
-  mask: var(--eco-patron-banda) left center / 50% 100% repeat-x;
+  -webkit-mask: var(--eco-patron-banda) left center / auto 100% repeat-x;
+  mask: var(--eco-patron-banda) left center / auto 100% repeat-x;
   opacity: .2;
   pointer-events: none;
 }
@@ -772,6 +773,11 @@
 }
 
 @media (max-width: 600px) {
+  .eco-home .eco-home-footer::before {
+    -webkit-mask: var(--eco-patron-banda-vertical) center top / 100% auto repeat-y;
+    mask: var(--eco-patron-banda-vertical) center top / 100% auto repeat-y;
+  }
+
   .eco-site .header::after { top: 28%; right: -28%; width: 78vw; height: 48%; opacity: .11; }
   .eco-site :is(.conoce-madre, .selva-ambiente, #explora-madre-de-dios)::after {
     width: 64vw;

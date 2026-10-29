@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ecoselva-2026-10-o';
+const CACHE_VERSION = 'ecoselva-2026-10-p';
 const CORE = [
   '/',
   '/index.html',
