@@ -81,25 +81,36 @@
     };
 
     const crearBusqueda = () => {
-        if (document.querySelector('.eco-search-trigger')) return;
         agregarTitulosPagina();
 
-        const trigger = document.createElement('button');
-        trigger.type = 'button';
-        trigger.className = 'eco-search-trigger';
-        trigger.setAttribute('aria-haspopup', 'dialog');
-        trigger.setAttribute('aria-label', 'Buscar en EcoSelva');
-        trigger.innerHTML = '<span aria-hidden="true">⌕</span><span>Buscar en EcoSelva…</span><kbd>Ctrl K</kbd>';
+        let trigger = document.querySelector('.eco-search-trigger');
+        if (!trigger) {
+            trigger = document.createElement('button');
+            trigger.type = 'button';
+            trigger.className = 'eco-search-trigger';
+            trigger.setAttribute('aria-haspopup', 'dialog');
+            trigger.setAttribute('aria-controls', 'eco-search-dialog');
+            trigger.setAttribute('aria-label', 'Buscar en EcoSelva');
+            trigger.setAttribute('aria-keyshortcuts', 'Control+K Meta+K');
+            trigger.setAttribute('aria-expanded', 'false');
+            trigger.innerHTML = '<span aria-hidden="true">⌕</span><span>Buscar en EcoSelva…</span><kbd>Ctrl K</kbd>';
 
-        const host = document.querySelector('.menu.container') || document.querySelector('.eco-global-header > .eco-wide');
-        if (host) {
-            host.append(trigger);
-        } else {
-            trigger.classList.add('eco-search-trigger--floating');
-            document.body.append(trigger);
+            const host = document.querySelector('.menu.container') || document.querySelector('.eco-global-header > .eco-wide');
+            if (host) {
+                host.append(trigger);
+            } else {
+                trigger.classList.add('eco-search-trigger--floating');
+                document.body.append(trigger);
+            }
         }
+        if (trigger.dataset.ecoSearchReady === 'true') return;
+        trigger.dataset.ecoSearchReady = 'true';
+
+        const shortcut = trigger.querySelector('kbd');
+        if (shortcut && /Mac|iPhone|iPad/i.test(navigator.platform || navigator.userAgent)) shortcut.textContent = '⌘ K';
 
         const dialog = document.createElement('dialog');
+        dialog.id = 'eco-search-dialog';
         dialog.className = 'eco-search-dialog';
         dialog.setAttribute('aria-labelledby', 'eco-search-title');
         dialog.innerHTML = `
@@ -111,10 +122,10 @@
                 <label class="eco-search-field">
                     <span class="sr-only">Buscar especies, capas o temas</span>
                     <span aria-hidden="true">⌕</span>
-                    <input type="search" autocomplete="off" spellcheck="false" placeholder="Busca una especie, capa o tema…">
+                    <input type="search" role="combobox" aria-autocomplete="list" aria-controls="eco-search-results" aria-expanded="false" autocomplete="off" spellcheck="false" placeholder="Busca una especie, capa o tema…">
                 </label>
                 <p class="eco-search-help">Prueba “aguaje”, “ríos”, “jaguar”, “ciencia” o “fuentes”.</p>
-                <div class="eco-search-results" role="listbox" aria-label="Resultados de búsqueda"></div>
+                <div id="eco-search-results" class="eco-search-results" role="listbox" aria-label="Resultados de búsqueda"></div>
                 <footer><span>↑ ↓ navegar</span><span>Enter abrir</span><span>Esc cerrar</span></footer>
             </div>`;
         document.body.append(dialog);
@@ -124,6 +135,14 @@
         const controlsTemplate = dialog.querySelector('[data-eco-search-controls]');
         let activos = [];
         let seleccionado = 0;
+
+        const sincronizarSeleccion = () => {
+            const links = [...results.querySelectorAll('.eco-search-result')];
+            links.forEach((node, index) => node.setAttribute('aria-selected', String(index === seleccionado)));
+            const active = links[seleccionado];
+            if (active) input.setAttribute('aria-activedescendant', active.id);
+            else input.removeAttribute('aria-activedescendant');
+        };
 
         const pintar = () => {
             const q = normaliza(input.value);
@@ -140,10 +159,12 @@
                 empty.className = 'eco-search-empty';
                 empty.textContent = 'No encontré coincidencias. Prueba con otro término.';
                 results.append(empty);
+                input.removeAttribute('aria-activedescendant');
                 return;
             }
             activos.forEach((item, index) => {
                 const link = document.createElement('a');
+                link.id = `eco-search-result-${index}`;
                 link.href = item.href;
                 link.className = 'eco-search-result';
                 link.setAttribute('role', 'option');
@@ -153,10 +174,11 @@
                 link.querySelector('small').textContent = item.type;
                 link.addEventListener('mousemove', () => {
                     seleccionado = index;
-                    [...results.querySelectorAll('.eco-search-result')].forEach((node, i) => node.setAttribute('aria-selected', String(i === seleccionado)));
+                    sincronizarSeleccion();
                 });
                 results.append(link);
             });
+            sincronizarSeleccion();
         };
 
         const cerrar = () => { if (dialog.open) dialog.close(); };
@@ -171,6 +193,8 @@
         const abrir = async () => {
             if (dialog.open) return;
             asegurarControles();
+            trigger.setAttribute('aria-expanded', 'true');
+            input.setAttribute('aria-expanded', 'true');
             dialog.showModal();
             input.value = '';
             seleccionado = 0;
@@ -182,14 +206,19 @@
 
         trigger.addEventListener('click', abrir);
         dialog.addEventListener('click', event => { if (event.target === dialog) cerrar(); });
-        dialog.addEventListener('close', () => dialog.querySelector('.eco-search-close')?.remove());
+        dialog.addEventListener('close', () => {
+            trigger.setAttribute('aria-expanded', 'false');
+            input.setAttribute('aria-expanded', 'false');
+            input.removeAttribute('aria-activedescendant');
+            dialog.querySelector('.eco-search-close')?.remove();
+        });
         input.addEventListener('input', () => { seleccionado = 0; pintar(); });
         input.addEventListener('keydown', event => {
             if (!activos.length) return;
             if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
                 event.preventDefault();
                 seleccionado = (seleccionado + (event.key === 'ArrowDown' ? 1 : -1) + activos.length) % activos.length;
-                pintar();
+                sincronizarSeleccion();
             } else if (event.key === 'Enter') {
                 event.preventDefault();
                 location.href = activos[seleccionado].href;
@@ -239,7 +268,8 @@
             manifest.href = url('/manifest.json');
             document.head.append(manifest);
         }
-        if ('serviceWorker' in navigator && location.protocol === 'https:') {
+        const hostLocal = ['localhost', '127.0.0.1', '::1'].includes(location.hostname);
+        if ('serviceWorker' in navigator && (location.protocol === 'https:' || hostLocal)) {
             navigator.serviceWorker.register(url('/service-worker.js'), { scope: '/' }).catch(() => {});
         }
     };
