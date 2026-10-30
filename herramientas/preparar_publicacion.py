@@ -29,6 +29,13 @@ if __name__ == '__main__':
             html = source.read_text()
             html = re.sub(r'(<html\b[^>]*)(>)', lambda m: m[1] + ' data-eco-version="' + version + '"' + m[2], html, count=1)
 
+            # El manifiesto debe estar en el documento publicado antes de ejecutar JS,
+            # pero no altera las fuentes generadas ni sus comprobaciones de sincronía.
+            if not re.search(r'<link\b[^>]*\brel=["\']manifest["\'][^>]*>', html, re.I):
+                depth = len(source.relative_to(ROOT).parent.parts)
+                manifest = '<link rel="manifest" href="' + ('../' * depth) + 'manifest.json">'
+                html = html.replace('</head>', manifest + '\n</head>', 1)
+
             def version_asset(match):
                 reference = match[2]
                 asset = local_path(reference, source.parent)
