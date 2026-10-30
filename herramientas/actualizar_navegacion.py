@@ -73,6 +73,15 @@ def _dropdown(prefix, page, home, label, eyebrow, links, modifier):
     )
 
 
+def _search_trigger():
+    return (
+        '<button class="eco-search-trigger" type="button" aria-haspopup="dialog" '
+        'aria-controls="eco-search-dialog" aria-label="Buscar en EcoSelva" '
+        'aria-keyshortcuts="Control+K Meta+K" aria-expanded="false">'
+        '<span aria-hidden="true">⌕</span><span>Buscar en EcoSelva…</span><kbd>Ctrl K</kbd></button>'
+    )
+
+
 def navigation(prefix='', page='index.html', home=False):
     home_current = ' aria-current="page"' if page == 'index.html' else ''
     menu = (
@@ -99,7 +108,8 @@ def navigation(prefix='', page='index.html', home=False):
         'aria-label="Abrir o cerrar menú" aria-controls="selva-menu-navegacion" aria-expanded="false">'
         '<span class="selva-menu-control-lineas" aria-hidden="true"></span><span>Menú</span></label>'
         '<nav class="navbar" id="selva-menu-navegacion" aria-label="Navegación principal">' + menu + '</nav>'
-        f'</{wrapper}>'
+        + _search_trigger()
+        + f'</{wrapper}>'
     )
 
 
