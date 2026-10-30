@@ -181,7 +181,15 @@
             sincronizarSeleccion();
         };
 
-        const cerrar = () => { if (dialog.open) dialog.close(); };
+        const sincronizarCierre = () => {
+            trigger.setAttribute('aria-expanded', 'false');
+            input.setAttribute('aria-expanded', 'false');
+            input.removeAttribute('aria-activedescendant');
+        };
+        const cerrar = () => {
+            sincronizarCierre();
+            if (dialog.open) dialog.close();
+        };
         const asegurarControles = () => {
             let close = dialog.querySelector('.eco-search-close');
             if (close) return close;
@@ -207,9 +215,7 @@
         trigger.addEventListener('click', abrir);
         dialog.addEventListener('click', event => { if (event.target === dialog) cerrar(); });
         dialog.addEventListener('close', () => {
-            trigger.setAttribute('aria-expanded', 'false');
-            input.setAttribute('aria-expanded', 'false');
-            input.removeAttribute('aria-activedescendant');
+            sincronizarCierre();
             dialog.querySelector('.eco-search-close')?.remove();
         });
         input.addEventListener('input', () => { seleccionado = 0; pintar(); });
