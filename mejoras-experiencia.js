@@ -269,7 +269,8 @@
             document.head.append(manifest);
         }
         const hostLocal = ['localhost', '127.0.0.1', '::1'].includes(location.hostname);
-        if ('serviceWorker' in navigator && (location.protocol === 'https:' || hostLocal)) {
+        const pruebaLocal = hostLocal && new URLSearchParams(location.search).get('eco-sw-test') === '1';
+        if ('serviceWorker' in navigator && (location.protocol === 'https:' || pruebaLocal)) {
             navigator.serviceWorker.register(url('/service-worker.js'), { scope: '/' }).catch(() => {});
         }
     };
