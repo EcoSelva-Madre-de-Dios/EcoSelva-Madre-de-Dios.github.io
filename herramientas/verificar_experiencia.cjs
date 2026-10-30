@@ -89,6 +89,9 @@ const assertAmbiente = async browser => {
   assert.equal(await chart.locator('.selva-fauna-comparacion-fila').count(), 4, 'La comparación de fauna debe mostrar cuatro grupos');
   assert((await chart.textContent()).includes('no abundancia'), 'La comparación debe aclarar su alcance');
 
+  // El service worker local se habilita solo en esta prueba para no alterar las
+  // pruebas de fallos de red del atlas. En producción HTTPS sigue siendo automático.
+  await page.goto(new URL('index.html?eco-sw-test=1', base).href, { waitUntil: 'domcontentloaded' });
   await page.evaluate(async () => { await navigator.serviceWorker.ready; });
   await page.reload({ waitUntil: 'domcontentloaded' });
   assert.equal(await page.evaluate(() => Boolean(navigator.serviceWorker.controller)), true, 'El service worker no controla la página de prueba');
