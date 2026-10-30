@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'ecoselva-2026-10-p';
+const CACHE_VERSION = 'ecoselva-2026-10-q';
 const CORE = [
   '/',
   '/index.html',
@@ -17,6 +17,9 @@ const CORE = [
   '/assets/eco-lecturas.css',
   '/assets/eco-patterns.css',
   '/ambiente.css',
+  '/historia.css',
+  '/areas-protegidas.css',
+  '/fichas/ficha.css',
   '/assets/eco-base.js',
   '/assets/eco-editorial.js',
   '/territorio.js',
