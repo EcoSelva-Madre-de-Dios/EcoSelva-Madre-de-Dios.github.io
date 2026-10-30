@@ -113,24 +113,6 @@ def navigation(prefix='', page='index.html', home=False):
     )
 
 
-def _optimiza_documento(html, prefix):
-    """Normaliza recursos globales que deben existir antes de ejecutar JavaScript."""
-    manifest = f'<link rel="manifest" href="{prefix}manifest.json">'
-    if re.search(r'<link\b[^>]*\brel=["\']manifest["\'][^>]*>', html, re.I):
-        html = re.sub(r'<link\b[^>]*\brel=["\']manifest["\'][^>]*>', manifest, html, count=1, flags=re.I)
-    else:
-        html = html.replace('</head>', manifest + '\n</head>', 1)
-
-    # La publicación ya añade una versión por hash. Elimina versiones manuales antiguas
-    # de los bundles compartidos para evitar URLs con dos parámetros `v`.
-    html = re.sub(
-        r'((?:href|src)=")((?:\.\./)?assets/[^"?]+\.(?:css|js))\?v=[^"]*(")',
-        r'\1\2\3',
-        html,
-    )
-    return html
-
-
 def fragments(page):
     prefix = '../' if '/' in page else ''
     review = json.loads((ROOT / 'datos/fuentes.json').read_text())['revision_editorial']
@@ -159,7 +141,7 @@ def update():
         html, count = re.subn(r'<div class="menu container">.*?</div>\s*<main id="contenido"', lambda _: home_header + '\n    <main id="contenido"', html, count=1, flags=re.S)
         if count != 1:
             raise ValueError('Menú principal no encontrado en index.html')
-    index.write_text(_optimiza_documento(html, ''))
+    index.write_text(html)
 
     for page in PAGES:
         path = ROOT / page
@@ -175,29 +157,19 @@ def update():
             html = html.replace('</main>', '</main>\n' + footer, 1)
         else:
             raise ValueError('Pie no encontrado: ' + page)
-        prefix = '../' if '/' in page else ''
-        path.write_text(_optimiza_documento(html, prefix))
-
-
-def _check_document(page, html, prefix):
-    if f'<link rel="manifest" href="{prefix}manifest.json">' not in html:
-        raise ValueError('Falta manifiesto PWA estático: ' + page)
-    if re.search(r'(?:href|src)="(?:\.\./)?assets/[^"?]+\.(?:css|js)\?v=', html):
-        raise ValueError('Versionado manual redundante en asset compartido: ' + page)
+        path.write_text(html)
 
 
 def check_generated():
     index = (ROOT / 'index.html').read_text()
     if navigation(home=True) not in index:
         raise ValueError('Menú principal desincronizado: index.html')
-    _check_document('index.html', index, '')
     for page in PAGES:
         html = (ROOT / page).read_text()
         if not all(fragment in html for fragment in fragments(page)):
             raise ValueError('Navegación desincronizada: ' + page)
-        _check_document(page, html, '../' if '/' in page else '')
 
 
 if __name__ == '__main__':
     update()
-    print('Cabeceras, pies y recursos globales actualizados.')
+    print('Cabeceras y pies comunes actualizados.')
