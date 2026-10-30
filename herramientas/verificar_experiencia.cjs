@@ -1,4 +1,5 @@
 const { chromium } = require('playwright');
+const { default: AxeBuilder } = require('@axe-core/playwright');
 const assert = require('node:assert/strict');
 
 const base = process.argv[2] || 'http://127.0.0.1:8765/';
@@ -28,6 +29,26 @@ const assertStaticResources = async () => {
       if (target.origin !== new URL(base).origin) continue;
       assert.equal(target.searchParams.getAll('v').length, 1, `Versionado de asset inválido en ${name}: ${reference}`);
     }
+  }
+};
+
+const assertAmbiente = async browser => {
+  for (const width of [390, 1440]) {
+    const context = await browser.newContext({ viewport: { width, height: 900 }, reducedMotion: 'reduce' });
+    const page = await context.newPage();
+    const errors = [];
+    await page.route(/googletagmanager|google-analytics/, route => route.abort());
+    page.on('pageerror', error => errors.push(error.message));
+    page.on('response', response => {
+      if (response.url().startsWith(base) && response.status() >= 400) errors.push(`${response.status()} ${response.url()}`);
+    });
+    await page.goto(new URL('ambiente.html', base).href, { waitUntil: 'domcontentloaded' });
+    assert.equal(await page.locator('h1').count(), 1, `Ambiente debe tener un h1 a ${width}px`);
+    assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, `Ambiente tiene desborde horizontal a ${width}px`);
+    const result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
+    assert.equal(result.violations.length, 0, `Ambiente: ${JSON.stringify(result.violations.map(item => item.id))}`);
+    assert.deepEqual(errors, [], `Ambiente: ${errors.join('\n')}`);
+    await context.close();
   }
 };
 
@@ -90,6 +111,8 @@ const assertStaticResources = async () => {
   await context.setOffline(false);
   await context.close();
 
+  await assertAmbiente(browser);
+
   const mobile = await browser.newContext({ viewport: { width: 390, height: 844 }, hasTouch: true, isMobile: true });
   const mobilePage = await mobile.newPage();
   await mobilePage.goto(new URL('territorio.html', base).href, { waitUntil: 'domcontentloaded' });
@@ -113,7 +136,7 @@ const assertStaticResources = async () => {
 
   await mobile.close();
   await browser.close();
-  console.log('Correcto: recursos globales, búsqueda, PWA offline, comparación de fauna y gestos móviles.');
+  console.log('Correcto: recursos globales, búsqueda, PWA offline, Ambiente, comparación de fauna y gestos móviles.');
 })().catch(async error => {
   console.error(error);
   process.exitCode = 1;
